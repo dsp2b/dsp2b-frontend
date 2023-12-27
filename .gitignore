@@ -1,0 +1,11 @@
+node_modules
+
+/.cache
+/build
+/public/build
+/public/styles/*
+/public/assets/monaco-editor/*
+.env
+
+/.idea
+/.vscode
