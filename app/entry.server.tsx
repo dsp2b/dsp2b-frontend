@@ -119,7 +119,7 @@ async function handleBrowserRequest(
   let instance = createInstance();
   let lng = await i18next.getLocale(request);
   let ns = i18next.getRouteNamespaces(remixContext);
-
+  
   await instance
     .use(initReactI18next) // Tell our instance to use react-i18next
     .use(Backend) // Setup our backend

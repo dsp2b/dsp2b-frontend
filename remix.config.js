@@ -13,5 +13,6 @@ export default {
     /^@douyinfe\/semi-foundation/,
     /^lodash/,
     /^date-fns\/locale/,
+    /^remix-i18next/,
   ],
 };

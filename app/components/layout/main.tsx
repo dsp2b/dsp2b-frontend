@@ -1,9 +1,17 @@
-import { IconBell, IconFeishuLogo, IconHelpCircle } from "@douyinfe/semi-icons";
-import { Avatar, Layout, Nav } from "@douyinfe/semi-ui";
+import {
+  IconBell,
+  IconFeishuLogo,
+  IconHelpCircle,
+  IconLanguage,
+  IconSun,
+} from "@douyinfe/semi-icons";
+import { Avatar, Layout, Nav, Space } from "@douyinfe/semi-ui";
 import React, { ReactNode } from "react";
+import { useTranslation } from "react-i18next";
 
 const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
   const { Header, Footer, Content } = Layout;
+  const { t } = useTranslation();
 
   return (
     <Layout className="components-layout-demo">
@@ -15,10 +23,9 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
             text: "论坛/蓝图",
           }}
           footer={
-            <div>
-              <IconFeishuLogo size="large" />
-              <IconHelpCircle size="large" />
-              <IconBell size="large" />
+            <Space>
+              <IconSun size="large" />
+              <IconLanguage size="large" />
               <Avatar
                 size="small"
                 src="https://sf6-cdn-tos.douyinstatic.com/obj/eden-cn/ptlz_zlp/ljhwZthlaukjlkulzlp/root-web-sites/avatarDemo.jpeg"
@@ -26,17 +33,16 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
               >
                 示例
               </Avatar>
-            </div>
+            </Space>
           }
         >
           <Nav.Item itemKey="Home" text="首页" link="/" />
-          <Nav.Item itemKey="Project" text="Project" />
-          <Nav.Item itemKey="Board" text="Board" />
-          <Nav.Item itemKey="Forms" text="Forms" />
         </Nav>
       </Header>
       <Content style={{ height: 300, lineHeight: "300px" }}>{children}</Content>
-      <Footer>Footer</Footer>
+      <Footer>
+        <p>{t('all_rights_reserved')}</p>
+      </Footer>
     </Layout>
   );
 };
