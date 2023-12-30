@@ -15,4 +15,14 @@ export default {
     /^date-fns\/locale/,
     /^remix-i18next/,
   ],
+  routes: (defineRoutes) => {
+    // If you need to do async work, do it before calling `defineRoutes`, we use
+    // the call stack of `route` inside to set nesting.
+
+    return defineRoutes((route) => {
+      route("/login", "routes/login/login.tsx");
+      route("/login/register", "routes/login/register.tsx");
+      route("/login/discord/callback", "routes/login/discord.callback.tsx");
+    });
+  },
 };

@@ -11,8 +11,29 @@ datasource db {
 }
 
 // npx prisma db push
-model User {
+model user {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   username   String   @unique
+  password   String
+  email      String   @unique
   createtime DateTime @default(now()) @db.Timestamp
+}
+
+model email_verify_code {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  email      String   @unique
+  code       String
+  createtime DateTime @default(now()) @db.Timestamp
+}
+
+enum oauth_type {
+  discord
+}
+
+model oauth {
+  id         String     @id @default(auto()) @map("_id") @db.ObjectId
+  user_id    String
+  type       oauth_type
+  openid     String
+  createtime DateTime   @default(now()) @db.Timestamp
 }

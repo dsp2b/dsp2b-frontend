@@ -39,9 +39,9 @@ const MainLayout: React.FC<{ children: ReactNode }> = ({ children }) => {
           <Nav.Item itemKey="Home" text="首页" link="/" />
         </Nav>
       </Header>
-      <Content style={{ height: 300, lineHeight: "300px" }}>{children}</Content>
+      <Content>{children}</Content>
       <Footer>
-        <p>{t('all_rights_reserved')}</p>
+        <p>{t("all_rights_reserved")}</p>
       </Footer>
     </Layout>
   );
