@@ -69,10 +69,12 @@ const MainLayout: React.FC<{
   useEffect(() => {
     if (dark) {
       document.body.setAttribute("theme-mode", "dark");
+      document.body.className = "dark";
     } else {
       if (document.body.hasAttribute("theme-mode")) {
         document.body.removeAttribute("theme-mode");
       }
+      document.body.className = "";
     }
     document.cookie = "darkMode=" + user.darkMode + ";path=/";
   }, [dark]);

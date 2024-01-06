@@ -20,5 +20,16 @@
   "home_subtitle": "戴森球计划蓝图与社区",
   "home_page_description": "戴森球计划蓝图与社区，与全世界分享你的蓝图",
   "publish": "发布",
-  "bulueprint_invalid": "蓝图无效"
+  "blueprint_invalid": "蓝图无效",
+  "blueprint_data": "蓝图数据",
+  "title": "标题",
+  "description": "描述",
+  "buildings": "建筑",
+  "products": "产物",
+  "speed_min": "每分钟",
+  "produce": "产出",
+  "consume": "消耗",
+  "product_equal": "持平",
+  "things": "物品",
+  "product_exist": "产物已添加"
 }

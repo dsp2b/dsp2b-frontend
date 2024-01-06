@@ -82,7 +82,10 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body theme-mode={darkMode == "dark" ? "dark" : undefined}>
+      <body
+        theme-mode={userContext.darkMode == "dark" ? "dark" : undefined}
+        className={userContext.darkMode == "dark" ? "dark" : ""}
+      >
         <UserContext.Provider
           value={{
             darkMode: userContext.darkMode,
