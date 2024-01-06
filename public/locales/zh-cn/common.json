@@ -6,5 +6,19 @@
   "register": "注册",
   "login": "登录",
   "register_success": "注册成功",
-  "login_success": "登录成功"
+  "login_success": "登录成功",
+  "dsp2b_title": "DSP2B",
+  "dsp2b_subtitle": "论坛/蓝图",
+  "home": "首页",
+  "dark_mode_auto": "跟随系统",
+  "dark_mode_light": "浅色模式",
+  "dark_mode_dark": "深色模式",
+  "logout": "退出登录",
+  "logout_failed": "退出登录失败",
+  "logout_success": "退出登录成功",
+  "dyson_sphere_project": "戴森球计划",
+  "home_subtitle": "戴森球计划蓝图与社区",
+  "home_page_description": "戴森球计划蓝图与社区，与全世界分享你的蓝图",
+  "publish": "发布",
+  "bulueprint_invalid": "蓝图无效"
 }

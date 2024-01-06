@@ -3,16 +3,19 @@ import {
   Button,
   Input,
   Notification,
+  Space,
   Toast,
   Typography,
 } from "@douyinfe/semi-ui";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, useFetcher } from "@remix-run/react";
+import { Form, Link, json, useFetcher } from "@remix-run/react";
+import { RiDiscordLine } from "@remixicon/react";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
 import { authenticator } from "~/services/auth.server";
+import { sessionStorage } from "~/services/session.server";
 import { UserSvc } from "~/services/user.server.ts";
 import { CodeError, errBadRequest } from "~/utils/errcode";
 // First we create our UI with the form doing a POST and the inputs with the
@@ -40,12 +43,14 @@ export default function Login() {
   }, [fetcher]);
   return (
     <Form method="post" navigate={false} fetcherKey="login">
-      <Input name="username" required />
-      <Input mode="password" name="password" required />
-      <Button htmlType="submit">Login</Button>
-      <Typography.Text link={{ href: "/login/oauth?type=discord" }}>
-        discord
-      </Typography.Text>
+      <Space vertical>
+        <Input name="username" required />
+        <Input mode="password" name="password" required />
+        <Button htmlType="submit">Login</Button>
+        <Link to={"/login/oauth?type=discord"}>
+          <Button icon={<RiDiscordLine />}>discord</Button>
+        </Link>
+      </Space>
     </Form>
   );
 }
@@ -76,17 +81,20 @@ export async function action({ request }: ActionFunctionArgs) {
   if (!UserSvc.checkPassword(user, password.toString())) {
     return errBadRequest(request, ErrUser.PasswordIsWrong);
   }
-  return await authenticator.authenticate("user-pass", request, {
+  user.password = "";
+  const ok = await authenticator.authenticate("user-pass", request, {
     throwOnError: false,
   });
-}
-
-// Finally, we can export a loader function where we check if the user is
-// authenticated with `authenticator.isAuthenticated` and redirect to the
-// dashboard if it is or return null if it's not
-export async function loader({ request }: LoaderFunctionArgs) {
-  // If the user is already authenticated redirect to /dashboard directly
-  return await authenticator.isAuthenticated(request, {
-    successRedirect: "/",
-  });
+  if (ok.id) {
+    let session = await sessionStorage.getSession(
+      request.headers.get("Cookie")
+    );
+    // if we do have a successRedirect, we redirect to it and set the user
+    // in the session sessionKey
+    session.set(authenticator.sessionKey, user);
+    session.set(authenticator.sessionStrategyKey, "user-pass");
+    return json(user, {
+      headers: { "Set-Cookie": await sessionStorage.commitSession(session) },
+    });
+  }
 }

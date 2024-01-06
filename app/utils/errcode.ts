@@ -6,7 +6,7 @@ export class CodeError extends Error {
 
   public code;
   public status;
-  public msg?: string;
+  public msg: string = "";
   constructor(status: number, code: number) {
     super(code.toString());
     this.status = status;
@@ -23,6 +23,19 @@ export async function errBadRequest(req: Request, code: number) {
     },
     {
       status: 400,
+    }
+  );
+}
+
+export async function errInternalServer(req: Request, code: number) {
+  const t = await i18next.getFixedT(req, "err_code");
+  return json(
+    {
+      code,
+      msg: t(code.toString()),
+    },
+    {
+      status: 500,
     }
   );
 }

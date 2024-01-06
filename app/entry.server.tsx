@@ -11,11 +11,12 @@ import { RemixServer } from "@remix-run/react";
 import isbot from "isbot";
 import { renderToPipeableStream } from "react-dom/server";
 import { createInstance } from "i18next";
-import i18next from "./i18next.server";
+import i18next, { langCookie } from "./i18next.server";
 import { I18nextProvider, initReactI18next } from "react-i18next";
 import Backend from "i18next-fs-backend";
 import i18n from "./i18n";
 import { resolve } from "node:path";
+import cookie from "cookie";
 
 const ABORT_DELAY = 5_000;
 
@@ -119,7 +120,7 @@ async function handleBrowserRequest(
   let instance = createInstance();
   let lng = await i18next.getLocale(request);
   let ns = i18next.getRouteNamespaces(remixContext);
-  
+
   await instance
     .use(initReactI18next) // Tell our instance to use react-i18next
     .use(Backend) // Setup our backend

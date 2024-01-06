@@ -36,7 +36,6 @@ export const action: ActionFunction = async ({ request }) => {
   if (password !== password2) {
     return errBadRequest(request, ErrUser.PasswordNotMatch);
   }
-  console.log(UserSvc.isStrongPassword(password), password);
   if (!UserSvc.isStrongPassword(password)) {
     return errBadRequest(request, ErrUser.PasswordTooSimple);
   }
@@ -115,7 +114,6 @@ export default function Register() {
       navigate={false}
       fetcherKey="register"
       onSubmit={() => {
-        console.log(fetcher);
         return false;
       }}
     >

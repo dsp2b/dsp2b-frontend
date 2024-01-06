@@ -12,8 +12,12 @@ export default {
     /^@douyinfe\/semi-illustrations/,
     /^@douyinfe\/semi-foundation/,
     /^lodash/,
-    /^date-fns\/locale/,
+    /^date-fns/,
     /^remix-i18next/,
+    /^@remixicon\/react/,
+    /^date-fns-tz/,
+    /^scroll-into-view-if-needed/,
+    /^@babel/,
   ],
   routes: (defineRoutes) => {
     // If you need to do async work, do it before calling `defineRoutes`, we use
@@ -21,6 +25,7 @@ export default {
 
     return defineRoutes((route) => {
       route("/login", "routes/login/login.tsx");
+      route("/login/logout", "routes/login/logout.tsx");
       route("/login/register", "routes/login/register.tsx");
       route("/login/discord/callback", "routes/login/discord.callback.tsx");
     });

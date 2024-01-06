@@ -20,6 +20,8 @@
     "@remix-run/node": "^2.4.1",
     "@remix-run/react": "^2.4.1",
     "@remix-run/serve": "^2.4.1",
+    "@remixicon/react": "^4.0.1",
+    "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
     "i18next": "^23.7.12",
     "i18next-browser-languagedetector": "^7.2.0",
