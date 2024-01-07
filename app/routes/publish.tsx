@@ -88,7 +88,7 @@ export default function Publish() {
           );
         }
         setBuildings(parse.data.data.buildings);
-        if (products) {
+        if (!products.length) {
           setProducts(parse.data.data.products);
         }
       }
