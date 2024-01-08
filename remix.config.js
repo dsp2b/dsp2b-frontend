@@ -18,6 +18,7 @@ export default {
     /^date-fns-tz/,
     /^scroll-into-view-if-needed/,
     /^@babel/,
+    /^minio/,
   ],
   routes: (defineRoutes) => {
     // If you need to do async work, do it before calling `defineRoutes`, we use

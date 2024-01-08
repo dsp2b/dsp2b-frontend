@@ -71,13 +71,12 @@ export default function RecipePanel({
   const [buildingPanel, setBuildingPanel] = useState<RecipePanelItem[][]>([]);
   const { t } = useTranslation();
   useEffect(() => {
-    console.log(fetcher);
     if (fetcher.state == "idle" && firstVisible) {
       fetcher.submit(
         {
           blueprint: "",
         },
-        { action: "/publish?action=recipe_panel", method: "POST" }
+        { action: "?action=recipe_panel", method: "POST" }
       );
     }
   }, [firstVisible]);

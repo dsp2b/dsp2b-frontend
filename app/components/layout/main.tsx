@@ -1,9 +1,7 @@
 import {
-  IconBell,
   IconDesktop,
   IconExit,
-  IconFeishuLogo,
-  IconHelpCircle,
+  IconFolderStroked,
   IconLanguage,
   IconMoon,
   IconSun,
@@ -15,26 +13,24 @@ import {
   Dropdown,
   Layout,
   Nav,
-  Select,
   Space,
   Toast,
   Typography,
 } from "@douyinfe/semi-ui";
-import { Link } from "@remix-run/react";
-import { use } from "i18next";
-import React, { ReactNode, useContext, useEffect } from "react";
+import { Link, useNavigate } from "@remix-run/react";
+import React, { ReactNode, useContext, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { useChangeLanguage, useLocale } from "remix-i18next";
 import { UserContext } from "~/context-manager";
-import { sessionStorage } from "~/services/session.server";
 import { lngMap } from "~/utils/i18n";
 
 const MainLayout: React.FC<{
   onChange: ({
     darkMode,
+    styleMode,
     locale,
   }: {
     darkMode: string;
+    styleMode: string;
     locale: string;
   }) => void;
   onLogout: () => void;
@@ -44,16 +40,24 @@ const MainLayout: React.FC<{
   const { Header, Footer, Content } = Layout;
   const { t } = useTranslation();
   const user = useContext(UserContext);
-  const [dark, setDark] = React.useState(false);
+  const navigate = useNavigate();
 
   useEffect(() => {
-    if (user.darkMode == "auto") {
+    if (user.styleMode == "auto") {
       let media = window.matchMedia("(prefers-color-scheme: dark)");
       let isMatch = (match: boolean) => {
         if (match) {
-          setDark(true);
+          onChange({
+            darkMode: "dark",
+            styleMode: "auto",
+            locale: locale,
+          });
         } else {
-          setDark(false);
+          onChange({
+            darkMode: "light",
+            styleMode: "auto",
+            locale: locale,
+          });
         }
       };
       const callback = (e: { matches: any }) => {
@@ -62,22 +66,13 @@ const MainLayout: React.FC<{
       media.addEventListener("change", callback);
       isMatch(media.matches);
     } else {
-      setDark(user.darkMode == "dark");
+      onChange({
+        darkMode: user.styleMode || "light",
+        styleMode: user.styleMode || "auto",
+        locale: locale,
+      });
     }
-  }, [user]);
-
-  useEffect(() => {
-    if (dark) {
-      document.body.setAttribute("theme-mode", "dark");
-      document.body.className = "dark";
-    } else {
-      if (document.body.hasAttribute("theme-mode")) {
-        document.body.removeAttribute("theme-mode");
-      }
-      document.body.className = "";
-    }
-    document.cookie = "darkMode=" + user.darkMode + ";path=/";
-  }, [dark]);
+  }, [user.styleMode]);
 
   let localeList = [];
   for (const [, lng] of Object.entries(lngMap)) {
@@ -91,6 +86,7 @@ const MainLayout: React.FC<{
             onClick={() => {
               onChange({
                 darkMode: user.darkMode || "",
+                styleMode: user.styleMode || "auto",
                 locale: key,
               });
             }}
@@ -121,7 +117,7 @@ const MainLayout: React.FC<{
           }}
           footer={
             <Space>
-              <Link to={"/publish"}>
+              <Link to={"/create/blueprint"}>
                 <Button theme="solid" type="primary">
                   {t("publish")}
                 </Button>
@@ -131,10 +127,11 @@ const MainLayout: React.FC<{
                   <Dropdown.Menu>
                     <Dropdown.Item
                       key="auto"
-                      active={user.darkMode == "auto"}
+                      active={user.styleMode == "auto"}
                       onClick={() => {
                         onChange({
-                          darkMode: "auto",
+                          darkMode: user.darkMode || "",
+                          styleMode: "auto",
                           locale: locale,
                         });
                       }}
@@ -144,10 +141,11 @@ const MainLayout: React.FC<{
                     </Dropdown.Item>
                     <Dropdown.Item
                       key="light"
-                      active={user.darkMode == "light"}
+                      active={user.styleMode == "light"}
                       onClick={() => {
                         onChange({
-                          darkMode: "light",
+                          darkMode: user.darkMode || "",
+                          styleMode: "light",
                           locale: locale,
                         });
                       }}
@@ -157,10 +155,11 @@ const MainLayout: React.FC<{
                     </Dropdown.Item>
                     <Dropdown.Item
                       key="dark"
-                      active={user.darkMode == "dark"}
+                      active={user.styleMode == "dark"}
                       onClick={() => {
                         onChange({
-                          darkMode: "dark",
+                          darkMode: user.darkMode || "",
+                          styleMode: "dark",
                           locale: locale,
                         });
                       }}
@@ -174,7 +173,7 @@ const MainLayout: React.FC<{
                 <Button
                   theme="borderless"
                   icon={
-                    dark ? (
+                    user.darkMode == "dark" ? (
                       <IconMoon className="text-xl text-gray-500" />
                     ) : (
                       <IconSun className="text-xl text-gray-500" />
@@ -210,6 +209,14 @@ const MainLayout: React.FC<{
                             </Typography.Text>
                           </Space>
                         </Space>
+                      </Dropdown.Item>
+                      <Dropdown.Item
+                        onClick={() => {
+                          navigate("/users/collections");
+                        }}
+                      >
+                        <IconFolderStroked />
+                        {t("blueprint_collections")}
                       </Dropdown.Item>
                       <Dropdown.Item
                         onClick={() => {

@@ -8,5 +8,10 @@ export enum ErrUser {
   PasswordTooSimple,
   EmailInvalid,
   UsernameInvalid,
-  UsernameExist
+  UsernameExist,
+  UploadTooMany,
+}
+
+export enum ErrBuleprint {
+  FilenameInvalid = 2001,
 }

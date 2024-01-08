@@ -37,3 +37,11 @@ model oauth {
   openid     String
   createtime DateTime   @default(now()) @db.Timestamp
 }
+
+model limit_record {
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
+  user_id    String
+  action     String
+  param      String
+  createtime DateTime @default(now()) @db.Timestamp
+}

@@ -3,7 +3,8 @@ import { UserAuth } from "./services/user.server.ts";
 
 export type UserContextData = {
   user?: UserAuth;
-  darkMode?: "light" | "dark" | "auto";
+  darkMode?: "light" | "dark";
+  styleMode?: "light" | "dark" | "auto";
   locale?: string;
 };
 

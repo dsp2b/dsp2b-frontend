@@ -6,7 +6,7 @@
   "register": "注册",
   "login": "登录",
   "register_success": "注册成功",
-  "login_success": "登录成功",
+  "login_success": "登录成功,3秒后自动跳转",
   "dsp2b_title": "DSP2B",
   "dsp2b_subtitle": "论坛/蓝图",
   "home": "首页",
@@ -31,5 +31,12 @@
   "consume": "消耗",
   "product_equal": "持平",
   "things": "物品",
-  "product_exist": "产物已添加"
+  "product_exist": "产物已添加",
+  "please_upload_cover_picture": "请上传展示图片,最多10张,每张不超过4M,第一张为封面图",
+  "file_upload_failed": "文件上传失败",
+  "file_upload_success": "文件上传成功",
+  "blueprint_collections": "蓝图集",
+  "blueprint_tags": "蓝图标签",
+  "tag_exist": "标签已存在",
+  "create_collection": "创建蓝图集"
 }

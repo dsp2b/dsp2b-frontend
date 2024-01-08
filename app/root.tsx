@@ -30,16 +30,19 @@ export const loader: LoaderFunction = async ({ request }) => {
   let locale = await i18next.getLocale(request);
   const cookieHeader = request.headers.get("Cookie");
   let darkMode = "";
+  let styleMode = "";
   if (cookieHeader) {
     const cookie = parseCookie(cookieHeader);
     darkMode = cookie.darkMode ? cookie.darkMode : "";
+    styleMode = cookie.styleMode ? cookie.styleMode : "";
   }
   const user = await authenticator.isAuthenticated(request);
   let t = await i18next.getFixedT(locale || "en");
 
   return json({
     locale,
-    darkMode: darkMode || "auto",
+    darkMode: darkMode || "light",
+    styleMode: styleMode || "auto",
     user: user,
     home_subtitle: t("home_subtitle"),
     home_page_description: t("home_page_description"),
@@ -62,13 +65,14 @@ export const meta: MetaFunction = ({ data }: { data: any }) => {
 
 export default function App() {
   // Get the locale from the loader
-  let { locale, darkMode, user } = useLoaderData<typeof loader>();
+  let { locale, darkMode, styleMode, user } = useLoaderData<typeof loader>();
 
   let { i18n } = useTranslation();
 
   const [userContext, setUserContext] = useState({
     locale,
     darkMode,
+    styleMode,
     user,
   });
 
@@ -89,6 +93,7 @@ export default function App() {
         <UserContext.Provider
           value={{
             darkMode: userContext.darkMode,
+            styleMode: userContext.styleMode,
             locale: userContext.locale,
             user: userContext.user,
           }}
@@ -97,18 +102,22 @@ export default function App() {
             locale={userContext.locale}
             onChange={async (param) => {
               if (param.locale != userContext.locale) {
-                fetch("/user/switch/lng/" + param.locale);
+                fetch("/users/switch/lng/" + param.locale);
               }
               setUserContext({
                 locale: param.locale,
                 darkMode: param.darkMode,
+                styleMode: param.styleMode,
                 user: user,
               });
+              document.cookie = "darkMode=" + param.darkMode + ";path=/";
+              document.cookie = "styleMode=" + param.styleMode + ";path=/";
             }}
             onLogout={() => {
               setUserContext({
                 locale: userContext.locale,
                 darkMode: userContext.darkMode,
+                styleMode: userContext.styleMode,
                 user: undefined,
               });
             }}

@@ -16,7 +16,6 @@ import { I18nextProvider, initReactI18next } from "react-i18next";
 import Backend from "i18next-fs-backend";
 import i18n from "./i18n";
 import { resolve } from "node:path";
-import cookie from "cookie";
 
 const ABORT_DELAY = 5_000;
 

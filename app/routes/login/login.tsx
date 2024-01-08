@@ -81,7 +81,6 @@ export async function action({ request }: ActionFunctionArgs) {
   if (!UserSvc.checkPassword(user, password.toString())) {
     return errBadRequest(request, ErrUser.PasswordIsWrong);
   }
-  user.password = "";
   const ok = await authenticator.authenticate("user-pass", request, {
     throwOnError: false,
   });
@@ -91,7 +90,10 @@ export async function action({ request }: ActionFunctionArgs) {
     );
     // if we do have a successRedirect, we redirect to it and set the user
     // in the session sessionKey
-    session.set(authenticator.sessionKey, user);
+    session.set(authenticator.sessionKey, {
+      id: user.id,
+      username: user.username,
+    });
     session.set(authenticator.sessionStrategyKey, "user-pass");
     return json(user, {
       headers: { "Set-Cookie": await sessionStorage.commitSession(session) },

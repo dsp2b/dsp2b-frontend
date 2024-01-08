@@ -3,10 +3,8 @@ import { Authenticator, AuthorizationError } from "remix-auth";
 import { sessionStorage } from "./session.server";
 import { FormStrategy } from "remix-auth-form";
 import prisma from "~/db.server";
-import { UserAuth, UserSvc } from "./user.server.ts";
-import type { DiscordProfile, PartialDiscordGuild } from "remix-auth-discord";
+import { UserAuth } from "./user.server.ts";
 import { DiscordStrategy } from "remix-auth-discord";
-import { user } from "@prisma/client";
 
 // Create an instance of the authenticator, pass a generic with what
 // strategies will return and will store in the session
@@ -40,7 +38,8 @@ const discordStrategy = new DiscordStrategy(
   {
     clientID: process.env.DISCORD_OAUTH2_CLIENT_ID!,
     clientSecret: process.env.DISCORD_OAUTH2_CLIENT_SECRET!,
-    callbackURL: process.env.APP_DOMAIN + "/login/discord/callback",
+    callbackURL: process.env.
+    APP_DOMAIN + "/login/discord/callback",
     // Provide all the scopes you want as an array
     scope: ["identify", "email", "guilds"],
   },
