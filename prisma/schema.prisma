@@ -12,11 +12,13 @@ datasource db {
 
 // npx prisma db push
 model user {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  username   String   @unique
+  id         String       @id @default(auto()) @map("_id") @db.ObjectId
+  username   String       @unique
   password   String
-  email      String   @unique
-  createtime DateTime @default(now()) @db.Timestamp
+  email      String       @unique
+  createtime DateTime     @default(now()) @db.Timestamp
+  collection collection[]
+  blueprint  blueprint[]
 }
 
 model email_verify_code {
@@ -32,16 +34,66 @@ enum oauth_type {
 
 model oauth {
   id         String     @id @default(auto()) @map("_id") @db.ObjectId
-  user_id    String
+  user_id    String     @db.ObjectId
   type       oauth_type
   openid     String
   createtime DateTime   @default(now()) @db.Timestamp
 }
 
+model collection {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  user_id     String   @db.ObjectId
+  user        user     @relation(fields: [user_id], references: [id])
+  title       String
+  description String
+  parent_id   String?  @db.ObjectId
+  public      Int      @default(1)
+  status      Int      @default(1)
+  createtime  DateTime @default(now()) @db.Timestamp
+
+  @@unique([user_id, title])
+  @@index([parent_id])
+}
+
 model limit_record {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  user_id    String
+  user_id    String   @db.ObjectId
   action     String
   param      String
   createtime DateTime @default(now()) @db.Timestamp
+}
+
+model blueprint {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  user_id     String   @db.ObjectId
+  user        user     @relation(fields: [user_id], references: [id])
+  title       String
+  description String
+  pic_list    String[]
+  blueprint   String
+  product_id  String[] @db.ObjectId
+  status      Int      @default(1)
+  createtime  DateTime @default(now()) @db.Timestamp
+  updatetime  DateTime @default(now()) @db.Timestamp
+}
+
+model blueprint_product {
+  id           String   @id @default(auto()) @map("_id") @db.ObjectId
+  blueptint_id String   @db.ObjectId
+  item_id      Int
+  count        Int
+  createtime   DateTime @default(now()) @db.Timestamp
+
+  @@index([item_id])
+}
+
+model blueprint_collection {
+  id            String   @id @default(auto()) @map("_id") @db.ObjectId
+  blueprint_id  String   @db.ObjectId
+  collection_id String   @db.ObjectId
+  createtime    DateTime @default(now()) @db.Timestamp
+  updatetime    DateTime @default(now()) @db.Timestamp
+
+  @@index([blueprint_id])
+  @@index([collection_id])
 }

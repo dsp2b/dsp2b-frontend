@@ -21,7 +21,7 @@ export class LimitSvc {
         },
       },
     });
-    if (count > 20) {
+    if (count > limitCount) {
       return [undefined, true];
     }
     const result = await fn();
@@ -34,5 +34,9 @@ export class LimitSvc {
       },
     });
     return [result, false];
+  }
+
+  static second(s: number) {
+    return new Date(Date.now() + 1000 * s);
   }
 }

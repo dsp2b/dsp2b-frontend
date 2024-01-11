@@ -1,27 +1,29 @@
 import {
-  IconDesktop,
-  IconExit,
-  IconFolderStroked,
-  IconLanguage,
-  IconMoon,
-  IconSun,
-} from "@douyinfe/semi-icons";
+  DesktopOutlined,
+  FolderOpenOutlined,
+  GlobalOutlined,
+  LogoutOutlined,
+} from "@ant-design/icons";
+import { Link, useNavigate } from "@remix-run/react";
+import { RiComputerLine, RiMoonLine } from "@remixicon/react";
 import {
   Avatar,
   Button,
   Divider,
   Dropdown,
   Layout,
-  Nav,
+  Menu,
   Space,
-  Toast,
   Typography,
-} from "@douyinfe/semi-ui";
-import { Link, useNavigate } from "@remix-run/react";
-import React, { ReactNode, useContext, useEffect, useState } from "react";
+  message,
+  theme,
+} from "antd";
+import { ItemType } from "antd/es/menu/hooks/useItems";
+import React, { ReactNode, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { UserContext } from "~/context-manager";
 import { lngMap } from "~/utils/i18n";
+import { MoonLineIcon, SunLineIcon } from "~/utils/icon";
 
 const MainLayout: React.FC<{
   onChange: ({
@@ -41,11 +43,12 @@ const MainLayout: React.FC<{
   const { t } = useTranslation();
   const user = useContext(UserContext);
   const navigate = useNavigate();
+  const { token } = theme.useToken();
 
   useEffect(() => {
     if (user.styleMode == "auto") {
-      let media = window.matchMedia("(prefers-color-scheme: dark)");
-      let isMatch = (match: boolean) => {
+      const media = window.matchMedia("(prefers-color-scheme: dark)");
+      const isMatch = (match: boolean) => {
         if (match) {
           onChange({
             darkMode: "dark",
@@ -60,7 +63,7 @@ const MainLayout: React.FC<{
           });
         }
       };
-      const callback = (e: { matches: any }) => {
+      const callback = (e: { matches: boolean }) => {
         isMatch(e.matches);
       };
       media.addEventListener("change", callback);
@@ -74,60 +77,72 @@ const MainLayout: React.FC<{
     }
   }, [user.styleMode]);
 
-  let localeList = [];
+  const localeList: Array<ItemType> = [];
   for (const [, lng] of Object.entries(lngMap)) {
     for (const [key, value] of Object.entries(lng)) {
       if (!value.hide) {
         // 修改路径为对应的语言
-        localeList.push(
-          <Dropdown.Item
-            key={key}
-            active={locale == key}
-            onClick={() => {
-              onChange({
-                darkMode: user.darkMode || "",
-                styleMode: user.styleMode || "auto",
-                locale: key,
-              });
-            }}
-          >
-            {value.name + "(" + key + ")"}
-          </Dropdown.Item>
-        );
+        localeList.push({
+          key: key,
+          label: (
+            <Space
+              onClick={() => {
+                onChange({
+                  darkMode: user.darkMode || "",
+                  styleMode: user.styleMode || "auto",
+                  locale: key,
+                });
+              }}
+            >
+              {value.name + "(" + key + ")"}
+            </Space>
+          ),
+        });
       }
     }
   }
 
   return (
     <Layout className="components-layout-demo">
-      <Header>
-        <Nav
-          mode="horizontal"
-          header={{
-            logo: (
-              <Typography.Title heading={2}>
-                {t("dsp2b_title")}
-              </Typography.Title>
-            ),
-            text: (
-              <Typography.Title heading={6}>
-                {t("dsp2b_subtitle")}
-              </Typography.Title>
-            ),
-          }}
-          footer={
-            <Space>
-              <Link to={"/create/blueprint"}>
-                <Button theme="solid" type="primary">
-                  {t("publish")}
-                </Button>
-              </Link>
-              <Dropdown
-                render={
-                  <Dropdown.Menu>
-                    <Dropdown.Item
-                      key="auto"
-                      active={user.styleMode == "auto"}
+      <Header
+        className="flex flex-row justify-between"
+        style={{
+          background: token.colorBgContainer,
+        }}
+      >
+        <div className="flex flex-row gap-2 flex-auto items-center">
+          <Typography.Title level={2} className="!m-0">
+            {t("dsp2b_title")}
+          </Typography.Title>
+          <Typography.Title level={5} className="!m-0">
+            {t("dsp2b_subtitle")}
+          </Typography.Title>
+          <Menu
+            mode="horizontal"
+            className="!ml-4"
+            style={{
+              width: "120px",
+              border: 0,
+            }}
+            items={[
+              {
+                key: "home",
+                label: t("home"),
+              },
+            ]}
+          />
+        </div>
+        <Space>
+          <Link to={"/create/blueprint"}>
+            <Button type="primary">{t("publish")}</Button>
+          </Link>
+          <Dropdown
+            menu={{
+              items: [
+                {
+                  key: "auto",
+                  label: (
+                    <Space
                       onClick={() => {
                         onChange({
                           darkMode: user.darkMode || "",
@@ -136,12 +151,15 @@ const MainLayout: React.FC<{
                         });
                       }}
                     >
-                      <IconDesktop />
+                      <DesktopOutlined />
                       {t("dark_mode_auto")}
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      key="light"
-                      active={user.styleMode == "light"}
+                    </Space>
+                  ),
+                },
+                {
+                  key: "light",
+                  label: (
+                    <Space
                       onClick={() => {
                         onChange({
                           darkMode: user.darkMode || "",
@@ -150,12 +168,15 @@ const MainLayout: React.FC<{
                         });
                       }}
                     >
-                      <IconSun />
+                      <SunLineIcon className="text-base cursor-pointer" />
                       {t("dark_mode_light")}
-                    </Dropdown.Item>
-                    <Dropdown.Item
-                      key="dark"
-                      active={user.styleMode == "dark"}
+                    </Space>
+                  ),
+                },
+                {
+                  key: "dark",
+                  label: (
+                    <Space
                       onClick={() => {
                         onChange({
                           darkMode: user.darkMode || "",
@@ -164,112 +185,106 @@ const MainLayout: React.FC<{
                         });
                       }}
                     >
-                      <IconMoon />
+                      <MoonLineIcon className="text-base cursor-pointer" />
                       {t("dark_mode_dark")}
-                    </Dropdown.Item>
-                  </Dropdown.Menu>
-                }
-              >
-                <Button
-                  theme="borderless"
-                  icon={
-                    user.darkMode == "dark" ? (
-                      <IconMoon className="text-xl text-gray-500" />
-                    ) : (
-                      <IconSun className="text-xl text-gray-500" />
-                    )
-                  }
-                ></Button>
-              </Dropdown>
-              <Dropdown
-                render={
-                  <Dropdown.Menu>
-                    {localeList.map((item) => item)}
-                  </Dropdown.Menu>
-                }
-              >
-                <Button
-                  theme="borderless"
-                  icon={<IconLanguage className="text-xl text-gray-500" />}
-                ></Button>
-              </Dropdown>
-              {user.user ? (
-                <Dropdown
-                  position="bottomRight"
-                  render={
-                    <Dropdown.Menu>
-                      <Dropdown.Item>
-                        <Space>
-                          <Avatar size="small" color="blue">
+                    </Space>
+                  ),
+                },
+              ],
+            }}
+          >
+            <Button
+              icon={
+                user.darkMode == "dark" ? (
+                  <MoonLineIcon className="text-base cursor-pointer" />
+                ) : (
+                  <SunLineIcon className="text-base cursor-pointer" />
+                )
+              }
+            ></Button>
+          </Dropdown>
+          <Dropdown menu={{ items: localeList.map((item) => item) }}>
+            <Button
+              icon={<GlobalOutlined style={{ display: "block" }} />}
+            ></Button>
+          </Dropdown>
+          {user.user ? (
+            <Dropdown
+              menu={{
+                items: [
+                  {
+                    key: "info",
+                    label: (
+                      <Space>
+                        <Avatar size="small">{user.user.username}</Avatar>
+                        <Space direction="vertical">
+                          <Typography.Text>
                             {user.user.username}
-                          </Avatar>
-                          <Space vertical>
-                            <Typography.Text>
-                              {user.user.username}
-                            </Typography.Text>
-                          </Space>
+                          </Typography.Text>
                         </Space>
-                      </Dropdown.Item>
-                      <Dropdown.Item
+                      </Space>
+                    ),
+                  },
+                  {
+                    key: "collection",
+                    label: (
+                      <Space
                         onClick={() => {
                           navigate("/users/collections");
                         }}
                       >
-                        <IconFolderStroked />
+                        <FolderOpenOutlined />
                         {t("blueprint_collections")}
-                      </Dropdown.Item>
-                      <Dropdown.Item
+                      </Space>
+                    ),
+                  },
+                  {
+                    key: "logout",
+                    label: (
+                      <Space
                         onClick={() => {
                           fetch("/login/logout").then((resp) => {
                             if (resp.status !== 200) {
-                              Toast.warning(t("logout_failed"));
+                              message.warning(t("logout_failed"));
                             } else {
-                              Toast.success(t("logout_success"));
+                              message.success(t("logout_success"));
                               onLogout();
                             }
                           });
                         }}
                       >
-                        <IconExit />
+                        <LogoutOutlined />
                         {t("logout")}
-                      </Dropdown.Item>
-                    </Dropdown.Menu>
-                  }
-                >
-                  <Avatar size="small" color="blue">
-                    {user.user.username}
-                  </Avatar>
-                </Dropdown>
-              ) : (
-                <Link to="/login">
-                  <Button
-                    theme="solid"
-                    type="primary"
-                    style={{ marginRight: 8 }}
-                  >
-                    {t("login")}
-                  </Button>
-                </Link>
-              )}
-            </Space>
-          }
-        >
-          <Nav.Item itemKey="Home" text={t("home")} link="/" />
-        </Nav>
+                      </Space>
+                    ),
+                  },
+                ],
+              }}
+            >
+              <Avatar>{user.user.username}</Avatar>
+            </Dropdown>
+          ) : (
+            <Link to="/login">
+              <Button style={{ marginRight: 8 }}>{t("login")}</Button>
+            </Link>
+          )}
+        </Space>
       </Header>
       <Content className="w-4/5 m-auto p-4">{children}</Content>
       <Footer>
         <Divider />
         <div className="flex flex-col items-center">
           <div className="flex flex-row gap-2">
-            <Typography.Text link={{ href: "/" }}>{t("home")}</Typography.Text>
-            <Typography.Text
-              link={{
-                href: "https://store.steampowered.com/app/1366540/_/?l=schinese",
-              }}
+            <Button type="link" href="/">
+              {t("home")}
+            </Button>
+            <Button
+              type="link"
+              href="https://store.steampowered.com/app/1366540/_/?l=schinese"
+              target="_blank"
             >
               {t("dyson_sphere_project")}
-            </Typography.Text>
+            </Button>
           </div>
           <Typography.Text>{t("all_rights_reserved")}</Typography.Text>
         </div>

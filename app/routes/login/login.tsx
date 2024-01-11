@@ -1,15 +1,19 @@
-// app/routes/login.tsx
+import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
+import { Form as RemixForm, Link, json, useFetcher } from "@remix-run/react";
+import { RiDiscordLine } from "@remixicon/react";
 import {
   Button,
+  Card,
+  Col,
   Input,
-  Notification,
+  Row,
   Space,
-  Toast,
+  Form,
   Typography,
-} from "@douyinfe/semi-ui";
-import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
-import { Form, Link, json, useFetcher } from "@remix-run/react";
-import { RiDiscordLine } from "@remixicon/react";
+  message,
+  Checkbox,
+  Divider,
+} from "antd";
 import { useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrUser } from "~/code/user";
@@ -26,12 +30,12 @@ export default function Login() {
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
       if (fetcher.data.code) {
-        Toast.error({
+        message.error({
           content: fetcher.data?.msg,
           duration: 3,
         });
       } else if (fetcher.data.username) {
-        Toast.success({
+        message.success({
           content: t("login_success"),
           duration: 3,
           onClose() {
@@ -42,16 +46,76 @@ export default function Login() {
     }
   }, [fetcher]);
   return (
-    <Form method="post" navigate={false} fetcherKey="login">
-      <Space vertical>
-        <Input name="username" required />
-        <Input mode="password" name="password" required />
-        <Button htmlType="submit">Login</Button>
-        <Link to={"/login/oauth?type=discord"}>
-          <Button icon={<RiDiscordLine />}>discord</Button>
-        </Link>
-      </Space>
-    </Form>
+    <div className="flex flex-col items-center w-full gap-2">
+      <div>
+        <Typography.Title level={3} className="!m-0">
+          {t("dsp2b_title")}
+        </Typography.Title>
+        <Typography.Text>{t("dsp2b_subtitle")}</Typography.Text>
+      </div>
+      <Card
+        style={{
+          maxWidth: "400px",
+          width: "100%",
+        }}
+      >
+        <Typography.Title level={3} className="block text-center">
+          {t("login")}
+        </Typography.Title>
+        <Form
+          layout="vertical"
+          initialValues={{ remember: true }}
+          onFinish={(values) => {
+            fetcher.submit(values, {
+              method: "POST",
+            });
+            return false;
+          }}
+        >
+          <Form.Item
+            name="username"
+            label={t("username")}
+            rules={[{ required: true }, { type: "string", min: 2, max: 20 }]}
+          >
+            <Input name="username" required />
+          </Form.Item>
+          <Form.Item
+            name="password"
+            label={t("password")}
+            rules={[{ required: true }, { type: "string", min: 6, max: 16 }]}
+          >
+            <Input.Password name="password" required />
+          </Form.Item>
+          <Form.Item>
+            <Form.Item name="remember" valuePropName="checked" noStyle>
+              <Checkbox>{t("rember_me")}</Checkbox>
+            </Form.Item>
+          </Form.Item>
+          <Form.Item>
+            <Button type="primary" htmlType="submit" className="w-full">
+              {t("login")}
+            </Button>
+            <Button type="link" href="/login/register" className="float-right">
+              {t("quick_register")}
+            </Button>
+          </Form.Item>
+          <Divider>{t("oauth_login")}</Divider>
+          <div className="flex flex-row justify-center gap-3 w-full">
+            <Button
+              type="link"
+              href="/login/oauth?type=discord"
+              icon={
+                <RiDiscordLine
+                  style={{
+                    color: "#5a64ea",
+                  }}
+                />
+              }
+            ></Button>
+          </div>
+        </Form>
+      </Card>
+    </div>
   );
 }
 

@@ -13,6 +13,10 @@ export function request(
   });
 }
 
+export function get(route: string) {
+  return request(route, { method: "GET" });
+}
+
 export function postForm(route: string, form: FormData) {
   return request(route, {
     method: "POST",

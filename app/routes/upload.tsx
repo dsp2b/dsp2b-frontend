@@ -2,7 +2,6 @@ import { ActionFunction, json } from "@remix-run/node";
 import { Client } from "minio";
 import { v4 as uuidv4 } from "uuid";
 import { ErrBuleprint, ErrUser } from "~/code/user";
-import prisma from "~/db.server";
 import { authenticator } from "~/services/auth.server";
 import { LimitSvc } from "~/services/limit.server";
 import { errBadRequest } from "~/utils/errcode";
@@ -41,7 +40,7 @@ export const action: ActionFunction = async ({ request }) => {
     async () => {
       const policy = minioClient.newPostPolicy();
       policy.setContentType("image/*");
-      policy.setKey("images/cover-pic/" + uuidv4() + "." + ext);
+      policy.setKey("images/blueprint/" + uuidv4() + "." + ext);
       policy.setBucket(bucket);
       policy.setExpires(new Date(Date.now() + 60 * 100 * 1000));
       policy.setContentLengthRange(0, 1024 * 1024 * 4);

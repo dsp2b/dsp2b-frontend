@@ -1,5 +1,5 @@
-import { Avatar, Button, Popover } from "@douyinfe/semi-ui";
 import { useFetcher } from "@remix-run/react";
+import { Avatar, Button, Popover } from "antd";
 import { ReactNode, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { GetRecipePanelResponse, RecipePanelItem } from "~/services/blueprint";
@@ -89,11 +89,9 @@ export default function RecipePanel({
 
   return (
     <Popover
-      position="topLeft"
       visible={visible}
-      keepDOM
+      open={visible}
       trigger="click"
-      onClickOutSide={onClickOutSide}
       content={
         <div
           className="flex flex-col p-4 bg-gray-600 dark:bg-gray-800 gap-2"

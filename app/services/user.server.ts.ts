@@ -47,6 +47,15 @@ export class UserSvc {
     if (!flag) {
       return errBadRequest(req, ErrUser.RequestRegisterEmailSuffixNotAllow);
     }
+    // 检查邮箱是否已经注册
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+    if (user) {
+      return errBadRequest(req, ErrUser.RequestRegisterEmailAlreadyRegister);
+    }
     // 查询是否在60秒内请求过验证码
     const record = await prisma.email_verify_code.findUnique({
       where: {
@@ -98,6 +107,6 @@ export class UserSvc {
       }),
     });
 
-    return success();
+    return success({});
   }
 }

@@ -10,8 +10,22 @@ export enum ErrUser {
   UsernameInvalid,
   UsernameExist,
   UploadTooMany,
+  LimitTooMany,
+  RequestRegisterEmailAlreadyRegister
 }
 
 export enum ErrBuleprint {
   FilenameInvalid = 2001,
+  TitleInvalid,
+  DescriptionInvalid,
+  BlueprintInvalid,
+  PicListInvalid,
+}
+
+export enum ErrCollection {
+  TitleInvalid = 3001,
+  DescriptionInvalid,
+  ParentInvalid,
+  HasCycle,
+  TitleDuplicate,
 }

@@ -1,71 +1,157 @@
-import { IconClose, IconPlus } from "@douyinfe/semi-icons";
-import {
-  Avatar,
-  Badge,
-  Card,
-  Form,
-  InputNumber,
-  Popover,
-  Tag,
-  TagInput,
-  Toast,
-  Upload,
-} from "@douyinfe/semi-ui";
-import { FileItem } from "@douyinfe/semi-ui/lib/es/upload";
-import { ActionFunction, LoaderFunction } from "@remix-run/node";
-import { Form as RemixForm, useFetcher } from "@remix-run/react";
-import { useCallback, useEffect, useRef, useState } from "react";
-import { DndProvider } from "react-dnd";
-import { HTML5Backend } from "react-dnd-html5-backend";
+import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
+import { useFetcher, useLoaderData } from "@remix-run/react";
+import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PicCard } from "~/components/PicCard";
 import RecipePanel from "~/components/RecipePanel";
 import {
   Buildings,
-  GetRecipePanelResponse,
   ParseBlueprintResponse,
   Products,
   RecipePanelItem,
+  parseBlueprint,
 } from "~/services/blueprint";
 import { post } from "~/utils/api";
 import { CodeError, errBadRequest, errInternalServer } from "~/utils/errcode";
 import { APIDataResponse } from "~/services/api";
 import { authenticator } from "~/services/auth.server";
+import {
+  CollectionTree,
+  buildSelectTree,
+  collectionTree,
+} from "./create.collection";
+import { ErrBuleprint } from "~/code/user";
+import prisma from "~/db.server";
+import {
+  Avatar,
+  Badge,
+  Button,
+  Card,
+  Divider,
+  Form,
+  Input,
+  InputNumber,
+  Popover,
+  Select,
+  Tag,
+  TreeSelect,
+  Upload,
+  UploadFile,
+  message,
+} from "antd";
+import { CloseCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  DndContext,
+  DragEndEvent,
+  PointerSensor,
+  useSensor,
+} from "@dnd-kit/core";
+import { RcFile } from "antd/es/upload";
+import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
 
-export const loader: LoaderFunction = ({ request }) => {
-  return authenticator.isAuthenticated(request, {
+export const loader: LoaderFunction = async ({ request }) => {
+  const user = await authenticator.isAuthenticated(request, {
     failureRedirect: "/login",
   });
+  return json({ tree: await collectionTree(user) });
 };
 
 export const action: ActionFunction = async ({ request }) => {
+  const user = await authenticator.isAuthenticated(request, {
+    failureRedirect: "/login",
+  });
   try {
     if (request.method === "POST") {
       const url = new URL(request.url);
-      const formData = await request.formData();
       const action = url.searchParams.get("action");
-      if (action == "parse") {
-        const resp = await fetch(process.env.RPC_URL! + "/blueprint/parse", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({
-            blueprint: formData.get("blueprint"),
-          }),
-        });
-        return resp;
-      } else if (action == "recipe_panel") {
-        const resp = await fetch(
-          process.env.RPC_URL! + "/blueprint/recipe_panel",
-          {
-            method: "GET",
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        );
-        return resp;
+      if (action) {
+        const formData = await request.formData();
+        if (action == "parse") {
+          return await parseBlueprint(formData.get("blueprint") as string);
+        } else if (action == "recipe_panel") {
+          const resp = await fetch(
+            process.env.RPC_URL! + "/blueprint/recipe_panel",
+            {
+              method: "GET",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+          return resp;
+        }
+      } else {
+        const data = (await request.json()) as {
+          title: string;
+          description: string;
+          blueprint: string;
+          pic_list?: string[];
+          products?: Products[];
+          collections: string[];
+        };
+        const resp = await parseBlueprint(data.blueprint);
+        if (resp.status != 200) {
+          return errBadRequest(request, ErrBuleprint.BlueprintInvalid);
+        }
+        if (data.title.length > 20 || data.title.length < 2) {
+          return errBadRequest(request, ErrBuleprint.TitleInvalid);
+        }
+        if (data.description.length > 1024 * 1024 * 100) {
+          return errBadRequest(request, ErrBuleprint.DescriptionInvalid);
+        }
+        if (data.pic_list && data.pic_list.length > 10) {
+          return errBadRequest(request, ErrBuleprint.PicListInvalid);
+        }
+        return prisma
+          .$transaction(async (tx) => {
+            let blueprint = await tx.blueprint.create({
+              data: {
+                title: data.title,
+                description: data.description,
+                blueprint: data.blueprint,
+                user_id: user.id,
+              },
+            });
+            // 插入产物
+            data.products?.forEach((val) => {});
+            if (data.products) {
+              const productIds = await Promise.all(
+                data.products.map((val) => {
+                  return tx.blueprint_product
+                    .create({
+                      data: {
+                        blueptint_id: blueprint.id,
+                        item_id: val.item_id,
+                        count: val.count,
+                      },
+                    })
+                    .then((p) => p.id);
+                })
+              );
+              await tx.blueprint.update({
+                where: {
+                  id: blueprint.id,
+                },
+                data: {
+                  product_id: productIds,
+                },
+              });
+            }
+            // 关联蓝图集
+            data.collections &&
+              (await tx.blueprint_collection.createMany({
+                data: data.collections.map((val) => {
+                  return {
+                    blueprint_id: blueprint.id,
+                    collection_id: val,
+                  };
+                }),
+              }));
+            return blueprint;
+          })
+          .then((resp) => {
+            return { id: resp.id };
+          });
       }
     }
     return errBadRequest(request, -1);
@@ -74,36 +160,46 @@ export const action: ActionFunction = async ({ request }) => {
   }
 };
 
-export default function Publish() {
-  const fetcher = useFetcher<CodeError>({ key: "publish" });
+export default function CreateBlueprint() {
+  const { tree } = useLoaderData<{
+    tree: CollectionTree[];
+  }>();
+  const fetcher = useFetcher<CodeError>({ key: "create" });
   const parse = useFetcher<ParseBlueprintResponse>({ key: "parse" });
-  const panel = useFetcher<GetRecipePanelResponse>({ key: "panel" });
-  const formRef = useRef<Form>(null);
+  const [formRef] = Form.useForm();
   const { t } = useTranslation();
   const [buildings, setBuildings] = useState<Buildings[]>([]);
   const [products, setProducts] = useState<Products[]>([]);
   const [visiblePanel, setVisiblePanel] = useState(false);
   const [visibleTagPanel, setVisibleTagPanel] = useState(false);
   const [tags, setTags] = useState<RecipePanelItem[]>([]);
+  const sensor = useSensor(PointerSensor, {
+    activationConstraint: { distance: 10 },
+  });
+
+  useEffect(() => {
+    if (fetcher.state == "idle" && fetcher.data) {
+      if (fetcher.data.code) {
+        message.warning(fetcher.data.msg);
+      } else {
+        message.success(t("blueprint_create_success"));
+        window.location.href = "/blueprint/" + fetcher.data.id;
+      }
+    }
+  }, [fetcher]);
 
   useEffect(() => {
     if (parse.state == "idle" && parse.data) {
       if (parse.data.code) {
-        Toast.warning(parse.data.msg);
+        message.warning(parse.data.msg);
       } else {
-        const title = formRef.current!.formApi.getValue("title");
+        const title = formRef.getFieldValue("title");
         if (!title) {
-          formRef.current!.formApi.setValue(
-            "title",
-            parse.data.data.blueprint.ShortDesc
-          );
+          formRef.setFieldValue("title", parse.data.data.blueprint.ShortDesc);
         }
-        const description = formRef.current!.formApi.getValue("description");
+        const description = formRef.getFieldValue("description");
         if (!description) {
-          formRef.current!.formApi.setValue(
-            "description",
-            parse.data.data.blueprint.Desc
-          );
+          formRef.setFieldValue("description", parse.data.data.blueprint.Desc);
         }
         setBuildings(parse.data.data.buildings);
         if (!products.length) {
@@ -126,38 +222,26 @@ export default function Publish() {
     }
   }, [parse]);
 
-  const [picList, setPicList] = useState<FileItem[]>([]);
+  const [picList, setPicList] = useState<UploadFile[]>([]);
 
-  const moveCard = useCallback((dragIndex: number, hoverIndex: number) => {
-    setPicList((prevPic: FileItem[]) =>
-      prevPic.map((item, index) => {
-        if (index === dragIndex) {
-          return prevPic[hoverIndex];
-        }
-        if (index === hoverIndex) {
-          return prevPic[dragIndex];
-        }
-        return item;
-      })
-    );
-  }, []);
+  const onDragEnd = ({ active, over }: DragEndEvent) => {
+    if (active.id !== over?.id) {
+      setPicList((prev) => {
+        const activeIndex = prev.findIndex((i) => i.uid === active.id);
+        const overIndex = prev.findIndex((i) => i.uid === over?.id);
+        return arrayMove(prev, activeIndex, overIndex);
+      });
+    }
+  };
 
   return (
-    <Card
-      title={t("publish")}
-      headerStyle={{
-        padding: "6px 12px",
-      }}
-    >
-      <Form ref={formRef}>
-        <RemixForm navigate={false} fetcherKey="publish">
-          <Form.TextArea
-            field="blueprint"
-            name="blueprint"
-            label={t("blueprint_data")}
+    <Card title={t("create_blueprint")} size="small">
+      <Form layout="vertical" form={formRef}>
+        <Form.Item name="blueprint" label={t("blueprint_data")}>
+          <Input.TextArea
             onBlur={() => {
               // 解析蓝图数据
-              const blueprint = formRef.current!.formApi.getValue("blueprint");
+              const blueprint = formRef.getFieldValue("blueprint");
               if (blueprint) {
                 parse.submit(
                   {
@@ -168,13 +252,15 @@ export default function Publish() {
               }
             }}
           />
-          <Form.Select
-            field="collections"
-            name="collections"
-            label={t("blueprint_collections")}
+        </Form.Item>
+        <Form.Item name="collections" label={t("blueprint_collections")}>
+          <TreeSelect
             className="w-full"
+            treeData={buildSelectTree(tree as unknown as CollectionTree[])}
+            multiple
           />
-          <Form.Label className="!my-2">{t("blueprint_tags")}</Form.Label>
+        </Form.Item>
+        <Form.Item label={t("blueprint_tags")}>
           <RecipePanel
             visible={visibleTagPanel}
             onClickOutSide={() => {
@@ -184,7 +270,7 @@ export default function Publish() {
               setTags((prevTags) => {
                 for (const tag of prevTags) {
                   if (tag.id == val.id) {
-                    Toast.warning(t("tag_exist"));
+                    message.warning(t("tag_exist"));
                     return prevTags;
                   }
                 }
@@ -198,130 +284,148 @@ export default function Publish() {
                 setVisibleTagPanel(true);
               }}
             >
-              <TagInput
+              <Select
                 className="w-full py-1"
                 value={tags.map((tag) => tag.name)}
-                renderTagItem={(val, index) => {
-                  const item = tags.find((tag) => tag.name == val);
+                tagRender={(props) => {
+                  const item = tags.find((tag) => tag.name == props.value);
                   return (
                     <Tag
-                      avatarSrc={
-                        "/images/icons/item_recipe/" + item!.icon_path + ".png"
+                      icon={
+                        <Avatar
+                          src={
+                            "/images/icons/item_recipe/" +
+                            item!.icon_path +
+                            ".png"
+                          }
+                        />
                       }
-                      size="large"
                       className="mr-2"
                       closable
                       style={{ padding: "14px 5px" }}
                     >
-                      {val}
+                      {props.value}
                     </Tag>
                   );
                 }}
               />
             </div>
           </RecipePanel>
-          <Form.Section />
-          <Form.Input field="title" name="title" label={t("title")} />
-          <Form.Input
-            field="description"
-            name="description"
-            label={t("description")}
-          />
-          <DndProvider backend={HTML5Backend}>
-            <Upload
-              prompt={<div>{t("please_upload_cover_picture")}</div>}
-              limit={10}
-              maxSize={4096}
-              multiple
-              fileList={picList}
-              accept="image/*"
-              promptPosition={"bottom"}
-              listType="picture"
-              draggable={true}
-              onChange={({ fileList }) => {
-                setPicList(fileList);
-              }}
-              customRequest={(req) => {
-                // pre sign
-                post("upload", {
-                  filename: req.fileName,
-                  uid: req.file.uid,
-                })
-                  .then((resp) => {
-                    return resp.json();
-                  })
-                  .then(
-                    (
-                      data: APIDataResponse<{
-                        postURL: string;
-                        formData: { [key: string]: string };
-                      }>
-                    ) => {
-                      if (data.code) {
-                        Toast.error(data.msg);
-                        req.onError({});
-                        return;
-                      } else {
-                        // 上传文件
-                        const formData = new FormData();
-                        for (const key in data.data.formData) {
-                          formData.append(key, data.data.formData[key]);
-                        }
-                        formData.append("file", req.fileInstance);
-                        const xhr = new XMLHttpRequest();
-                        xhr.open("POST", data.data.postURL);
-                        xhr.onprogress = (e) => {
+        </Form.Item>
+        <Divider />
+        <Form.Item name="title" label={t("title")}>
+          <Input />
+        </Form.Item>
+        <Form.Item name="description" label={t("description")}>
+          <Input.TextArea />
+        </Form.Item>
+        <Form.Item
+          label={t("please_upload_cover_picture")}
+          valuePropName="fileList"
+        >
+          <DndContext sensors={[sensor]} onDragEnd={onDragEnd}>
+            <SortableContext
+              items={picList.map((i) => i.uid)}
+              strategy={verticalListSortingStrategy}
+            >
+              <Upload
+                maxCount={10}
+                multiple
+                fileList={picList}
+                accept="image/*"
+                listType="picture-card"
+                onChange={({ fileList }) => {
+                  setPicList(fileList);
+                }}
+                customRequest={(req) => {
+                  if (!req) {
+                    return;
+                  }
+                  // pre sign
+                  post("upload", {
+                    filename: (req.file as RcFile).name,
+                  }).then(async (resp) => {
+                    if (resp.status !== 200) {
+                      message.error(t("system_error"));
+                      req.onError &&
+                        req.onError({
+                          status: 500,
+                          name: "错误",
+                          message: t("system_error"),
+                        });
+                      return;
+                    }
+                    const data = (await resp.json()) as APIDataResponse<{
+                      postURL: string;
+                      formData: { [key: string]: string };
+                    }>;
+                    if (data.code) {
+                      message.error(data.msg);
+                      req.onError &&
+                        req.onError({
+                          status: 500,
+                          name: "错误",
+                          message: data.msg,
+                        });
+                      return;
+                    } else {
+                      // 上传文件
+                      const formData = new FormData();
+                      for (const key in data.data.formData) {
+                        formData.append(key, data.data.formData[key]);
+                      }
+                      formData.append("file", req.file);
+                      const xhr = new XMLHttpRequest();
+                      xhr.open("POST", data.data.postURL);
+                      xhr.onprogress = (e) => {
+                        req.onProgress &&
                           req.onProgress({
-                            total: e.total,
-                            loaded: e.loaded,
+                            percent: Math.round((e.loaded / e.total) * 100),
                           });
-                        };
-                        xhr.onerror = (e) => {
-                          req.onError(xhr);
-                        };
-                        xhr.onload = (e) => {
-                          if (xhr.status >= 400) {
-                            Toast.warning(t("file_upload_failed"));
-                            req.onError(xhr);
-                            return;
-                          }
-                          Toast.success(t("file_upload_success"));
+                      };
+                      xhr.onerror = (e) => {
+                        req.onError &&
+                          req.onError({
+                            status: xhr.status,
+                            name: "上传错误",
+                            message: data.msg,
+                          });
+                      };
+                      xhr.onload = (e) => {
+                        if (xhr.status >= 400) {
+                          message.warning(t("file_upload_failed"));
+                          req.onError &&
+                            req.onError({
+                              status: xhr.status,
+                              name: "上传错误",
+                              message: data.msg,
+                            });
+                          return;
+                        }
+                        message.success(t("file_upload_success"));
+                        req.onSuccess &&
                           req.onSuccess({
                             url: data.data.formData.key,
-                            uid: req.file.uid,
                           });
-                        };
-                        xhr.send(formData);
-                      }
+                      };
+                      xhr.send(formData);
                     }
-                  );
-              }}
-              renderThumbnail={(renderProps) => {
-                return (
-                  <PicCard
-                    key={renderProps.uid}
-                    index={renderProps.index || 0}
-                    moveCard={moveCard}
-                    src={renderProps.url!}
-                    id={renderProps.uid}
-                  />
-                );
-              }}
-            >
-              <IconPlus size="extra-large" />
-            </Upload>
-          </DndProvider>
-          <Form.Label className="!my-2">{t("buildings")}</Form.Label>
+                  });
+                }}
+                itemRender={(originNode, file) => {
+                  return <PicCard originNode={originNode} file={file} />;
+                }}
+              >
+                <PlusOutlined className="text-xl" />
+              </Upload>
+            </SortableContext>
+          </DndContext>
+        </Form.Item>
+        <Form.Item label={t("buildings")}>
           <div className="flex flex-row gap-5 bg-gray-500 dark:bg-gray-700 py-4 px-2 flex-wrap">
             {buildings.map((val) => {
               return (
-                <Badge
-                  count={val.count}
-                  overflowCount={999}
-                  position="rightTop"
-                  theme="inverted"
-                  type="primary"
-                >
+                <Badge count={val.count} overflowCount={999}>
                   <Avatar
                     shape="square"
                     src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
@@ -337,16 +441,16 @@ export default function Publish() {
               );
             })}
           </div>
-          <Form.Label className="!my-2">{t("products")}</Form.Label>
+        </Form.Item>
+        <Form.Item label={t("products")}>
           <div className="flex flex-row gap-5 bg-gray-500 dark:bg-gray-700 py-4 px-2 flex-wrap items-center">
             {products
               .sort((a, b) => b.count - a.count)
               .map((val, index) => {
                 return (
                   <Popover
-                    position="topRight"
                     content={
-                      <IconClose
+                      <CloseCircleOutlined
                         onClick={() => {
                           setProducts((p) => {
                             p.splice(index, 1);
@@ -366,9 +470,6 @@ export default function Publish() {
                             ? t("product_equal")
                             : t("consume")
                         }
-                        position="rightTop"
-                        theme="inverted"
-                        type={val.count >= 0 ? "success" : "warning"}
                       >
                         <Avatar
                           shape="square"
@@ -388,9 +489,7 @@ export default function Publish() {
                       </Badge>
                       <InputNumber
                         className="w-20"
-                        innerButtons
                         value={val.count}
-                        inputStyle={{ textAlign: "center" }}
                         onChange={(value) => {
                           setProducts((p) => {
                             p[index].count = value as number;
@@ -418,15 +517,15 @@ export default function Publish() {
                       count: 0,
                     });
                   } else {
-                    Toast.warning(t("product_exist"));
+                    message.warning(t("product_exist"));
                   }
                   return [...p];
                 });
                 setVisiblePanel(false);
               }}
             >
-              <IconPlus
-                size="extra-large"
+              <PlusOutlined
+                className="text-xl"
                 style={{
                   cursor: "pointer",
                 }}
@@ -436,7 +535,28 @@ export default function Publish() {
               />
             </RecipePanel>
           </div>
-        </RemixForm>
+        </Form.Item>
+        <div className="flex flex-row-reverse mt-2">
+          <Button
+            loading={fetcher.state != "idle"}
+            onClick={() => {
+              const data = formRef.getFieldsValue();
+              data.products = products;
+              data.pic_list = [];
+              picList.forEach((val) => {
+                if (val.response) {
+                  data.pic_list.push(val.response.url);
+                }
+              });
+              fetcher.submit(data, {
+                method: "POST",
+                encType: "application/json",
+              });
+            }}
+          >
+            {t("submit")}
+          </Button>
+        </div>
       </Form>
     </Card>
   );
