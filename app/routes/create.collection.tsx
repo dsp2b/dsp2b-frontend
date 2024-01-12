@@ -1,5 +1,5 @@
 import { useTranslation } from "react-i18next";
-import { useFetcher, useLoaderData } from "@remix-run/react";
+import { useFetcher, useLoaderData, useNavigate } from "@remix-run/react";
 import { useEffect, useRef, useState } from "react";
 import { APIDataResponse } from "~/services/api";
 import {
@@ -13,7 +13,7 @@ import { ErrCollection, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import prisma from "~/db.server";
 import { success } from "~/utils/httputils";
-import { formData, jsonData } from "~/utils/utils";
+import { formData, jsonData } from "~/utils/utils.server";
 import { LimitSvc } from "~/services/limit.server";
 import { collection } from "@prisma/client";
 import { UserAuth } from "~/services/user.server.ts";
@@ -79,9 +79,9 @@ export const action: ActionFunction = async ({ request }) => {
       }
       const id = await prisma.collection.create({
         data: {
-          title: title.toString(),
-          description: description.toString(),
-          parent_id: parent ? parent.toString() : undefined,
+          title: title,
+          description: description,
+          parent_id: parent ? parent : undefined,
           user: {
             connect: {
               id: user.id,
@@ -186,6 +186,7 @@ export default function CreateCollection() {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [publicCollection, setPublicCollection] = useState<1 | 2 | 3>(1);
+  const nav = useNavigate();
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -193,6 +194,7 @@ export default function CreateCollection() {
         message.warning(fetcher.data.msg);
       } else {
         message.success(t("collection_create_success"));
+        nav("/colletcion/" + fetcher.data.data);
       }
     }
   }, [fetcher]);

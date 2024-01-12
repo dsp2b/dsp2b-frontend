@@ -10,7 +10,7 @@ import {
   Products,
   RecipePanelItem,
   parseBlueprint,
-} from "~/services/blueprint";
+} from "~/services/blueprint.server";
 import { post } from "~/utils/api";
 import { CodeError, errBadRequest, errInternalServer } from "~/utils/errcode";
 import { APIDataResponse } from "~/services/api";
@@ -33,13 +33,19 @@ import {
   InputNumber,
   Popover,
   Select,
+  Space,
   Tag,
   TreeSelect,
+  Typography,
   Upload,
   UploadFile,
   message,
 } from "antd";
-import { CloseCircleOutlined, PlusOutlined } from "@ant-design/icons";
+import {
+  CloseCircleOutlined,
+  DeleteOutlined,
+  PlusOutlined,
+} from "@ant-design/icons";
 import {
   DndContext,
   DragEndEvent,
@@ -47,7 +53,11 @@ import {
   useSensor,
 } from "@dnd-kit/core";
 import { RcFile } from "antd/es/upload";
-import { SortableContext, arrayMove, verticalListSortingStrategy } from "@dnd-kit/sortable";
+import {
+  SortableContext,
+  arrayMove,
+  verticalListSortingStrategy,
+} from "@dnd-kit/sortable";
 
 export const loader: LoaderFunction = async ({ request }) => {
   const user = await authenticator.isAuthenticated(request, {
@@ -86,6 +96,7 @@ export const action: ActionFunction = async ({ request }) => {
           description: string;
           blueprint: string;
           pic_list?: string[];
+          tags?: Array<{ id: number }>;
           products?: Products[];
           collections: string[];
         };
@@ -104,11 +115,18 @@ export const action: ActionFunction = async ({ request }) => {
         }
         return prisma
           .$transaction(async (tx) => {
+            const tags: Array<number> = [];
+            data.tags &&
+              data.tags.forEach((val) => {
+                tags.push(val.id);
+              });
             let blueprint = await tx.blueprint.create({
               data: {
                 title: data.title,
                 description: data.description,
                 blueprint: data.blueprint,
+                tags_id: tags,
+                pic_list: data.pic_list,
                 user_id: user.id,
               },
             });
@@ -286,13 +304,19 @@ export default function CreateBlueprint() {
             >
               <Select
                 className="w-full py-1"
+                mode="multiple"
+                allowClear
                 value={tags.map((tag) => tag.name)}
+                dropdownStyle={{ display: "none" }}
+                dropdownRender={() => <></>}
                 tagRender={(props) => {
                   const item = tags.find((tag) => tag.name == props.value);
                   return (
                     <Tag
                       icon={
                         <Avatar
+                          shape="square"
+                          size="small"
                           src={
                             "/images/icons/item_recipe/" +
                             item!.icon_path +
@@ -302,7 +326,6 @@ export default function CreateBlueprint() {
                       }
                       className="mr-2"
                       closable
-                      style={{ padding: "14px 5px" }}
                     >
                       {props.value}
                     </Tag>
@@ -425,7 +448,7 @@ export default function CreateBlueprint() {
           <div className="flex flex-row gap-5 bg-gray-500 dark:bg-gray-700 py-4 px-2 flex-wrap">
             {buildings.map((val) => {
               return (
-                <Badge count={val.count} overflowCount={999}>
+                <Badge count={val.count} overflowCount={999} color="cyan">
                   <Avatar
                     shape="square"
                     src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
@@ -449,16 +472,25 @@ export default function CreateBlueprint() {
               .map((val, index) => {
                 return (
                   <Popover
+                    placement="rightTop"
                     content={
-                      <CloseCircleOutlined
-                        onClick={() => {
-                          setProducts((p) => {
-                            p.splice(index, 1);
-                            return [...p];
-                          });
-                        }}
-                        className="text-red-500 cursor-pointer"
-                      />
+                      <Button
+                        type="text"
+                        icon={
+                          <DeleteOutlined
+                            color="red"
+                            onClick={() => {
+                              setProducts((p) => {
+                                p.splice(index, 1);
+                                return [...p];
+                              });
+                            }}
+                            className="cursor-pointer"
+                          />
+                        }
+                      >
+                        {t("delete")}
+                      </Button>
                     }
                   >
                     <div className="flex flex-col items-center gap-2">
@@ -470,6 +502,8 @@ export default function CreateBlueprint() {
                             ? t("product_equal")
                             : t("consume")
                         }
+                        color={val.count >= 0 ? "green" : "orange"}
+                        className="border-0"
                       >
                         <Avatar
                           shape="square"
@@ -548,6 +582,7 @@ export default function CreateBlueprint() {
                   data.pic_list.push(val.response.url);
                 }
               });
+              data.tags = tags;
               fetcher.submit(data, {
                 method: "POST",
                 encType: "application/json",

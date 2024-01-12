@@ -2,7 +2,7 @@ import { useFetcher } from "@remix-run/react";
 import { Avatar, Button, Popover } from "antd";
 import { ReactNode, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { GetRecipePanelResponse, RecipePanelItem } from "~/services/blueprint";
+import { GetRecipePanelResponse, RecipePanelItem } from "~/services/blueprint.server";
 
 const Panel: React.FC<{
   panel: RecipePanelItem[][];
@@ -59,7 +59,7 @@ export default function RecipePanel({
   onSelect,
   visible,
 }: {
-  children: ReactNode;
+  children?: ReactNode;
   onClickOutSide: () => void;
   onSelect: (item: RecipePanelItem) => void;
   visible: boolean;
@@ -71,7 +71,7 @@ export default function RecipePanel({
   const [buildingPanel, setBuildingPanel] = useState<RecipePanelItem[][]>([]);
   const { t } = useTranslation();
   useEffect(() => {
-    if (fetcher.state == "idle" && firstVisible) {
+    if (fetcher.state == "idle" && firstVisible && !fetcher.data) {
       fetcher.submit(
         {
           blueprint: "",
@@ -86,10 +86,8 @@ export default function RecipePanel({
       setBuildingPanel(fetcher.data.data.building_panel);
     }
   }, [fetcher]);
-
   return (
     <Popover
-      visible={visible}
       open={visible}
       trigger="click"
       content={
@@ -135,8 +133,8 @@ export default function RecipePanel({
           />
         </div>
       }
-      onVisibleChange={() => {
-        setFirstVisible(true);
+      onOpenChange={(open) => {
+        setFirstVisible(open);
       }}
     >
       {children}

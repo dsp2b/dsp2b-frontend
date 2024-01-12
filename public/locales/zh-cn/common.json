@@ -60,5 +60,6 @@
   "quick_register": "快速注册",
   "oauth_login": "第三方登录",
   "have_account_go_login": "已有账号？去登录",
-  "system_error": "系统错误"
+  "system_error": "系统错误",
+  "delete": "删除"
 }

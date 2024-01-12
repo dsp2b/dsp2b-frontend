@@ -84,19 +84,7 @@ const MainLayout: React.FC<{
         // 修改路径为对应的语言
         localeList.push({
           key: key,
-          label: (
-            <Space
-              onClick={() => {
-                onChange({
-                  darkMode: user.darkMode || "",
-                  styleMode: user.styleMode || "auto",
-                  locale: key,
-                });
-              }}
-            >
-              {value.name + "(" + key + ")"}
-            </Space>
-          ),
+          label: <Space>{value.name + "(" + key + ")"}</Space>,
         });
       }
     }
@@ -111,15 +99,18 @@ const MainLayout: React.FC<{
         }}
       >
         <div className="flex flex-row gap-2 flex-auto items-center">
-          <Typography.Title level={2} className="!m-0">
-            {t("dsp2b_title")}
-          </Typography.Title>
-          <Typography.Title level={5} className="!m-0">
-            {t("dsp2b_subtitle")}
-          </Typography.Title>
+          <Link to="/" className="flex flex-row gap-2 items-center">
+            <Typography.Title level={2} className="!m-0">
+              {t("dsp2b_title")}
+            </Typography.Title>
+            <Typography.Title level={5} className="!m-0">
+              {t("dsp2b_subtitle")}
+            </Typography.Title>
+          </Link>
           <Menu
             mode="horizontal"
             className="!ml-4"
+            selectedKeys={[]}
             style={{
               width: "120px",
               border: 0,
@@ -127,7 +118,7 @@ const MainLayout: React.FC<{
             items={[
               {
                 key: "home",
-                label: t("home"),
+                label: <Link to="/">{t("home")}</Link>,
               },
             ]}
           />
@@ -138,19 +129,18 @@ const MainLayout: React.FC<{
           </Link>
           <Dropdown
             menu={{
+              onClick: ({ key }) => {
+                onChange({
+                  darkMode: user.darkMode || "",
+                  styleMode: key,
+                  locale: locale,
+                });
+              },
               items: [
                 {
                   key: "auto",
                   label: (
-                    <Space
-                      onClick={() => {
-                        onChange({
-                          darkMode: user.darkMode || "",
-                          styleMode: "auto",
-                          locale: locale,
-                        });
-                      }}
-                    >
+                    <Space>
                       <DesktopOutlined />
                       {t("dark_mode_auto")}
                     </Space>
@@ -159,15 +149,7 @@ const MainLayout: React.FC<{
                 {
                   key: "light",
                   label: (
-                    <Space
-                      onClick={() => {
-                        onChange({
-                          darkMode: user.darkMode || "",
-                          styleMode: "light",
-                          locale: locale,
-                        });
-                      }}
-                    >
+                    <Space>
                       <SunLineIcon className="text-base cursor-pointer" />
                       {t("dark_mode_light")}
                     </Space>
@@ -176,15 +158,7 @@ const MainLayout: React.FC<{
                 {
                   key: "dark",
                   label: (
-                    <Space
-                      onClick={() => {
-                        onChange({
-                          darkMode: user.darkMode || "",
-                          styleMode: "dark",
-                          locale: locale,
-                        });
-                      }}
-                    >
+                    <Space>
                       <MoonLineIcon className="text-base cursor-pointer" />
                       {t("dark_mode_dark")}
                     </Space>
@@ -203,7 +177,18 @@ const MainLayout: React.FC<{
               }
             ></Button>
           </Dropdown>
-          <Dropdown menu={{ items: localeList.map((item) => item) }}>
+          <Dropdown
+            menu={{
+              onClick: ({ key }) => {
+                onChange({
+                  darkMode: user.darkMode || "",
+                  styleMode: user.styleMode || "auto",
+                  locale: key,
+                });
+              },
+              items: localeList.map((item) => item),
+            }}
+          >
             <Button
               icon={<GlobalOutlined style={{ display: "block" }} />}
             ></Button>
@@ -211,6 +196,22 @@ const MainLayout: React.FC<{
           {user.user ? (
             <Dropdown
               menu={{
+                onClick: (info) => {
+                  switch (info.key) {
+                    case "collection":
+                      navigate("/users/collections");
+                      break;
+                    case "logout":
+                      fetch("/login/logout").then((resp) => {
+                        if (resp.status !== 200) {
+                          message.warning(t("logout_failed"));
+                        } else {
+                          message.success(t("logout_success"));
+                          onLogout();
+                        }
+                      });
+                  }
+                },
                 items: [
                   {
                     key: "info",
@@ -228,11 +229,7 @@ const MainLayout: React.FC<{
                   {
                     key: "collection",
                     label: (
-                      <Space
-                        onClick={() => {
-                          navigate("/users/collections");
-                        }}
-                      >
+                      <Space>
                         <FolderOpenOutlined />
                         {t("blueprint_collections")}
                       </Space>
@@ -241,18 +238,7 @@ const MainLayout: React.FC<{
                   {
                     key: "logout",
                     label: (
-                      <Space
-                        onClick={() => {
-                          fetch("/login/logout").then((resp) => {
-                            if (resp.status !== 200) {
-                              message.warning(t("logout_failed"));
-                            } else {
-                              message.success(t("logout_success"));
-                              onLogout();
-                            }
-                          });
-                        }}
-                      >
+                      <Space>
                         <LogoutOutlined />
                         {t("logout")}
                       </Space>

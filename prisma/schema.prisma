@@ -15,6 +15,7 @@ model user {
   id         String       @id @default(auto()) @map("_id") @db.ObjectId
   username   String       @unique
   password   String
+  avatar     String?
   email      String       @unique
   createtime DateTime     @default(now()) @db.Timestamp
   collection collection[]
@@ -45,7 +46,7 @@ model collection {
   user_id     String   @db.ObjectId
   user        user     @relation(fields: [user_id], references: [id])
   title       String
-  description String
+  description String?
   parent_id   String?  @db.ObjectId
   public      Int      @default(1)
   status      Int      @default(1)
@@ -68,7 +69,8 @@ model blueprint {
   user_id     String   @db.ObjectId
   user        user     @relation(fields: [user_id], references: [id])
   title       String
-  description String
+  description String?
+  tags_id     Int[]
   pic_list    String[]
   blueprint   String
   product_id  String[] @db.ObjectId

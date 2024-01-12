@@ -1,4 +1,5 @@
 import { APIDataResponse } from "./api";
+import itemProtoSet from "./ItemProtoSet.json";
 
 export type ParseBlueprintResponse = APIDataResponse<{
   blueprint: {
@@ -45,3 +46,17 @@ export async function parseBlueprint(blueprint: string) {
     }),
   });
 }
+
+export const itemProtoSetMap = new Map<
+  number,
+  { Name: string; IconPath: string }
+>();
+
+itemProtoSet.DataArray.forEach((val) => {
+  let iconPath = val.Proto.IconPath.split("/");
+  let iconPath2 = iconPath[iconPath.length - 1];
+  itemProtoSetMap.set(val.ID, {
+    Name: val.Name,
+    IconPath: iconPath2,
+  });
+});

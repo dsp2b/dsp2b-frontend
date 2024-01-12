@@ -12,6 +12,13 @@ export interface UserAuth {
   id: string;
   username: string;
 }
+
+export interface UserInfo {
+  id: string;
+  username: string;
+  avatar: string;
+}
+
 const allowEmailSuffix = ["qq.com", "gmail.com", "outlook.com", "163.com"];
 
 export class UserSvc {
