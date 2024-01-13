@@ -91,7 +91,7 @@ const MainLayout: React.FC<{
   }
 
   return (
-    <Layout className="components-layout-demo">
+    <Layout>
       <Header
         className="flex flex-row justify-between"
         style={{
