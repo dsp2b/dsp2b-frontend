@@ -21,12 +21,14 @@ import { errBadRequest, errNotFound } from "~/utils/errcode";
 import { blueprintList } from "~/services/blueprint.server";
 import { jsonData } from "~/utils/utils.server";
 import { collectionLike } from "~/services/collection.server";
-import { useRequest } from "~/utils/api";
+import { routeToUrl, useRequest } from "~/utils/api";
 import { useState } from "react";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
   const id = params["id"];
+  const url = new URL(request.url);
+  const action = url.searchParams.get("action");
   const collection = await prisma.collection.findUnique({
     where: {
       id: id,
@@ -46,6 +48,11 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   const self = user && user.id == collection.user_id;
   if (!self && collection.public !== 1) {
     return errBadRequest(request, ErrCollection.NotFound);
+  }
+  if (action == "download") {
+    return fetch(
+      process.env.RPC_URL + "/collection/" + collection.id + "/download"
+    );
   }
   const subCollection = await prisma.collection.findMany({
     where: {
@@ -86,6 +93,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 };
 
 export const action: ActionFunction = async ({ request, params }) => {
+  const user = await authenticator.isAuthenticated(request);
   const id = params["id"];
   const data = await jsonData<{ action: string; like: boolean }>(request);
   const collection = await prisma.collection.findUnique({
@@ -95,6 +103,10 @@ export const action: ActionFunction = async ({ request, params }) => {
   });
   if (!collection) {
     return errNotFound(request, ErrCollection.NotFound);
+  }
+  const self = user && user.id == collection.user_id;
+  if (!self && collection.public !== 1) {
+    return errBadRequest(request, ErrCollection.NotFound);
   }
   switch (data.action) {
     case "like":
@@ -187,8 +199,14 @@ export default function Collection() {
                   </Button>
                 )}
               </div>
-              <Button icon={<DownloadOutlined />} type="primary">
-                下载蓝图zip包
+              <Button
+                icon={<DownloadOutlined />}
+                type="primary"
+                href={routeToUrl("collection_.$id?action=download", {
+                  params: { id: loader.collection.id },
+                })}
+              >
+                {t("download_collection_zip")}
               </Button>
             </div>
           </div>
@@ -205,12 +223,7 @@ export default function Collection() {
           />
         )}
       </Card>
-      <BlueprintList
-        loader={{
-          list: loader.list as unknown as BlueprintItem[],
-          total: loader.total,
-        }}
-      />
+      <BlueprintList loader={loader as any} />
     </div>
   );
 }

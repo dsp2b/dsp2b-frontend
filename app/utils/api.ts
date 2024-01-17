@@ -8,9 +8,9 @@ export type RequestOptions = {
   headers?: HeadersInit;
 };
 
-export function request(route: string, options: RequestOptions) {
+export function routeToUrl(route: string, options: RequestOptions) {
   const s = route.split("?");
-
+  route = s[0];
   let url = "/" + route.replaceAll("_", "");
 
   if (options.params) {
@@ -19,7 +19,11 @@ export function request(route: string, options: RequestOptions) {
       url = url.replace("$" + key, options.params![key]);
     });
   }
-  url += "?_data=routes/" + route + (s.length > 1 ? "&" + s[1] : "");
+  return url + "?_data=routes/" + route + (s.length > 1 ? "&" + s[1] : "");
+}
+
+export function request(route: string, options: RequestOptions) {
+  const url = routeToUrl(route, options);
   const opts: RequestInit = {
     method: options.method,
     body: options.body,

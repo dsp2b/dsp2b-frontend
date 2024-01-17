@@ -234,7 +234,7 @@ export default function CreateCollection() {
   const fetcher = useFetcher<APIDataResponse<string>>({ key: "create" });
   const { t } = useTranslation();
   const [form] = Form.useForm();
-  const [publicCollection, setPublicCollection] = useState<1 | 2 | 3>(1);
+  const [publicCollection, setPublicCollection] = useState<1 | 2>(1);
   const nav = useNavigate();
 
   useEffect(() => {
@@ -302,18 +302,14 @@ export default function CreateCollection() {
         <Form.Item name="public" label={t("public_collection")}>
           <Checkbox
             checked={publicCollection === 1}
-            indeterminate={publicCollection === 3}
             onChange={(v) => {
-              console.log("1231", publicCollection);
               switch (publicCollection) {
                 case 1:
-                  setPublicCollection(3);
+                  setPublicCollection(2);
                   break;
                 case 2:
                   setPublicCollection(1);
                   break;
-                case 3:
-                  setPublicCollection(2);
                   break;
               }
             }}
@@ -323,8 +319,6 @@ export default function CreateCollection() {
                 ? t("public")
                 : publicCollection === 2
                 ? t("private")
-                : publicCollection === 3
-                ? t("inherit_collection")
                 : "---"}
             </Typography.Text>
           </Checkbox>

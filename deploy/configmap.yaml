@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: dsp2b-frontend-config
+  namespace: app
+data:
+  DATABASE_URL: 
+  SESSION_SECRET: 
+  EMAIL_HOST:
+  EMAIL_USER: 
+  EMAIL_PASS: 
+  DISCORD_OAUTH2_CLIENT_ID: 
+  DISCORD_OAUTH2_CLIENT_SECRET: 
+  APP_DOMAIN: 
+  RPC_URL: 
+  MINIO_ENDPOINT: 
+  MINIO_URL: 
+  MINIO_PORT: 
+  MINIO_USE_SSL: 
+  MINIO_ACCESS_KEY: 
+  MINIO_SECRET_KEY: 
+  MINIO_BUCKET: 

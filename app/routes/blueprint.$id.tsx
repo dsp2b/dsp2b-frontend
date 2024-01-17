@@ -113,13 +113,15 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     blueprint.pic_list = blueprint.pic_list.map((val) => ossFileUrl(val));
   }
 
-  const collections = await prisma.blueprint_collection.findMany({
+  const collections = await prisma.collection.findMany({
     where: {
-      blueprint_id: blueprint.id,
+      blueprint_collection: {
+        some: {
+          blueprint_id: blueprint.id,
+        },
+      },
     },
-    include: {
-      collection: true,
-    },
+    take: 4,
   });
 
   const like_count = await prisma.blueprint_like.count({
@@ -170,7 +172,7 @@ export default function Blueprint() {
   const [isLike, setIsLike] = useState(loader.is_like);
   const likeReq = useRequest("blueprint.$id");
   const navigate = useNavigate();
-
+  const collections = [...loader.collections].splice(0, 2);
   const buildings = JSON.parse(loader.blueprint.buildings) as Building[];
 
   return (
@@ -373,20 +375,20 @@ export default function Blueprint() {
                   <div>
                     <Space>
                       {loader.collections && loader.collections.length > 0 ? (
-                        loader.collections
-                          .splice(0, 3)
-                          .map((val) => (
-                            <Link to={"/collection/" + val.id}>
-                              {val.title}
-                            </Link>
-                          ))
+                        collections.map((val) => (
+                          <Link to={"/collection/" + val.id}>{val.title}</Link>
+                        ))
                       ) : (
                         <Typography.Text type="secondary">
                           {t("empty_data")}
                         </Typography.Text>
                       )}
-                      {loader.collections.length > 3 && (
-                        <Link to={"/blueprint/1"}>{t("more...")}</Link>
+                      {loader.collections.length > 2 && (
+                        <Link
+                          to={"/collection?blueprint=" + loader.blueprint.id}
+                        >
+                          {t("more...")}
+                        </Link>
                       )}
                     </Space>
                   </div>

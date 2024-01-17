@@ -6,10 +6,10 @@
     "build": "npm run prebuild && remix build",
     "dev": "npm run predev && remix dev --manual",
     "lint": "eslint --ignore-path .gitignore --cache --cache-location ./node_modules/.cache/eslint .",
-    "start": "remix-serve ./build/index.js",
+    "start": "npm run migrate && npm run generate && remix-serve ./build/index.js",
     "typecheck": "tsc",
-    "migrate": "npx prisma db push",
-    "generate": "npx prisma generate",
+    "migrate": "prisma db push",
+    "generate": "prisma generate",
     "predev": "ts-node --project ./tsconfig.node.json ./scripts/prebuild.tsx",
     "prebuild": "cross-env NODE_ENV=production ts-node --project ./tsconfig.node.json ./scripts/prebuild.tsx",
     "crowdin": "crowdin"

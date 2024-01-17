@@ -24,6 +24,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   const user_id = url.searchParams.get("user");
   const sort = url.searchParams.get("sort") || "latest";
   const keyword = url.searchParams.get("keyword") || "";
+  const blueprint = url.searchParams.get("blueprint") || "";
   const user = await authenticator.isAuthenticated(request);
   const where: any = { public: 1 };
   if (user_id) {
@@ -35,6 +36,13 @@ export const loader: LoaderFunction = async ({ request }) => {
   if (keyword) {
     where.title = {
       contains: keyword,
+    };
+  }
+  if (blueprint) {
+    where.blueprint_collection = {
+      some: {
+        blueprint_id: blueprint,
+      },
     };
   }
   const orderBy: any = {};
