@@ -13,7 +13,7 @@ export async function handleResp(req: Request, data: any) {
   return data;
 }
 
-export async function success(data: any) {
+export async function success(data?: any) {
   return json({
     code: 0,
     msg: "success",

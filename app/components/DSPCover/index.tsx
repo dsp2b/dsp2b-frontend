@@ -3,7 +3,7 @@ import { CSSProperties } from "react";
 
 const DSPCover: React.FC<{
   style: CSSProperties;
-  items: { id: number; name?: string; icon_path?: string }[];
+  items: { item_id: number; name?: string; icon_path?: string }[];
 }> = ({ style, items }) => {
   const className = "flex flex-row justify-center items-center";
   style.background = "#246cb9";

@@ -6,3 +6,15 @@
 .is-dragging {
 	pointer-events: none;
 }
+
+.blueprint-description .ant-descriptions-header {
+	margin-bottom: 4px !important;
+}
+
+.blueprint-description .ant-descriptions-item {
+	padding-bottom: 4px !important;
+}
+
+.ant-upload-list-item-container>div {
+	height: 100%;
+}

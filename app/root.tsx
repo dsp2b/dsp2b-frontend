@@ -89,12 +89,7 @@ export default function App() {
         <Meta />
         <Links />
       </head>
-      <body
-        className={userContext.darkMode == "dark" ? "dark" : ""}
-        style={{
-          background: userContext.darkMode == "dark" ? "#000" : "#fff",
-        }}
-      >
+      <body className={userContext.darkMode == "dark" ? "dark" : ""}>
         <ConfigProvider
           locale={userContext.locale == "zh-CN" ? zhCN : enUS}
           theme={{

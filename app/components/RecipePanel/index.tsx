@@ -2,7 +2,10 @@ import { useFetcher } from "@remix-run/react";
 import { Avatar, Button, Popover } from "antd";
 import { ReactNode, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
-import { GetRecipePanelResponse, RecipePanelItem } from "~/services/blueprint.server";
+import {
+  GetRecipePanelResponse,
+  RecipePanelItem,
+} from "~/services/blueprint.server";
 
 const Panel: React.FC<{
   panel: RecipePanelItem[][];
@@ -76,7 +79,11 @@ export default function RecipePanel({
         {
           blueprint: "",
         },
-        { action: "?action=recipe_panel", method: "POST" }
+        {
+          action:
+            "/create/blueprint?route=/create/blueprint&action=recipe_panel",
+          method: "POST",
+        }
       );
     }
   }, [firstVisible]);

@@ -8,7 +8,7 @@ import {
   json,
   redirect,
 } from "@remix-run/node";
-import { errBadRequest } from "~/utils/errcode";
+import { errBadRequest, errNotFound } from "~/utils/errcode";
 import { ErrCollection, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import prisma from "~/db.server";
@@ -29,10 +29,22 @@ import {
   message,
 } from "antd";
 
-export const action: ActionFunction = async ({ request }) => {
+export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
   if (!user) {
     return redirect("/login");
+  }
+  const id = params["id"];
+  let oldCollection: collection | null = null;
+  if (id) {
+    oldCollection = await prisma.collection.findUnique({
+      where: {
+        id: id,
+      },
+    });
+    if (!oldCollection || user.id != oldCollection.user_id) {
+      return errNotFound(request, ErrCollection.NotFound);
+    }
   }
   const [result, err] = await LimitSvc.limit(
     request,
@@ -47,7 +59,7 @@ export const action: ActionFunction = async ({ request }) => {
         parent,
         description,
         public: publicCollection,
-      } = await jsonData(request);
+      } = await jsonData<any>(request);
       if (title && (title.length > 20 || title.length < 2)) {
         return errBadRequest(request, ErrCollection.TitleInvalid);
       }
@@ -55,13 +67,20 @@ export const action: ActionFunction = async ({ request }) => {
         return errBadRequest(request, ErrCollection.DescriptionInvalid);
       }
       // 检查是否同名
-      const collection = await prisma.collection.findUnique({
-        where: {
-          user_id_title: {
-            user_id: user.id,
-            title: title,
-          },
+      const where: any = {
+        user_id_title: {
+          user_id: user.id,
+          title: title,
         },
+      };
+      if (oldCollection) {
+        where.NOT = { id: oldCollection.id };
+        if (parent == oldCollection.id) {
+          return errBadRequest(request, ErrCollection.ParentInvalid);
+        }
+      }
+      const collection = await prisma.collection.findUnique({
+        where,
       });
       if (collection) {
         return errBadRequest(request, ErrCollection.TitleDuplicate);
@@ -77,19 +96,40 @@ export const action: ActionFunction = async ({ request }) => {
           return errBadRequest(request, ErrCollection.ParentInvalid);
         }
       }
-      const id = await prisma.collection.create({
-        data: {
-          title: title,
-          description: description,
-          parent_id: parent ? parent : undefined,
-          user: {
-            connect: {
-              id: user.id,
+      let id: collection;
+      if (oldCollection) {
+        id = await prisma.collection.update({
+          data: {
+            title: title,
+            description: description,
+            parent_id: parent ? parent : undefined,
+            user: {
+              connect: {
+                id: user.id,
+              },
             },
+            public: parseInt(publicCollection),
+            updatetime: new Date(),
           },
-          public: parseInt(publicCollection),
-        },
-      });
+          where: {
+            id: oldCollection.id,
+          },
+        });
+      } else {
+        id = await prisma.collection.create({
+          data: {
+            title: title,
+            description: description,
+            parent_id: parent ? parent : undefined,
+            user: {
+              connect: {
+                id: user.id,
+              },
+            },
+            public: parseInt(publicCollection),
+          },
+        });
+      }
       return success(id.id);
     }
   );
@@ -108,12 +148,20 @@ export async function collectionTree(user: UserAuth) {
   return buildCollectionTree(all);
 }
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request, {
     failureRedirect: "/login",
   });
-
-  return json({ tree: await collectionTree(user) });
+  const id = params.id;
+  let collection: collection | null = null;
+  if (id) {
+    collection = await prisma.collection.findUnique({
+      where: {
+        id: id,
+      },
+    });
+  }
+  return json({ tree: await collectionTree(user), collection });
 };
 
 export type CollectionTree = collection & {
@@ -179,8 +227,9 @@ export function buildSelectTree(tree: CollectionTree[]) {
 }
 
 export default function CreateCollection() {
-  const { tree } = useLoaderData<{
+  const { tree, collection } = useLoaderData<{
     tree: CollectionTree[];
+    collection?: collection;
   }>();
   const fetcher = useFetcher<APIDataResponse<string>>({ key: "create" });
   const { t } = useTranslation();
@@ -193,8 +242,14 @@ export default function CreateCollection() {
       if (fetcher.data.code) {
         message.warning(fetcher.data.msg);
       } else {
-        message.success(t("collection_create_success"));
-        nav("/colletcion/" + fetcher.data.data);
+        message.success(
+          t(
+            collection
+              ? "collection_update_success"
+              : "collection_create_success"
+          )
+        );
+        nav("/collection/" + fetcher.data.data);
       }
     }
   }, [fetcher]);
@@ -205,10 +260,16 @@ export default function CreateCollection() {
         layout="vertical"
         form={form}
         initialValues={{
+          title: collection?.title,
+          description: collection?.description,
+          parent: collection?.parent_id,
           public: publicCollection,
         }}
         onFinish={() => {
           const data = form.getFieldsValue();
+          if (collection?.id) {
+            data.id = collection.id;
+          }
           data.public = publicCollection;
           fetcher.submit(data, {
             method: "POST",
@@ -226,6 +287,7 @@ export default function CreateCollection() {
         </Form.Item>
         <Form.Item name="parent" label={t("parent_collection")}>
           <TreeSelect
+            allowClear
             treeData={buildSelectTree(tree as unknown as CollectionTree[])}
             treeDefaultExpandAll
           />
@@ -273,7 +335,7 @@ export default function CreateCollection() {
             htmlType="submit"
             type="primary"
           >
-            {t("submit")}
+            {collection ? t("update") : t("submit")}
           </Button>
         </div>
       </Form>

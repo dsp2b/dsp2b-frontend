@@ -96,6 +96,8 @@ const MainLayout: React.FC<{
         className="flex flex-row justify-between"
         style={{
           background: token.colorBgContainer,
+          borderBottom: "1px solid " + token.colorBorder,
+          boxShadow: "0px 0px 8px " + token.colorBorder,
         }}
       >
         <div className="flex flex-row gap-2 flex-auto items-center">
@@ -112,13 +114,19 @@ const MainLayout: React.FC<{
             className="!ml-4"
             selectedKeys={[]}
             style={{
-              width: "120px",
+              width: "300px",
               border: 0,
             }}
             items={[
               {
                 key: "home",
                 label: <Link to="/">{t("home")}</Link>,
+              },
+              {
+                key: "colletion",
+                label: (
+                  <Link to="/collection">{t("blueprint_collections")}</Link>
+                ),
               },
             ]}
           />
@@ -199,7 +207,7 @@ const MainLayout: React.FC<{
                 onClick: (info) => {
                   switch (info.key) {
                     case "collection":
-                      navigate("/users/collections");
+                      navigate("/collection?user=" + user.user?.id);
                       break;
                     case "logout":
                       fetch("/login/logout").then((resp) => {
@@ -257,8 +265,11 @@ const MainLayout: React.FC<{
         </Space>
       </Header>
       <Content className="w-4/5 m-auto p-4">{children}</Content>
-      <Footer>
-        <Divider />
+      <Footer
+        style={{
+          background: token.colorBgContainer,
+        }}
+      >
         <div className="flex flex-col items-center">
           <div className="flex flex-row gap-2">
             <Button type="link" href="/">

@@ -25,6 +25,7 @@
   "blueprint_invalid": "蓝图无效",
   "blueprint_data": "蓝图数据",
   "collection_create_success": "蓝图集创建成功",
+  "collection_update_success": "蓝图集更新成功",
   "title": "标题",
   "description": "描述",
   "buildings": "建筑",
@@ -51,6 +52,7 @@
   "sub_collection": "子蓝图集",
   "collection_data_fetch_failed": "蓝图集数据获取失败",
   "blueprint_create_success": "蓝图创建成功",
+  "blueprint_update_success": "蓝图更新成功",
   "username": "用户名",
   "password": "密码",
   "repassword": "确认密码",
@@ -61,5 +63,14 @@
   "oauth_login": "第三方登录",
   "have_account_go_login": "已有账号？去登录",
   "system_error": "系统错误",
-  "delete": "删除"
+  "delete": "删除",
+  "search": "搜索",
+  "latest": "最新",
+  "most_like": "最多点赞",
+  "most_collect": "最多收藏",
+  "sort_by": "排序",
+  "search_by_keyword": "通过关键字搜索",
+  "search_by_tags": "通过标签搜索",
+  "copy_success": "复制成功",
+  "update": "更新"
 }

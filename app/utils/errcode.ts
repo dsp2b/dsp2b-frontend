@@ -43,3 +43,16 @@ export async function errInternalServer(req: Request, code: number) {
 export function codeError(status: number, code: number) {
   throw new CodeError(status, code);
 }
+
+export async function errNotFound(req: Request, code: number) {
+  const t = await i18next.getFixedT(req, "err_code");
+  return json(
+    {
+      code,
+      msg: t(code.toString()),
+    },
+    {
+      status: 404,
+    }
+  );
+}

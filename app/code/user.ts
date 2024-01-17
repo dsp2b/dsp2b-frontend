@@ -11,8 +11,10 @@ export enum ErrUser {
   UsernameExist,
   UploadTooMany,
   LimitTooMany,
-  RequestRegisterEmailAlreadyRegister
+  RequestRegisterEmailAlreadyRegister,
+  UserNotLogin,
 }
+
 
 export enum ErrBuleprint {
   FilenameInvalid = 2001,
@@ -20,6 +22,8 @@ export enum ErrBuleprint {
   DescriptionInvalid,
   BlueprintInvalid,
   PicListInvalid,
+  NotFound,
+  CollectionInvalid
 }
 
 export enum ErrCollection {
@@ -28,4 +32,5 @@ export enum ErrCollection {
   ParentInvalid,
   HasCycle,
   TitleDuplicate,
+  NotFound,
 }

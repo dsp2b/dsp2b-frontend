@@ -12,14 +12,15 @@ datasource db {
 
 // npx prisma db push
 model user {
-  id         String       @id @default(auto()) @map("_id") @db.ObjectId
-  username   String       @unique
-  password   String
-  avatar     String?
-  email      String       @unique
-  createtime DateTime     @default(now()) @db.Timestamp
-  collection collection[]
-  blueprint  blueprint[]
+  id                String              @id @default(auto()) @map("_id") @db.ObjectId
+  username          String              @unique
+  password          String
+  avatar            String?
+  email             String              @unique
+  createtime        DateTime            @default(now()) @db.Timestamp
+  collection        collection[]
+  blueprint         blueprint[]
+  blueprint_comment blueprint_comment[]
 }
 
 model email_verify_code {
@@ -42,15 +43,18 @@ model oauth {
 }
 
 model collection {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  user_id     String   @db.ObjectId
-  user        user     @relation(fields: [user_id], references: [id])
-  title       String
-  description String?
-  parent_id   String?  @db.ObjectId
-  public      Int      @default(1)
-  status      Int      @default(1)
-  createtime  DateTime @default(now()) @db.Timestamp
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  user_id              String                 @db.ObjectId
+  user                 user                   @relation(fields: [user_id], references: [id])
+  title                String
+  description          String?
+  parent_id            String?                @db.ObjectId
+  public               Int                    @default(1)
+  status               Int                    @default(1)
+  createtime           DateTime               @default(now()) @db.Timestamp
+  updatetime           DateTime               @default(now()) @db.Timestamp
+  blueprint_collection blueprint_collection[]
+  collection_like      collection_like[]
 
   @@unique([user_id, title])
   @@index([parent_id])
@@ -65,18 +69,23 @@ model limit_record {
 }
 
 model blueprint {
-  id          String   @id @default(auto()) @map("_id") @db.ObjectId
-  user_id     String   @db.ObjectId
-  user        user     @relation(fields: [user_id], references: [id])
-  title       String
-  description String?
-  tags_id     Int[]
-  pic_list    String[]
-  blueprint   String
-  product_id  String[] @db.ObjectId
-  status      Int      @default(1)
-  createtime  DateTime @default(now()) @db.Timestamp
-  updatetime  DateTime @default(now()) @db.Timestamp
+  id                   String                 @id @default(auto()) @map("_id") @db.ObjectId
+  user_id              String                 @db.ObjectId
+  user                 user                   @relation(fields: [user_id], references: [id])
+  title                String
+  description          String?
+  tags_id              Int[]
+  pic_list             String[]
+  blueprint            String
+  game_version         String
+  buildings            String
+  copy_count           Int                    @default(0)
+  status               Int                    @default(1)
+  createtime           DateTime               @default(now()) @db.Timestamp
+  updatetime           DateTime               @default(now()) @db.Timestamp
+  blueprint_collection blueprint_collection[]
+  blueprint_comment    blueprint_comment[]
+  blueprint_like       blueprint_like[]
 }
 
 model blueprint_product {
@@ -90,12 +99,50 @@ model blueprint_product {
 }
 
 model blueprint_collection {
-  id            String   @id @default(auto()) @map("_id") @db.ObjectId
-  blueprint_id  String   @db.ObjectId
-  collection_id String   @db.ObjectId
-  createtime    DateTime @default(now()) @db.Timestamp
-  updatetime    DateTime @default(now()) @db.Timestamp
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  blueprint_id  String     @db.ObjectId
+  blueprint     blueprint  @relation(fields: [blueprint_id], references: [id])
+  collection_id String     @db.ObjectId
+  collection    collection @relation(fields: [collection_id], references: [id])
+  status        Int        @default(1)
+  createtime    DateTime   @default(now()) @db.Timestamp
+  updatetime    DateTime   @default(now()) @db.Timestamp
 
   @@index([blueprint_id])
   @@index([collection_id])
+}
+
+model collection_like {
+  id            String     @id @default(auto()) @map("_id") @db.ObjectId
+  user_id       String     @db.ObjectId
+  collection_id String     @db.ObjectId
+  collection    collection @relation(fields: [collection_id], references: [id])
+  createtime    DateTime   @default(now()) @db.Timestamp
+
+  @@unique([user_id, collection_id])
+  @@index([collection_id])
+}
+
+model blueprint_like {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  user_id      String    @db.ObjectId
+  blueprint_id String    @db.ObjectId
+  blueprint    blueprint @relation(fields: [blueprint_id], references: [id])
+  createtime   DateTime  @default(now()) @db.Timestamp
+
+  @@unique([user_id, blueprint_id])
+  @@index([blueprint_id])
+}
+
+// 蓝图评论
+model blueprint_comment {
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  user_id      String    @db.ObjectId
+  user         user      @relation(fields: [user_id], references: [id])
+  blueprint_id String    @db.ObjectId
+  blueprint    blueprint @relation(fields: [blueprint_id], references: [id])
+  content      String
+  createtime   DateTime  @default(now()) @db.Timestamp
+
+  @@index([blueprint_id])
 }

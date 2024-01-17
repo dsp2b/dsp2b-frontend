@@ -5,22 +5,31 @@ import { useTranslation } from "react-i18next";
 import { PicCard } from "~/components/PicCard";
 import RecipePanel from "~/components/RecipePanel";
 import {
-  Buildings,
+  Building,
   ParseBlueprintResponse,
-  Products,
+  Product,
   RecipePanelItem,
+  blueprintPicList,
+  blueprintProducts,
+  BlueprintSvc,
+  blueprintTags,
   parseBlueprint,
 } from "~/services/blueprint.server";
 import { post } from "~/utils/api";
-import { CodeError, errBadRequest, errInternalServer } from "~/utils/errcode";
+import {
+  CodeError,
+  errBadRequest,
+  errInternalServer,
+  errNotFound,
+} from "~/utils/errcode";
 import { APIDataResponse } from "~/services/api";
 import { authenticator } from "~/services/auth.server";
 import {
   CollectionTree,
   buildSelectTree,
   collectionTree,
-} from "./create.collection";
-import { ErrBuleprint } from "~/code/user";
+} from "./create.collection.$(id)";
+import { ErrBuleprint, ErrUser } from "~/code/user";
 import prisma from "~/db.server";
 import {
   Avatar,
@@ -58,18 +67,39 @@ import {
   arrayMove,
   verticalListSortingStrategy,
 } from "@dnd-kit/sortable";
+import { blueprint } from "@prisma/client";
+import { BlueprintItem } from "~/components/BlueprintList";
 
-export const loader: LoaderFunction = async ({ request }) => {
+export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request, {
     failureRedirect: "/login",
   });
-  return json({ tree: await collectionTree(user) });
+  const id = params["id"];
+  let blueprint: BlueprintItem | null = null;
+  if (id) {
+    blueprint = (await prisma.blueprint.findUnique({
+      where: {
+        id: id,
+      },
+    })) as BlueprintItem;
+    if (!blueprint || user.id != blueprint.user_id) {
+      return errNotFound(request, ErrBuleprint.NotFound);
+    }
+    const svc = new BlueprintSvc(blueprint);
+    blueprint.tags = blueprintTags(blueprint.tags_id);
+    blueprint.src_pic_list = blueprint.pic_list;
+    blueprint.pic_list = blueprintPicList(blueprint.pic_list);
+    blueprint.buildings = JSON.parse(blueprint.buildings);
+    blueprint.products = await blueprintProducts(blueprint);
+    blueprint.collections = await svc.getColletcion(user.id);
+  }
+  return json({
+    tree: await collectionTree(user),
+    blueprint,
+  });
 };
 
-export const action: ActionFunction = async ({ request }) => {
-  const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
-  });
+export const action: ActionFunction = async ({ request, params }) => {
   try {
     if (request.method === "POST") {
       const url = new URL(request.url);
@@ -91,19 +121,52 @@ export const action: ActionFunction = async ({ request }) => {
           return resp;
         }
       } else {
+        const user = await authenticator.isAuthenticated(request, {
+          failureRedirect: "/login",
+        });
+        if (!user) {
+          return errBadRequest(request, ErrUser.UserNotLogin);
+        }
+        const id = params["id"];
+        let oldBlueprint: blueprint | null = null;
+        if (id) {
+          oldBlueprint = await prisma.blueprint.findUnique({
+            where: {
+              id: id,
+            },
+          });
+          if (!oldBlueprint || user.id != oldBlueprint.user_id) {
+            return errNotFound(request, ErrBuleprint.NotFound);
+          }
+        }
         const data = (await request.json()) as {
           title: string;
           description: string;
           blueprint: string;
           pic_list?: string[];
-          tags?: Array<{ id: number }>;
-          products?: Products[];
-          collections: string[];
+          tags?: Array<{ item_id: number }>;
+          products?: Product[];
+          collections?: string[];
         };
+        // 校验蓝图集
+        if (data.collections) {
+          const collections = await prisma.collection.findMany({
+            where: {
+              user_id: user.id,
+              id: {
+                in: data.collections,
+              },
+            },
+          });
+          if (collections.length != data.collections.length) {
+            return errBadRequest(request, ErrBuleprint.CollectionInvalid);
+          }
+        }
         const resp = await parseBlueprint(data.blueprint);
         if (resp.status != 200) {
           return errBadRequest(request, ErrBuleprint.BlueprintInvalid);
         }
+        const respData = (await resp.json()) as ParseBlueprintResponse;
         if (data.title.length > 20 || data.title.length < 2) {
           return errBadRequest(request, ErrBuleprint.TitleInvalid);
         }
@@ -114,59 +177,88 @@ export const action: ActionFunction = async ({ request }) => {
           return errBadRequest(request, ErrBuleprint.PicListInvalid);
         }
         return prisma
-          .$transaction(async (tx) => {
-            const tags: Array<number> = [];
-            data.tags &&
-              data.tags.forEach((val) => {
-                tags.push(val.id);
-              });
-            let blueprint = await tx.blueprint.create({
-              data: {
-                title: data.title,
-                description: data.description,
-                blueprint: data.blueprint,
-                tags_id: tags,
-                pic_list: data.pic_list,
-                user_id: user.id,
-              },
-            });
-            // 插入产物
-            data.products?.forEach((val) => {});
-            if (data.products) {
-              const productIds = await Promise.all(
-                data.products.map((val) => {
-                  return tx.blueprint_product
-                    .create({
-                      data: {
-                        blueptint_id: blueprint.id,
-                        item_id: val.item_id,
-                        count: val.count,
-                      },
-                    })
-                    .then((p) => p.id);
-                })
-              );
-              await tx.blueprint.update({
-                where: {
-                  id: blueprint.id,
-                },
-                data: {
-                  product_id: productIds,
-                },
-              });
-            }
-            // 关联蓝图集
-            data.collections &&
-              (await tx.blueprint_collection.createMany({
-                data: data.collections.map((val) => {
-                  return {
-                    blueprint_id: blueprint.id,
-                    collection_id: val,
-                  };
-                }),
-              }));
-            return blueprint;
-          })
+          .$transaction(
+            async (tx) => {
+              const tags: Array<number> = [];
+              data.tags &&
+                data.tags.forEach((val) => {
+                  tags.push(val.item_id);
+                });
+              let blueprint: blueprint;
+              if (!oldBlueprint) {
+                blueprint = await tx.blueprint.create({
+                  data: {
+                    title: data.title,
+                    description: data.description,
+                    blueprint: data.blueprint,
+                    tags_id: tags,
+                    pic_list: data.pic_list,
+                    user_id: user.id,
+                    game_version: respData.data.blueprint.GameVersion,
+                    buildings: JSON.stringify(respData.data.buildings),
+                  },
+                });
+              } else {
+                // 清理老数据
+                await tx.blueprint_collection.deleteMany({
+                  where: {
+                    collection: {
+                      user_id: user.id,
+                    },
+                    blueprint_id: oldBlueprint.id,
+                  },
+                });
+                await tx.blueprint_product.deleteMany({
+                  where: {
+                    blueptint_id: oldBlueprint.id,
+                  },
+                });
+                blueprint = await tx.blueprint.update({
+                  where: {
+                    id: oldBlueprint.id,
+                  },
+                  data: {
+                    title: data.title,
+                    description: data.description,
+                    blueprint: data.blueprint,
+                    tags_id: tags,
+                    pic_list: data.pic_list,
+                    user_id: user.id,
+                    game_version: respData.data.blueprint.GameVersion,
+                    buildings: JSON.stringify(respData.data.buildings),
+                    updatetime: new Date(),
+                  },
+                });
+              }
+              if (data.products) {
+                await Promise.all(
+                  data.products.map((val) => {
+                    return tx.blueprint_product
+                      .create({
+                        data: {
+                          blueptint_id: blueprint.id,
+                          item_id: val.item_id,
+                          count: val.count,
+                        },
+                      })
+                      .then((p) => p.id);
+                  })
+                );
+              }
+              // 关联蓝图集
+              data.collections &&
+                (await tx.blueprint_collection.createMany({
+                  data: data.collections.map((val) => {
+                    return {
+                      blueprint_id: blueprint.id,
+                      collection_id: val,
+                    };
+                  }),
+                }));
+              return blueprint;
+            },
+            { timeout: 60 * 1000 }
+          )
           .then((resp) => {
             return { id: resp.id };
           });
@@ -179,18 +271,25 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export default function CreateBlueprint() {
-  const { tree } = useLoaderData<{
+  const { tree, blueprint } = useLoaderData<{
     tree: CollectionTree[];
+    blueprint?: BlueprintItem;
   }>();
+
   const fetcher = useFetcher<CodeError>({ key: "create" });
   const parse = useFetcher<ParseBlueprintResponse>({ key: "parse" });
   const [formRef] = Form.useForm();
   const { t } = useTranslation();
-  const [buildings, setBuildings] = useState<Buildings[]>([]);
-  const [products, setProducts] = useState<Products[]>([]);
+  const [buildings, setBuildings] = useState<Building[]>(
+    blueprint?.buildings || []
+  );
+  const [products, setProducts] = useState<Product[]>(
+    blueprint?.products || []
+  );
   const [visiblePanel, setVisiblePanel] = useState(false);
   const [visibleTagPanel, setVisibleTagPanel] = useState(false);
-  const [tags, setTags] = useState<RecipePanelItem[]>([]);
+  //@ts-ignore
+  const [tags, setTags] = useState<RecipePanelItem[]>(blueprint?.tags || []);
   const sensor = useSensor(PointerSensor, {
     activationConstraint: { distance: 10 },
   });
@@ -200,7 +299,9 @@ export default function CreateBlueprint() {
       if (fetcher.data.code) {
         message.warning(fetcher.data.msg);
       } else {
-        message.success(t("blueprint_create_success"));
+        message.success(
+          t(blueprint ? "blueprint_update_success" : "blueprint_create_success")
+        );
         window.location.href = "/blueprint/" + fetcher.data.id;
       }
     }
@@ -228,7 +329,7 @@ export default function CreateBlueprint() {
           parse.data.data.products.forEach((val) => {
             if (val.count > 0) {
               tags.push({
-                id: val.item_id,
+                item_id: val.item_id,
                 name: val.name,
                 icon_path: val.icon_path,
               });
@@ -240,7 +341,19 @@ export default function CreateBlueprint() {
     }
   }, [parse]);
 
-  const [picList, setPicList] = useState<UploadFile[]>([]);
+  const [picList, setPicList] = useState<UploadFile[]>(
+    blueprint
+      ? blueprint.pic_list?.map((val, index) => {
+          return {
+            response: { url: blueprint.src_pic_list![index] },
+            uid: index.toString(),
+            name: val,
+            url: val,
+            status: "done",
+          };
+        })
+      : []
+  );
 
   const onDragEnd = ({ active, over }: DragEndEvent) => {
     if (active.id !== over?.id) {
@@ -254,7 +367,20 @@ export default function CreateBlueprint() {
 
   return (
     <Card title={t("create_blueprint")} size="small">
-      <Form layout="vertical" form={formRef}>
+      <Form
+        layout="vertical"
+        form={formRef}
+        initialValues={
+          blueprint
+            ? {
+                blueprint: blueprint.blueprint,
+                title: blueprint.title,
+                description: blueprint.description,
+                collections: blueprint.collections?.map((val) => val.id),
+              }
+            : undefined
+        }
+      >
         <Form.Item name="blueprint" label={t("blueprint_data")}>
           <Input.TextArea
             onBlur={() => {
@@ -287,7 +413,7 @@ export default function CreateBlueprint() {
             onSelect={(val) => {
               setTags((prevTags) => {
                 for (const tag of prevTags) {
-                  if (tag.id == val.id) {
+                  if (tag.item_id == val.item_id) {
                     message.warning(t("tag_exist"));
                     return prevTags;
                   }
@@ -542,10 +668,10 @@ export default function CreateBlueprint() {
               }}
               onSelect={(val) => {
                 setProducts((p) => {
-                  const index = p.findIndex((v) => v.item_id == val.id);
+                  const index = p.findIndex((v) => v.item_id == val.item_id);
                   if (index == -1) {
                     p.push({
-                      item_id: val.id,
+                      item_id: val.item_id,
                       name: val.name,
                       icon_path: val.icon_path,
                       count: 0,
@@ -572,9 +698,13 @@ export default function CreateBlueprint() {
         </Form.Item>
         <div className="flex flex-row-reverse mt-2">
           <Button
+            type="primary"
             loading={fetcher.state != "idle"}
             onClick={() => {
               const data = formRef.getFieldsValue();
+              if (blueprint?.id) {
+                data.id = blueprint.id;
+              }
               data.products = products;
               data.pic_list = [];
               picList.forEach((val) => {
@@ -589,7 +719,7 @@ export default function CreateBlueprint() {
               });
             }}
           >
-            {t("submit")}
+            {blueprint ? t("update") : t("submit")}
           </Button>
         </div>
       </Form>

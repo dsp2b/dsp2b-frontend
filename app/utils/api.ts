@@ -1,16 +1,36 @@
-export function request(
-  route: string,
-  options: { method?: string; body?: any; headers?: HeadersInit }
-) {
+import { useFetcher } from "@remix-run/react";
+import { useState } from "react";
+
+export type RequestOptions = {
+  params?: { [key: string]: string };
+  method?: string;
+  body?: any;
+  headers?: HeadersInit;
+};
+
+export function request(route: string, options: RequestOptions) {
   const s = route.split("?");
 
-  const url =
-    "/" + route + "?_data=routes/" + route + (s.length > 1 ? "&" + s[1] : "");
-  return fetch(url, {
+  let url = "/" + route.replaceAll("_", "");
+
+  if (options.params) {
+    url = url.replaceAll(".", "/");
+    Object.keys(options.params).forEach((key) => {
+      url = url.replace("$" + key, options.params![key]);
+    });
+  }
+  url += "?_data=routes/" + route + (s.length > 1 ? "&" + s[1] : "");
+  const opts: RequestInit = {
     method: options.method,
     body: options.body,
-    headers: options.headers,
-  });
+    headers: options.headers || {},
+  };
+  if (typeof options.body === "object") {
+    // @ts-ignore
+    opts.headers["Content-Type"] = "application/json";
+    opts.body = JSON.stringify(opts.body);
+  }
+  return fetch(url, opts);
 }
 
 export function get(route: string) {
@@ -35,4 +55,35 @@ export function post(route: string, data: any) {
       "Content-Type": "application/json",
     },
   });
+}
+
+export function useRequest(route: string) {
+  const [loading, setLoading] = useState(false);
+
+  return {
+    submit: async (options: RequestOptions) => {
+      setLoading(true);
+      options.method = "POST";
+      return request(route, options).then((resp) => {
+        setLoading(false);
+        return resp;
+      });
+    },
+    loading: loading,
+  };
+}
+
+export function replaceSearchParam(
+  search: string,
+  params: { [key: string]: any }
+): string {
+  for (const key in params) {
+    if (search.indexOf(key + "=") > -1) {
+      const regex = new RegExp(key + "=.*?(&|$)");
+      search = search.replace(regex, key + "=" + params[key] + "$1");
+    } else {
+      search += (search ? "&" : "") + key + "=" + params[key];
+    }
+  }
+  return search;
 }
