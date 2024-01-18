@@ -324,7 +324,7 @@ export default function Blueprint() {
                     <div className="flex flex-row flex-wrap gap-2">
                       <Typography.Text>
                         maxzhang 回复
-                        <Link to={"/users/1"}> @王一之 </Link>:
+                        <Link to={"/user/1"}> @王一之 </Link>:
                         哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈
                       </Typography.Text>
                     </div>
@@ -350,7 +350,7 @@ export default function Blueprint() {
               {
                 label: t("author"),
                 children: (
-                  <Link to={"/users/" + loader.blueprint.user_id}>
+                  <Link to={"/user/" + loader.blueprint.user_id}>
                     {loader.blueprint.user.username}
                   </Link>
                 ),

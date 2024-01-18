@@ -397,7 +397,7 @@ export default function CreateBlueprint() {
             }}
           />
         </Form.Item>
-        <Form.Item name="collections" label={t("blueprint_collections")}>
+        <Form.Item name="collections" label={t("blueprint_collection")}>
           <TreeSelect
             className="w-full"
             treeData={buildSelectTree(tree as unknown as CollectionTree[])}

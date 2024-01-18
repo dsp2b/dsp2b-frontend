@@ -13,6 +13,7 @@
   "home": "首页",
   "dark_mode_auto": "跟随系统",
   "dark_mode_light": "浅色模式",
+  "blueprint": "蓝图",
   "dark_mode_dark": "深色模式",
   "logout": "退出登录",
   "logout_failed": "退出登录失败",
@@ -39,7 +40,7 @@
   "please_upload_cover_picture": "请上传展示图片,最多10张,每张不超过4M",
   "file_upload_failed": "文件上传失败",
   "file_upload_success": "文件上传成功",
-  "blueprint_collections": "蓝图集",
+  "blueprint_collection": "蓝图集",
   "blueprint_tags": "蓝图标签",
   "tag_exist": "标签已存在",
   "create_collection": "创建蓝图集",
@@ -72,5 +73,6 @@
   "search_by_keyword": "通过关键字搜索",
   "search_by_tags": "通过标签搜索",
   "copy_success": "复制成功",
-  "update": "更新"
+  "update": "更新",
+  "edit": "编辑"
 }

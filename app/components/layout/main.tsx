@@ -125,7 +125,7 @@ const MainLayout: React.FC<{
               {
                 key: "colletion",
                 label: (
-                  <Link to="/collection">{t("blueprint_collections")}</Link>
+                  <Link to="/collection">{t("blueprint_collection")}</Link>
                 ),
               },
             ]}

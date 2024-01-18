@@ -228,7 +228,7 @@ const BlueprintList: React.FC<{
                 />
                 <div className="flex flex-row justify-between mt-2">
                   <div>
-                    <Link to={"/users/" + item.user_id}>
+                    <Link to={"/user/" + item.user_id}>
                       <Typography.Text type="secondary">
                         {item.user.username}
                       </Typography.Text>

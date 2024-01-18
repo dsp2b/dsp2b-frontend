@@ -115,7 +115,7 @@ export default function App() {
                 locale={userContext.locale}
                 onChange={async (param) => {
                   if (param.locale != userContext.locale) {
-                    fetch("/users/switch/lng/" + param.locale);
+                    fetch("/user/switch/lng/" + param.locale);
                   }
                   setUserContext({
                     locale: param.locale,

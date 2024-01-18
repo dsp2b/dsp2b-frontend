@@ -1,5 +1,5 @@
 import { CustomIconComponentProps } from '@ant-design/icons/lib/components/Icon';
-import Icon, { HomeOutlined } from '@ant-design/icons';
+import Icon from '@ant-design/icons';
 
 export function SunLineIcon(props: Partial<CustomIconComponentProps>) {
   return (

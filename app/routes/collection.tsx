@@ -206,7 +206,7 @@ export default function Collection() {
                   description={item.description || "-"}
                 />
                 <div className="flex flex-row items-center">
-                  <Link to={"/users/" + item.user_id}>
+                  <Link to={"/user/" + item.user_id}>
                     <Typography.Text type="secondary">
                       {item.user.username}
                     </Typography.Text>

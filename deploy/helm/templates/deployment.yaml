@@ -27,6 +27,10 @@ spec:
       serviceAccountName: {{ include "scriptcat-list-frontend.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      volumes:
+      - name: npm-logs
+        hostPath:
+          path: /root/.npm
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -37,6 +41,9 @@ spec:
             - name: http
               containerPort: 3000
               protocol: TCP
+          volumeMounts:
+          - mountPath: /root/.npm
+            name: npm-logs
           livenessProbe:
             httpGet:
               path: /health
