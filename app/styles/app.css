@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+body.dark {
+	background: #000;
+}
 
 .is-dragging {
 	pointer-events: none;
