@@ -41,7 +41,7 @@ export const loader: LoaderFunction = async ({ request }) => {
   }
   const user = await authenticator.isAuthenticated(request);
   const t = await i18next.getFixedT(locale || "en");
-  console.log(locale);
+
   return json({
     locale,
     darkMode: darkMode || "light",
