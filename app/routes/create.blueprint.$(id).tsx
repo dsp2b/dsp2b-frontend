@@ -247,6 +247,7 @@ export const action: ActionFunction = async ({ request, params }) => {
               }
               // 关联蓝图集
               data.collections &&
+                data.collections.length &&
                 (await tx.blueprint_collection.createMany({
                   data: data.collections.map((val) => {
                     return {
@@ -266,6 +267,7 @@ export const action: ActionFunction = async ({ request, params }) => {
     }
     return errBadRequest(request, -1);
   } catch (e) {
+    console.error(e);
     return errInternalServer(request, -2);
   }
 };

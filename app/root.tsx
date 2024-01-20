@@ -23,6 +23,7 @@ import { useState } from "react";
 import { parseCookie } from "./utils/cookie";
 import { authenticator } from "./services/auth.server";
 import { ConfigProvider, theme } from "antd";
+import NavigationProcess from "./components/NavigationProcess/NavigationProcess";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appCss },
@@ -111,6 +112,7 @@ export default function App() {
                 user: userContext.user,
               }}
             >
+              <NavigationProcess />
               <MainLayout
                 locale={userContext.locale}
                 onChange={async (param) => {

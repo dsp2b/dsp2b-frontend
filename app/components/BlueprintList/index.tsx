@@ -191,7 +191,7 @@ const BlueprintList: React.FC<{
           renderItem={(item) => (
             <List.Item>
               <Card
-                style={{ width: 200 }}
+                style={{ width: 200, overflow: "hidden" }}
                 cover={
                   <Link to={"/blueprint/" + item.id}>
                     {!item.pic && item.tags && item.tags.length ? (
@@ -204,7 +204,11 @@ const BlueprintList: React.FC<{
                       />
                     ) : (
                       <img
-                        style={{ height: 200 }}
+                        style={{
+                          height: "200px",
+                          borderRadius: 0,
+                          objectFit: "contain",
+                        }}
                         src={
                           item.pic
                             ? item.pic

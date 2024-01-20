@@ -6,6 +6,7 @@ export type RequestOptions = {
   method?: string;
   body?: any;
   headers?: HeadersInit;
+  search?: string;
 };
 
 export function routeToUrl(route: string, options: RequestOptions) {
@@ -19,7 +20,13 @@ export function routeToUrl(route: string, options: RequestOptions) {
       url = url.replace("$" + key, options.params![key]);
     });
   }
-  return url + "?_data=routes/" + route + (s.length > 1 ? "&" + s[1] : "");
+  return (
+    url +
+    "?_data=routes/" +
+    route +
+    (s.length > 1 ? "&" + s[1] : "") +
+    (options.search ? "&" + options.search : "")
+  );
 }
 
 export function request(route: string, options: RequestOptions) {
@@ -61,18 +68,21 @@ export function post(route: string, data: any) {
   });
 }
 
-export function useRequest(route: string) {
+export function useRequest<T>(route: string) {
   const [loading, setLoading] = useState(false);
+  const [data, setData] = useState<T | null>(null);
 
   return {
     submit: async (options: RequestOptions) => {
       setLoading(true);
-      options.method = "POST";
+      options.method = options.method ?? "POST";
       return request(route, options).then((resp) => {
         setLoading(false);
         return resp;
       });
     },
+    setData: setData,
+    data: data,
     loading: loading,
   };
 }

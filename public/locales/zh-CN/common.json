@@ -17,6 +17,7 @@
   "dark_mode_dark": "深色模式",
   "logout": "退出登录",
   "logout_failed": "退出登录失败",
+  "data_load_failed": "数据加载失败",
   "logout_success": "退出登录成功",
   "dyson_sphere_project": "戴森球计划",
   "home_subtitle": "戴森球计划蓝图与社区",
@@ -74,5 +75,13 @@
   "search_by_tags": "通过标签搜索",
   "copy_success": "复制成功",
   "update": "更新",
-  "edit": "编辑"
+  "edit": "编辑",
+  "author": "作者",
+  "create_time": "创建时间",
+  "game_version": "游戏版本",
+  "copy_count": "复制次数",
+  "copy_blueprint_code": "复制蓝图代码",
+  "empty_data": "暂无数据",
+  "collection": "蓝图集",
+  "collect": "收藏"
 }

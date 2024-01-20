@@ -1,45 +1,46 @@
 import {
+  DownOutlined,
   EditOutlined,
   LikeFilled,
   LikeOutlined,
+  LoadingOutlined,
   ShareAltOutlined,
+  StarFilled,
+  StarOutlined,
 } from "@ant-design/icons";
+import debounce from "lodash/debounce";
 import {
-  blueprint,
+  blueprint_collection,
   blueprint_like,
   blueprint_product,
   collection,
   user,
 } from "@prisma/client";
 import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
-import {
-  Link,
-  useLoaderData,
-  useLocation,
-  useNavigate,
-  useNavigation,
-} from "@remix-run/react";
+import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import {
   Avatar,
   Badge,
   Button,
   Card,
   Carousel,
+  Checkbox,
   Descriptions,
   Divider,
+  Dropdown,
   Input,
-  Select,
   Space,
   Tag,
   Typography,
   message,
   theme,
 } from "antd";
+import { ItemType } from "antd/es/menu/hooks/useItems";
 import dayjs from "dayjs";
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
-import { ErrBuleprint, ErrUser } from "~/code/user";
+import { ErrBuleprint } from "~/code/user";
 import { BlueprintItem } from "~/components/BlueprintList";
 import DSPCover from "~/components/DSPCover";
 import prisma from "~/db.server";
@@ -67,6 +68,7 @@ export const action: ActionFunction = async ({ request, params }) => {
   switch (data.action) {
     case "like":
       return postLike(request, blueprint, data.like);
+    case "collect":
   }
   return errBadRequest(request, -1);
 };
@@ -89,6 +91,29 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   })) as BlueprintItem;
   if (!blueprint) {
     return errNotFound(request, ErrBuleprint.NotFound);
+  }
+  const url = new URL(request.url);
+  const action = url.searchParams.get("action");
+  if (action === "collect" && user) {
+    // 查询是否已经收藏与收藏列表
+    const keyword = url.searchParams.get("keyword") || "";
+    const collection = await prisma.collection.findMany({
+      where: {
+        user_id: user.id,
+        title: {
+          contains: keyword,
+        },
+      },
+      include: {
+        blueprint_collection: {
+          where: {
+            blueprint_id: blueprint.id,
+          },
+        },
+      },
+      take: 10,
+    });
+    return json({ collection });
   }
   const products = await prisma.blueprint_product.findMany({
     where: {
@@ -141,6 +166,21 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     });
   }
 
+  let is_collect = false;
+  if (user) {
+    const result = await prisma.blueprint_collection.findFirst({
+      where: {
+        collection: {
+          user_id: user.id,
+        },
+        blueprint_id: blueprint.id,
+      },
+    });
+    if (result) {
+      is_collect = true;
+    }
+  }
+
   return json({
     user,
     blueprint,
@@ -150,10 +190,15 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     is_like: is_like ? true : false,
     self: user && user.id == blueprint.user_id,
     href: process.env.APP_DOMAIN + "/blueprint/" + blueprint.id,
+    is_collect,
   });
 };
 
 type productItem = blueprint_product & { name: string; icon_path: string };
+
+type collectItem = collection & {
+  blueprint_collection: blueprint_collection[];
+};
 
 export default function Blueprint() {
   const loader = useLoaderData<{
@@ -165,6 +210,7 @@ export default function Blueprint() {
     is_like: boolean;
     self: boolean;
     href: string;
+    is_collect: boolean;
   }>();
   const { token } = theme.useToken();
   const { t } = useTranslation();
@@ -174,6 +220,31 @@ export default function Blueprint() {
   const navigate = useNavigate();
   const collections = [...loader.collections].splice(0, 2);
   const buildings = JSON.parse(loader.blueprint.buildings) as Building[];
+  const reqSelfCollection = useRequest<collectItem[]>("blueprint.$id");
+
+  const debounceTimeout = 800;
+  const debounceFetcher = useMemo(() => {
+    const loadOptions = (value: string) => {
+      reqSelfCollection
+        .submit({
+          params: {
+            id: loader.blueprint.id,
+          },
+          search: "action=collect&keyword=" + value,
+          method: "GET",
+        })
+        .then(async (resp) => {
+          if (resp.status !== 200) {
+            message.error(t("data_load_failed"));
+            return;
+          }
+          const data = (await resp.json()) as { collection: collectItem[] };
+          reqSelfCollection.setData(data.collection);
+        });
+    };
+
+    return debounce(loadOptions, debounceTimeout);
+  }, [debounceTimeout]);
 
   return (
     <div className="flex flex-row justify-between gap-3">
@@ -181,16 +252,22 @@ export default function Blueprint() {
         style={{ width: "75%" }}
         cover={
           loader.blueprint.pic_list && loader.blueprint.pic_list.length > 0 ? (
-            <Carousel>
+            <Carousel style={{ width: "100%", height: "300px" }}>
               {loader.blueprint.pic_list.map((pic) => (
                 <div>
-                  <img
-                    style={{
-                      width: "100%",
-                      maxHeight: "400px",
-                    }}
-                    src={pic}
-                  />
+                  <div
+                    className="flex justify-center"
+                    style={{ width: "100%", height: "300px" }}
+                  >
+                    <img
+                      style={{
+                        maxHeight: "300px",
+                        borderRadius: 0,
+                        objectFit: "contain",
+                      }}
+                      src={pic}
+                    />
+                  </div>
                 </div>
               ))}
             </Carousel>
@@ -350,9 +427,113 @@ export default function Blueprint() {
               {
                 label: t("author"),
                 children: (
-                  <Link to={"/user/" + loader.blueprint.user_id}>
-                    {loader.blueprint.user.username}
-                  </Link>
+                  <div className="flex flex-row justify-between w-full">
+                    <Link to={"/user/" + loader.blueprint.user_id}>
+                      {loader.blueprint.user.username}
+                    </Link>
+                    {loader.user && (
+                      <Dropdown.Button
+                        style={{
+                          width: "auto",
+                        }}
+                        size="small"
+                        loading={reqSelfCollection.loading}
+                        onOpenChange={(open) => {
+                          if (!reqSelfCollection.data) {
+                            debounceFetcher("");
+                          }
+                        }}
+                        menu={{
+                          items: [
+                            {
+                              type: "group",
+                              label: (
+                                <Input
+                                  onChange={(val) =>
+                                    debounceFetcher(val.target.value)
+                                  }
+                                />
+                              ),
+                            },
+                            ...((reqSelfCollection.loading
+                              ? [
+                                  {
+                                    type: "group",
+                                    label: (
+                                      <div className="w-full text-center">
+                                        <LoadingOutlined />
+                                      </div>
+                                    ),
+                                  },
+                                ]
+                              : []) as ItemType[]),
+                            ...((reqSelfCollection.data || []).map((item) => {
+                              return {
+                                type: "group",
+                                label: (
+                                  <Checkbox
+                                    checked={
+                                      item.blueprint_collection &&
+                                      item.blueprint_collection.length > 0
+                                    }
+                                    onChange={(val) => {
+                                      reqSelfCollection
+                                        .submit({
+                                          params: {
+                                            id: loader.blueprint.id,
+                                          },
+                                          search: "action=collect",
+                                          method: "POST",
+                                          body: {
+                                            collection_id: item.id,
+                                            blueprint_id: loader.blueprint.id,
+                                            action: val.target.checked
+                                              ? "add"
+                                              : "remove",
+                                          },
+                                        })
+                                        .then((resp) => {
+                                          if (resp.status == 200) {
+                                            message.success(t("success"));
+                                            reqSelfCollection.setData((val) => {
+                                              if (!val) {
+                                                return null;
+                                              }
+                                              return val.map((val) => {
+                                                if (val.id == item.id) {
+                                                  val.blueprint_collection = [
+                                                    {} as any,
+                                                  ];
+                                                }
+                                                return val;
+                                              });
+                                            });
+                                          } else {
+                                            message.error(t("failed"));
+                                          }
+                                        });
+                                    }}
+                                  >
+                                    {item.title}
+                                  </Checkbox>
+                                ),
+                              };
+                            }) as ItemType[]),
+                          ],
+                        }}
+                        icon={<DownOutlined />}
+                      >
+                        <Space size={2}>
+                          {loader.is_collect ? (
+                            <StarFilled className="!text-yellow-500" />
+                          ) : (
+                            <StarOutlined />
+                          )}{" "}
+                          {t("collect")}
+                        </Space>
+                      </Dropdown.Button>
+                    )}
+                  </div>
                 ),
               },
               {

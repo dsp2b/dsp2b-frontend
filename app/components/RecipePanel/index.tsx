@@ -30,7 +30,7 @@ const Panel: React.FC<{
                 width: 44,
               }}
             >
-              {val.id ? (
+              {val.item_id ? (
                 <Avatar
                   shape="square"
                   src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
@@ -142,6 +142,9 @@ export default function RecipePanel({
       }
       onOpenChange={(open) => {
         setFirstVisible(open);
+        if (!open) {
+          onClickOutSide();
+        }
       }}
     >
       {children}

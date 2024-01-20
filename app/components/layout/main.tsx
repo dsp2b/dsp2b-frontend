@@ -239,7 +239,7 @@ const MainLayout: React.FC<{
                     label: (
                       <Space>
                         <FolderOpenOutlined />
-                        {t("blueprint_collections")}
+                        {t("blueprint_collection")}
                       </Space>
                     ),
                   },
