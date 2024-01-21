@@ -32,7 +32,9 @@ type LoaderData = {
   username: string;
   avatar: string;
   description: string;
-  oauth: { [key: string]: { type: string; bind: boolean } };
+  oauth: {
+    discord?: { bind: boolean };
+  };
 };
 
 export const action: ActionFunction = async ({ request }) => {
@@ -229,7 +231,7 @@ export default function Edit() {
           <div className="flex flex-row justify-center gap-3 w-full">
             <Button
               href="/login/oauth?type=discord"
-              disabled={loader.oauth.dicord && loader.oauth.discord.bind}
+              disabled={loader.oauth.discord && loader.oauth.discord.bind}
             >
               <Space>
                 <RiDiscordLine
@@ -238,7 +240,7 @@ export default function Edit() {
                   }}
                 />
                 <Typography.Text>
-                  {loader.oauth.dicord && loader.oauth.discord.bind
+                  {loader.oauth.discord && loader.oauth.discord.bind
                     ? t("binded")
                     : t("bind")}
                 </Typography.Text>

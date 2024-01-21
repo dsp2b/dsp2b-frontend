@@ -210,7 +210,7 @@ const MainLayout: React.FC<{
                       navigate("/user");
                       break;
                     case "collection":
-                      navigate("/collection?user=" + user.user?.id);
+                      navigate("/user/collection");
                       break;
                     case "logout":
                       fetch("/login/logout").then((resp) => {
