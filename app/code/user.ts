@@ -13,6 +13,7 @@ export enum ErrUser {
   LimitTooMany,
   RequestRegisterEmailAlreadyRegister,
   UserNotLogin,
+  BindDiscord
 }
 
 

@@ -57,6 +57,7 @@
   "blueprint_update_success": "蓝图更新成功",
   "username": "用户名",
   "password": "密码",
+  "new_password": "新密码",
   "repassword": "确认密码",
   "rember_me": "记住我",
   "email": "Email",
@@ -83,5 +84,9 @@
   "copy_blueprint_code": "复制蓝图代码",
   "empty_data": "暂无数据",
   "collection": "蓝图集",
-  "collect": "收藏"
+  "collect": "收藏",
+  "binded": "已绑定",
+  "bind": "绑定",
+  "user_description": "个人简介",
+  "update_success": "更新成功"
 }

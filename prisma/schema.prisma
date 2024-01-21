@@ -16,6 +16,7 @@ model user {
   username          String              @unique
   password          String
   avatar            String?
+  description       String?
   email             String              @unique
   createtime        DateTime            @default(now()) @db.Timestamp
   collection        collection[]
@@ -40,6 +41,9 @@ model oauth {
   type       oauth_type
   openid     String
   createtime DateTime   @default(now()) @db.Timestamp
+
+  @@unique([type, openid])
+  @@unique([user_id, type])
 }
 
 model collection {

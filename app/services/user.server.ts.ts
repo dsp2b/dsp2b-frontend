@@ -11,6 +11,7 @@ import validator from "validator";
 export interface UserAuth {
   id: string;
   username: string;
+  avatar: string;
 }
 
 export interface UserInfo {

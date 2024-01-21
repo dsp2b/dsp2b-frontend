@@ -69,6 +69,7 @@ import {
 } from "@dnd-kit/sortable";
 import { blueprint } from "@prisma/client";
 import { BlueprintItem } from "~/components/BlueprintList";
+import { upload } from "~/utils/utils.client";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request, {
@@ -521,45 +522,7 @@ export default function CreateBlueprint() {
                       return;
                     } else {
                       // 上传文件
-                      const formData = new FormData();
-                      for (const key in data.data.formData) {
-                        formData.append(key, data.data.formData[key]);
-                      }
-                      formData.append("file", req.file);
-                      const xhr = new XMLHttpRequest();
-                      xhr.open("POST", data.data.postURL);
-                      xhr.onprogress = (e) => {
-                        req.onProgress &&
-                          req.onProgress({
-                            percent: Math.round((e.loaded / e.total) * 100),
-                          });
-                      };
-                      xhr.onerror = (e) => {
-                        req.onError &&
-                          req.onError({
-                            status: xhr.status,
-                            name: "上传错误",
-                            message: data.msg,
-                          });
-                      };
-                      xhr.onload = (e) => {
-                        if (xhr.status >= 400) {
-                          message.warning(t("file_upload_failed"));
-                          req.onError &&
-                            req.onError({
-                              status: xhr.status,
-                              name: "上传错误",
-                              message: data.msg,
-                            });
-                          return;
-                        }
-                        message.success(t("file_upload_success"));
-                        req.onSuccess &&
-                          req.onSuccess({
-                            url: data.data.formData.key,
-                          });
-                      };
-                      xhr.send(formData);
+                      upload(data.data, req.file, t, req);
                     }
                   });
                 }}

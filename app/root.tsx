@@ -24,6 +24,9 @@ import { parseCookie } from "./utils/cookie";
 import { authenticator } from "./services/auth.server";
 import { ConfigProvider, theme } from "antd";
 import NavigationProcess from "./components/NavigationProcess/NavigationProcess";
+import prisma from "./db.server";
+import { UserAuth } from "./services/user.server.ts";
+import { ossFileUrl } from "./utils/utils.server";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appCss },
@@ -40,14 +43,31 @@ export const loader: LoaderFunction = async ({ request }) => {
     darkMode = cookie.darkMode ? cookie.darkMode : "";
     styleMode = cookie.styleMode ? cookie.styleMode : "";
   }
-  const user = await authenticator.isAuthenticated(request);
+  let user: UserAuth | null = await authenticator.isAuthenticated(request);
   const t = await i18next.getFixedT(locale || "en");
+  if (user) {
+    const m = await prisma.user.findUnique({
+      where: {
+        id: user.id,
+      },
+      select: {
+        id: true,
+        username: true,
+        avatar: true,
+      },
+    });
+    if (!m) {
+      user = null;
+    } else {
+      user.avatar = ossFileUrl(m.avatar);
+    }
+  }
 
   return json({
     locale,
     darkMode: darkMode || "light",
     styleMode: styleMode || "auto",
-    user: user,
+    user,
     home_subtitle: t("home_subtitle"),
     home_page_description: t("home_page_description"),
   });

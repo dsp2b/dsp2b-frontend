@@ -1,5 +1,4 @@
 export interface APIResponse {
-  [key: string]: any;
   code: number;
   msg: string;
 }

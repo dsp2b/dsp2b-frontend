@@ -1,5 +1,18 @@
-import { useFetcher } from "@remix-run/react";
+import { FileUploadHandlerOptions } from "@remix-run/node/dist/upload/fileUploadHandler";
+import type {
+  RcFile as OriRcFile,
+  UploadRequestOption,
+} from "rc-upload/lib/interface";
+import {
+  useFetcher,
+  useLocation,
+  useNavigation,
+  useResolvedPath,
+} from "@remix-run/react";
+import { message } from "antd";
 import { useState } from "react";
+import { APIDataResponse } from "~/services/api";
+import { RcFile } from "antd/es/upload";
 
 export type RequestOptions = {
   params?: { [key: string]: string };
@@ -13,9 +26,8 @@ export function routeToUrl(route: string, options: RequestOptions) {
   const s = route.split("?");
   route = s[0];
   let url = "/" + route.replaceAll("_", "");
-
+  url = url.replaceAll(".", "/");
   if (options.params) {
-    url = url.replaceAll(".", "/");
     Object.keys(options.params).forEach((key) => {
       url = url.replace("$" + key, options.params![key]);
     });
@@ -27,6 +39,55 @@ export function routeToUrl(route: string, options: RequestOptions) {
     (s.length > 1 ? "&" + s[1] : "") +
     (options.search ? "&" + options.search : "")
   );
+}
+
+class ResponsePrimse<T = any> {
+  private promise: Promise<Response>;
+
+  private thenCallback?: (value: Response) => any;
+
+  private errorCallback?: (code: number, msg: string) => any;
+
+  private successCallback?: (value: T) => any;
+
+  constructor(promise: Promise<Response>) {
+    this.promise = promise;
+    this.promise.then(this._then.bind(this));
+  }
+
+  private _then(value: Response) {
+    this.thenCallback && this.thenCallback(value);
+    if (value.status == 200) {
+      value.json().then((data: APIDataResponse<T>) => {
+        this.successCallback && this.successCallback(data.data);
+      });
+    } else if (value.status < 500) {
+      value.json().then((data: APIDataResponse<T>) => {
+        if (this.errorCallback) {
+          this.errorCallback(data.code, data.msg);
+        } else {
+          message.error(data.msg);
+        }
+      });
+    } else {
+      message.error("Server error");
+    }
+  }
+
+  public then(callback: (value: Response) => any) {
+    this.thenCallback = callback;
+    return this;
+  }
+
+  public success(callback: (data: T) => any) {
+    this.successCallback = callback;
+    return this;
+  }
+
+  public error(callback: (code: number, msg: string) => any) {
+    this.errorCallback = callback;
+    return this;
+  }
 }
 
 export function request(route: string, options: RequestOptions) {
@@ -71,15 +132,17 @@ export function post(route: string, data: any) {
 export function useRequest<T>(route: string) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<T | null>(null);
-
+  const location = useLocation();
   return {
-    submit: async (options: RequestOptions) => {
+    submit: (options: RequestOptions) => {
       setLoading(true);
       options.method = options.method ?? "POST";
-      return request(route, options).then((resp) => {
-        setLoading(false);
-        return resp;
-      });
+      return new ResponsePrimse<T>(
+        request(route, options).then((resp) => {
+          setLoading(false);
+          return resp;
+        })
+      );
     },
     setData: setData,
     data: data,

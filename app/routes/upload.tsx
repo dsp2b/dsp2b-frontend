@@ -5,6 +5,7 @@ import { ErrBuleprint, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import { LimitSvc } from "~/services/limit.server";
 import { errBadRequest } from "~/utils/errcode";
+import { jsonData } from "~/utils/utils.server";
 
 export const action: ActionFunction = async ({ request }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -20,7 +21,13 @@ export const action: ActionFunction = async ({ request }) => {
   });
   const bucket = process.env.MINIO_BUCKET!;
 
-  const { filename } = await request.json();
+  const { filename, type = "blueprint" } = await jsonData<{
+    filename: string;
+    type: "blueprint" | "avatar";
+  }>(request);
+  if (["blueprint", "avatar"].indexOf(type) === -1) {
+    return errBadRequest(request, ErrBuleprint.FilenameInvalid);
+  }
   // 取出后缀
   const ext = filename.split(".").pop();
   if (!ext) {
@@ -40,7 +47,7 @@ export const action: ActionFunction = async ({ request }) => {
     async () => {
       const policy = minioClient.newPostPolicy();
       policy.setContentType("image/*");
-      policy.setKey("images/blueprint/" + uuidv4() + "." + ext);
+      policy.setKey("images/" + type + "/" + uuidv4() + "." + ext);
       policy.setBucket(bucket);
       policy.setExpires(new Date(Date.now() + 60 * 100 * 1000));
       policy.setContentLengthRange(0, 1024 * 1024 * 4);

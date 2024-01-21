@@ -5,6 +5,12 @@ import { FormStrategy } from "remix-auth-form";
 import prisma from "~/db.server";
 import { UserAuth } from "./user.server.ts";
 import { DiscordStrategy } from "remix-auth-discord";
+import {
+  OAuth2Profile,
+  OAuth2Strategy,
+  OAuth2StrategyVerifyParams,
+} from "remix-auth-oauth2";
+import { ossFileUrl } from "~/utils/utils.server";
 
 // Create an instance of the authenticator, pass a generic with what
 // strategies will return and will store in the session
@@ -19,7 +25,7 @@ authenticator.use(
     }
     const user = await prisma.user.findUnique({
       where: { username: username.toString() },
-      select: { id: true, username: true },
+      select: { id: true, username: true, avatar: true },
     });
     if (!user) {
       throw new AuthorizationError("User is not found");
@@ -27,6 +33,7 @@ authenticator.use(
     return {
       id: user.id,
       username: user.username,
+      avatar: user.avatar,
     } as UserAuth;
   }),
   // each strategy has a name and can be changed to use another one
@@ -34,12 +41,11 @@ authenticator.use(
   "user-pass"
 );
 
-const discordStrategy = new DiscordStrategy(
+export const discordStrategy = new DiscordStrategy(
   {
     clientID: process.env.DISCORD_OAUTH2_CLIENT_ID!,
     clientSecret: process.env.DISCORD_OAUTH2_CLIENT_SECRET!,
-    callbackURL: process.env.
-    APP_DOMAIN + "/login/discord/callback",
+    callbackURL: process.env.APP_DOMAIN + "/login/discord/callback",
     // Provide all the scopes you want as an array
     scope: ["identify", "email", "guilds"],
   },
@@ -48,7 +54,33 @@ const discordStrategy = new DiscordStrategy(
     refreshToken,
     extraParams,
     profile,
+    request,
   }): Promise<UserAuth> => {
+    const loginUser = await authenticator.isAuthenticated(request);
+    console.log("oauth", loginUser);
+    if (loginUser) {
+      // 登录用户绑定
+      const oauth = await prisma.oauth.findFirst({
+        where: { openid: profile.id, type: "discord" },
+      });
+      if (oauth) {
+        throw new AuthorizationError("User is already bound");
+      }
+      const oauthUser = await prisma.oauth.findFirst({
+        where: { user_id: loginUser.id, type: "discord" },
+      });
+      if (oauthUser) {
+        throw new AuthorizationError("User is already bound");
+      }
+      await prisma.oauth.create({
+        data: {
+          openid: profile.id,
+          type: "discord",
+          user_id: loginUser.id,
+        },
+      });
+      return loginUser;
+    }
     // 查询用户是否注册
     const oauth = await prisma.oauth.findFirst({
       where: { openid: profile.id, type: "discord" },
@@ -56,7 +88,7 @@ const discordStrategy = new DiscordStrategy(
     if (oauth) {
       const user = await prisma.user.findUnique({
         where: { id: oauth.user_id },
-        select: { id: true, username: true },
+        select: { id: true, username: true, avatar: true },
       });
       if (!user) {
         throw new AuthorizationError("User is not found");
@@ -64,6 +96,7 @@ const discordStrategy = new DiscordStrategy(
       return {
         id: user.id,
         username: user.username,
+        avatar: ossFileUrl(user.avatar),
       };
     }
     // 创建用户
@@ -90,6 +123,7 @@ const discordStrategy = new DiscordStrategy(
       return {
         id: userByEmail.id,
         username: userByEmail.username,
+        avatar: ossFileUrl(userByEmail.avatar),
       };
     }
     // 创建新号
@@ -113,6 +147,7 @@ const discordStrategy = new DiscordStrategy(
     return {
       id: user.id,
       username: user.username,
+      avatar: ossFileUrl(user.avatar),
     };
   }
 );

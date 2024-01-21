@@ -5,7 +5,9 @@ import { useTranslation } from "react-i18next";
 import CollectionFolder, {
   CollectionFolderItem,
 } from "~/components/CollectionFolder";
+import CollectionList from "~/components/CollectionList";
 import { authenticator } from "~/services/auth.server";
+import { collectionList } from "~/services/collection.server";
 import { UserAuth } from "~/services/user.server.ts";
 
 type LoaderData = {
@@ -15,25 +17,34 @@ type LoaderData = {
 };
 
 export const loader: LoaderFunction = async ({ request, params }) => {
+  let uid = params["uid"];
   const user = await authenticator.isAuthenticated(request);
-  let user_id = params["id"];
-  if (!user_id && !user) {
+  if (!uid) {
+    uid = user?.id;
+  }
+  if (!uid) {
     return redirect("/login");
   }
-  const self = user && (!user_id || user.id == user_id);
+  const self = uid == user?.id;
+
+  const data = await collectionList(request, {
+    user_id: uid,
+  });
+
   return json({
-    user_id: user_id,
+    user_id: uid,
     user,
     self,
+    ...data,
   });
 };
 
 export default function Collections() {
-  const { user_id, user } = useLoaderData<LoaderData>();
+  const loader = useLoaderData<LoaderData>();
+  const { user_id, user } = loader;
   const { t } = useTranslation();
-  const list: Array<CollectionFolderItem> = [];
   return (
-    <div>
+    <div className="flex flex-col gap-3">
       {user && (!user_id || user.id == user_id) && (
         <Card
           style={{
@@ -50,7 +61,7 @@ export default function Collections() {
           </div>
         </Card>
       )}
-      <CollectionFolder title={t("sub_collection")} list={list} />
+      <CollectionList loader={loader as any} />
     </div>
   );
 }

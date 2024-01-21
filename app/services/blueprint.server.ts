@@ -147,6 +147,7 @@ export async function blueprintProducts(
 export async function blueprintList(
   request: Request,
   options?: {
+    user_id?: string;
     collection?: string;
   }
 ) {
@@ -166,6 +167,9 @@ export async function blueprintList(
       },
     };
   }
+  if (options?.user_id) {
+    where.user_id = options.user_id;
+  }
   if (keyword) {
     where.title = {
       contains: keyword,
@@ -176,6 +180,7 @@ export async function blueprintList(
       hasEvery: tags,
     };
   }
+  console.log(where);
   let list: blueprint[];
   switch (sort) {
     case "like":

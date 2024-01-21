@@ -206,6 +206,9 @@ const MainLayout: React.FC<{
               menu={{
                 onClick: (info) => {
                   switch (info.key) {
+                    case "info":
+                      navigate("/user");
+                      break;
                     case "collection":
                       navigate("/collection?user=" + user.user?.id);
                       break;
@@ -225,7 +228,12 @@ const MainLayout: React.FC<{
                     key: "info",
                     label: (
                       <Space>
-                        <Avatar size="small">{user.user.username}</Avatar>
+                        <Avatar
+                          size="small"
+                          src={user.user.avatar || undefined}
+                        >
+                          {user.user.username.substring(0, 2)}
+                        </Avatar>
                         <Space direction="vertical">
                           <Typography.Text>
                             {user.user.username}
@@ -255,7 +263,9 @@ const MainLayout: React.FC<{
                 ],
               }}
             >
-              <Avatar>{user.user.username}</Avatar>
+              <Avatar src={user.user.avatar || undefined}>
+                {user.user.username.substring(0, 2)}
+              </Avatar>
             </Dropdown>
           ) : (
             <Link to="/login">
