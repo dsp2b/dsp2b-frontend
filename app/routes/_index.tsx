@@ -1,17 +1,8 @@
-import type { LoaderFunction } from "@remix-run/node";
-import { json, useLoaderData } from "@remix-run/react";
-import { blueprintList } from "~/services/blueprint.server";
-import BlueprintList, { BlueprintItem } from "~/components/BlueprintList";
+import { LoaderFunction } from '@remix-run/node';
+import { i18nRedirect } from '~/utils/i18n';
 
-export const loader: LoaderFunction = async ({ request }) => {
-  return json(await blueprintList(request));
-};
+export const loader: LoaderFunction = i18nRedirect;
 
 export default function Index() {
-  const loader = useLoaderData() as unknown as {
-    list: BlueprintItem[];
-    total: number;
-  };
-
-  return <BlueprintList loader={loader} />;
+  return <div>Redirect</div>;
 }

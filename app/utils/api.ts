@@ -13,6 +13,7 @@ import { message } from "antd";
 import { useState } from "react";
 import { APIDataResponse } from "~/services/api";
 import { RcFile } from "antd/es/upload";
+import { getLocale, getLocaleByURL } from "./i18n";
 
 export type RequestOptions = {
   params?: { [key: string]: string };
@@ -132,13 +133,14 @@ export function post(route: string, data: any) {
 export function useRequest<T>(route: string) {
   const [loading, setLoading] = useState(false);
   const [data, setData] = useState<T | null>(null);
-  const location = useLocation();
   return {
     submit: (options: RequestOptions) => {
       setLoading(true);
       options.method = options.method ?? "POST";
+      options.params = options.params || {};
+      options.params.lng = getLocaleByURL(location.href);
       return new ResponsePrimse<T>(
-        request(route, options).then((resp) => {
+        request("$lng." + route, options).then((resp) => {
           setLoading(false);
           return resp;
         })

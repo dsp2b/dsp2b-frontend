@@ -16,6 +16,7 @@ import { I18nextProvider, initReactI18next } from "react-i18next";
 import Backend from "i18next-fs-backend";
 import i18n from "./i18n";
 import { resolve } from "node:path";
+import { getLocale } from "./utils/i18n";
 
 const ABORT_DELAY = 5_000;
 
@@ -51,7 +52,7 @@ async function handleBotRequest(
   remixContext: EntryContext
 ) {
   const instance = createInstance();
-  const lng = await i18next.getLocale(request);
+  const lng = getLocale(request);
   const ns = i18next.getRouteNamespaces(remixContext);
 
   await instance
@@ -117,7 +118,7 @@ async function handleBrowserRequest(
   remixContext: EntryContext
 ) {
   const instance = createInstance();
-  const lng = await i18next.getLocale(request);
+  const lng = getLocale(request);
   const ns = i18next.getRouteNamespaces(remixContext);
 
   await instance

@@ -88,5 +88,12 @@
   "binded": "已绑定",
   "bind": "绑定",
   "user_description": "个人简介",
-  "update_success": "更新成功"
+  "update_success": "更新成功",
+  "page_n": "第{{page}}页",
+  "home_page_keyword": "戴森球计划,蓝图,社区",
+  "share": "分享",
+  "download_collection_zip": "下载蓝图集",
+  "update_blueprint": "更新蓝图",
+  "original": "原创",
+  "original_desc": "原创蓝图"
 }

@@ -14,6 +14,8 @@ const DSPCover: React.FC<{
   style.justifyContent = "center";
   items = items.length > 4 ? items.slice(0, 4) : items;
   switch (items.length) {
+    case 0:
+      return <div className={className} style={style}></div>;
     case 1:
       return (
         <div className={className} style={style}>

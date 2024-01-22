@@ -7,7 +7,12 @@ import {
   UpOutlined,
 } from "@ant-design/icons";
 import { collection, collection_like } from "@prisma/client";
-import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
+import {
+  ActionFunction,
+  LoaderFunction,
+  MetaFunction,
+  json,
+} from "@remix-run/node";
 import { Link, useLoaderData, useNavigate } from "@remix-run/react";
 import { Button, Card, Typography, message } from "antd";
 import { useTranslation } from "react-i18next";
@@ -23,6 +28,8 @@ import { jsonData } from "~/utils/utils.server";
 import { collectionLike } from "~/services/collection.server";
 import { routeToUrl, useRequest } from "~/utils/api";
 import { useState } from "react";
+import i18next from "~/i18next.server";
+import { useLocale } from "remix-i18next";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -81,6 +88,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       },
     });
   }
+  const t = await i18next.getFixedT(request);
 
   return json({
     collection,
@@ -88,8 +96,19 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     sub_collection: subCollection,
     like_count,
     is_like: is_like ? true : false,
+    i18n: {
+      collection: t("collection"),
+    },
     ...resp,
   });
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data, matches }) => {
+  return [
+    {
+      title: data.collection.title + " - " + data.i18n.collection + " - DSP2B",
+    },
+  ];
 };
 
 export const action: ActionFunction = async ({ request, params }) => {
@@ -130,6 +149,7 @@ export default function Collection() {
   const [isLike, setIsLike] = useState(loader.is_like);
   const likeReq = useRequest("collection_.$id");
   const navigate = useNavigate();
+  const uLocale = "/" + useLocale();
 
   return (
     <div className="flex flex-col gap-3">
@@ -192,7 +212,9 @@ export default function Collection() {
                     type="text"
                     size="small"
                     onClick={() => {
-                      navigate("/create/collection/" + loader.collection.id);
+                      navigate(
+                        uLocale + "/create/collection/" + loader.collection.id
+                      );
                     }}
                   >
                     {t("edit")}

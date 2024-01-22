@@ -21,6 +21,7 @@ import {
 import { ItemType } from "antd/es/menu/hooks/useItems";
 import React, { ReactNode, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "remix-i18next";
 import { UserContext } from "~/context-manager";
 import { lngMap } from "~/utils/i18n";
 import { MoonLineIcon, SunLineIcon } from "~/utils/icon";
@@ -44,6 +45,7 @@ const MainLayout: React.FC<{
   const user = useContext(UserContext);
   const navigate = useNavigate();
   const { token } = theme.useToken();
+  const uLocale = "/" + locale;
 
   useEffect(() => {
     if (user.styleMode == "auto") {
@@ -101,7 +103,7 @@ const MainLayout: React.FC<{
         }}
       >
         <div className="flex flex-row gap-2 flex-auto items-center">
-          <Link to="/" className="flex flex-row gap-2 items-center">
+          <Link to={uLocale} className="flex flex-row gap-2 items-center">
             <Typography.Title level={2} className="!m-0">
               {t("dsp2b_title")}
             </Typography.Title>
@@ -120,19 +122,21 @@ const MainLayout: React.FC<{
             items={[
               {
                 key: "home",
-                label: <Link to="/">{t("home")}</Link>,
+                label: <Link to={uLocale}>{t("home")}</Link>,
               },
               {
                 key: "colletion",
                 label: (
-                  <Link to="/collection">{t("blueprint_collection")}</Link>
+                  <Link to={uLocale + "/collection"}>
+                    {t("blueprint_collection")}
+                  </Link>
                 ),
               },
             ]}
           />
         </div>
         <Space>
-          <Link to={"/create/blueprint"}>
+          <Link to={uLocale + "/create/blueprint"}>
             <Button type="primary">{t("publish")}</Button>
           </Link>
           <Dropdown
@@ -207,10 +211,10 @@ const MainLayout: React.FC<{
                 onClick: (info) => {
                   switch (info.key) {
                     case "info":
-                      navigate("/user");
+                      navigate(uLocale + "/user");
                       break;
                     case "collection":
-                      navigate("/user/collection");
+                      navigate(uLocale + "/user/collection");
                       break;
                     case "logout":
                       fetch("/login/logout").then((resp) => {
@@ -268,7 +272,7 @@ const MainLayout: React.FC<{
               </Avatar>
             </Dropdown>
           ) : (
-            <Link to="/login">
+            <Link to={uLocale + "/login"}>
               <Button style={{ marginRight: 8 }}>{t("login")}</Button>
             </Link>
           )}
@@ -285,6 +289,11 @@ const MainLayout: React.FC<{
             <Button type="link" href="/">
               {t("home")}
             </Button>
+            <Divider type="vertical" />
+            <Button type="link" href="https://github.com/dsp2b/dsp2b-frontend">
+              GitHub
+            </Button>
+            <Divider type="vertical" />
             <Button
               type="link"
               href="https://store.steampowered.com/app/1366540/_/?l=schinese"

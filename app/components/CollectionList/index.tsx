@@ -17,6 +17,7 @@ import dayjs from "dayjs";
 import { t } from "i18next";
 import { replaceSearchParam } from "~/utils/api";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "remix-i18next";
 
 export type CollectionListItem = collection & {
   blueprint_count: number;
@@ -45,6 +46,7 @@ const CollectionList: React.FC<{
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [form] = Form.useForm();
+  const uLocale = "/" + useLocale();
   return (
     <div className="flex flex-col gap-3 flex-auto">
       <Card bodyStyle={{ padding: "10px" }}>
@@ -119,11 +121,15 @@ const CollectionList: React.FC<{
                 style={{
                   width: "100%",
                 }}
-                title={<Link to={"/collection/" + item.id}>{item.title}</Link>}
+                title={
+                  <Link to={uLocale + "/collection/" + item.id}>
+                    {item.title}
+                  </Link>
+                }
                 description={item.description || "-"}
               />
               <div className="flex flex-row items-center">
-                <Link to={"/user/" + item.user_id}>
+                <Link to={uLocale + "/user/" + item.user_id}>
                   <Typography.Text type="secondary">
                     {item.user.username}
                   </Typography.Text>

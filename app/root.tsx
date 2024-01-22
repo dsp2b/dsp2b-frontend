@@ -9,6 +9,8 @@ import {
   ScrollRestoration,
   json,
   useLoaderData,
+  useLocation,
+  useNavigate,
 } from "@remix-run/react";
 import zhCN from "antd/locale/zh_CN";
 import enUS from "antd/locale/en_US";
@@ -17,7 +19,7 @@ import { StyleProvider } from "@ant-design/cssinjs";
 import appCss from "./styles/app.css";
 import i18next from "./i18next.server";
 import { useTranslation } from "react-i18next";
-import { useChangeLanguage } from "remix-i18next";
+import { useChangeLanguage, useLocale } from "remix-i18next";
 import { UserContext } from "./context-manager";
 import { useState } from "react";
 import { parseCookie } from "./utils/cookie";
@@ -27,6 +29,7 @@ import NavigationProcess from "./components/NavigationProcess/NavigationProcess"
 import prisma from "./db.server";
 import { UserAuth } from "./services/user.server.ts";
 import { ossFileUrl } from "./utils/utils.server";
+import { getLocale } from "./utils/i18n";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appCss },
@@ -34,7 +37,11 @@ export const links: LinksFunction = () => [
 ];
 
 export const loader: LoaderFunction = async ({ request }) => {
-  const locale = await i18next.getLocale(request);
+  // 根据路径设置语言
+  let locale = getLocale(request);
+  if (!locale) {
+    locale = await i18next.getLocale(request);
+  }
   const cookieHeader = request.headers.get("Cookie");
   let darkMode = "";
   let styleMode = "";
@@ -68,37 +75,30 @@ export const loader: LoaderFunction = async ({ request }) => {
     darkMode: darkMode || "light",
     styleMode: styleMode || "auto",
     user,
-    home_subtitle: t("home_subtitle"),
-    home_page_description: t("home_page_description"),
+    i18n: {
+      home_subtitle: t("home_subtitle"),
+      home_page_description: t("home_page_description"),
+      home_page_keyword: t("home_page_keyword"),
+    },
   });
 };
 
-export const meta: MetaFunction = ({ data }: { data: any }) => {
-  return [
-    { title: "DSP2B - " + data.home_subtitle },
-    {
-      name: "description",
-      content: data.home_page_description,
-    },
-    {
-      name: "keywords",
-      content: "戴森球计划,蓝图,社区",
-    },
-  ];
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [{ title: "DSP2B - " + data.i18n.home_subtitle }];
 };
 
 export default function App() {
-  // Get the locale from the loader
-  const { locale, darkMode, styleMode, user } = useLoaderData<typeof loader>();
-
-  const { i18n } = useTranslation();
-
+  const loaderData = useLoaderData<typeof loader>();
+  const { locale, darkMode, styleMode, user } = loaderData;
+  const location = useLocation();
+  const { i18n, t } = useTranslation();
   const [userContext, setUserContext] = useState({
     locale,
     darkMode,
     styleMode,
     user,
   });
+  const navigate = useNavigate();
 
   useChangeLanguage(userContext.locale);
 
@@ -108,6 +108,11 @@ export default function App() {
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <Meta />
+        <meta
+          name="description"
+          content={loaderData.i18n.home_page_description}
+        />
+        <meta name="keywords" content={loaderData.i18n.home_page_keyword} />
         <Links />
       </head>
       <body className={userContext.darkMode == "dark" ? "dark" : ""}>
@@ -137,7 +142,15 @@ export default function App() {
                 locale={userContext.locale}
                 onChange={async (param) => {
                   if (param.locale != userContext.locale) {
-                    fetch("/user/switch/lng/" + param.locale);
+                    navigate(
+                      {
+                        pathname: location.pathname.replace(
+                          "/" + userContext.locale,
+                          "/" + param.locale
+                        ),
+                      },
+                      { replace: true }
+                    );
                   }
                   setUserContext({
                     locale: param.locale,

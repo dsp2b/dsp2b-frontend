@@ -1,4 +1,9 @@
-import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
+import {
+  ActionFunction,
+  LoaderFunction,
+  MetaFunction,
+  json,
+} from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import { useCallback, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -28,7 +33,7 @@ import {
   CollectionTree,
   buildSelectTree,
   collectionTree,
-} from "./create.collection.$(id)";
+} from "./$lng.create.collection.$(id)";
 import { ErrBuleprint, ErrUser } from "~/code/user";
 import prisma from "~/db.server";
 import {
@@ -36,6 +41,7 @@ import {
   Badge,
   Button,
   Card,
+  Checkbox,
   Divider,
   Form,
   Input,
@@ -70,6 +76,8 @@ import {
 import { blueprint } from "@prisma/client";
 import { BlueprintItem } from "~/components/BlueprintList";
 import { upload } from "~/utils/utils.client";
+import i18next from "~/i18next.server";
+import { useLocale } from "remix-i18next";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request, {
@@ -94,10 +102,22 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     blueprint.products = await blueprintProducts(blueprint);
     blueprint.collections = await svc.getColletcion(user.id);
   }
+  const t = await i18next.getFixedT(request);
   return json({
     tree: await collectionTree(user),
     blueprint,
+    i18n: {
+      title: id ? t("update_blueprint") : t("create_blueprint"),
+    },
   });
+};
+
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [
+    {
+      title: data.i18n.title + " - DSP2B",
+    },
+  ];
 };
 
 export const action: ActionFunction = async ({ request, params }) => {
@@ -145,6 +165,7 @@ export const action: ActionFunction = async ({ request, params }) => {
           description: string;
           blueprint: string;
           pic_list?: string[];
+          original?: boolean;
           tags?: Array<{ item_id: number }>;
           products?: Product[];
           collections?: string[];
@@ -194,6 +215,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     blueprint: data.blueprint,
                     tags_id: tags,
                     pic_list: data.pic_list,
+                    original: data.original ? 1 : 2,
                     user_id: user.id,
                     game_version: respData.data.blueprint.GameVersion,
                     buildings: JSON.stringify(respData.data.buildings),
@@ -224,6 +246,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     blueprint: data.blueprint,
                     tags_id: tags,
                     pic_list: data.pic_list,
+                    original: data.original ? 1 : 2,
                     user_id: user.id,
                     game_version: respData.data.blueprint.GameVersion,
                     buildings: JSON.stringify(respData.data.buildings),
@@ -278,7 +301,6 @@ export default function CreateBlueprint() {
     tree: CollectionTree[];
     blueprint?: BlueprintItem;
   }>();
-
   const fetcher = useFetcher<CodeError>({ key: "create" });
   const parse = useFetcher<ParseBlueprintResponse>({ key: "parse" });
   const [formRef] = Form.useForm();
@@ -296,6 +318,7 @@ export default function CreateBlueprint() {
   const sensor = useSensor(PointerSensor, {
     activationConstraint: { distance: 10 },
   });
+  const uLocale = "/" + useLocale();
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -305,7 +328,7 @@ export default function CreateBlueprint() {
         message.success(
           t(blueprint ? "blueprint_update_success" : "blueprint_create_success")
         );
-        window.location.href = "/blueprint/" + fetcher.data.id;
+        window.location.href = uLocale + "/blueprint/" + fetcher.data.id;
       }
     }
   }, [fetcher]);
@@ -380,6 +403,7 @@ export default function CreateBlueprint() {
                 title: blueprint.title,
                 description: blueprint.description,
                 collections: blueprint.collections?.map((val) => val.id),
+                original: blueprint.original == 1,
               }
             : undefined
         }
@@ -455,6 +479,13 @@ export default function CreateBlueprint() {
                       }
                       className="mr-2"
                       closable
+                      onClose={(v) => {
+                        setTags((prevTags) => {
+                          return prevTags.filter(
+                            (tag) => tag.name != props.value
+                          );
+                        });
+                      }}
                     >
                       {props.value}
                     </Tag>
@@ -660,6 +691,9 @@ export default function CreateBlueprint() {
               />
             </RecipePanel>
           </div>
+        </Form.Item>
+        <Form.Item name="original" valuePropName="checked">
+          <Checkbox>{t("original_desc")}</Checkbox>
         </Form.Item>
         <div className="flex flex-row-reverse mt-2">
           <Button

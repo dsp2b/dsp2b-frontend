@@ -180,7 +180,6 @@ export async function blueprintList(
       hasEvery: tags,
     };
   }
-  console.log(where);
   let list: blueprint[];
   switch (sort) {
     case "like":

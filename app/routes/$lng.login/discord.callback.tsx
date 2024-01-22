@@ -1,11 +1,5 @@
 import { LoaderFunction, redirect } from "@remix-run/node";
 import { authenticator, discordStrategy } from "~/services/auth.server";
-import {
-  OAuth2Profile,
-  OAuth2Strategy,
-  OAuth2StrategyVerifyParams,
-} from "remix-auth-oauth2";
-import { UserAuth } from "~/services/user.server.ts";
 
 export const loader: LoaderFunction = async ({ request }) => {
   // 判断是否登录

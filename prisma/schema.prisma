@@ -84,6 +84,7 @@ model blueprint {
   game_version         String
   buildings            String
   copy_count           Int                    @default(0)
+  original             Int                    @default(2)
   status               Int                    @default(1)
   createtime           DateTime               @default(now()) @db.Timestamp
   updatetime           DateTime               @default(now()) @db.Timestamp

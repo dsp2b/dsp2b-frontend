@@ -2,6 +2,7 @@ import { useFetcher } from "@remix-run/react";
 import { Avatar, Button, Popover } from "antd";
 import { ReactNode, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "remix-i18next";
 import {
   GetRecipePanelResponse,
   RecipePanelItem,
@@ -73,6 +74,7 @@ export default function RecipePanel({
   const [showThingPanel, setShowThingPanel] = useState(true);
   const [buildingPanel, setBuildingPanel] = useState<RecipePanelItem[][]>([]);
   const { t } = useTranslation();
+  const uLocale = "/" + useLocale();
   useEffect(() => {
     if (fetcher.state == "idle" && firstVisible && !fetcher.data) {
       fetcher.submit(
@@ -81,7 +83,8 @@ export default function RecipePanel({
         },
         {
           action:
-            "/create/blueprint?route=/create/blueprint&action=recipe_panel",
+            uLocale +
+            "/create/blueprint?route=routes/$lng.create.blueprint.$(id)&action=recipe_panel",
           method: "POST",
         }
       );

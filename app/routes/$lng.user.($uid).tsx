@@ -1,6 +1,6 @@
 import { EditOutlined } from "@ant-design/icons";
 import { user } from "@prisma/client";
-import { LoaderFunction, json } from "@remix-run/node";
+import { LoaderFunction, MetaFunction, json } from "@remix-run/node";
 import {
   Link,
   Outlet,
@@ -12,12 +12,14 @@ import { Avatar, Button, Card, Tabs, Typography } from "antd";
 import { useTranslation } from "react-i18next";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
+import i18next from "~/i18next.server";
 import { authenticator } from "~/services/auth.server";
 import { UserAuth } from "~/services/user.server.ts";
 import { errNotFound } from "~/utils/errcode";
 import { ossFileUrl } from "~/utils/utils.server";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
+  const t = await i18next.getFixedT(request);
   let id = params.uid;
   const user = await authenticator.isAuthenticated(request);
   const self = user?.id === id;
@@ -41,18 +43,31 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     user,
     pageUser,
     self,
+    i18n: {
+      collection: t("collection"),
+    },
   });
 };
 
+export const meta: MetaFunction<typeof loader> = ({ data, location }) => {
+  let title = data.user.username;
+  if (location.pathname.endsWith("collection")) {
+    title += " - " + data.i18n.collection;
+  }
+
+  return [{ title: title + " - DSP2B" }];
+};
+
+type LoaderData = {
+  user: UserAuth;
+  pageUser: user;
+  self: boolean;
+};
+
 export default function User() {
-  const loader = useLoaderData<{
-    user: UserAuth;
-    pageUser: user;
-    self: boolean;
-  }>();
+  const loader = useLoaderData<LoaderData>();
   const { t } = useTranslation();
   const location = useLocation();
-  const navigate = useNavigate();
 
   return (
     <div className="flex flex-col gap-3">

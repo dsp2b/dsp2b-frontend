@@ -1,4 +1,3 @@
-import InfoHeader from "../InfoHeader";
 import {
   Avatar,
   Button,
@@ -23,6 +22,7 @@ import DSPCover from "../DSPCover";
 import { CopyOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
 import { replaceSearchParam } from "~/utils/api";
+import { useLocale } from "remix-i18next";
 
 export type tag = {
   item_id: number;
@@ -52,12 +52,12 @@ const BlueprintList: React.FC<{
     tags?: tag[];
   };
 }> = ({ loader }) => {
-  const { token } = theme.useToken();
   const [visibleTagPanel, setVisibleTagPanel] = useState(false);
   const [selectTags, setTags] = useState<tag[]>(loader.tags ? loader.tags : []);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [form] = Form.useForm();
+  const uLocale = "/" + useLocale();
 
   return (
     <div className="flex flex-col gap-3 flex-auto">
@@ -193,7 +193,7 @@ const BlueprintList: React.FC<{
               <Card
                 style={{ width: 200, overflow: "hidden" }}
                 cover={
-                  <Link to={"/blueprint/" + item.id}>
+                  <Link to={uLocale + "/blueprint/" + item.id}>
                     {!item.pic && item.tags && item.tags.length ? (
                       <DSPCover
                         items={item.tags}
@@ -223,7 +223,11 @@ const BlueprintList: React.FC<{
                 }}
               >
                 <List.Item.Meta
-                  title={<Link to={"/blueprint/" + item.id}>{item.title}</Link>}
+                  title={
+                    <Link to={uLocale + "/blueprint/" + item.id}>
+                      {item.title}
+                    </Link>
+                  }
                   description={
                     <Typography.Text type="secondary" ellipsis>
                       {item.description}
@@ -232,7 +236,7 @@ const BlueprintList: React.FC<{
                 />
                 <div className="flex flex-row justify-between mt-2">
                   <div>
-                    <Link to={"/user/" + item.user_id}>
+                    <Link to={"./user/" + item.user_id}>
                       <Typography.Text type="secondary">
                         {item.user.username}
                       </Typography.Text>
