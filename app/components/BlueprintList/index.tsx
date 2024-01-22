@@ -23,6 +23,7 @@ import { CopyOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
 import { replaceSearchParam } from "~/utils/api";
 import { useLocale } from "remix-i18next";
+import CopyToClipboard from "react-copy-to-clipboard";
 
 export type tag = {
   item_id: number;
@@ -249,7 +250,14 @@ const BlueprintList: React.FC<{
                   </div>
                   <div>
                     <Typography.Text type="secondary">
-                      <CopyOutlined />
+                      <CopyToClipboard
+                        text={item.blueprint}
+                        onCopy={() => {
+                          message.success(t("copy_success"));
+                        }}
+                      >
+                        <CopyOutlined className="cursor-pointer" />
+                      </CopyToClipboard>
                     </Typography.Text>
                     <Divider type="vertical" />
                     <Typography.Text type="secondary">
