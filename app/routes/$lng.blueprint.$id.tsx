@@ -101,6 +101,18 @@ export const action: ActionFunction = async ({ request, params }) => {
           break;
       }
       return success();
+    case "copy":
+      await prisma.blueprint.update({
+        where: {
+          id: blueprint.id,
+        },
+        data: {
+          copy_count: {
+            increment: 1,
+          },
+        },
+      });
+      return success();
   }
   return errBadRequest(request, -1);
 };
@@ -255,12 +267,10 @@ export default function Blueprint() {
     href: string;
     is_collect: boolean;
   }>();
-  const { token } = theme.useToken();
   const { t } = useTranslation();
   const [likeCount, setLikeCount] = useState(loader.like_count);
   const [isLike, setIsLike] = useState(loader.is_like);
   const likeReq = useRequest("blueprint.$id");
-  const navigate = useNavigate();
   const collections = [...loader.collections].splice(0, 2);
   const buildings = JSON.parse(loader.blueprint.buildings) as Building[];
   const reqSelfCollection = useRequest<collectItem[]>("blueprint.$id");
@@ -340,6 +350,10 @@ export default function Blueprint() {
               text={loader.blueprint.blueprint}
               onCopy={() => {
                 message.success(t("copy_success"));
+                likeReq.submit({
+                  params: { id: loader.blueprint.id },
+                  body: { action: "copy" },
+                });
               }}
             >
               <Button type="primary">{t("copy_blueprint_code")}</Button>
@@ -503,7 +517,7 @@ export default function Blueprint() {
                 },
                 {
                   label: t("copy_count"),
-                  children: "0",
+                  children: loader.blueprint.copy_count,
                 },
                 {
                   label: t("collection"),
