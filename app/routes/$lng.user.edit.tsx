@@ -24,6 +24,7 @@ import { UserSvc } from "~/services/user.server.ts";
 import { useRequest } from "~/utils/api";
 import { errBadRequest } from "~/utils/errcode";
 import { success } from "~/utils/httputils";
+import { getLocale } from "~/utils/i18n";
 import { UploadResponse, upload } from "~/utils/utils.client";
 import { jsonData, ossFileUrl } from "~/utils/utils.server";
 
@@ -38,8 +39,9 @@ type LoaderData = {
 };
 
 export const action: ActionFunction = async ({ request }) => {
+  const uLocale = "/" + getLocale(request);
   const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: uLocale + "/login",
   });
   const m = await prisma.user.findUnique({
     where: {
@@ -97,8 +99,9 @@ export const action: ActionFunction = async ({ request }) => {
 };
 
 export const loader: LoaderFunction = async ({ request }) => {
+  const uLocale = "/" + getLocale(request);
   const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: uLocale + "/login",
   });
   const m = await prisma.user.findUnique({
     where: {

@@ -29,6 +29,7 @@ import {
   message,
 } from "antd";
 import { useLocale } from "remix-i18next";
+import { getLocale } from "~/utils/i18n";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -150,8 +151,9 @@ export async function collectionTree(user: UserAuth) {
 }
 
 export const loader: LoaderFunction = async ({ request, params }) => {
+  const uLocale = "/" + getLocale(request);
   const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: uLocale + "/login",
   });
   const id = params.id;
   let collection: collection | null = null;

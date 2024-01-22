@@ -1,5 +1,6 @@
 import { LoaderFunction, redirect } from "@remix-run/node";
 import { authenticator, qqStrategy } from "~/services/auth.server";
+import { getLocale } from "~/utils/i18n";
 
 export const loader: LoaderFunction = async ({ request }) => {
   // 判断是否登录
@@ -33,8 +34,9 @@ export const loader: LoaderFunction = async ({ request }) => {
       return redirect("/login");
     }
   }
+  const uLocale = "/" + getLocale(request);
   return authenticator.authenticate("qq", request, {
     successRedirect: "/",
-    failureRedirect: "/login",
+    failureRedirect: uLocale + "/login",
   });
 };

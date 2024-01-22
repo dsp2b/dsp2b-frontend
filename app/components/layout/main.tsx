@@ -4,8 +4,7 @@ import {
   GlobalOutlined,
   LogoutOutlined,
 } from "@ant-design/icons";
-import { Link, useNavigate } from "@remix-run/react";
-import { RiComputerLine, RiMoonLine } from "@remixicon/react";
+import { Link, useMatches, useNavigate } from "@remix-run/react";
 import {
   Avatar,
   Button,
@@ -21,7 +20,6 @@ import {
 import { ItemType } from "antd/es/menu/hooks/useItems";
 import React, { ReactNode, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
-import { useLocale } from "remix-i18next";
 import { UserContext } from "~/context-manager";
 import { lngMap } from "~/utils/i18n";
 import { MoonLineIcon, SunLineIcon } from "~/utils/icon";
@@ -46,6 +44,13 @@ const MainLayout: React.FC<{
   const navigate = useNavigate();
   const { token } = theme.useToken();
   const uLocale = "/" + locale;
+  const matches = useMatches();
+  let selectKey: string[] = [];
+  if (matches.find((val) => val.id == "routes/$lng._index")) {
+    selectKey = ["home"];
+  } else if (matches.find((val) => val.id == "routes/$lng.collection")) {
+    selectKey = ["collection"];
+  }
 
   useEffect(() => {
     if (user.styleMode == "auto") {
@@ -114,7 +119,7 @@ const MainLayout: React.FC<{
           <Menu
             mode="horizontal"
             className="!ml-4"
-            selectedKeys={[]}
+            selectedKeys={selectKey}
             style={{
               width: "300px",
               border: 0,
@@ -125,7 +130,7 @@ const MainLayout: React.FC<{
                 label: <Link to={uLocale}>{t("home")}</Link>,
               },
               {
-                key: "colletion",
+                key: "collection",
                 label: (
                   <Link to={uLocale + "/collection"}>
                     {t("blueprint_collection")}
@@ -201,9 +206,7 @@ const MainLayout: React.FC<{
               items: localeList.map((item) => item),
             }}
           >
-            <Button
-              icon={<GlobalOutlined style={{ display: "block" }} />}
-            ></Button>
+            <Button icon={<GlobalOutlined />}></Button>
           </Dropdown>
           {user.user ? (
             <Dropdown
@@ -284,25 +287,38 @@ const MainLayout: React.FC<{
           background: token.colorBgContainer,
         }}
       >
-        <div className="flex flex-col items-center">
-          <div className="flex flex-row gap-2">
-            <Button type="link" href="/">
-              {t("home")}
-            </Button>
-            <Divider type="vertical" />
-            <Button type="link" href="https://github.com/dsp2b/dsp2b-frontend">
-              GitHub
-            </Button>
-            <Divider type="vertical" />
-            <Button
-              type="link"
-              href="https://store.steampowered.com/app/1366540/_/?l=schinese"
-              target="_blank"
-            >
-              {t("dyson_sphere_project")}
-            </Button>
+        <div className="flex flex-row">
+          <div className="flex flex-col items-center flex-auto">
+            <div className="flex flex-row items-center">
+              <Button type="link" size="small" href="/">
+                {t("home")}
+              </Button>
+              <Divider type="vertical" />
+              <Button type="link" size="small" href={uLocale + "/tools"}>
+                {t("tools")}
+              </Button>
+              <Divider type="vertical" />
+              <Button
+                type="link"
+                size="small"
+                href="https://github.com/dsp2b/dsp2b-frontend"
+                target="_blank"
+              >
+                GitHub
+              </Button>
+              <Divider type="vertical" />
+              <Button
+                type="link"
+                size="small"
+                href="https://store.steampowered.com/app/1366540/_/?l=schinese"
+                target="_blank"
+              >
+                {t("dyson_sphere_project")}
+              </Button>
+            </div>
+            <Typography.Text>{t("all_rights_reserved")}</Typography.Text>
           </div>
-          <Typography.Text>{t("all_rights_reserved")}</Typography.Text>
+          <div className="flex flex-col"></div>
         </div>
       </Footer>
     </Layout>

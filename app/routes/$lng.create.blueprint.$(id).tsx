@@ -78,10 +78,12 @@ import { BlueprintItem } from "~/components/BlueprintList";
 import { upload } from "~/utils/utils.client";
 import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
+import { getLocale } from "~/utils/i18n";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
+  const uLocale = "/" + getLocale(request);
   const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: "/login",
+    failureRedirect: uLocale + "/login",
   });
   const id = params["id"];
   let blueprint: BlueprintItem | null = null;
@@ -121,6 +123,7 @@ export const meta: MetaFunction<typeof loader> = ({ data }) => {
 };
 
 export const action: ActionFunction = async ({ request, params }) => {
+  const uLocale = "/" + getLocale(request);
   try {
     if (request.method === "POST") {
       const url = new URL(request.url);
@@ -143,7 +146,7 @@ export const action: ActionFunction = async ({ request, params }) => {
         }
       } else {
         const user = await authenticator.isAuthenticated(request, {
-          failureRedirect: "/login",
+          failureRedirect: uLocale + "/login",
         });
         if (!user) {
           return errBadRequest(request, ErrUser.UserNotLogin);
