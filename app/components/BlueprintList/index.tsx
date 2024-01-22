@@ -89,7 +89,12 @@ const BlueprintList: React.FC<{
           </Form.Item>
           <Form.Item name="keyword" label={t("search")} className="!mb-2">
             <div className="flex flex-row gap-3">
-              <Input placeholder={t("search_by_keyword")} className="!w-1/3" />
+              <Input
+                name="keyword"
+                defaultValue={loader.keyword}
+                placeholder={t("search_by_keyword")}
+                className="!w-1/3"
+              />
               <RecipePanel
                 visible={visibleTagPanel}
                 onClickOutSide={() => {

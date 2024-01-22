@@ -28,6 +28,7 @@ import {
   Typography,
   message,
 } from "antd";
+import { useLocale } from "remix-i18next";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -235,7 +236,7 @@ export default function CreateCollection() {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const [publicCollection, setPublicCollection] = useState<1 | 2>(1);
-  const nav = useNavigate();
+  const uLocale = "/" + useLocale();
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -249,7 +250,7 @@ export default function CreateCollection() {
               : "collection_create_success"
           )
         );
-        nav("/collection/" + fetcher.data.data);
+        location.href = uLocale + "/collection/" + fetcher.data.data;
       }
     }
   }, [fetcher]);

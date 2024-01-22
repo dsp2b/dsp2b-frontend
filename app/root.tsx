@@ -110,8 +110,6 @@ export default function App() {
 
   useChangeLanguage(userContext.locale);
 
-  console.log(t("blueprint"));
-
   return (
     <html lang={locale} dir={i18n.dir()}>
       <head>

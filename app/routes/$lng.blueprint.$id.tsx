@@ -60,6 +60,7 @@ import { errBadRequest, errNotFound } from "~/utils/errcode";
 import { jsonData, ossFileUrl } from "~/utils/utils.server";
 import { useLocale } from "remix-i18next";
 import { success } from "~/utils/httputils";
+import { getLocale } from "~/utils/i18n";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const id = params["id"];
@@ -226,7 +227,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       is_collect = true;
     }
   }
-
+  const uLocale = "/" + getLocale(request);
   blueprint.user.avatar = ossFileUrl(blueprint.user.avatar);
   return json({
     user,
@@ -236,7 +237,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     like_count,
     is_like: is_like ? true : false,
     self: user && user.id == blueprint.user_id,
-    href: process.env.APP_DOMAIN + "/blueprint/" + blueprint.id,
+    href: process.env.APP_DOMAIN + uLocale + "/blueprint/" + blueprint.id,
     is_collect,
   });
 };

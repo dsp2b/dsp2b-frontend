@@ -55,7 +55,7 @@ const CollectionList: React.FC<{
           layout="horizontal"
           labelCol={{ span: 2 }}
           wrapperCol={{ span: 20 }}
-          initialValues={{ sort: loader.sort }}
+          initialValues={{ sort: loader.sort, keyword: loader.keyword }}
         >
           <Form.Item label={t("sort_by")} name="sort" className="!mb-2">
             <Radio.Group
@@ -72,9 +72,14 @@ const CollectionList: React.FC<{
               <Radio.Button value="like">{t("most_like")}</Radio.Button>
             </Radio.Group>
           </Form.Item>
-          <Form.Item label={t("search")} className="!mb-2">
+          <Form.Item name="keyword" label={t("search")} className="!mb-2">
             <div className="flex flex-row gap-3">
-              <Input placeholder={t("search_by_keyword")} className="!w-1/3" />
+              <Input
+                name="keyword"
+                defaultValue={loader.keyword}
+                placeholder={t("search_by_keyword")}
+                className="!w-1/3"
+              />
               <Button
                 type="primary"
                 onClick={() => {

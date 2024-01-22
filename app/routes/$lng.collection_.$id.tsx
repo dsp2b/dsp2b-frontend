@@ -30,6 +30,7 @@ import { routeToUrl, useRequest } from "~/utils/api";
 import { useState } from "react";
 import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
+import { getLocale } from "~/utils/i18n";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -88,6 +89,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       },
     });
   }
+  const uLocale = "/" + getLocale(request);
   const t = await i18next.getFixedT(request);
 
   return json({
@@ -99,6 +101,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     i18n: {
       collection: t("collection"),
     },
+    href: process.env.APP_DOMAIN + uLocale + "/collection/" + collection.id,
     ...resp,
   });
 };
@@ -143,13 +146,15 @@ export default function Collection() {
     total: number;
     like_count: number;
     is_like: boolean;
+    href: string;
   }>();
   const { t } = useTranslation();
   const [likeCount, setLikeCount] = useState(loader.like_count);
   const [isLike, setIsLike] = useState(loader.is_like);
   const likeReq = useRequest("collection_.$id");
   const navigate = useNavigate();
-  const uLocale = "/" + useLocale();
+  const locale = useLocale();
+  const uLocale = "/" + locale;
 
   return (
     <div className="flex flex-col gap-3">
@@ -157,8 +162,8 @@ export default function Collection() {
         <div>
           {loader.collection.parent_id && (
             <Button type="text" size="small" icon={<UpOutlined />}>
-              <Link to={"/collection/" + loader.collection.parent_id}>
-                返回上一级
+              <Link to={uLocale + "/collection/" + loader.collection.parent_id}>
+                {t("back_to_previous")}
               </Link>
             </Button>
           )}
@@ -169,7 +174,7 @@ export default function Collection() {
             <div className="flex flex-col gap-2 items-center">
               <div>
                 <CopyToClipboard
-                  text={loader.collection.title}
+                  text={loader.collection.title + "\n" + loader.href}
                   onCopy={() => {
                     message.success(t("copy_success"));
                   }}
@@ -224,8 +229,8 @@ export default function Collection() {
               <Button
                 icon={<DownloadOutlined />}
                 type="primary"
-                href={routeToUrl("collection_.$id?action=download", {
-                  params: { id: loader.collection.id },
+                href={routeToUrl("$lng.collection_.$id?action=download", {
+                  params: { lng: locale, id: loader.collection.id },
                 })}
               >
                 {t("download_collection_zip")}

@@ -2,6 +2,7 @@ import { LoaderFunction, json, redirect } from "@remix-run/node";
 import { Link, useLoaderData } from "@remix-run/react";
 import { Button, Card } from "antd";
 import { useTranslation } from "react-i18next";
+import { useLocale } from "remix-i18next";
 import CollectionFolder, {
   CollectionFolderItem,
 } from "~/components/CollectionFolder";
@@ -43,6 +44,8 @@ export default function Collections() {
   const loader = useLoaderData<LoaderData>();
   const { user_id, user } = loader;
   const { t } = useTranslation();
+  const uLocale = "/" + useLocale();
+
   return (
     <div className="flex flex-col gap-3">
       {user && (!user_id || user.id == user_id) && (
@@ -55,7 +58,7 @@ export default function Collections() {
           }}
         >
           <div className="flex flex-row-reverse">
-            <Link to="/create/collection">
+            <Link to={uLocale + "/create/collection"}>
               <Button>{t("create_collection")}</Button>
             </Link>
           </div>

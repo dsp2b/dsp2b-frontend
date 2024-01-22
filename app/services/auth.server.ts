@@ -57,7 +57,6 @@ export const discordStrategy = new DiscordStrategy(
     request,
   }): Promise<UserAuth> => {
     const loginUser = await authenticator.isAuthenticated(request);
-    console.log("oauth", loginUser);
     if (loginUser) {
       // 登录用户绑定
       const oauth = await prisma.oauth.findFirst({

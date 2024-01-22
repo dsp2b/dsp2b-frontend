@@ -81,7 +81,7 @@ export default function Register() {
           content: t("register_success"),
           duration: 3,
           onClose() {
-            window.location.href = "/login";
+            window.location.href = "./login";
           },
         });
       }
@@ -200,7 +200,7 @@ export default function Register() {
             <Button type="primary" htmlType="submit" className="w-full">
               {t("register")}
             </Button>
-            <Button type="link" href="/login" className="float-right">
+            <Button type="link" href="./login" className="float-right">
               {t("have_account_go_login")}
             </Button>
           </Form.Item>

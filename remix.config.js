@@ -12,11 +12,9 @@ module.exports = {
     // the call stack of `route` inside to set nesting.
 
     return defineRoutes((route) => {
-      route("$lng/login", "routes/$lng.login/login.tsx");
-      route("$lng/login/register", "routes/$lng.login/register.tsx");
-      route("login/logout", "routes/$lng.login/logout.tsx");
-      route("login/oauth", "routes/$lng.login/oauth.tsx");
-      route("login/discord/callback", "routes/$lng.login/discord.callback.tsx");
+      route("login/logout", "routes/login/logout.tsx");
+      route("login/oauth", "routes/login/oauth.tsx");
+      route("login/discord/callback", "routes/login/discord.callback.tsx");
     });
   },
 };

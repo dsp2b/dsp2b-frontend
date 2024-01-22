@@ -1,4 +1,5 @@
 import { json, redirect } from "@remix-run/node";
+import i18n from "~/i18n";
 import i18next from "~/i18next.server";
 
 export const lngMap: {
@@ -30,8 +31,8 @@ export async function i18nRedirect({ request }: { request: Request }) {
 }
 
 // 根据路径获取语言
-export function getLocale(request: Request, defaultLocale?: string) {
-  return getLocaleByURL(request.url) || defaultLocale;
+export function getLocale(request: Request) {
+  return getLocaleByURL(request.url) || i18n.fallbackLng;
 }
 
 export function getLocaleByURL(url: string) {

@@ -95,7 +95,7 @@ export default function Login() {
             <Button type="primary" htmlType="submit" className="w-full">
               {t("login")}
             </Button>
-            <Button type="link" href="/login/register" className="float-right">
+            <Button type="link" href="./register" className="float-right">
               {t("quick_register")}
             </Button>
           </Form.Item>
