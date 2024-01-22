@@ -538,7 +538,11 @@ export default function Blueprint() {
                         )}
                         {loader.collections.length > 2 && (
                           <Link
-                            to={"/collection?blueprint=" + loader.blueprint.id}
+                            to={
+                              uLocale +
+                              "/collection?blueprint=" +
+                              loader.blueprint.id
+                            }
                           >
                             {t("more...")}
                           </Link>
