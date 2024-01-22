@@ -14,6 +14,7 @@ module.exports = {
     return defineRoutes((route) => {
       route("login/logout", "routes/login/logout.tsx");
       route("login/oauth", "routes/login/oauth.tsx");
+      route("login/qq/callback", "routes/login/qq.callback.tsx");
       route("login/discord/callback", "routes/login/discord.callback.tsx");
     });
   },

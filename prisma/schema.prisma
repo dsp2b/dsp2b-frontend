@@ -17,7 +17,7 @@ model user {
   password          String
   avatar            String?
   description       String?
-  email             String              @unique
+  email             String?             @unique
   createtime        DateTime            @default(now()) @db.Timestamp
   collection        collection[]
   blueprint         blueprint[]
@@ -33,6 +33,7 @@ model email_verify_code {
 
 enum oauth_type {
   discord
+  qq
 }
 
 model oauth {

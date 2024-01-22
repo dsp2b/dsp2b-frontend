@@ -1,6 +1,7 @@
+import { QqCircleFilled, QqOutlined } from "@ant-design/icons";
 import type { ActionFunctionArgs, LoaderFunctionArgs } from "@remix-run/node";
 import { Form as RemixForm, Link, json, useFetcher } from "@remix-run/react";
-import { RiDiscordLine } from "@remixicon/react";
+import { RiDiscordLine, RiQqLine } from "@remixicon/react";
 import {
   Button,
   Card,
@@ -101,6 +102,11 @@ export default function Login() {
           </Form.Item>
           <Divider>{t("oauth_login")}</Divider>
           <div className="flex flex-row justify-center gap-3 w-full">
+            <Button
+              type="link"
+              href="/login/oauth?type=qq"
+              icon={<RiQqLine />}
+            />
             <Button
               type="link"
               href="/login/oauth?type=discord"

@@ -366,7 +366,7 @@ export default function Blueprint() {
           </div>
           <Divider />
           <div className="flex flex-col gap-2">
-            <Input.TextArea value={loader.blueprint.blueprint} />
+            <Input.TextArea value={loader.blueprint.blueprint} rows={4} />
             <div className="flex flex-row w-full overflow-x-auto">
               {loader.blueprint &&
                 loader.blueprint.tags.map((val) => (
