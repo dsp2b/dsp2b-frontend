@@ -50,6 +50,7 @@ export async function oauthVerify(
   options: {
     displayName?: string;
     email?: string;
+    photo?: string;
   }
 ): Promise<UserAuth> {
   const loginUser = await authenticator.isAuthenticated(request);
@@ -164,6 +165,7 @@ export const discordStrategy = new DiscordStrategy(
     return oauthVerify(request, profile.id, oauth_type.discord, {
       displayName: profile.displayName,
       email: profile.emails?.[0].value,
+      photo: profile.photos?.[0].value,
     });
   }
 );
@@ -183,10 +185,10 @@ export const qqStrategy = new QQStrategy(
     profile,
     request,
   }): Promise<UserAuth> => {
-    throw new AuthorizationError("QQ is not supported");
-    // return oauthVerify(request, profile.id, oauth_type.qq, {
-    //   displayName,
-    // });
+    return oauthVerify(request, profile.id, oauth_type.qq, {
+      displayName: profile.displayName,
+      photo: profile.photos?.[0].value,
+    });
   }
 );
 authenticator.use(qqStrategy, "qq");

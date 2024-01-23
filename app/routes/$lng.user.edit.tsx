@@ -1,7 +1,7 @@
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
-import { RiDiscordLine } from "@remixicon/react";
+import { RiDiscordLine, RiQqLine } from "@remixicon/react";
 import {
   Avatar,
   Button,
@@ -35,6 +35,7 @@ type LoaderData = {
   description: string;
   oauth: {
     discord?: { bind: boolean };
+    qq?: { bind: boolean };
   };
 };
 
@@ -113,20 +114,18 @@ export const loader: LoaderFunction = async ({ request }) => {
   }
   const oauth: any = {};
   // 判断是否绑定了discord
-  const discord = await prisma.oauth.findUnique({
+  const list = await prisma.oauth.findMany({
     where: {
-      user_id_type: {
-        user_id: user.id,
-        type: "discord",
-      },
+      user_id: user.id,
     },
   });
-  if (discord) {
-    oauth["discord"] = {
-      type: "discord",
+  list.forEach((item) => {
+    oauth[item.type] = {
+      type: item.type,
       bind: true,
     };
-  }
+  });
+
   return json({
     id: m.id,
     username: m.username,
@@ -232,6 +231,19 @@ export default function Edit() {
         </Form.Item>
         <Form.Item label={t("oauth_login")}>
           <div className="flex flex-row justify-center gap-3 w-full">
+            <Button
+              href="/login/oauth?type=qq"
+              disabled={loader.oauth.qq && loader.oauth.qq.bind}
+            >
+              <Space>
+                <RiQqLine />
+                <Typography.Text>
+                  {loader.oauth.qq && loader.oauth.qq.bind
+                    ? t("binded")
+                    : t("bind")}
+                </Typography.Text>
+              </Space>
+            </Button>
             <Button
               href="/login/oauth?type=discord"
               disabled={loader.oauth.discord && loader.oauth.discord.bind}

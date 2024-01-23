@@ -1,7 +1,7 @@
 import { LoaderFunction, json, redirect } from "@remix-run/node";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
-import { authenticator, discordStrategy } from "~/services/auth.server";
+import { authenticator, discordStrategy, qqStrategy } from "~/services/auth.server";
 import { errBadRequest } from "~/utils/errcode";
 
 export const loader: LoaderFunction = async ({ request }) => {
@@ -45,7 +45,7 @@ export const loader: LoaderFunction = async ({ request }) => {
         }
         return redirect(
           (
-            (discordStrategy as any).getAuthorizationURL(request, "") as URL
+            (qqStrategy as any).getAuthorizationURL(request, "") as URL
           ).toString()
         );
       }
