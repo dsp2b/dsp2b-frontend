@@ -181,20 +181,27 @@ export async function blueprintList(
     };
   }
   let list: blueprint[];
+  const select = {
+    id: true,
+    title: true,
+    pic_list: true,
+    tags_id: true,
+    copy_count: true,
+    user: {
+      select: {
+        id: true,
+        username: true,
+      },
+    },
+  };
   switch (sort) {
     case "like":
+      //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
         skip: (page - 1) * 20,
         take: 20,
-        include: {
-          user: {
-            select: {
-              id: true,
-              username: true,
-            },
-          },
-        },
+        select,
         orderBy: {
           blueprint_like: {
             _count: "desc",
@@ -203,18 +210,12 @@ export async function blueprintList(
       });
       break;
     case "collection":
+      //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
         skip: (page - 1) * 20,
         take: 20,
-        include: {
-          user: {
-            select: {
-              id: true,
-              username: true,
-            },
-          },
-        },
+        select,
         orderBy: {
           blueprint_collection: {
             _count: "desc",
@@ -223,18 +224,12 @@ export async function blueprintList(
       });
       break;
     default:
+      //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
         skip: (page - 1) * 20,
         take: 20,
-        include: {
-          user: {
-            select: {
-              id: true,
-              username: true,
-            },
-          },
-        },
+        select,
         orderBy: {
           createtime: "desc",
         },

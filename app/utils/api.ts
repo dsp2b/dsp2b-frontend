@@ -42,7 +42,7 @@ export function routeToUrl(route: string, options: RequestOptions) {
   );
 }
 
-class ResponsePrimse<T = any> {
+export class ResponsePrimse<T = any> {
   private promise: Promise<Response>;
 
   private thenCallback?: (value: Response) => any;

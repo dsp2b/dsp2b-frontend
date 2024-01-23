@@ -21,9 +21,9 @@ import { Link, useNavigate } from "@remix-run/react";
 import DSPCover from "../DSPCover";
 import { CopyOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
-import { replaceSearchParam } from "~/utils/api";
+import { ResponsePrimse, replaceSearchParam, request } from "~/utils/api";
 import { useLocale } from "remix-i18next";
-import CopyToClipboard from "react-copy-to-clipboard";
+import copy from "copy-to-clipboard";
 
 export type tag = {
   item_id: number;
@@ -58,7 +58,8 @@ const BlueprintList: React.FC<{
   const { t } = useTranslation();
   const navigate = useNavigate();
   const [form] = Form.useForm();
-  const uLocale = "/" + useLocale();
+  const locale = useLocale();
+  const uLocale = "/" + locale;
 
   return (
     <div className="flex flex-col gap-3 flex-auto">
@@ -250,14 +251,28 @@ const BlueprintList: React.FC<{
                   </div>
                   <div>
                     <Typography.Text type="secondary">
-                      <CopyToClipboard
-                        text={item.blueprint}
-                        onCopy={() => {
+                      <CopyOutlined
+                        className="cursor-pointer"
+                        onClick={async () => {
+                          message.info(t("loading..."));
+
+                          const resp = await request("$lng.blueprint.$id", {
+                            params: {
+                              lng: locale,
+                              id: item.id,
+                            },
+                          });
+                          if (resp.status != 200) {
+                            message.error(t("error"));
+                            return;
+                          }
+                          const data = (await resp.json()) as {
+                            blueprint: blueprint;
+                          };
+                          copy(data.blueprint.blueprint);
                           message.success(t("copy_success"));
                         }}
-                      >
-                        <CopyOutlined className="cursor-pointer" />
-                      </CopyToClipboard>
+                      />
                     </Typography.Text>
                     <Divider type="vertical" />
                     <Typography.Text type="secondary">

@@ -160,7 +160,7 @@ export default function Edit() {
         wrapperCol={{ span: 14 }}
         initialValues={loader}
       >
-        <Form.Item label="avatar" style={{ textAlign: "center" }}>
+        <Form.Item label={t("avatar")} style={{ textAlign: "center" }}>
           <Upload
             name="avatar"
             listType="picture-circle"

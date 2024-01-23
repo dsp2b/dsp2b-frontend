@@ -5,11 +5,6 @@ import { FormStrategy } from "remix-auth-form";
 import prisma from "~/db.server";
 import { UserAuth } from "./user.server.ts";
 import { DiscordStrategy } from "remix-auth-discord";
-import {
-  OAuth2Profile,
-  OAuth2Strategy,
-  OAuth2StrategyVerifyParams,
-} from "remix-auth-oauth2";
 import { ossFileUrl } from "~/utils/utils.server";
 import { QQStrategy } from "~/utils/oauth/qq";
 import { oauth_type } from "@prisma/client";

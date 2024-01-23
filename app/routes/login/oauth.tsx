@@ -32,7 +32,7 @@ export const loader: LoaderFunction = async ({ request }) => {
     case "qq":
       if (user) {
         // 判断是否绑定了qq
-        const discord = await prisma.oauth.findUnique({
+        const qq = await prisma.oauth.findUnique({
           where: {
             user_id_type: {
               user_id: user.id,
@@ -40,7 +40,7 @@ export const loader: LoaderFunction = async ({ request }) => {
             },
           },
         });
-        if (discord) {
+        if (qq) {
           return errBadRequest(request, ErrUser.BindDiscord);
         }
         return redirect(

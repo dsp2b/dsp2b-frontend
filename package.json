@@ -28,6 +28,7 @@
     "antd": "^5.12.8",
     "axios": "^1.6.5",
     "bcrypt": "^5.1.1",
+    "copy-to-clipboard": "^3.3.3",
     "dayjs": "^1.11.10",
     "framer-motion": "^10.18.0",
     "i18next": "^23.7.12",

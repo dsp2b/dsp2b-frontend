@@ -73,8 +73,8 @@ export class QQStrategy<User> extends OAuth2Strategy<
     const data = await response.text();
     const [access_token, expires_in, refresh_token] = data.split("&");
     return {
-      accessToken: access_token,
-      refreshToken: refresh_token,
+      accessToken: access_token.split("=")[1],
+      refreshToken: refresh_token.split("=")[1],
       extraParams: {},
     };
   }

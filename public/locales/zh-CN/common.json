@@ -66,6 +66,7 @@
   "oauth_login": "第三方登录",
   "have_account_go_login": "已有账号？去登录",
   "system_error": "系统错误",
+  "avatar": "头像",
   "delete": "删除",
   "search": "搜索",
   "latest": "最新",
@@ -98,5 +99,6 @@
   "original_desc": "原创蓝图",
   "back_to_previous": "返回上一级",
   "more...": "更多...",
+  "loading...": "加载中...",
   "tools": "工具"
 }

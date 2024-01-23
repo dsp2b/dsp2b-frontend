@@ -13,9 +13,9 @@ export enum ErrUser {
   LimitTooMany,
   RequestRegisterEmailAlreadyRegister,
   UserNotLogin,
-  BindDiscord
+  BindDiscord,
+  BindQQ,
 }
-
 
 export enum ErrBuleprint {
   FilenameInvalid = 2001,
@@ -24,7 +24,7 @@ export enum ErrBuleprint {
   BlueprintInvalid,
   PicListInvalid,
   NotFound,
-  CollectionInvalid
+  CollectionInvalid,
 }
 
 export enum ErrCollection {
