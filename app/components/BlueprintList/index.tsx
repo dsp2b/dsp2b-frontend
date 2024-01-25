@@ -181,7 +181,16 @@ const BlueprintList: React.FC<{
       </Card>
       <Card>
         <List
-          grid={{ gutter: 16, column: 5 }}
+          grid={{
+            gutter: 16,
+            column: 5,
+            xs: 1,
+            sm: 2,
+            md: 3,
+            lg: 4,
+            xl: 5,
+            xxl: 6,
+          }}
           dataSource={loader.list}
           pagination={{
             total: loader.total,

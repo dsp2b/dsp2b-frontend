@@ -184,6 +184,7 @@ export async function blueprintList(
   const select = {
     id: true,
     title: true,
+    description: true,
     pic_list: true,
     tags_id: true,
     copy_count: true,
