@@ -187,14 +187,14 @@ const BlueprintList: React.FC<{
             xs: 1,
             sm: 2,
             md: 3,
-            lg: 4,
+            lg: 3,
             xl: 5,
             xxl: 6,
           }}
           dataSource={loader.list}
           pagination={{
             total: loader.total,
-            pageSize: 20,
+            pageSize: 30,
             current: loader.currentPage,
             onChange(page, pageSize) {
               navigate({
@@ -252,7 +252,7 @@ const BlueprintList: React.FC<{
                 />
                 <div className="flex flex-row justify-between mt-2">
                   <div>
-                    <Link to={"./user/" + item.user_id}>
+                    <Link to={uLocale + "/user/" + item.user.id}>
                       <Typography.Text type="secondary">
                         {item.user.username}
                       </Typography.Text>

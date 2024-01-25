@@ -195,13 +195,15 @@ export async function blueprintList(
       },
     },
   };
+  const take = 30;
+  const skip = (page - 1) * take;
   switch (sort) {
     case "like":
       //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
-        skip: (page - 1) * 20,
-        take: 20,
+        skip,
+        take,
         select,
         orderBy: {
           blueprint_like: {
@@ -214,8 +216,8 @@ export async function blueprintList(
       //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
-        skip: (page - 1) * 20,
-        take: 20,
+        skip,
+        take,
         select,
         orderBy: {
           blueprint_collection: {
@@ -228,8 +230,8 @@ export async function blueprintList(
       //@ts-ignore
       list = await prisma.blueprint.findMany({
         where,
-        skip: (page - 1) * 20,
-        take: 20,
+        skip,
+        take,
         select,
         orderBy: {
           createtime: "desc",

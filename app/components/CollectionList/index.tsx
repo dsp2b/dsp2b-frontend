@@ -125,6 +125,8 @@ const CollectionList: React.FC<{
               <List.Item.Meta
                 style={{
                   width: "100%",
+                  overflow: "hidden",
+                  textOverflow: "ellipsis",
                 }}
                 title={
                   <Link to={uLocale + "/collection/" + item.id}>

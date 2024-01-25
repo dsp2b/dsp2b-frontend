@@ -213,12 +213,6 @@ const MainLayout: React.FC<{
               menu={{
                 onClick: (info) => {
                   switch (info.key) {
-                    case "info":
-                      navigate(uLocale + "/user");
-                      break;
-                    case "collection":
-                      navigate(uLocale + "/user/collection");
-                      break;
                     case "logout":
                       fetch("/login/logout").then((resp) => {
                         if (resp.status !== 200) {
@@ -234,28 +228,32 @@ const MainLayout: React.FC<{
                   {
                     key: "info",
                     label: (
-                      <Space>
-                        <Avatar
-                          size="small"
-                          src={user.user.avatar || undefined}
-                        >
-                          {user.user.username.substring(0, 2)}
-                        </Avatar>
-                        <Space direction="vertical">
-                          <Typography.Text>
-                            {user.user.username}
-                          </Typography.Text>
+                      <Link to={uLocale + "/user"}>
+                        <Space>
+                          <Avatar
+                            size="small"
+                            src={user.user.avatar || undefined}
+                          >
+                            {user.user.username.substring(0, 2)}
+                          </Avatar>
+                          <Space direction="vertical">
+                            <Typography.Text>
+                              {user.user.username}
+                            </Typography.Text>
+                          </Space>
                         </Space>
-                      </Space>
+                      </Link>
                     ),
                   },
                   {
                     key: "collection",
                     label: (
-                      <Space>
-                        <FolderOpenOutlined />
-                        {t("blueprint_collection")}
-                      </Space>
+                      <Link to={uLocale + "/user/collection"}>
+                        <Space>
+                          <FolderOpenOutlined />
+                          {t("blueprint_collection")}
+                        </Space>
+                      </Link>
                     ),
                   },
                   {

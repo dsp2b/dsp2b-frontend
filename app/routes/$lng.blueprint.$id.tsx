@@ -57,10 +57,11 @@ import {
 } from "~/services/blueprint.server";
 import { useRequest } from "~/utils/api";
 import { errBadRequest, errNotFound } from "~/utils/errcode";
-import { jsonData, ossFileUrl } from "~/utils/utils.server";
+import { formData, jsonData, ossFileUrl } from "~/utils/utils.server";
 import { useLocale } from "remix-i18next";
 import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
+import { formatDate } from "~/utils/utils";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const id = params["id"];
@@ -83,6 +84,15 @@ export const action: ActionFunction = async ({ request, params }) => {
       return postLike(request, blueprint, data.like);
     case "collect":
       // 加入收藏
+      // 判断收藏数大于1000
+      const count = await prisma.blueprint_collection.count({
+        where: {
+          collection_id: data.collection_id,
+        },
+      });
+      if (count > 1000) {
+        return errBadRequest(request, ErrBuleprint.CollectionCountLimit);
+      }
       switch (data.checked) {
         case "add":
           await prisma.blueprint_collection.create({
@@ -511,6 +521,10 @@ export default function Blueprint() {
                   children: dayjs(loader.blueprint.createtime).format(
                     "YYYY-MM-DD"
                   ),
+                },
+                {
+                  label: t("latest_update"),
+                  children: formatDate(new Date(loader.blueprint.updatetime)),
                 },
                 {
                   label: t("game_version"),

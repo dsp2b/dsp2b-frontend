@@ -83,6 +83,7 @@
   "game_version": "游戏版本",
   "copy_count": "复制次数",
   "copy_blueprint_code": "复制蓝图代码",
+  "preview_blueprint": "预览蓝图",
   "empty_data": "暂无数据",
   "collection": "蓝图集",
   "collect": "收藏",
@@ -100,5 +101,7 @@
   "back_to_previous": "返回上一级",
   "more...": "更多...",
   "loading...": "加载中...",
-  "tools": "工具"
+  "tools": "工具",
+  "reset": "重置",
+  "latest_update": "最新更新"
 }

@@ -3,9 +3,11 @@ import { CSSProperties } from "react";
 
 const DSPCover: React.FC<{
   style: CSSProperties;
+  className?: string;
   items: { item_id: number; name?: string; icon_path?: string }[];
-}> = ({ style, items }) => {
-  const className = "flex flex-row justify-center items-center";
+}> = ({ style, items, className }) => {
+  let tmpClassName = "flex flex-row justify-center items-center";
+  tmpClassName += className ? " " + className : "";
   style.background = "#246cb9";
   style.display = "flex";
   style.flexWrap = "wrap";
@@ -15,10 +17,10 @@ const DSPCover: React.FC<{
   items = items.length > 4 ? items.slice(0, 4) : items;
   switch (items.length) {
     case 0:
-      return <div className={className} style={style}></div>;
+      return <div className={tmpClassName} style={style}></div>;
     case 1:
       return (
-        <div className={className} style={style}>
+        <div className={tmpClassName} style={style}>
           <Avatar
             shape="square"
             style={{

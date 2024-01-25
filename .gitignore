@@ -9,3 +9,6 @@ node_modules
 
 /.idea
 /.vscode
+
+dist
+dsp_blueprint_editor

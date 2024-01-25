@@ -1,5 +1,4 @@
 import { message } from "antd";
-import { APIDataResponse } from "~/services/api";
 
 export type UploadResponse = {
   postURL: string;

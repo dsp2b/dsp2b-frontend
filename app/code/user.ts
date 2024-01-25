@@ -17,6 +17,7 @@ export enum ErrUser {
   BindQQ,
 }
 
+
 export enum ErrBuleprint {
   FilenameInvalid = 2001,
   TitleInvalid,
@@ -25,6 +26,7 @@ export enum ErrBuleprint {
   PicListInvalid,
   NotFound,
   CollectionInvalid,
+  CollectionCountLimit
 }
 
 export enum ErrCollection {

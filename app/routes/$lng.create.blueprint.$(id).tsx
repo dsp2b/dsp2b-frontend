@@ -411,8 +411,29 @@ export default function CreateBlueprint() {
             : undefined
         }
       >
-        <Form.Item name="blueprint" label={t("blueprint_data")}>
+        <Form.Item
+          name="blueprint"
+          label={t("blueprint_data")}
+          extra={
+            <div className="flex flex-row justify-end py-2">
+              <Button
+                type="primary"
+                size="small"
+                onClick={() => {
+                  formRef.setFieldValue("blueprint", "");
+                  setTags([]);
+                  formRef.setFieldValue("title", "");
+                  setProducts([]);
+                  setBuildings([]);
+                }}
+              >
+                {t("reset")}
+              </Button>
+            </div>
+          }
+        >
           <Input.TextArea
+            rows={4}
             onBlur={() => {
               // 解析蓝图数据
               const blueprint = formRef.getFieldValue("blueprint");
@@ -503,7 +524,7 @@ export default function CreateBlueprint() {
           <Input />
         </Form.Item>
         <Form.Item name="description" label={t("description")}>
-          <Input.TextArea />
+          <Input.TextArea rows={4} />
         </Form.Item>
         <Form.Item
           label={t("please_upload_cover_picture")}

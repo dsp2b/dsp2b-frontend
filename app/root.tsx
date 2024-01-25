@@ -30,6 +30,8 @@ import prisma from "./db.server";
 import { UserAuth } from "./services/user.server.ts";
 import { ossFileUrl } from "./utils/utils.server";
 import { getLocale } from "./utils/i18n";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appCss },
@@ -109,6 +111,9 @@ export default function App() {
   const navigate = useNavigate();
 
   useChangeLanguage(userContext.locale);
+
+  dayjs.locale(locale.toLocaleLowerCase());
+  dayjs.extend(relativeTime);
 
   return (
     <html lang={locale} dir={i18n.dir()}>

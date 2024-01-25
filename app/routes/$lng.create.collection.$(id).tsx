@@ -300,7 +300,7 @@ export default function CreateCollection() {
           label={t("description")}
           rules={[{ type: "string", max: 102400 }]}
         >
-          <Input.TextArea />
+          <Input.TextArea rows={4} />
         </Form.Item>
         <Form.Item name="public" label={t("public_collection")}>
           <Checkbox

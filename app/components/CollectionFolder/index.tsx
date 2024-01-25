@@ -1,5 +1,6 @@
 import { FolderFilled, FolderOutlined } from "@ant-design/icons";
 import { Button, Card, Dropdown, Typography } from "antd";
+import { useLocale } from "remix-i18next";
 
 export type CollectionFolderItem = { id: string; title: string };
 
@@ -11,6 +12,7 @@ const CollectionFolder: React.FC<{
   style?: React.CSSProperties;
   headStyle?: React.CSSProperties;
 }> = ({ title, list, bordered = true, style, bodyStyle, headStyle }) => {
+  const uLocale = "/" + useLocale();
   return (
     <Card
       title={title}
@@ -27,7 +29,7 @@ const CollectionFolder: React.FC<{
               height: "100px",
             }}
             type="text"
-            href={"/collection/" + item.id}
+            href={uLocale + "/collection/" + item.id}
           >
             <div
               className="flex flex-col items-center justify-between w-full"
@@ -48,7 +50,7 @@ const CollectionFolder: React.FC<{
                   overflow: "hidden",
                 }}
               >
-                {item.title + index}
+                {item.title}
               </Typography.Text>
             </div>
           </Button>
