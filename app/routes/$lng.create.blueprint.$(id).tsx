@@ -5,7 +5,7 @@ import {
   json,
 } from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
-import { useCallback, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { PicCard } from "~/components/PicCard";
 import RecipePanel from "~/components/RecipePanel";
@@ -20,7 +20,7 @@ import {
   blueprintTags,
   parseBlueprint,
 } from "~/services/blueprint.server";
-import { post } from "~/utils/api";
+import { post, useRequest } from "~/utils/api";
 import {
   CodeError,
   errBadRequest,
@@ -46,21 +46,16 @@ import {
   Form,
   Input,
   InputNumber,
+  Modal,
   Popover,
   Select,
-  Space,
   Tag,
   TreeSelect,
-  Typography,
   Upload,
   UploadFile,
   message,
 } from "antd";
-import {
-  CloseCircleOutlined,
-  DeleteOutlined,
-  PlusOutlined,
-} from "@ant-design/icons";
+import { DeleteOutlined, PlusOutlined } from "@ant-design/icons";
 import {
   DndContext,
   DragEndEvent,
@@ -79,6 +74,7 @@ import { upload } from "~/utils/utils.client";
 import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
+import { success } from "~/utils/httputils";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const uLocale = "/" + getLocale(request);
@@ -236,7 +232,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                 });
                 await tx.blueprint_product.deleteMany({
                   where: {
-                    blueptint_id: oldBlueprint.id,
+                    blueprint_id: oldBlueprint.id,
                   },
                 });
                 blueprint = await tx.blueprint.update({
@@ -263,7 +259,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     return tx.blueprint_product
                       .create({
                         data: {
-                          blueptint_id: blueprint.id,
+                          blueprint_id: blueprint.id,
                           item_id: val.item_id,
                           count: val.count,
                         },
@@ -290,6 +286,54 @@ export const action: ActionFunction = async ({ request, params }) => {
           .then((resp) => {
             return { id: resp.id };
           });
+      }
+    } else if (request.method === "DELETE") {
+      const user = await authenticator.isAuthenticated(request, {
+        failureRedirect: uLocale + "/login",
+      });
+      if (!user) {
+        return errBadRequest(request, ErrUser.UserNotLogin);
+      }
+      const id = params["id"];
+      if (id) {
+        // 搜寻蓝图
+        const blueprint = await prisma.blueprint.findUnique({
+          where: {
+            id: id,
+          },
+        });
+        if (!blueprint || blueprint.user_id != user.id) {
+          return errNotFound(request, ErrBuleprint.NotFound);
+        }
+        await prisma.$transaction(async (tx) => {
+          // 删除蓝图相关资源
+          await tx.blueprint_collection.deleteMany({
+            where: {
+              blueprint_id: blueprint.id,
+            },
+          });
+          await tx.blueprint_product.deleteMany({
+            where: {
+              blueprint_id: blueprint.id,
+            },
+          });
+          await tx.blueprint_comment.deleteMany({
+            where: {
+              blueprint_id: blueprint.id,
+            },
+          });
+          await tx.blueprint_like.deleteMany({
+            where: {
+              blueprint_id: blueprint.id,
+            },
+          });
+          await tx.blueprint.delete({
+            where: {
+              id: blueprint.id,
+            },
+          });
+        });
+        return success();
       }
     }
     return errBadRequest(request, -1);
@@ -322,6 +366,7 @@ export default function CreateBlueprint() {
     activationConstraint: { distance: 10 },
   });
   const uLocale = "/" + useLocale();
+  const request = useRequest("create.blueprint.$(id)");
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -720,10 +765,10 @@ export default function CreateBlueprint() {
         <Form.Item name="original" valuePropName="checked">
           <Checkbox>{t("original_desc")}</Checkbox>
         </Form.Item>
-        <div className="flex flex-row-reverse mt-2">
+        <div className="flex flex-row-reverse mt-2 gap-2">
           <Button
             type="primary"
-            loading={fetcher.state != "idle"}
+            loading={fetcher.state != "idle" || request.loading}
             onClick={() => {
               const data = formRef.getFieldsValue();
               if (blueprint?.id) {
@@ -745,6 +790,36 @@ export default function CreateBlueprint() {
           >
             {blueprint ? t("update") : t("submit")}
           </Button>
+          {blueprint && (
+            <Button
+              type="default"
+              danger
+              loading={request.loading}
+              onClick={() => {
+                Modal.confirm({
+                  title: t("delete_blueprint"),
+                  content: t("delete_blueprint_confirm"),
+                  okText: t("confirm"),
+                  cancelText: t("cancel"),
+                  onOk: () => {
+                    request
+                      .submit({
+                        method: "DELETE",
+                        params: {
+                          id: blueprint.id,
+                        },
+                      })
+                      .success(() => {
+                        message.success(t("delete_blueprint_success"));
+                        location.href = uLocale + "/";
+                      });
+                  },
+                });
+              }}
+            >
+              {t("delete")}
+            </Button>
+          )}
         </div>
       </Form>
     </Card>

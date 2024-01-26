@@ -103,5 +103,13 @@
   "loading...": "加载中...",
   "tools": "工具",
   "reset": "重置",
-  "latest_update": "最新更新"
+  "latest_update": "最新更新",
+  "delete_blueprint": "删除蓝图",
+  "delete_blueprint_confirm": "确定删除蓝图吗？请注意，删除后不可恢复",
+  "delete_blueprint_success": "蓝图删除成功",
+  "delete_collection": "删除蓝图集",
+  "delete_collection_confirm": "确定删除蓝图集吗？请注意，删除后不可恢复，子蓝图集将会移动到根集下",
+  "delete_collection_success": "蓝图集删除成功",
+  "confirm": "确定",
+  "cancel": "取消"
 }

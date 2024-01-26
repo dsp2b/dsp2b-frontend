@@ -130,7 +130,7 @@ export async function blueprintProducts(
   let productsList: Product[] = [];
   const list = await prisma.blueprint_product.findMany({
     where: {
-      blueptint_id: blueprint.id,
+      blueprint_id: blueprint.id,
     },
   });
   list.forEach((val) => {

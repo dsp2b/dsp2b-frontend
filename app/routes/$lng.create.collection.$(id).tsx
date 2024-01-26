@@ -24,12 +24,14 @@ import {
   Checkbox,
   Form,
   Input,
+  Modal,
   TreeSelect,
   Typography,
   message,
 } from "antd";
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
+import { useRequest } from "~/utils/api";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -46,6 +48,34 @@ export const action: ActionFunction = async ({ request, params }) => {
     });
     if (!oldCollection || user.id != oldCollection.user_id) {
       return errNotFound(request, ErrCollection.NotFound);
+    }
+    if (request.method === "DELETE") {
+      await prisma.$transaction(async (tx) => {
+        await tx.blueprint_collection.deleteMany({
+          where: {
+            collection_id: id,
+          },
+        });
+        await tx.collection_like.deleteMany({
+          where: {
+            collection_id: id,
+          },
+        });
+        await tx.collection.updateMany({
+          where: {
+            parent_id: id,
+          },
+          data: {
+            parent_id: null,
+          },
+        });
+        await tx.collection.delete({
+          where: {
+            id: id,
+          },
+        });
+      });
+      return success();
     }
   }
   const [result, err] = await LimitSvc.limit(
@@ -239,6 +269,7 @@ export default function CreateCollection() {
   const [form] = Form.useForm();
   const [publicCollection, setPublicCollection] = useState<1 | 2>(1);
   const uLocale = "/" + useLocale();
+  const request = useRequest("create.collection.$(id)");
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -326,7 +357,7 @@ export default function CreateCollection() {
             </Typography.Text>
           </Checkbox>
         </Form.Item>
-        <div className="flex flex-row-reverse">
+        <div className="flex flex-row-reverse gap-2">
           <Button
             loading={fetcher.state != "idle"}
             htmlType="submit"
@@ -334,6 +365,36 @@ export default function CreateCollection() {
           >
             {collection ? t("update") : t("submit")}
           </Button>
+          {collection && (
+            <Button
+              type="default"
+              danger
+              loading={request.loading}
+              onClick={() => {
+                Modal.confirm({
+                  title: t("delete_collection"),
+                  content: t("delete_collection_confirm"),
+                  okText: t("confirm"),
+                  cancelText: t("cancel"),
+                  onOk: () => {
+                    request
+                      .submit({
+                        method: "DELETE",
+                        params: {
+                          id: collection.id,
+                        },
+                      })
+                      .success(() => {
+                        message.success(t("delete_collection_success"));
+                        location.href = uLocale + "/collection";
+                      });
+                  },
+                });
+              }}
+            >
+              {t("delete")}
+            </Button>
+          )}
         </div>
       </Form>
     </Card>

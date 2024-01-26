@@ -96,7 +96,7 @@ model blueprint {
 
 model blueprint_product {
   id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  blueptint_id String   @db.ObjectId
+  blueprint_id String   @db.ObjectId
   item_id      Int
   count        Int
   createtime   DateTime @default(now()) @db.Timestamp

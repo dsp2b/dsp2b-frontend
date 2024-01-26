@@ -177,7 +177,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   }
   const products = await prisma.blueprint_product.findMany({
     where: {
-      blueptint_id: blueprint.id,
+      blueprint_id: blueprint.id,
     },
   });
 

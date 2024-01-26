@@ -31,6 +31,7 @@ export function routeToUrl(route: string, options: RequestOptions) {
   if (options.params) {
     Object.keys(options.params).forEach((key) => {
       url = url.replace("$" + key, options.params![key]);
+      url = url.replace("$(" + key + ")", options.params![key]);
     });
   }
   return (
