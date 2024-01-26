@@ -452,6 +452,7 @@ export default function CreateBlueprint() {
           <TreeSelect
             className="w-full"
             treeData={buildSelectTree(tree as unknown as CollectionTree[])}
+            treeDefaultExpandAll
             multiple
           />
         </Form.Item>

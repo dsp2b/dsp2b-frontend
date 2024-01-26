@@ -169,6 +169,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
         },
       },
       take: 10,
+      orderBy: {
+        updatetime: "desc",
+      },
     });
     return json({ collection });
   }
@@ -541,7 +544,7 @@ export default function Blueprint() {
                       <Space>
                         {loader.collections && loader.collections.length > 0 ? (
                           collections.map((val) => (
-                            <Link to={"/collection/" + val.id}>
+                            <Link to={uLocale + "/collection/" + val.id}>
                               {val.title}
                             </Link>
                           ))

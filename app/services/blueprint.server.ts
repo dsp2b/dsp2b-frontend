@@ -149,11 +149,12 @@ export async function blueprintList(
   options?: {
     user_id?: string;
     collection?: string;
+    defaultSort?: string;
   }
 ) {
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1") || 1;
-  const sort = url.searchParams.get("sort") || "latest";
+  const sort = url.searchParams.get("sort") || options?.defaultSort || "latest";
   const keyword = url.searchParams.get("keyword") || "";
   const tags = (url.searchParams.get("tags") || "")
     .split(",")
@@ -223,6 +224,18 @@ export async function blueprintList(
           blueprint_collection: {
             _count: "desc",
           },
+        },
+      });
+      break;
+    case "title":
+      //@ts-ignore
+      list = await prisma.blueprint.findMany({
+        where,
+        skip,
+        take,
+        select,
+        orderBy: {
+          title: "desc",
         },
       });
       break;

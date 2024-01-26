@@ -52,7 +52,8 @@ const BlueprintList: React.FC<{
     currentPage?: number;
     tags?: tag[];
   };
-}> = ({ loader }) => {
+  sortButton?: React.ReactElement[];
+}> = ({ loader, sortButton }) => {
   const [visibleTagPanel, setVisibleTagPanel] = useState(false);
   const [selectTags, setTags] = useState<tag[]>(loader.tags ? loader.tags : []);
   const { t } = useTranslation();
@@ -82,6 +83,7 @@ const BlueprintList: React.FC<{
                 });
               }}
             >
+              {sortButton && sortButton}
               <Radio.Button value="latest">{t("latest")}</Radio.Button>
               <Radio.Button value="like">{t("most_like")}</Radio.Button>
               <Radio.Button value="collection">

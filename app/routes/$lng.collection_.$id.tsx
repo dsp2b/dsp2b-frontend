@@ -14,7 +14,7 @@ import {
   json,
 } from "@remix-run/node";
 import { Link, useLoaderData, useNavigate } from "@remix-run/react";
-import { Button, Card, Typography, message } from "antd";
+import { Button, Card, Radio, Typography, message } from "antd";
 import { useTranslation } from "react-i18next";
 import { ErrCollection } from "~/code/user";
 import BlueprintList, { BlueprintItem } from "~/components/BlueprintList";
@@ -71,6 +71,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
   const resp = await blueprintList(request, {
     collection: collection.id,
+    defaultSort: "title",
   });
 
   const like_count = await prisma.collection_like.count({
@@ -250,7 +251,10 @@ export default function Collection() {
           />
         )}
       </Card>
-      <BlueprintList loader={loader as any} />
+      <BlueprintList
+        loader={loader as any}
+        sortButton={[<Radio.Button value="title">{t("title")}</Radio.Button>]}
+      />
     </div>
   );
 }
