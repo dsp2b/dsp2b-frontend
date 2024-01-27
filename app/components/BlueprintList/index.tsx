@@ -238,9 +238,9 @@ const BlueprintList: React.FC<{
               },
             }}
             renderItem={(item) => (
-              <List.Item>
+              <List.Item className="!flex !justify-center">
                 <Card
-                  style={{ width: "280px", overflow: "hidden" }}
+                  style={{ width: "270px", overflow: "hidden" }}
                   cover={
                     <Link to={uLocale + "/blueprint/" + item.id}>
                       {(loader.view == "product_view" &&
@@ -250,7 +250,7 @@ const BlueprintList: React.FC<{
                         <DSPCover
                           items={item.tags}
                           style={{
-                            width: "280px",
+                            width: "270px",
                             height: 200,
                           }}
                         />

@@ -19,7 +19,7 @@ export function ossFileUrl(path?: string | null) {
 
 export function thumbnailUrl(
   path?: string | null,
-  width: number = 280,
+  width: number = 270,
   height: number = 200
 ) {
   if (!path) {

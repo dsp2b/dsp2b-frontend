@@ -130,6 +130,19 @@ export default function App() {
         />
         <meta name="keywords" content={loaderData.i18n.home_page_keyword} />
         <Links />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZDGXSPENDT"
+        ></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+          
+            gtag('config', 'G-ZDGXSPENDT');`,
+          }}
+        />
       </head>
       <body className={userContext.darkMode == "dark" ? "dark" : ""}>
         <ConfigProvider
