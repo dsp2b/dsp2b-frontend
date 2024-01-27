@@ -1,5 +1,4 @@
 import {
-  DownOutlined,
   EditOutlined,
   LikeFilled,
   LikeOutlined,
@@ -22,7 +21,7 @@ import {
   MetaFunction,
   json,
 } from "@remix-run/node";
-import { Link, useLoaderData, useNavigate } from "@remix-run/react";
+import { Link, useLoaderData } from "@remix-run/react";
 import {
   Avatar,
   Badge,
@@ -38,7 +37,7 @@ import {
   Tag,
   Typography,
   message,
-  theme,
+  Image,
 } from "antd";
 import { ItemType } from "antd/es/menu/hooks/useItems";
 import dayjs from "dayjs";
@@ -57,7 +56,7 @@ import {
 } from "~/services/blueprint.server";
 import { useRequest } from "~/utils/api";
 import { errBadRequest, errNotFound } from "~/utils/errcode";
-import { formData, jsonData, ossFileUrl } from "~/utils/utils.server";
+import { jsonData, ossFileUrl } from "~/utils/utils.server";
 import { useLocale } from "remix-i18next";
 import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
@@ -320,25 +319,28 @@ export default function Blueprint() {
         style={{ width: "75%" }}
         cover={
           loader.blueprint.pic_list && loader.blueprint.pic_list.length > 0 ? (
-            <Carousel style={{ width: "100%", height: "300px" }}>
-              {loader.blueprint.pic_list.map((pic) => (
-                <div>
-                  <div
-                    className="flex justify-center"
-                    style={{ width: "100%", height: "300px" }}
-                  >
-                    <img
-                      style={{
-                        maxHeight: "300px",
-                        borderRadius: 0,
-                        objectFit: "contain",
-                      }}
-                      src={pic}
-                    />
+            <Image.PreviewGroup items={loader.blueprint.pic_list} >
+              <Carousel style={{ width: "100%", height: "300px" }} autoplay>
+                {loader.blueprint.pic_list.map((pic) => (
+                  <div>
+                    <div
+                      className="flex justify-center"
+                      style={{ width: "100%", height: "300px" }}
+                    >
+                      <Image
+                        rootClassName="!flex"
+                        style={{
+                          maxHeight: "300px",
+                          borderRadius: 0,
+                          objectFit: "contain",
+                        }}
+                        src={pic}
+                      />
+                    </div>
                   </div>
-                </div>
-              ))}
-            </Carousel>
+                ))}
+              </Carousel>
+            </Image.PreviewGroup>
           ) : (
             <div className="!flex justify-center" style={{ width: "100%" }}>
               <DSPCover
