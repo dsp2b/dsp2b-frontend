@@ -1,5 +1,6 @@
 import { Avatar } from "antd";
 import { CSSProperties } from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const DSPCover: React.FC<{
   style: CSSProperties;
@@ -21,8 +22,7 @@ const DSPCover: React.FC<{
     case 1:
       return (
         <div className={tmpClassName} style={style}>
-          <Avatar
-            shape="square"
+          <LazyLoadImage
             style={{
               display: "block",
               width: "50%",
@@ -35,8 +35,7 @@ const DSPCover: React.FC<{
     case 2:
       return (
         <div style={style}>
-          <Avatar
-            shape="square"
+          <LazyLoadImage
             style={{
               display: "block",
               width: "33%",
@@ -44,13 +43,12 @@ const DSPCover: React.FC<{
             }}
             src={"/images/icons/item_recipe/" + items[0].icon_path + ".png"}
           />
-          <Avatar
+          <LazyLoadImage
             style={{
               display: "block",
               width: "33%",
               height: "auto",
             }}
-            shape="square"
             src={"/images/icons/item_recipe/" + items[1].icon_path + ".png"}
           />
         </div>
@@ -64,8 +62,7 @@ const DSPCover: React.FC<{
       return (
         <div style={style}>
           <div style={style2}>
-            <Avatar
-              shape="square"
+            <LazyLoadImage
               style={{
                 display: "block",
                 width: "33%",
@@ -75,22 +72,20 @@ const DSPCover: React.FC<{
             />
           </div>
           <div style={style2}>
-            <Avatar
+            <LazyLoadImage
               style={{
                 display: "block",
                 width: "33%",
                 height: "auto",
               }}
-              shape="square"
               src={"/images/icons/item_recipe/" + items[1].icon_path + ".png"}
             />
-            <Avatar
+            <LazyLoadImage
               style={{
                 display: "block",
                 width: "33%",
                 height: "auto",
               }}
-              shape="square"
               src={"/images/icons/item_recipe/" + items[2].icon_path + ".png"}
             />
           </div>

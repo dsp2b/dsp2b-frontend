@@ -105,7 +105,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     tree: await collectionTree(user),
     blueprint,
     i18n: {
-      title: id ? t("update_blueprint") : t("create_blueprint"),
+      title: blueprint
+        ? t("update_blueprint") + " - " + blueprint.title
+        : t("create_blueprint"),
     },
   });
 };

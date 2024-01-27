@@ -45,6 +45,7 @@
   "blueprint_tags": "蓝图标签",
   "tag_exist": "标签已存在",
   "create_collection": "创建蓝图集",
+  "update_collection": "更新蓝图集",
   "parent_collection": "父级蓝图集(不选则为根集)",
   "submit": "提交",
   "public_collection": "公开蓝图集",

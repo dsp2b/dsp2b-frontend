@@ -56,6 +56,8 @@ export const action: ActionFunction = async ({ request }) => {
         filename: filename,
       });
       const url = await minioClient.presignedPostPolicy(policy);
+      const parse = new URL(url.postURL);
+      url.postURL = process.env.MINIO_URL + parse.pathname;
       return json({ code: 0, data: url });
     }
   );

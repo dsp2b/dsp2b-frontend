@@ -5,6 +5,7 @@ import { APIDataResponse } from "~/services/api";
 import {
   ActionFunction,
   LoaderFunction,
+  MetaFunction,
   json,
   redirect,
 } from "@remix-run/node";
@@ -32,6 +33,7 @@ import {
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
 import { useRequest } from "~/utils/api";
+import i18next from "~/i18next.server";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -171,6 +173,14 @@ export const action: ActionFunction = async ({ request, params }) => {
   return result;
 };
 
+export const meta: MetaFunction<typeof loader> = ({ data }) => {
+  return [
+    {
+      title: data.i18n.title + " - DSP2B",
+    },
+  ];
+};
+
 export async function collectionTree(user: UserAuth) {
   const all = await prisma.collection.findMany({
     where: {
@@ -194,7 +204,16 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       },
     });
   }
-  return json({ tree: await collectionTree(user), collection });
+  const t = await i18next.getFixedT(request);
+  return json({
+    tree: await collectionTree(user),
+    collection,
+    i18n: {
+      title: collection
+        ? t("update_collection") + " - " + collection.title
+        : t("create_collection"),
+    },
+  });
 };
 
 export type CollectionTree = collection & {
