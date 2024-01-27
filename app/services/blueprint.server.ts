@@ -235,7 +235,7 @@ export async function blueprintList(
         take,
         select,
         orderBy: {
-          title: "desc",
+          title: "asc",
         },
       });
       break;

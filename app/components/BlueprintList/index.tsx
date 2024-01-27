@@ -1,7 +1,9 @@
+import { LazyLoadImage } from "react-lazy-load-image-component";
 import {
   Avatar,
   Button,
   Card,
+  ConfigProvider,
   Divider,
   Form,
   Input,
@@ -182,119 +184,129 @@ const BlueprintList: React.FC<{
         </Form>
       </Card>
       <Card>
-        <List
-          grid={{
-            gutter: 16,
-            column: 5,
-            xs: 1,
-            sm: 2,
-            md: 3,
-            lg: 3,
-            xl: 5,
-            xxl: 6,
-          }}
-          dataSource={loader.list}
-          pagination={{
-            total: loader.total,
-            pageSize: 30,
-            current: loader.currentPage,
-            onChange(page, pageSize) {
-              navigate({
-                search: replaceSearchParam(location.search, {
-                  page,
-                }),
-              });
+        <ConfigProvider
+          theme={{
+            token: {
+              screenXXL: 1700,
             },
           }}
-          renderItem={(item) => (
-            <List.Item>
-              <Card
-                style={{ width: 200, overflow: "hidden" }}
-                cover={
-                  <Link to={uLocale + "/blueprint/" + item.id}>
-                    {!item.pic && item.tags && item.tags.length ? (
-                      <DSPCover
-                        items={item.tags}
-                        style={{
-                          width: 200,
-                          height: 200,
-                        }}
-                      />
-                    ) : (
-                      <img
-                        style={{
-                          height: "200px",
-                          borderRadius: 0,
-                          objectFit: "contain",
-                        }}
-                        src={
-                          item.pic
-                            ? item.pic
-                            : "https://media.st.dl.eccdnx.com/steam/apps/1366540/header_schinese.jpg?t=1702624498"
-                        }
-                      />
-                    )}
-                  </Link>
-                }
-                bodyStyle={{
-                  padding: "12px",
-                }}
-              >
-                <List.Item.Meta
-                  title={
+        >
+          <List
+            grid={{
+              gutter: 16,
+              column: 4,
+              xs: 1,
+              sm: 1,
+              md: 2,
+              lg: 2,
+              xl: 4,
+              xxl: 5,
+            }}
+            dataSource={loader.list}
+            pagination={{
+              total: loader.total,
+              pageSize: 30,
+              current: loader.currentPage,
+              onChange(page, pageSize) {
+                navigate({
+                  search: replaceSearchParam(location.search, {
+                    page,
+                  }),
+                });
+              },
+            }}
+            renderItem={(item) => (
+              <List.Item>
+                <Card
+                  style={{ width: 280, overflow: "hidden" }}
+                  cover={
                     <Link to={uLocale + "/blueprint/" + item.id}>
-                      {item.title}
-                    </Link>
-                  }
-                  description={
-                    <Typography.Text type="secondary" ellipsis>
-                      {item.description}
-                    </Typography.Text>
-                  }
-                />
-                <div className="flex flex-row justify-between mt-2">
-                  <div>
-                    <Link to={uLocale + "/user/" + item.user.id}>
-                      <Typography.Text type="secondary">
-                        {item.user.username}
-                      </Typography.Text>
-                    </Link>
-                  </div>
-                  <div>
-                    <Typography.Text type="secondary">
-                      <CopyOutlined
-                        className="cursor-pointer"
-                        onClick={async () => {
-                          message.info(t("loading..."));
-
-                          const resp = await request("$lng.blueprint.$id", {
-                            params: {
-                              lng: locale,
-                              id: item.id,
-                            },
-                          });
-                          if (resp.status != 200) {
-                            message.error(t("error"));
-                            return;
+                      {!item.pic && item.tags && item.tags.length ? (
+                        <DSPCover
+                          items={item.tags}
+                          style={{
+                            width: 280,
+                            height: 200,
+                          }}
+                        />
+                      ) : (
+                        <LazyLoadImage
+                          style={{
+                            height: "200px",
+                            borderRadius: 0,
+                            objectFit: "contain",
+                          }}
+                          height={200}
+                          width={"100%"}
+                          src={
+                            item.pic
+                              ? item.pic
+                              : "https://media.st.dl.eccdnx.com/steam/apps/1366540/header_schinese.jpg?t=1702624498"
                           }
-                          const data = (await resp.json()) as {
-                            blueprint: blueprint;
-                          };
-                          copy(data.blueprint.blueprint);
-                          message.success(t("copy_success"));
-                        }}
-                      />
-                    </Typography.Text>
-                    <Divider type="vertical" />
-                    <Typography.Text type="secondary">
-                      <LikeOutlined /> {item.like_count}
-                    </Typography.Text>
+                        />
+                      )}
+                    </Link>
+                  }
+                  bodyStyle={{
+                    padding: "12px",
+                  }}
+                >
+                  <List.Item.Meta
+                    title={
+                      <Link to={uLocale + "/blueprint/" + item.id}>
+                        {item.title}
+                      </Link>
+                    }
+                    description={
+                      <Typography.Text type="secondary" ellipsis>
+                        {item.description}
+                      </Typography.Text>
+                    }
+                  />
+                  <div className="flex flex-row justify-between mt-2">
+                    <div>
+                      <Link to={uLocale + "/user/" + item.user.id}>
+                        <Typography.Text type="secondary">
+                          {item.user.username}
+                        </Typography.Text>
+                      </Link>
+                    </div>
+                    <div>
+                      <Typography.Text type="secondary">
+                        <CopyOutlined
+                          className="cursor-pointer"
+                          onClick={async () => {
+                            message.info(t("loading..."));
+
+                            const resp = await request("$lng.blueprint.$id", {
+                              params: {
+                                lng: locale,
+                                id: item.id,
+                              },
+                            });
+                            if (resp.status != 200) {
+                              message.error(t("error"));
+                              return;
+                            }
+                            const data = (await resp.json()) as {
+                              blueprint: blueprint;
+                            };
+                            copy(data.blueprint.blueprint);
+                            message.success(t("copy_success"));
+                          }}
+                        />
+                      </Typography.Text>
+                      <Divider type="vertical" />
+                      <Typography.Text type="secondary">
+                        <LikeOutlined /> {item.like_count}
+                      </Typography.Text>
+                    </div>
                   </div>
-                </div>
-              </Card>
-            </List.Item>
-          )}
-        />
+                </Card>
+              </List.Item>
+            )}
+          />
+        </ConfigProvider>
       </Card>
     </div>
   );
