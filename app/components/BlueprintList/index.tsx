@@ -53,6 +53,7 @@ const BlueprintList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
+    view: "cover" | "product_view";
   };
   sortButton?: React.ReactElement[];
 }> = ({ loader, sortButton }) => {
@@ -72,7 +73,11 @@ const BlueprintList: React.FC<{
           layout="horizontal"
           labelCol={{ span: 2 }}
           wrapperCol={{ span: 20 }}
-          initialValues={{ sort: loader.sort, keyword: loader.keyword }}
+          initialValues={{
+            sort: loader.sort,
+            keyword: loader.keyword,
+            view: loader.view,
+          }}
         >
           <Form.Item label={t("sort_by")} name="sort" className="!mb-2">
             <Radio.Group
@@ -181,6 +186,23 @@ const BlueprintList: React.FC<{
               </Button>
             </div>
           </Form.Item>
+          <Form.Item name="view" label={t("view")} className="!mb-2">
+            <Radio.Group
+              buttonStyle="solid"
+              onChange={(val) => {
+                navigate({
+                  search: replaceSearchParam(location.search, {
+                    view: val.target.value,
+                  }),
+                });
+              }}
+            >
+              <Radio.Button value="cover">{t("cover")}</Radio.Button>
+              <Radio.Button value="product_view">
+                {t("product_view")}
+              </Radio.Button>
+            </Radio.Group>
+          </Form.Item>
         </Form>
       </Card>
       <Card>
@@ -221,7 +243,10 @@ const BlueprintList: React.FC<{
                   style={{ width: "280px", overflow: "hidden" }}
                   cover={
                     <Link to={uLocale + "/blueprint/" + item.id}>
-                      {!item.pic && item.tags && item.tags.length ? (
+                      {(loader.view == "product_view" &&
+                        item.tags &&
+                        item.tags.length) ||
+                      (!item.pic && item.tags && item.tags.length) ? (
                         <DSPCover
                           items={item.tags}
                           style={{

@@ -156,6 +156,7 @@ export async function blueprintList(
   const page = parseInt(url.searchParams.get("page") || "1") || 1;
   const sort = url.searchParams.get("sort") || options?.defaultSort || "latest";
   const keyword = url.searchParams.get("keyword") || "";
+  const view = url.searchParams.get("view") || "cover";
   const tags = (url.searchParams.get("tags") || "")
     .split(",")
     .filter((v) => v)
@@ -288,6 +289,7 @@ export async function blueprintList(
     total,
     sort,
     keyword,
+    view: view,
     currentPage: page,
     tags: blueprintTags(tags),
   };
