@@ -21,3 +21,8 @@ body.dark {
 .ant-upload-list-item-container>div {
 	height: 100%;
 }
+
+.blueprint-list .ant-col {
+	padding-left: 0 !important;
+	padding-right: 0 !important;
+}

@@ -53,7 +53,7 @@ const BlueprintList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
-    view: "cover" | "product_view";
+    view?: "cover" | "product_view";
   };
   sortButton?: React.ReactElement[];
 }> = ({ loader, sortButton }) => {
@@ -214,6 +214,7 @@ const BlueprintList: React.FC<{
           }}
         >
           <List
+            className="blueprint-list"
             grid={{
               gutter: 16,
               column: 4,
