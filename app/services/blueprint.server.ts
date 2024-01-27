@@ -196,7 +196,7 @@ export async function blueprintList(
       },
     },
   };
-  const take = 30;
+  const take = 40;
   const skip = (page - 1) * take;
   switch (sort) {
     case "like":

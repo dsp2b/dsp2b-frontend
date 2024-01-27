@@ -205,7 +205,7 @@ const BlueprintList: React.FC<{
             dataSource={loader.list}
             pagination={{
               total: loader.total,
-              pageSize: 30,
+              pageSize: 40,
               current: loader.currentPage,
               onChange(page, pageSize) {
                 navigate({
