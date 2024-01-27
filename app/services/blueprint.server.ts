@@ -5,7 +5,7 @@ import itemProtoSet from "./ItemProtoSet.json";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
 import { blueprint, collection } from "@prisma/client";
-import { jsonData, ossFileUrl } from "~/utils/utils.server";
+import { jsonData, ossFileUrl, thumbnailUrl } from "~/utils/utils.server";
 import { success } from "~/utils/httputils";
 import { BlueprintItem, tag } from "~/components/BlueprintList";
 
@@ -263,7 +263,7 @@ export async function blueprintList(
         };
       }) || [];
     if (val.pic_list && val.pic_list.length > 0) {
-      val.pic = ossFileUrl(val.pic_list[0]);
+      val.pic = thumbnailUrl(val.pic_list[0]);
     }
   });
 

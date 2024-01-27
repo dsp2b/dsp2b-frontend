@@ -16,3 +16,22 @@ export function ossFileUrl(path?: string | null) {
   }
   return process.env.MINIO_URL + "/" + process.env.MINIO_BUCKET + "/" + path;
 }
+
+export function thumbnailUrl(
+  path?: string | null,
+  width: number = 280,
+  height: number = 200
+) {
+  if (!path) {
+    return "";
+  }
+  return (
+    process.env.API_URL +
+    "/image/thumbnail/" +
+    width +
+    "/" +
+    height +
+    "/" +
+    path
+  );
+}

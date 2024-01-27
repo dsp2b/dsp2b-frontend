@@ -218,14 +218,14 @@ const BlueprintList: React.FC<{
             renderItem={(item) => (
               <List.Item>
                 <Card
-                  style={{ width: 280, overflow: "hidden" }}
+                  style={{ width: "280px", overflow: "hidden" }}
                   cover={
                     <Link to={uLocale + "/blueprint/" + item.id}>
                       {!item.pic && item.tags && item.tags.length ? (
                         <DSPCover
                           items={item.tags}
                           style={{
-                            width: 280,
+                            width: "280px",
                             height: 200,
                           }}
                         />
@@ -236,7 +236,7 @@ const BlueprintList: React.FC<{
                             borderRadius: 0,
                             objectFit: "contain",
                           }}
-                          height={200}
+                          height={"200px"}
                           width={"100%"}
                           src={
                             item.pic
@@ -277,7 +277,6 @@ const BlueprintList: React.FC<{
                           className="cursor-pointer"
                           onClick={async () => {
                             message.info(t("loading..."));
-
                             const resp = await request("$lng.blueprint.$id", {
                               params: {
                                 lng: locale,

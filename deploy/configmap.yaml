@@ -17,6 +17,8 @@ data:
 
   APP_DOMAIN: 
   RPC_URL: 
+  API_URL:
+
   MINIO_ENDPOINT: 
   MINIO_URL: 
   MINIO_PORT: 
