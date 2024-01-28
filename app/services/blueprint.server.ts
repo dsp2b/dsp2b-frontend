@@ -4,10 +4,10 @@ import { authenticator } from "./auth.server";
 import itemProtoSet from "./ItemProtoSet.json";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
-import { blueprint, collection } from "@prisma/client";
-import { jsonData, ossFileUrl, thumbnailUrl } from "~/utils/utils.server";
+import { blueprint } from "@prisma/client";
+import { ossFileUrl, thumbnailUrl } from "~/utils/utils.server";
 import { success } from "~/utils/httputils";
-import { BlueprintItem, tag } from "~/components/BlueprintList";
+import { tag } from "~/components/BlueprintList";
 
 export type ParseBlueprintResponse = APIDataResponse<{
   blueprint: {
@@ -237,6 +237,18 @@ export async function blueprintList(
         select,
         orderBy: {
           title: "asc",
+        },
+      });
+      break;
+    case "latest_update":
+      //@ts-ignore
+      list = await prisma.blueprint.findMany({
+        where,
+        skip,
+        take,
+        select,
+        orderBy: {
+          updatetime: "desc",
         },
       });
       break;
