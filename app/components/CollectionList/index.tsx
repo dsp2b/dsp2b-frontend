@@ -59,6 +59,7 @@ const CollectionList: React.FC<{
         >
           <Form.Item label={t("sort_by")} name="sort" className="!mb-2">
             <Radio.Group
+              size="small"
               buttonStyle="solid"
               onChange={(val) => {
                 navigate({

@@ -179,7 +179,7 @@ export async function blueprintList(
   }
   if (tags.length) {
     where.tags_id = {
-      hasEvery: tags,
+      hasSome: tags,
     };
   }
   let list: blueprint[];

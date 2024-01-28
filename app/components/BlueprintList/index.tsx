@@ -81,6 +81,7 @@ const BlueprintList: React.FC<{
         >
           <Form.Item label={t("sort_by")} name="sort" className="!mb-2">
             <Radio.Group
+              size="small"
               buttonStyle="solid"
               onChange={(val) => {
                 navigate({
@@ -188,6 +189,7 @@ const BlueprintList: React.FC<{
           </Form.Item>
           <Form.Item name="view" label={t("view")} className="!mb-2">
             <Radio.Group
+              size="small"
               buttonStyle="solid"
               onChange={(val) => {
                 navigate({
