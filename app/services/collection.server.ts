@@ -43,9 +43,10 @@ export async function collectionList(
   const url = new URL(request.url);
   const page = parseInt(url.searchParams.get("page") || "1") || 1;
   const user_id = options?.user_id || url.searchParams.get("user");
-  const sort = url.searchParams.get("sort") || "latest";
+  const sort = url.searchParams.get("sort") || "like";
   const keyword = url.searchParams.get("keyword") || "";
   const blueprint = url.searchParams.get("blueprint") || "";
+  const view = url.searchParams.get("view") || "all";
   const user = await authenticator.isAuthenticated(request);
   const where: any = { public: 1 };
   if (user_id) {
@@ -66,6 +67,20 @@ export async function collectionList(
       },
     };
   }
+  if (view === "root") {
+    where.OR = [
+      {
+        parent_id: {
+          equals: null,
+        },
+      },
+      {
+        parent_id: {
+          isSet: false,
+        },
+      },
+    ];
+  }
   const orderBy: any = {};
   switch (sort) {
     case "like":
@@ -77,7 +92,6 @@ export async function collectionList(
       orderBy.createtime = "desc";
       break;
   }
-
   const list = await prisma.collection.findMany({
     where,
     skip: (page - 1) * 20,
@@ -114,5 +128,5 @@ export async function collectionList(
     })
   );
 
-  return { list, total, currentPage: page, sort, keyword };
+  return { list, total, currentPage: page, sort, keyword, view };
 }

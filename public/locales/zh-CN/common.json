@@ -115,5 +115,7 @@
   "delete_collection_confirm": "确定删除蓝图集吗？请注意，删除后不可恢复，子蓝图集将会移动到根集下",
   "delete_collection_success": "蓝图集删除成功",
   "confirm": "确定",
-  "cancel": "取消"
+  "cancel": "取消",
+  "all": "全部",
+  "only_root": "只看根集"
 }

@@ -41,6 +41,7 @@ const CollectionList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
+    view?: "all" | "root";
   };
 }> = ({ loader }) => {
   const navigate = useNavigate();
@@ -55,7 +56,11 @@ const CollectionList: React.FC<{
           layout="horizontal"
           labelCol={{ span: 2 }}
           wrapperCol={{ span: 20 }}
-          initialValues={{ sort: loader.sort, keyword: loader.keyword }}
+          initialValues={{
+            sort: loader.sort,
+            keyword: loader.keyword,
+            view: loader.view,
+          }}
         >
           <Form.Item label={t("sort_by")} name="sort" className="!mb-2">
             <Radio.Group
@@ -69,8 +74,8 @@ const CollectionList: React.FC<{
                 });
               }}
             >
-              <Radio.Button value="latest">{t("latest")}</Radio.Button>
               <Radio.Button value="like">{t("most_like")}</Radio.Button>
+              <Radio.Button value="latest">{t("latest")}</Radio.Button>
             </Radio.Group>
           </Form.Item>
           <Form.Item name="keyword" label={t("search")} className="!mb-2">
@@ -94,6 +99,22 @@ const CollectionList: React.FC<{
                 {t("search")}
               </Button>
             </div>
+          </Form.Item>
+          <Form.Item name="view" label={t("view")} className="!mb-2">
+            <Radio.Group
+              size="small"
+              buttonStyle="solid"
+              onChange={(val) => {
+                navigate({
+                  search: replaceSearchParam(location.search, {
+                    view: val.target.value,
+                  }),
+                });
+              }}
+            >
+              <Radio.Button value="all">{t("all")}</Radio.Button>
+              <Radio.Button value="root">{t("only_root")}</Radio.Button>
+            </Radio.Group>
           </Form.Item>
         </Form>
       </Card>
