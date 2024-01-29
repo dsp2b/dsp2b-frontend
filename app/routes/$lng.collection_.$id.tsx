@@ -73,6 +73,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
       parent_id: collection.id,
       public: self ? undefined : 1,
     },
+    orderBy: {
+      title: "asc",
+    },
   });
 
   const resp = await blueprintList(request, {

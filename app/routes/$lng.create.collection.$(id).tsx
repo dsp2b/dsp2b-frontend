@@ -136,7 +136,7 @@ export const action: ActionFunction = async ({ request, params }) => {
           data: {
             title: title,
             description: description,
-            parent_id: parent ? parent : undefined,
+            parent_id: parent ? parent : null,
             user: {
               connect: {
                 id: user.id,
