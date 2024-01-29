@@ -17,6 +17,7 @@ import {
 } from "@prisma/client";
 import {
   ActionFunction,
+  LinksFunction,
   LoaderFunction,
   MetaFunction,
   json,
@@ -61,6 +62,11 @@ import { useLocale } from "remix-i18next";
 import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
 import { formatDate } from "~/utils/utils";
+import MarkdownView, { markdownViewLinks } from "~/components/MarkdownView";
+
+export const links: LinksFunction = () => {
+  return markdownViewLinks();
+};
 
 export const action: ActionFunction = async ({ request, params }) => {
   const id = params["id"];
@@ -319,7 +325,7 @@ export default function Blueprint() {
         style={{ width: "75%" }}
         cover={
           loader.blueprint.pic_list && loader.blueprint.pic_list.length > 0 ? (
-            <Image.PreviewGroup items={loader.blueprint.pic_list} >
+            <Image.PreviewGroup items={loader.blueprint.pic_list}>
               <Carousel style={{ width: "100%", height: "300px" }} autoplay>
                 {loader.blueprint.pic_list.map((pic) => (
                   <div>
@@ -377,7 +383,10 @@ export default function Blueprint() {
           </div>
           <Divider />
           <div>
-            <Typography.Text>{loader.blueprint.description}</Typography.Text>
+            <MarkdownView
+              id="description"
+              content={loader.blueprint.description || "-"}
+            />
           </div>
           <Divider />
           <div className="flex flex-col gap-2">

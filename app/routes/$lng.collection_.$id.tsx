@@ -9,6 +9,7 @@ import {
 import { collection, collection_like } from "@prisma/client";
 import {
   ActionFunction,
+  LinksFunction,
   LoaderFunction,
   MetaFunction,
   json,
@@ -31,6 +32,11 @@ import { useState } from "react";
 import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
+import MarkdownView, { markdownViewLinks } from "~/components/MarkdownView";
+
+export const links: LinksFunction = () => {
+  return markdownViewLinks();
+};
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -238,7 +244,10 @@ export default function Collection() {
               </Button>
             </div>
           </div>
-          <Typography.Text>{loader.collection.description}</Typography.Text>
+          <MarkdownView
+            id="description"
+            content={loader.collection.description || ""}
+          />
         </div>
         {loader.sub_collection && loader.sub_collection.length > 0 && (
           <CollectionFolder
