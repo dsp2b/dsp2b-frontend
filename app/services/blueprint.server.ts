@@ -278,6 +278,10 @@ export async function blueprintList(
     if (val.pic_list && val.pic_list.length > 0) {
       val.pic = thumbnailUrl(val.pic_list[0]);
     }
+    // 截取描述
+    if (val.description) {
+      val.description = val.description.substr(0, 100);
+    }
   });
 
   await Promise.all(

@@ -45,7 +45,7 @@ import dayjs from "dayjs";
 import { useMemo, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { useTranslation } from "react-i18next";
-import { ErrBuleprint } from "~/code/user";
+import { ErrBuleprint, ErrCollection, ErrUser } from "~/code/user";
 import { BlueprintItem } from "~/components/BlueprintList";
 import DSPCover from "~/components/DSPCover";
 import prisma from "~/db.server";
@@ -88,16 +88,34 @@ export const action: ActionFunction = async ({ request, params }) => {
     case "like":
       return postLike(request, blueprint, data.like);
     case "collect":
+      const user = await authenticator.isAuthenticated(request);
+      if (!user) {
+        return errBadRequest(request, ErrUser.UserNotLogin);
+      }
       // 加入收藏
-      // 判断收藏数大于1000
+      // 判断收藏集合法
+      const collection = await prisma.collection.findUnique({
+        where: {
+          id: data.collection_id,
+        },
+      });
+      if (!collection || collection.user_id != user.id) {
+        return errBadRequest(request, ErrCollection.NotFound);
+      }
+      // 判断收藏数大于100
       const count = await prisma.blueprint_collection.count({
         where: {
           collection_id: data.collection_id,
         },
       });
-      if (count > 1000) {
+      if (count > 100) {
         return errBadRequest(request, ErrBuleprint.CollectionCountLimit);
       }
+      // 通知更新
+      fetch(
+        process.env.RPC_URL! + "/collection/" + data.collection_id + "/notify",
+        { method: "PUT" }
+      );
       switch (data.checked) {
         case "add":
           await prisma.blueprint_collection.create({

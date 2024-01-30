@@ -23,6 +23,15 @@ export default function Tools() {
           >
             戴森球计划蓝图预览
           </Button>
+          <List.Item>
+            <Button
+              type="link"
+              href="https://cying.xyz/DSP/editBluePrint/"
+              target="_blank"
+            >
+              DSP蓝图变换工具
+            </Button>
+          </List.Item>
         </List.Item>
       </List>
     </Card>

@@ -19,7 +19,8 @@ export function upload(
   formData.append("file", file);
   const xhr = new XMLHttpRequest();
   xhr.open("POST", resp.postURL);
-  xhr.onprogress = (e) => {
+  xhr.upload.onprogress = (e) => {
+    console.log(e);
     req.onProgress &&
       req.onProgress({
         percent: Math.round((e.loaded / e.total) * 100),

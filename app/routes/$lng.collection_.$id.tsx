@@ -25,7 +25,7 @@ import prisma from "~/db.server";
 import { authenticator } from "~/services/auth.server";
 import { errBadRequest, errNotFound } from "~/utils/errcode";
 import { blueprintList } from "~/services/blueprint.server";
-import { jsonData } from "~/utils/utils.server";
+import { jsonData, ossFileUrl } from "~/utils/utils.server";
 import { collectionLike } from "~/services/collection.server";
 import { routeToUrl, useRequest } from "~/utils/api";
 import { useState } from "react";
@@ -59,14 +59,10 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   if (!collection) {
     return errNotFound(request, ErrCollection.NotFound);
   }
+  collection.download_file = ossFileUrl(collection.download_file);
   const self = user && user.id == collection.user_id;
   if (!self && collection.public !== 1) {
     return errBadRequest(request, ErrCollection.NotFound);
-  }
-  if (action == "download") {
-    return fetch(
-      process.env.RPC_URL + "/collection/" + collection.id + "/download"
-    );
   }
   const subCollection = await prisma.collection.findMany({
     where: {
@@ -239,11 +235,12 @@ export default function Collection() {
               <Button
                 icon={<DownloadOutlined />}
                 type="primary"
-                href={routeToUrl("$lng.collection_.$id?action=download", {
-                  params: { lng: locale, id: loader.collection.id },
-                })}
+                href={loader.collection.download_file || undefined}
+                loading={loader.collection.download_file ? false : true}
               >
-                {t("download_collection_zip")}
+                {loader.collection.download_file
+                  ? t("download_collection_zip")
+                  : t("download_file_generate")}
               </Button>
             </div>
           </div>

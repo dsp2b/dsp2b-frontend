@@ -125,6 +125,10 @@ export async function collectionList(
         },
       });
       val.like_count = like;
+      // 截取描述
+      if (val.description) {
+        val.description = val.description.substr(0, 100);
+      }
     })
   );
 

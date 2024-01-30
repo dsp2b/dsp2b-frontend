@@ -164,6 +164,10 @@ export const action: ActionFunction = async ({ request, params }) => {
           },
         });
       }
+      // 通知更新
+      fetch(process.env.RPC_URL! + "/collection/" + id.id + "/notify", {
+        method: "PUT",
+      });
       return success(id.id);
     }
   );

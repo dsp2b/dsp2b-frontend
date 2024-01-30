@@ -117,5 +117,6 @@
   "confirm": "确定",
   "cancel": "取消",
   "all": "全部",
-  "only_root": "只看根集"
+  "only_root": "只看根集",
+  "download_file_generate": "下载文件生成中..."
 }

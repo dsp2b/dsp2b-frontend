@@ -275,12 +275,18 @@ export const action: ActionFunction = async ({ request, params }) => {
                 data.collections.length &&
                 (await tx.blueprint_collection.createMany({
                   data: data.collections.map((val) => {
+                    // 通知更新
+                    fetch(
+                      process.env.RPC_URL! + "/collection/" + val + "/notify",
+                      { method: "PUT" }
+                    );
                     return {
                       blueprint_id: blueprint.id,
                       collection_id: val,
                     };
                   }),
                 }));
+
               return blueprint;
             },
             { timeout: 60 * 1000 }
@@ -308,6 +314,21 @@ export const action: ActionFunction = async ({ request, params }) => {
           return errNotFound(request, ErrBuleprint.NotFound);
         }
         await prisma.$transaction(async (tx) => {
+          const collection = await tx.blueprint_collection.findMany({
+            where: {
+              blueprint_id: blueprint.id,
+            },
+          });
+          collection.forEach((val) => {
+            // 通知更新
+            fetch(
+              process.env.RPC_URL! +
+                "/collection/" +
+                val.collection_id +
+                "/notify",
+              { method: "PUT" }
+            );
+          });
           // 删除蓝图相关资源
           await tx.blueprint_collection.deleteMany({
             where: {
