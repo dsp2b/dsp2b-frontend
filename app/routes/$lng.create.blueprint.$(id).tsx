@@ -75,6 +75,7 @@ import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
 import { success } from "~/utils/httputils";
+import { notifyCollectionUpdate } from "~/utils/utils.server";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const uLocale = "/" + getLocale(request);
@@ -190,7 +191,7 @@ export const action: ActionFunction = async ({ request, params }) => {
           return errBadRequest(request, ErrBuleprint.BlueprintInvalid);
         }
         const respData = (await resp.json()) as ParseBlueprintResponse;
-        if (data.title.length > 20 || data.title.length < 2) {
+        if (data.title.length > 40 || data.title.length < 1) {
           return errBadRequest(request, ErrBuleprint.TitleInvalid);
         }
         if (data.description.length > 1024 * 1024 * 100) {
@@ -215,7 +216,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     description: data.description,
                     blueprint: data.blueprint,
                     tags_id: tags,
-                    pic_list: data.pic_list,
+                    pic_list: data.pic_list || [],
                     original: data.original ? 1 : 2,
                     user_id: user.id,
                     game_version: respData.data.blueprint.GameVersion,
@@ -276,10 +277,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                 (await tx.blueprint_collection.createMany({
                   data: data.collections.map((val) => {
                     // 通知更新
-                    fetch(
-                      process.env.RPC_URL! + "/collection/" + val + "/notify",
-                      { method: "PUT" }
-                    );
+                    notifyCollectionUpdate(val);
                     return {
                       blueprint_id: blueprint.id,
                       collection_id: val,
@@ -321,13 +319,7 @@ export const action: ActionFunction = async ({ request, params }) => {
           });
           collection.forEach((val) => {
             // 通知更新
-            fetch(
-              process.env.RPC_URL! +
-                "/collection/" +
-                val.collection_id +
-                "/notify",
-              { method: "PUT" }
-            );
+            notifyCollectionUpdate(val.collection_id);
           });
           // 删除蓝图相关资源
           await tx.blueprint_collection.deleteMany({
@@ -589,7 +581,11 @@ export default function CreateBlueprint() {
           </RecipePanel>
         </Form.Item>
         <Divider />
-        <Form.Item name="title" label={t("title")}>
+        <Form.Item
+          name="title"
+          label={t("title")}
+          rules={[{ required: true }, { type: "string", min: 2, max: 40 }]}
+        >
           <Input />
         </Form.Item>
         <Form.Item name="description" label={t("description")}>

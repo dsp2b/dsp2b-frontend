@@ -57,7 +57,7 @@ import {
 } from "~/services/blueprint.server";
 import { useRequest } from "~/utils/api";
 import { errBadRequest, errNotFound } from "~/utils/errcode";
-import { jsonData, ossFileUrl } from "~/utils/utils.server";
+import { jsonData, notifyCollectionUpdate, ossFileUrl } from "~/utils/utils.server";
 import { useLocale } from "remix-i18next";
 import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
@@ -112,10 +112,7 @@ export const action: ActionFunction = async ({ request, params }) => {
         return errBadRequest(request, ErrBuleprint.CollectionCountLimit);
       }
       // 通知更新
-      fetch(
-        process.env.RPC_URL! + "/collection/" + data.collection_id + "/notify",
-        { method: "PUT" }
-      );
+      notifyCollectionUpdate(data.collection_id);
       switch (data.checked) {
         case "add":
           await prisma.blueprint_collection.create({

@@ -35,3 +35,14 @@ export function thumbnailUrl(
     path
   );
 }
+
+export function notifyCollectionUpdate(id: string) {
+  try {
+    // 通知更新
+    fetch(process.env.RPC_URL! + "/collection/" + id + "/notify", {
+      method: "PUT",
+    });
+  } catch (e) {
+    console.error(e);
+  }
+}

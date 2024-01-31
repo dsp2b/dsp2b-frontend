@@ -14,7 +14,7 @@ import { ErrCollection, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import prisma from "~/db.server";
 import { success } from "~/utils/httputils";
-import { formData, jsonData } from "~/utils/utils.server";
+import { formData, jsonData, notifyCollectionUpdate } from "~/utils/utils.server";
 import { LimitSvc } from "~/services/limit.server";
 import { collection } from "@prisma/client";
 import { UserAuth } from "~/services/user.server.ts";
@@ -94,7 +94,7 @@ export const action: ActionFunction = async ({ request, params }) => {
         description,
         public: publicCollection,
       } = await jsonData<any>(request);
-      if (title && (title.length > 20 || title.length < 2)) {
+      if (title && (title.length > 40 || title.length < 2)) {
         return errBadRequest(request, ErrCollection.TitleInvalid);
       }
       if (description && description.length > 1024 * 1024 * 100) {
@@ -164,10 +164,7 @@ export const action: ActionFunction = async ({ request, params }) => {
           },
         });
       }
-      // 通知更新
-      fetch(process.env.RPC_URL! + "/collection/" + id.id + "/notify", {
-        method: "PUT",
-      });
+      notifyCollectionUpdate(id.id);
       return success(id.id);
     }
   );
@@ -338,7 +335,7 @@ export default function CreateCollection() {
         <Form.Item
           name="title"
           label={t("title")}
-          rules={[{ required: true }, { type: "string", min: 2, max: 20 }]}
+          rules={[{ required: true }, { type: "string", min: 2, max: 40 }]}
         >
           <Input />
         </Form.Item>
