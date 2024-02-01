@@ -180,7 +180,8 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     const keyword = url.searchParams.get("keyword") || "";
     const collection = await prisma.collection.findMany({
       where: {
-        user_id: user.id,
+        user_id: blueprint.user_id,
+        public: 1,
         title: {
           contains: keyword,
         },
@@ -190,12 +191,12 @@ export const loader: LoaderFunction = async ({ request, params }) => {
           where: {
             blueprint_id: blueprint.id,
           },
+          orderBy: {
+            createtime: "asc",
+          },
         },
       },
       take: 10,
-      orderBy: {
-        updatetime: "desc",
-      },
     });
     return json({ collection });
   }
@@ -369,7 +370,8 @@ export default function Blueprint() {
           ) : (
             <div className="!flex justify-center" style={{ width: "100%" }}>
               <DSPCover
-                items={loader.blueprint.tags}
+                tags={loader.blueprint.tags}
+                icons={loader.blueprint.icons}
                 style={{
                   width: "100%",
                   maxWidth: "400px",

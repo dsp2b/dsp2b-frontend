@@ -26,6 +26,7 @@ import { Building, Collection, Product } from "~/services/blueprint.server";
 import { ResponsePrimse, replaceSearchParam, request } from "~/utils/api";
 import { useLocale } from "remix-i18next";
 import copy from "copy-to-clipboard";
+import { icons } from "antd/es/image/PreviewGroup";
 
 export type tag = {
   item_id: number;
@@ -53,7 +54,7 @@ const BlueprintList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
-    view?: "cover" | "product_view";
+    view?: "cover" | "product_view" | "game_view";
   };
   sortButton?: React.ReactElement[];
 }> = ({ loader, sortButton }) => {
@@ -203,6 +204,7 @@ const BlueprintList: React.FC<{
               <Radio.Button value="product_view">
                 {t("product_view")}
               </Radio.Button>
+              <Radio.Button value="game_view">{t("game_view")}</Radio.Button>
             </Radio.Group>
           </Form.Item>
         </Form>
@@ -240,98 +242,120 @@ const BlueprintList: React.FC<{
                 });
               },
             }}
-            renderItem={(item) => (
-              <List.Item className="!flex !justify-center">
-                <Card
-                  style={{ width: "270px", overflow: "hidden" }}
-                  cover={
-                    <Link to={uLocale + "/blueprint/" + item.id}>
-                      {(loader.view == "product_view" &&
-                        item.tags &&
-                        item.tags.length) ||
-                      (!item.pic && item.tags && item.tags.length) ? (
-                        <DSPCover
-                          items={item.tags}
-                          style={{
-                            width: "270px",
-                            height: 200,
-                          }}
-                        />
-                      ) : (
-                        <LazyLoadImage
-                          style={{
-                            height: "200px",
-                            borderRadius: 0,
-                            objectFit: "contain",
-                          }}
-                          height={"200px"}
-                          width={"100%"}
-                          src={
-                            item.pic
-                              ? item.pic
-                              : "https://media.st.dl.eccdnx.com/steam/apps/1366540/header_schinese.jpg?t=1702624498"
-                          }
-                        />
-                      )}
-                    </Link>
-                  }
-                  bodyStyle={{
-                    padding: "12px",
-                  }}
-                >
-                  <List.Item.Meta
-                    title={
-                      <Link to={uLocale + "/blueprint/" + item.id}>
-                        {item.title}
-                      </Link>
-                    }
-                    description={
-                      <Typography.Text type="secondary" ellipsis>
-                        {item.description}
-                      </Typography.Text>
-                    }
+            renderItem={(item) => {
+              let view: any;
+              if (loader.view === "product_view") {
+                view = (
+                  <DSPCover
+                    tags={item.tags}
+                    style={{
+                      width: "270px",
+                      height: 200,
+                    }}
                   />
-                  <div className="flex flex-row justify-between mt-2">
-                    <div>
-                      <Link to={uLocale + "/user/" + item.user.id}>
-                        <Typography.Text type="secondary">
-                          {item.user.username}
+                );
+              } else if (loader.view === "game_view") {
+                view = (
+                  <DSPCover
+                    icons={item.icons}
+                    style={{
+                      width: "270px",
+                      height: 200,
+                    }}
+                  />
+                );
+              } else {
+                if (item.pic) {
+                  view = (
+                    <LazyLoadImage
+                      style={{
+                        height: "200px",
+                        borderRadius: 0,
+                        objectFit: "contain",
+                      }}
+                      height={"200px"}
+                      width={"100%"}
+                      src={item.pic}
+                    />
+                  );
+                } else {
+                  view = (
+                    <DSPCover
+                      icons={item.icons}
+                      tags={item.tags}
+                      style={{
+                        width: "270px",
+                        height: 200,
+                      }}
+                    />
+                  );
+                }
+              }
+              return (
+                <List.Item className="!flex !justify-center">
+                  <Card
+                    style={{ width: "270px", overflow: "hidden" }}
+                    cover={
+                      <Link to={uLocale + "/blueprint/" + item.id}>{view}</Link>
+                    }
+                    bodyStyle={{
+                      padding: "12px",
+                    }}
+                  >
+                    <List.Item.Meta
+                      title={
+                        <Link to={uLocale + "/blueprint/" + item.id}>
+                          {item.title}
+                        </Link>
+                      }
+                      description={
+                        <Typography.Text type="secondary" ellipsis>
+                          {item.description}
                         </Typography.Text>
-                      </Link>
+                      }
+                    />
+                    <div className="flex flex-row justify-between mt-2">
+                      <div>
+                        <Link to={uLocale + "/user/" + item.user.id}>
+                          <Typography.Text type="secondary">
+                            {item.user.username}
+                          </Typography.Text>
+                        </Link>
+                      </div>
+                      <div>
+                        <Typography.Text type="secondary">
+                          <CopyOutlined
+                            className="cursor-pointer"
+                            onClick={async () => {
+                              message.info(t("loading..."));
+                              const resp = await request("$lng.blueprint.$id", {
+                                params: {
+                                  lng: locale,
+                                  id: item.id,
+                                },
+                              });
+                              if (resp.status != 200) {
+                                message.error(t("error"));
+                                return;
+                              }
+                              const data = (await resp.json()) as {
+                                blueprint: blueprint;
+                              };
+                              copy(data.blueprint.blueprint);
+                              message.success(t("copy_success"));
+                            }}
+                          />
+                        </Typography.Text>
+                        <Divider type="vertical" />
+                        <Typography.Text type="secondary">
+                          <LikeOutlined /> {item.like_count}
+                        </Typography.Text>
+                      </div>
                     </div>
-                    <div>
-                      <Typography.Text type="secondary">
-                        <CopyOutlined
-                          className="cursor-pointer"
-                          onClick={async () => {
-                            message.info(t("loading..."));
-                            const resp = await request("$lng.blueprint.$id", {
-                              params: {
-                                lng: locale,
-                                id: item.id,
-                              },
-                            });
-                            if (resp.status != 200) {
-                              message.error(t("error"));
-                              return;
-                            }
-                            const data = (await resp.json()) as {
-                              blueprint: blueprint;
-                            };
-                            copy(data.blueprint.blueprint);
-                            message.success(t("copy_success"));
-                          }}
-                        />
-                      </Typography.Text>
-                      <Divider type="vertical" />
-                      <Typography.Text type="secondary">
-                        <LikeOutlined /> {item.like_count}
-                      </Typography.Text>
-                    </div>
-                  </div>
-                </Card>
-              </List.Item>
-            )}
+                  </Card>
+                </List.Item>
+              );
+            }}
           />
         </ConfigProvider>
       </Card>

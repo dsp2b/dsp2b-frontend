@@ -85,6 +85,7 @@ model blueprint {
   blueprint            String
   game_version         String
   buildings            String
+  icons                String?
   copy_count           Int                    @default(0)
   original             Int                    @default(2)
   status               Int                    @default(1)

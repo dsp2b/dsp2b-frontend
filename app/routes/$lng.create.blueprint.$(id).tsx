@@ -19,6 +19,8 @@ import {
   BlueprintSvc,
   blueprintTags,
   parseBlueprint,
+  Icons,
+  itemProtoSetMap,
 } from "~/services/blueprint.server";
 import { post, useRequest } from "~/utils/api";
 import {
@@ -200,6 +202,28 @@ export const action: ActionFunction = async ({ request, params }) => {
         if (data.pic_list && data.pic_list.length > 10) {
           return errBadRequest(request, ErrBuleprint.PicListInvalid);
         }
+        let icons: Icons | null;
+        if (respData.data.blueprint.Layout) {
+          icons = {
+            Layout: respData.data.blueprint.Layout,
+            Icon0: itemProtoSetMap.get(respData.data.blueprint.Icon0),
+            Icon1: itemProtoSetMap.get(respData.data.blueprint.Icon1),
+            Icon2: itemProtoSetMap.get(respData.data.blueprint.Icon2),
+            Icon3: itemProtoSetMap.get(respData.data.blueprint.Icon3),
+            Icon4: itemProtoSetMap.get(respData.data.blueprint.Icon4),
+            Icon5: itemProtoSetMap.get(respData.data.blueprint.Icon5),
+          };
+          if (
+            !icons.Icon0 &&
+            !icons.Icon1 &&
+            !icons.Icon2 &&
+            !icons.Icon3 &&
+            !icons.Icon4 &&
+            !icons.Icon5
+          ) {
+            icons = null;
+          }
+        }
         return prisma
           .$transaction(
             async (tx) => {
@@ -221,6 +245,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     user_id: user.id,
                     game_version: respData.data.blueprint.GameVersion,
                     buildings: JSON.stringify(respData.data.buildings),
+                    icons: icons ? JSON.stringify(icons) : null,
                   },
                 });
               } else {

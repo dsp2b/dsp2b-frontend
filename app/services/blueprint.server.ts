@@ -9,12 +9,37 @@ import { ossFileUrl, thumbnailUrl } from "~/utils/utils.server";
 import { success } from "~/utils/httputils";
 import { tag } from "~/components/BlueprintList";
 
+export type IconInfo = {
+  ItemID: number;
+  Name: string;
+  IconPath: string;
+};
+
+export interface Icons {
+  Layout: number;
+  Icon0?: IconInfo;
+  Icon1?: IconInfo;
+  Icon2?: IconInfo;
+  Icon3?: IconInfo;
+  Icon4?: IconInfo;
+  Icon5?: IconInfo;
+}
+
+export type BlueprintHeader = {
+  Layout: number;
+  Icon0: number;
+  Icon1: number;
+  Icon2: number;
+  Icon3: number;
+  Icon4: number;
+  Icon5: number;
+  ShortDesc: string;
+  Desc: string;
+  GameVersion: string;
+};
+
 export type ParseBlueprintResponse = APIDataResponse<{
-  blueprint: {
-    ShortDesc: string;
-    Desc: string;
-    GameVersion: string;
-  };
+  blueprint: BlueprintHeader;
   buildings: Building[];
   products: Product[];
 }>;
@@ -61,15 +86,12 @@ export async function parseBlueprint(blueprint: string) {
   });
 }
 
-export const itemProtoSetMap = new Map<
-  number,
-  { Name: string; IconPath: string }
->();
-
+export const itemProtoSetMap = new Map<number, IconInfo>();
 itemProtoSet.DataArray.forEach((val) => {
   let iconPath = val.Proto.IconPath.split("/");
   let iconPath2 = iconPath[iconPath.length - 1];
   itemProtoSetMap.set(val.ID, {
+    ItemID: val.ID,
     Name: val.Name,
     IconPath: iconPath2,
   });
@@ -197,6 +219,7 @@ export async function blueprintList(
     pic_list: true,
     tags_id: true,
     copy_count: true,
+    icons: true,
     user: {
       select: {
         id: true,
