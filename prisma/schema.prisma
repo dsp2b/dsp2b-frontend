@@ -106,17 +106,19 @@ model blueprint_product {
 }
 
 model blueprint_collection {
-  id            String     @id @default(auto()) @map("_id") @db.ObjectId
-  blueprint_id  String     @db.ObjectId
-  blueprint     blueprint  @relation(fields: [blueprint_id], references: [id])
-  collection_id String     @db.ObjectId
-  collection    collection @relation(fields: [collection_id], references: [id])
-  status        Int        @default(1)
-  createtime    DateTime   @default(now()) @db.Timestamp
-  updatetime    DateTime   @default(now()) @db.Timestamp
+  id                 String     @id @default(auto()) @map("_id") @db.ObjectId
+  blueprint_id       String     @db.ObjectId
+  blueprint          blueprint  @relation(fields: [blueprint_id], references: [id])
+  collection_id      String     @db.ObjectId
+  collection         collection @relation(fields: [collection_id], references: [id])
+  root_collection_id String?    @db.ObjectId
+  status             Int        @default(1)
+  createtime         DateTime   @default(now()) @db.Timestamp
+  updatetime         DateTime   @default(now()) @db.Timestamp
 
   @@index([blueprint_id])
   @@index([collection_id])
+  @@index([root_collection_id])
 }
 
 model collection_like {

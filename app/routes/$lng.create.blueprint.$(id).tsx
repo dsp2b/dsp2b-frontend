@@ -277,7 +277,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                 (await tx.blueprint_collection.createMany({
                   data: data.collections.map((val) => {
                     // 通知更新
-                    notifyCollectionUpdate(val);
+                    notifyCollectionUpdate(val, blueprint.id);
                     return {
                       blueprint_id: blueprint.id,
                       collection_id: val,

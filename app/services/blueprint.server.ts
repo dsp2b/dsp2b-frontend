@@ -165,7 +165,14 @@ export async function blueprintList(
   if (options?.collection) {
     where.blueprint_collection = {
       some: {
-        collection_id: options?.collection,
+        OR: [
+          {
+            collection_id: options?.collection,
+          },
+          {
+            root_collection_id: options?.collection,
+          },
+        ],
       },
     };
   }

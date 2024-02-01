@@ -36,11 +36,17 @@ export function thumbnailUrl(
   );
 }
 
-export function notifyCollectionUpdate(id: string) {
+export function notifyCollectionUpdate(id: string, blueprint_id?: string) {
   try {
     // 通知更新
     fetch(process.env.RPC_URL! + "/collection/" + id + "/notify", {
-      method: "PUT",
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        blueprint_id: blueprint_id,
+      }),
     });
   } catch (e) {
     console.error(e);
