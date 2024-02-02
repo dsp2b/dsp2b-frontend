@@ -280,6 +280,42 @@ export const GameIcon: React.FC<{
           />
         </div>
       );
+    case 33:
+      style.position = "relative";
+      return (
+        <div className={className} style={style}>
+          <Icon
+            style={{
+              display: "block",
+              width: "60%",
+              height: "auto",
+            }}
+            iconPath={icons.Icon0?.IconPath}
+          />
+          <Icon
+            style={{
+              position: "absolute",
+              left: "20%",
+              top: "10%",
+              display: "block",
+              width: "25%",
+              height: "auto",
+            }}
+            iconPath={icons.Icon1?.IconPath}
+          />
+          <Icon
+            style={{
+              position: "absolute",
+              right: "20%",
+              bottom: "10%",
+              display: "block",
+              width: "25%",
+              height: "auto",
+            }}
+            iconPath={icons.Icon2?.IconPath}
+          />
+        </div>
+      );
     case 40:
       return (
         <div className={className} style={style}>
