@@ -179,24 +179,33 @@ export async function blueprintList(
   const sort = url.searchParams.get("sort") || options?.defaultSort || "latest";
   const keyword = url.searchParams.get("keyword") || "";
   const view = url.searchParams.get("view") || "cover";
+  const noShowRoot = url.searchParams.get("root") === "false";
   const tags = (url.searchParams.get("tags") || "")
     .split(",")
     .filter((v) => v)
     .map((v) => parseInt(v));
   const where: any = {};
   if (options?.collection) {
-    where.blueprint_collection = {
-      some: {
-        OR: [
-          {
-            collection_id: options?.collection,
-          },
-          {
-            root_collection_id: options?.collection,
-          },
-        ],
-      },
-    };
+    if (noShowRoot) {
+      where.blueprint_collection = {
+        some: {
+          collection_id: options?.collection,
+        },
+      };
+    } else {
+      where.blueprint_collection = {
+        some: {
+          OR: [
+            {
+              collection_id: options?.collection,
+            },
+            {
+              root_collection_id: options?.collection,
+            },
+          ],
+        },
+      };
+    }
   }
   if (options?.user_id) {
     where.user_id = options.user_id;
