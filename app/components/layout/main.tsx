@@ -46,11 +46,19 @@ const MainLayout: React.FC<{
   const uLocale = "/" + locale;
   const matches = useMatches();
   let selectKey: string[] = [];
-  if (matches.find((val) => val.id == "routes/$lng._index")) {
-    selectKey = ["home"];
-  } else if (matches.find((val) => val.id == "routes/$lng.collection")) {
-    selectKey = ["collection"];
-  }
+  matches.find((val) => {
+    switch (val.id) {
+      case "routes/$lng._index":
+        selectKey = ["home"];
+        break;
+      case "routes/$lng.collection":
+        selectKey = ["collection"];
+        break;
+      case "routes/$lng.tools":
+        selectKey = ["tools"];
+        break;
+    }
+  });
 
   useEffect(() => {
     if (user.styleMode == "auto") {
@@ -136,6 +144,10 @@ const MainLayout: React.FC<{
                     {t("blueprint_collection")}
                   </Link>
                 ),
+              },
+              {
+                key: "tools",
+                label: <Link to={uLocale + "/tools"}>{t("tools")}</Link>,
               },
             ]}
           />

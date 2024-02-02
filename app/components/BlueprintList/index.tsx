@@ -94,6 +94,7 @@ const BlueprintList: React.FC<{
             >
               {sortButton && sortButton}
               <Radio.Button value="latest">{t("latest")}</Radio.Button>
+              <Radio.Button value="copy">{t("most_copy")}</Radio.Button>
               <Radio.Button value="like">{t("most_like")}</Radio.Button>
               <Radio.Button value="collection">
                 {t("most_collect")}
@@ -323,28 +324,30 @@ const BlueprintList: React.FC<{
                         </Link>
                       </div>
                       <div>
-                        <Typography.Text type="secondary">
-                          <CopyOutlined
-                            className="cursor-pointer"
-                            onClick={async () => {
-                              message.info(t("loading..."));
-                              const resp = await request("$lng.blueprint.$id", {
-                                params: {
-                                  lng: locale,
-                                  id: item.id,
-                                },
-                              });
-                              if (resp.status != 200) {
-                                message.error(t("error"));
-                                return;
-                              }
-                              const data = (await resp.json()) as {
-                                blueprint: blueprint;
-                              };
-                              copy(data.blueprint.blueprint);
-                              message.success(t("copy_success"));
-                            }}
-                          />
+                        <Typography.Text
+                          type="secondary"
+                          className="cursor-pointer"
+                          onClick={async () => {
+                            message.info(t("loading..."));
+                            const resp = await request("$lng.blueprint.$id", {
+                              search: "action=copy",
+                              params: {
+                                lng: locale,
+                                id: item.id,
+                              },
+                            });
+                            if (resp.status != 200) {
+                              message.error(t("error"));
+                              return;
+                            }
+                            const data = (await resp.json()) as {
+                              blueprint: blueprint;
+                            };
+                            copy(data.blueprint.blueprint);
+                            message.success(t("copy_success"));
+                          }}
+                        >
+                          <CopyOutlined /> {item.copy_count}
                         </Typography.Text>
                         <Divider type="vertical" />
                         <Typography.Text type="secondary">

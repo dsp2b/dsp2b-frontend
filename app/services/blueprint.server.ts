@@ -253,6 +253,18 @@ export async function blueprintList(
         },
       });
       break;
+    case "copy":
+      //@ts-ignore
+      list = await prisma.blueprint.findMany({
+        where,
+        skip,
+        take,
+        select,
+        orderBy: {
+          copy_count: "desc",
+        },
+      });
+      break;
     case "collection":
       //@ts-ignore
       list = await prisma.blueprint.findMany({

@@ -200,6 +200,18 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     });
     return json({ collection });
   }
+  if (action === "copy") {
+    await prisma.blueprint.update({
+      where: {
+        id: blueprint.id,
+      },
+      data: {
+        copy_count: {
+          increment: 1,
+        },
+      },
+    });
+  }
   const products = await prisma.blueprint_product.findMany({
     where: {
       blueprint_id: blueprint.id,
