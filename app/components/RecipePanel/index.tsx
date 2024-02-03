@@ -34,7 +34,7 @@ const Panel: React.FC<{
               {val.item_id ? (
                 <Avatar
                   shape="square"
-                  src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
+                  src={"/images/" + val.icon_path + ".png"}
                   style={{
                     height: 40,
                     width: 40,

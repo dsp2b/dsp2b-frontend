@@ -50,11 +50,7 @@ import { BlueprintItem } from "~/components/BlueprintList";
 import DSPCover from "~/components/DSPCover";
 import prisma from "~/db.server";
 import { authenticator } from "~/services/auth.server";
-import {
-  Building,
-  itemProtoSetMap,
-  postLike,
-} from "~/services/blueprint.server";
+import { Building, iconMap, postLike } from "~/services/blueprint.server";
 import { useRequest } from "~/utils/api";
 import { errBadRequest, errNotFound } from "~/utils/errcode";
 import {
@@ -219,16 +215,16 @@ export const loader: LoaderFunction = async ({ request, params }) => {
   });
 
   products.forEach((val: any) => {
-    val.name = itemProtoSetMap.get(val.item_id)?.Name;
-    val.icon_path = itemProtoSetMap.get(val.item_id)?.IconPath;
+    val.name = iconMap.get(val.item_id)?.Name;
+    val.icon_path = iconMap.get(val.item_id)?.IconPath;
   });
 
   blueprint.tags =
     blueprint.tags_id?.map((val: number) => {
       return {
         item_id: val,
-        name: itemProtoSetMap.get(val)?.Name,
-        icon_path: itemProtoSetMap.get(val)?.IconPath,
+        name: iconMap.get(val)?.Name,
+        icon_path: iconMap.get(val)?.IconPath,
       };
     }) || [];
   if (blueprint.pic_list) {
@@ -432,9 +428,7 @@ export default function Blueprint() {
                       <Avatar
                         shape="square"
                         size="small"
-                        src={
-                          "/images/icons/item_recipe/" + val.icon_path + ".png"
-                        }
+                        src={"/images/" + val.icon_path + ".png"}
                       />
                     }
                     className="mr-2"
@@ -792,7 +786,7 @@ export default function Blueprint() {
               <Badge count={val.count} overflowCount={999} color="cyan">
                 <Avatar
                   shape="square"
-                  src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
+                  src={"/images/" + val.icon_path + ".png"}
                   style={{
                     height: 40,
                     width: 40,
@@ -826,7 +820,7 @@ export default function Blueprint() {
                 >
                   <Avatar
                     shape="square"
-                    src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
+                    src={"/images/" + val.icon_path + ".png"}
                     style={{
                       height: 40,
                       width: 40,

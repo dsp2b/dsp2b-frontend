@@ -151,7 +151,7 @@ const BlueprintList: React.FC<{
                               shape="square"
                               size="small"
                               src={
-                                "/images/icons/item_recipe/" +
+                                "/images/" +
                                 item!.icon_path +
                                 ".png"
                               }

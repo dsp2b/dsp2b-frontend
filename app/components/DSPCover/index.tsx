@@ -13,14 +13,14 @@ const Icon: React.FC<{
       return (
         <img
           style={style}
-          src={"/images/icons/item_recipe/" + iconPath + ".png"}
+          src={"/images/" + iconPath + ".png"}
         />
       );
     }
     return (
       <LazyLoadImage
         style={style}
-        src={"/images/icons/item_recipe/" + iconPath + ".png"}
+        src={"/images/" + iconPath + ".png"}
       />
     );
   }
@@ -560,7 +560,7 @@ const DSPCover: React.FC<{
               width: "50%",
               height: "auto",
             }}
-            src={"/images/icons/item_recipe/" + tags[0].icon_path + ".png"}
+            src={"/images/" + tags[0].icon_path + ".png"}
           />
         </div>
       );
@@ -573,7 +573,7 @@ const DSPCover: React.FC<{
               width: "33%",
               height: "auto",
             }}
-            src={"/images/icons/item_recipe/" + tags[0].icon_path + ".png"}
+            src={"/images/" + tags[0].icon_path + ".png"}
           />
           <LazyLoadImage
             style={{
@@ -581,7 +581,7 @@ const DSPCover: React.FC<{
               width: "33%",
               height: "auto",
             }}
-            src={"/images/icons/item_recipe/" + tags[1].icon_path + ".png"}
+            src={"/images/" + tags[1].icon_path + ".png"}
           />
         </div>
       );
@@ -600,7 +600,7 @@ const DSPCover: React.FC<{
                 width: "33%",
                 height: "auto",
               }}
-              src={"/images/icons/item_recipe/" + tags[0].icon_path + ".png"}
+              src={"/images/" + tags[0].icon_path + ".png"}
             />
           </div>
           <div style={style2}>
@@ -610,7 +610,7 @@ const DSPCover: React.FC<{
                 width: "33%",
                 height: "auto",
               }}
-              src={"/images/icons/item_recipe/" + tags[1].icon_path + ".png"}
+              src={"/images/" + tags[1].icon_path + ".png"}
             />
             <LazyLoadImage
               style={{
@@ -618,7 +618,7 @@ const DSPCover: React.FC<{
                 width: "33%",
                 height: "auto",
               }}
-              src={"/images/icons/item_recipe/" + tags[2].icon_path + ".png"}
+              src={"/images/" + tags[2].icon_path + ".png"}
             />
           </div>
         </div>
@@ -640,7 +640,7 @@ const DSPCover: React.FC<{
                 width: "33%",
                 height: "auto",
               }}
-              src={"/images/icons/item_recipe/" + tags[0].icon_path + ".png"}
+              src={"/images/" + tags[0].icon_path + ".png"}
             />
             <Avatar
               style={{
@@ -649,7 +649,7 @@ const DSPCover: React.FC<{
                 height: "auto",
               }}
               shape="square"
-              src={"/images/icons/item_recipe/" + tags[1].icon_path + ".png"}
+              src={"/images/" + tags[1].icon_path + ".png"}
             />
           </div>
           <div style={style2}>
@@ -660,7 +660,7 @@ const DSPCover: React.FC<{
                 width: "33%",
                 height: "auto",
               }}
-              src={"/images/icons/item_recipe/" + tags[2].icon_path + ".png"}
+              src={"/images/" + tags[2].icon_path + ".png"}
             />
             <Avatar
               style={{
@@ -669,7 +669,7 @@ const DSPCover: React.FC<{
                 height: "auto",
               }}
               shape="square"
-              src={"/images/icons/item_recipe/" + tags[3].icon_path + ".png"}
+              src={"/images/" + tags[3].icon_path + ".png"}
             />
           </div>
         </div>

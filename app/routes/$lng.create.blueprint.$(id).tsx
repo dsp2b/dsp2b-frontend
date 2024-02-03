@@ -20,7 +20,7 @@ import {
   blueprintTags,
   parseBlueprint,
   Icons,
-  itemProtoSetMap,
+  iconMap,
 } from "~/services/blueprint.server";
 import { post, useRequest } from "~/utils/api";
 import {
@@ -204,14 +204,22 @@ export const action: ActionFunction = async ({ request, params }) => {
         }
         let icons: Icons | null;
         if (respData.data.blueprint.Layout) {
+          console.log(
+            respData.data.blueprint.Icon0,
+            iconMap.get(respData.data.blueprint.Icon0),
+            respData.data.blueprint.Icon1,
+            iconMap.get(respData.data.blueprint.Icon1),
+            respData.data.blueprint.Icon2,
+            iconMap.get(respData.data.blueprint.Icon2)
+          );
           icons = {
             Layout: respData.data.blueprint.Layout,
-            Icon0: itemProtoSetMap.get(respData.data.blueprint.Icon0),
-            Icon1: itemProtoSetMap.get(respData.data.blueprint.Icon1),
-            Icon2: itemProtoSetMap.get(respData.data.blueprint.Icon2),
-            Icon3: itemProtoSetMap.get(respData.data.blueprint.Icon3),
-            Icon4: itemProtoSetMap.get(respData.data.blueprint.Icon4),
-            Icon5: itemProtoSetMap.get(respData.data.blueprint.Icon5),
+            Icon0: iconMap.get(respData.data.blueprint.Icon0),
+            Icon1: iconMap.get(respData.data.blueprint.Icon1),
+            Icon2: iconMap.get(respData.data.blueprint.Icon2),
+            Icon3: iconMap.get(respData.data.blueprint.Icon3),
+            Icon4: iconMap.get(respData.data.blueprint.Icon4),
+            Icon5: iconMap.get(respData.data.blueprint.Icon5),
           };
           if (
             !icons.Icon0 &&
@@ -278,6 +286,7 @@ export const action: ActionFunction = async ({ request, params }) => {
                     game_version: respData.data.blueprint.GameVersion,
                     buildings: JSON.stringify(respData.data.buildings),
                     updatetime: new Date(),
+                    icons: icons ? JSON.stringify(icons) : null,
                   },
                 });
               }
@@ -580,11 +589,7 @@ export default function CreateBlueprint() {
                         <Avatar
                           shape="square"
                           size="small"
-                          src={
-                            "/images/icons/item_recipe/" +
-                            item!.icon_path +
-                            ".png"
-                          }
+                          src={"/images/" + item!.icon_path + ".png"}
                         />
                       }
                       className="mr-2"
@@ -687,7 +692,7 @@ export default function CreateBlueprint() {
                 <Badge count={val.count} overflowCount={999} color="cyan">
                   <Avatar
                     shape="square"
-                    src={"/images/icons/item_recipe/" + val.icon_path + ".png"}
+                    src={"/images/" + val.icon_path + ".png"}
                     style={{
                       height: 40,
                       width: 40,
@@ -743,11 +748,7 @@ export default function CreateBlueprint() {
                       >
                         <Avatar
                           shape="square"
-                          src={
-                            "/images/icons/item_recipe/" +
-                            val.icon_path +
-                            ".png"
-                          }
+                          src={"/images/" + val.icon_path + ".png"}
                           style={{
                             height: 40,
                             width: 40,

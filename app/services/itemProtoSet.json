@@ -1,7 +1,7 @@
 {
   "Type": "ItemProtoSet",
   "TableName": "Item",
-  "Signature": "E48945562F2556B28A0BF0FFBDD07987",
+  "Signature": "360B9B15D82165CADD7F41572FB11B1B",
   "DataArray": [
     {
       "Name": "铁矿",
@@ -19,7 +19,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/iron-ore",
+        "IconPath": "icons/item_recipe/iron-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -46,6 +46,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -69,7 +70,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/copper-ore",
+        "IconPath": "icons/item_recipe/copper-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -96,6 +97,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -119,7 +121,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/silicium-ore",
+        "IconPath": "icons/item_recipe/silicium-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -146,6 +148,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           1,
@@ -170,7 +173,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/titanium-ore",
+        "IconPath": "icons/item_recipe/titanium-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -197,6 +200,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -220,7 +224,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/stone-ore",
+        "IconPath": "icons/item_recipe/stone-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -247,6 +251,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -270,7 +275,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/coal-ore",
+        "IconPath": "icons/item_recipe/coal-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -297,6 +302,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -323,7 +329,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/wood",
+        "IconPath": "icons/item_recipe/wood",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -346,10 +352,11 @@
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
           "X": 0,
-          "Y": 1000593150
+          "Y": 994352060
         },
-        "EnemyDropCount": 1084227600,
+        "EnemyDropCount": 1082130400,
         "EnemyDropMask": 2097695762,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -376,7 +383,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/plant-fuel",
+        "IconPath": "icons/item_recipe/plant-fuel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -398,11 +405,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
-          "X": 1000593150,
-          "Y": 1000593150
+          "X": 994352060,
+          "Y": 994352060
         },
-        "EnemyDropCount": 1084227600,
+        "EnemyDropCount": 1082130400,
         "EnemyDropMask": 2097695762,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -429,7 +437,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/gas-hydrate",
+        "IconPath": "icons/item_recipe/gas-hydrate",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -456,6 +464,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -482,7 +491,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/diamond-ore",
+        "IconPath": "icons/item_recipe/diamond-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -509,6 +518,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -532,7 +542,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fractal-silica",
+        "IconPath": "icons/item_recipe/fractal-silica",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -559,6 +569,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -582,7 +593,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/grating-ore",
+        "IconPath": "icons/item_recipe/grating-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -604,11 +615,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1008981760,
-          "Y": 1006834300
+          "X": 1002740700,
+          "Y": 1002740700
         },
-        "EnemyDropCount": 1082130400,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -632,7 +644,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/bamboo-crystal",
+        "IconPath": "icons/item_recipe/bamboo-crystal",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -659,6 +671,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -682,7 +695,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/mono-mag-ore",
+        "IconPath": "icons/item_recipe/mono-mag-ore",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -704,11 +717,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 8,
         "EnemyDropRange": {
-          "X": 1016296640,
-          "Y": 1000593150
+          "X": 1011129300,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1082130400,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -732,7 +746,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/iron-plate",
+        "IconPath": "icons/item_recipe/iron-plate",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -754,11 +768,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
-          "X": 1018981000,
+          "X": 1015222900,
           "Y": 1008981760
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -782,7 +797,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/copper-plate",
+        "IconPath": "icons/item_recipe/copper-plate",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -804,11 +819,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
-          "X": 1023879940,
+          "X": 1020591600,
           "Y": 1008981760
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1075419500,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -832,7 +848,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/silicium-single-crystal",
+        "IconPath": "icons/item_recipe/silicium-single-crystal",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -854,11 +870,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1026564300,
+          "X": 1024685250,
           "Y": 1006834300
         },
-        "EnemyDropCount": 1077936100,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1072064100,
+        "EnemyDropMask": 2131618808,
+        "EnemyDropMaskRatio": 1050253700,
         "DescFields": [
           1,
           40
@@ -882,7 +899,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/titanium-plate",
+        "IconPath": "icons/item_recipe/titanium-plate",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -904,11 +921,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1028711800,
+          "X": 1026832700,
           "Y": 1006834300
         },
-        "EnemyDropCount": 1077936100,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1074580700,
+        "EnemyDropMask": 2131733228,
+        "EnemyDropMaskRatio": 1048576000,
         "DescFields": [
           1,
           40
@@ -932,7 +950,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/stone-brick",
+        "IconPath": "icons/item_recipe/stone-brick",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -954,11 +972,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
-          "X": 1030859260,
-          "Y": 1008981760
+          "X": 1028980200,
+          "Y": 1002740700
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1072064100,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -982,7 +1001,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/graphite",
+        "IconPath": "icons/item_recipe/graphite",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1004,11 +1023,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1032671170,
-          "Y": 1008981760
+          "X": 1030590850,
+          "Y": 1001666900
         },
-        "EnemyDropCount": 1077936100,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1070386370,
+        "EnemyDropMask": 2097798226,
+        "EnemyDropMaskRatio": 1060320060,
         "DescFields": [
           2,
           3,
@@ -1035,7 +1055,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/steel-plate",
+        "IconPath": "icons/item_recipe/steel-plate",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1057,11 +1077,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1034013400,
-          "Y": 1008981760
+          "X": 1031933000,
+          "Y": 1004888100
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1070386370,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1085,7 +1106,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/titanium-alloy",
+        "IconPath": "icons/item_recipe/titanium-alloy",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1107,11 +1128,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1035355600,
-          "Y": 1002740700
+          "X": 1032872500,
+          "Y": 1000593150
         },
-        "EnemyDropCount": 1077936100,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1066192060,
+        "EnemyDropMask": 2131733228,
+        "EnemyDropMaskRatio": 1050253700,
         "DescFields": [
           1,
           40
@@ -1135,7 +1157,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/glass",
+        "IconPath": "icons/item_recipe/glass",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1157,11 +1179,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1036160830,
-          "Y": 1006834300
+          "X": 1033543600,
+          "Y": 1002740700
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1071225200,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1185,7 +1208,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/titan-glass",
+        "IconPath": "icons/item_recipe/titan-glass",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1207,11 +1230,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1037234600,
-          "Y": 1000593150
+          "X": 1034348900,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1077936100,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1068708700,
+        "EnemyDropMask": 2131733228,
+        "EnemyDropMaskRatio": 1053609150,
         "DescFields": [
           1,
           40
@@ -1235,7 +1259,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/prism",
+        "IconPath": "icons/item_recipe/prism",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1257,11 +1281,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1037905660,
-          "Y": 1004888100
+          "X": 1034885760,
+          "Y": 1001666900
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1068708700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1285,7 +1310,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/diamond",
+        "IconPath": "icons/item_recipe/diamond",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1307,11 +1332,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1038845200,
-          "Y": 1000593150
+          "X": 1035624000,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1065353200,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -1338,7 +1364,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/silicium-high-purity",
+        "IconPath": "icons/item_recipe/silicium-high-purity",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1360,11 +1386,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1039516300,
-          "Y": 1002740700
+          "X": 1036160830,
+          "Y": 1000593150
         },
-        "EnemyDropCount": 1073741800,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1067030900,
+        "EnemyDropMask": 2131618808,
+        "EnemyDropMaskRatio": 1053609150,
         "DescFields": [
           1,
           40
@@ -1388,7 +1415,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/gear-wheel",
+        "IconPath": "icons/item_recipe/gear-wheel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1410,11 +1437,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1040254500,
-          "Y": 1008981760
+          "X": 1036831940,
+          "Y": 1004888100
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1071225200,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1438,7 +1466,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/magnet",
+        "IconPath": "icons/item_recipe/magnet",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1460,11 +1488,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 0,
         "EnemyDropRange": {
-          "X": 1040925600,
-          "Y": 1008981760
+          "X": 1037771460,
+          "Y": 1007908030
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1488,7 +1517,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/magnetism-wire",
+        "IconPath": "icons/item_recipe/magnetism-wire",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1510,11 +1539,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1041596700,
-          "Y": 1006834300
+          "X": 1038979460,
+          "Y": 1004888100
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1538,7 +1568,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/electric-motor",
+        "IconPath": "icons/item_recipe/electric-motor",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1560,11 +1590,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1042133570,
-          "Y": 1004888100
+          "X": 1039919000,
+          "Y": 1002740700
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1067030900,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1588,7 +1619,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/mag-turbine",
+        "IconPath": "icons/item_recipe/mag-turbine",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1610,11 +1641,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1042603300,
-          "Y": 1004888100
+          "X": 1040455800,
+          "Y": 1001666900
         },
-        "EnemyDropCount": 1067030900,
+        "EnemyDropCount": 1061997760,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1638,7 +1670,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/hyper-magnetism-ring",
+        "IconPath": "icons/item_recipe/hyper-magnetism-ring",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1660,11 +1692,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1043073100,
-          "Y": 1002740700
+          "X": 1040824900,
+          "Y": 1000593150
         },
-        "EnemyDropCount": 1061997760,
+        "EnemyDropCount": 1056964600,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1688,7 +1721,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/partical-capacitor",
+        "IconPath": "icons/item_recipe/partical-capacitor",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1702,7 +1735,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1113,
+        "GridIndex": 1605,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -1710,11 +1743,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1043475700,
-          "Y": 1000593150
+          "X": 1041160450,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1056964600,
+        "EnemyDropCount": 1053609150,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1738,7 +1772,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/strange-matter-generator",
+        "IconPath": "icons/item_recipe/strange-matter-generator",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1760,11 +1794,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 6,
         "EnemyDropRange": {
-          "X": 1043811260,
-          "Y": 998445700
+          "X": 1041428900,
+          "Y": 996499500
         },
-        "EnemyDropCount": 1065353200,
+        "EnemyDropCount": 1053609150,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1788,7 +1823,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/circuit-board",
+        "IconPath": "icons/item_recipe/circuit-board",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1810,11 +1845,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1044079700,
-          "Y": 1006834300
+          "X": 1041663800,
+          "Y": 1004888100
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1838,7 +1874,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/processor",
+        "IconPath": "icons/item_recipe/processor",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1860,11 +1896,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1044616600,
-          "Y": 1000593150
+          "X": 1042133570,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1069547500,
+        "EnemyDropCount": 1061158900,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1888,7 +1925,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/quantum-processor",
+        "IconPath": "icons/item_recipe/quantum-processor",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1910,11 +1947,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1044952100,
+          "X": 1042402000,
           "Y": 994352060
         },
-        "EnemyDropCount": 1056964600,
+        "EnemyDropCount": 1048576000,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1938,7 +1976,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/micro-component",
+        "IconPath": "icons/item_recipe/micro-component",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -1960,11 +1998,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1045153500,
+          "X": 1042603300,
           "Y": 1004888100
         },
-        "EnemyDropCount": 1069547500,
+        "EnemyDropCount": 1065353200,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -1988,7 +2027,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/plane-filter",
+        "IconPath": "icons/item_recipe/plane-filter",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2010,11 +2049,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 6,
         "EnemyDropRange": {
-          "X": 1045623230,
+          "X": 1043073100,
           "Y": 998445700
         },
-        "EnemyDropCount": 1061997760,
+        "EnemyDropCount": 1053609150,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -2038,7 +2078,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/particle-wide-band",
+        "IconPath": "icons/item_recipe/particle-wide-band",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2060,11 +2100,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1045891650,
+          "X": 1043341500,
           "Y": 998445700
         },
-        "EnemyDropCount": 1056964600,
+        "EnemyDropCount": 1048576000,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -2088,7 +2129,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/plasma-generator",
+        "IconPath": "icons/item_recipe/plasma-generator",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2110,11 +2151,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1046160060,
-          "Y": 1002740700
+          "X": 1043609900,
+          "Y": 999519400
         },
-        "EnemyDropCount": 1069547500,
+        "EnemyDropCount": 1067869800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -2138,7 +2180,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/photo-shifter",
+        "IconPath": "icons/item_recipe/photo-shifter",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2160,11 +2202,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1046562750,
-          "Y": 1004888100
+          "X": 1043911940,
+          "Y": 999519400
         },
-        "EnemyDropCount": 1069547500,
+        "EnemyDropCount": 1068708700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -2188,7 +2231,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/solar-collector",
+        "IconPath": "icons/item_recipe/solar-collector",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2202,7 +2245,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1808,
+        "GridIndex": 1708,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -2215,6 +2258,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           36,
           1,
@@ -2239,8 +2283,8 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/water",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/water",
+        "ModelIndex": 494,
         "ModelCount": 0,
         "HpMax": 1,
         "Ability": 0,
@@ -2249,7 +2293,7 @@
         "ReactorInc": 0,
         "FuelType": 0,
         "AmmoType": 0,
-        "BombType": 0,
+        "BombType": 1,
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
@@ -2266,8 +2310,10 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
+          71,
           40
         ],
         "Description": "I水"
@@ -2289,7 +2335,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/oil",
+        "IconPath": "icons/item_recipe/oil",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2316,6 +2362,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2342,7 +2389,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/refined-oil",
+        "IconPath": "icons/item_recipe/refined-oil",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2369,6 +2416,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2395,7 +2443,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/sulphuric-acid",
+        "IconPath": "icons/item_recipe/sulphuric-acid",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2422,6 +2470,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           0,
@@ -2446,7 +2495,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/hydrogen",
+        "IconPath": "icons/item_recipe/hydrogen",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2468,11 +2517,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1047032500,
-          "Y": 1006834300
+          "X": 1044213950,
+          "Y": 998445700
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1069547500,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2500,7 +2550,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/deuterium",
+        "IconPath": "icons/item_recipe/deuterium",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2522,11 +2572,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1047569340,
-          "Y": 1002740700
+          "X": 1044482370,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1065353200,
+        "EnemyDropCount": 1061997760,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2554,7 +2605,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/anti-matter",
+        "IconPath": "icons/item_recipe/anti-matter",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2576,11 +2627,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1047972030,
-          "Y": 1000593150
+          "X": 1044616600,
+          "Y": 990057100
         },
         "EnemyDropCount": 1050253700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           37,
           1,
@@ -2605,7 +2657,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/photon-capacitor-full",
+        "IconPath": "icons/item_recipe/photon-capacitor-full",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2619,7 +2671,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1213,
+        "GridIndex": 1113,
         "UnlockKey": 1122,
         "PreTechOverride": 1506,
         "Productive": false,
@@ -2632,6 +2684,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           37,
           1,
@@ -2656,7 +2709,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/hydrogen-energy-fuel",
+        "IconPath": "icons/item_recipe/hydrogen-energy-fuel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2678,11 +2731,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1048307600,
-          "Y": 1000593150
+          "X": 1044750800,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1048576000,
+        "EnemyDropCount": 1056964600,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2709,7 +2763,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/deuterium-energy-fuel",
+        "IconPath": "icons/item_recipe/deuterium-energy-fuel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2731,11 +2785,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 6,
         "EnemyDropRange": {
-          "X": 1048609540,
-          "Y": 998445700
+          "X": 1044885000,
+          "Y": 981668500
         },
-        "EnemyDropCount": 1048576000,
+        "EnemyDropCount": 1053609150,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2762,7 +2817,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/antimatter-energy-fuel",
+        "IconPath": "icons/item_recipe/antimatter-energy-fuel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2784,11 +2839,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 8,
         "EnemyDropRange": {
-          "X": 1048743740,
-          "Y": 994352060
+          "X": 1044952100,
+          "Y": 981668500
         },
-        "EnemyDropCount": 1048576000,
+        "EnemyDropCount": 1050253700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2815,7 +2871,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/virtual-energy-fuel",
+        "IconPath": "icons/item_recipe/virtual-energy-fuel",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2842,6 +2898,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -2868,7 +2925,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/plastic",
+        "IconPath": "icons/item_recipe/plastic",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2890,11 +2947,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1048844400,
-          "Y": 1002740700
+          "X": 1045019200,
+          "Y": 994352060
         },
-        "EnemyDropCount": 1069547500,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1065353200,
+        "EnemyDropMask": 2097798226,
+        "EnemyDropMaskRatio": 1050253700,
         "DescFields": [
           1,
           40
@@ -2918,7 +2976,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/graphene",
+        "IconPath": "icons/item_recipe/graphene",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2940,11 +2998,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1049045760,
-          "Y": 1002740700
+          "X": 1045220540,
+          "Y": 994352060
         },
-        "EnemyDropCount": 1073741800,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1065353200,
+        "EnemyDropMask": 2097798226,
+        "EnemyDropMaskRatio": 1056964600,
         "DescFields": [
           2,
           3,
@@ -2971,7 +3030,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/nanotube",
+        "IconPath": "icons/item_recipe/nanotube",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -2993,11 +3052,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1049247100,
-          "Y": 1002740700
+          "X": 1045421900,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1069547500,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1061997760,
+        "EnemyDropMask": 2097798226,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -3024,7 +3084,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/crystal-rubber",
+        "IconPath": "icons/item_recipe/crystal-rubber",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3051,6 +3111,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -3078,7 +3139,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/titan-crystal",
+        "IconPath": "icons/item_recipe/titan-crystal",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3100,11 +3161,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1049448400,
-          "Y": 1000593150
+          "X": 1045556100,
+          "Y": 994352060
         },
-        "EnemyDropCount": 1056964600,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropCount": 1061997760,
+        "EnemyDropMask": 2131733228,
+        "EnemyDropMaskRatio": 1056964600,
         "DescFields": [
           1,
           40
@@ -3128,7 +3190,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/casimir-crystal",
+        "IconPath": "icons/item_recipe/casimir-crystal",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3150,11 +3212,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1049616200,
-          "Y": 998445700
+          "X": 1045757440,
+          "Y": 994352060
         },
-        "EnemyDropCount": 1065353200,
+        "EnemyDropCount": 1057803460,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3178,17 +3241,17 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/explosive",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/explosive",
+        "ModelIndex": 489,
         "ModelCount": 0,
         "HpMax": 1,
-        "Ability": 0,
+        "Ability": 10000,
         "HeatValue": 9720000,
         "Potential": 0,
         "ReactorInc": 1061997760,
         "FuelType": 1,
         "AmmoType": 0,
-        "BombType": 0,
+        "BombType": 2,
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
@@ -3200,17 +3263,21 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1049750400,
-          "Y": 994352060
+          "X": 1045958800,
+          "Y": 998445700
         },
         "EnemyDropCount": 1065353200,
-        "EnemyDropMask": 2147483647,
+        "EnemyDropMask": 2097798226,
+        "EnemyDropMaskRatio": 1060320060,
         "DescFields": [
           2,
           3,
           31,
           1,
-          40
+          40,
+          71,
+          55,
+          61
         ],
         "Description": "I燃烧单元"
       }
@@ -3231,17 +3298,17 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/high-explosive",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/high-explosive",
+        "ModelIndex": 490,
         "ModelCount": 0,
         "HpMax": 1,
-        "Ability": 0,
+        "Ability": 32000,
         "HeatValue": 21600000,
         "Potential": 0,
         "ReactorInc": 1067030900,
         "FuelType": 1,
         "AmmoType": 0,
-        "BombType": 0,
+        "BombType": 2,
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
@@ -3253,17 +3320,21 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1049851100,
+          "X": 1046227200,
           "Y": 994352060
         },
         "EnemyDropCount": 1060320060,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
           31,
           1,
-          40
+          40,
+          71,
+          55,
+          61
         ],
         "Description": "I爆破单元"
       }
@@ -3284,17 +3355,17 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/particle-explosive",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/particle-explosive",
+        "ModelIndex": 491,
         "ModelCount": 0,
         "HpMax": 1,
-        "Ability": 0,
+        "Ability": 75000,
         "HeatValue": 54000000,
         "Potential": 0,
         "ReactorInc": 1073741800,
         "FuelType": 1,
         "AmmoType": 0,
-        "BombType": 0,
+        "BombType": 2,
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
@@ -3306,17 +3377,21 @@
         "DropRate": 0,
         "EnemyDropLevel": 6,
         "EnemyDropRange": {
-          "X": 1049951740,
-          "Y": 994352060
+          "X": 1046428540,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1053609150,
+        "EnemyDropCount": 1056964600,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
           31,
           1,
-          40
+          40,
+          71,
+          55,
+          61
         ],
         "Description": "I晶石爆破单元"
       }
@@ -3337,7 +3412,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/gravity-lens",
+        "IconPath": "icons/item_recipe/gravity-lens",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3351,7 +3426,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1605,
+        "GridIndex": 1705,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -3359,11 +3434,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1050052400,
-          "Y": 994352060
+          "X": 1046562750,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1050253700,
+        "EnemyDropCount": 1053609150,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3387,7 +3463,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/space-warper",
+        "IconPath": "icons/item_recipe/space-warper",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3401,7 +3477,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1812,
+        "GridIndex": 1704,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -3409,11 +3485,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1050153100,
-          "Y": 1000593150
+          "X": 1046696960,
+          "Y": 990057100
         },
-        "EnemyDropCount": 1056964600,
+        "EnemyDropCount": 1050253700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3437,7 +3514,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fusion-capacitor",
+        "IconPath": "icons/item_recipe/fusion-capacitor",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3459,11 +3536,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1050320830,
-          "Y": 1000593150
+          "X": 1046831170,
+          "Y": 985963460
         },
-        "EnemyDropCount": 1056964600,
+        "EnemyDropCount": 1050253700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3487,7 +3565,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/engine",
+        "IconPath": "icons/item_recipe/engine",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3509,11 +3587,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1050488600,
-          "Y": 1006834300
+          "X": 1046931840,
+          "Y": 1004888100
         },
         "EnemyDropCount": 1065353200,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3537,7 +3616,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fuel-thruster",
+        "IconPath": "icons/item_recipe/fuel-thruster",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3559,11 +3638,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 3,
         "EnemyDropRange": {
-          "X": 1050757060,
-          "Y": 1006834300
+          "X": 1047401600,
+          "Y": 1002740700
         },
-        "EnemyDropCount": 1065353200,
+        "EnemyDropCount": 1058642300,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3587,7 +3667,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/ion-thruster",
+        "IconPath": "icons/item_recipe/ion-thruster",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3609,11 +3689,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1051025500,
-          "Y": 1006834300
+          "X": 1047804200,
+          "Y": 1000593150
         },
-        "EnemyDropCount": 1065353200,
+        "EnemyDropCount": 1050253700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3637,7 +3718,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/delivery-drone",
+        "IconPath": "icons/item_recipe/delivery-drone",
         "ModelIndex": 372,
         "ModelCount": 1,
         "HpMax": 200,
@@ -3664,6 +3745,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           45,
           46,
@@ -3689,7 +3771,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/logistic-drone",
+        "IconPath": "icons/item_recipe/logistic-drone",
         "ModelIndex": 47,
         "ModelCount": 1,
         "HpMax": 300,
@@ -3716,6 +3798,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           25,
           27,
@@ -3741,7 +3824,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/logistic-vessel",
+        "IconPath": "icons/item_recipe/logistic-vessel",
         "ModelIndex": 48,
         "ModelCount": 1,
         "HpMax": 800,
@@ -3768,6 +3851,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           26,
           1,
@@ -3792,7 +3876,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/frame-material",
+        "IconPath": "icons/item_recipe/frame-material",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3806,7 +3890,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1809,
+        "GridIndex": 1709,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -3819,6 +3903,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3842,7 +3927,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/dyson-sphere-component",
+        "IconPath": "icons/item_recipe/dyson-sphere-component",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3856,7 +3941,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1810,
+        "GridIndex": 1710,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -3869,6 +3954,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3892,7 +3978,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/rocket",
+        "IconPath": "icons/item_recipe/rocket",
         "ModelIndex": 75,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3906,7 +3992,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1811,
+        "GridIndex": 1711,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -3919,6 +4005,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3942,7 +4029,7 @@
         "IsEntity": false,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/terrain-tool",
+        "IconPath": "icons/item_recipe/terrain-tool",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -3956,7 +4043,7 @@
         "CraftType": 0,
         "BuildIndex": 901,
         "BuildMode": 4,
-        "GridIndex": 1704,
+        "GridIndex": 1706,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -3964,11 +4051,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 2,
         "EnemyDropRange": {
-          "X": 1051293900,
-          "Y": 1004888100
+          "X": 1048139800,
+          "Y": 1000593150
         },
-        "EnemyDropCount": 1092616200,
+        "EnemyDropCount": 1073741800,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -3992,7 +4080,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/accelerator-1",
+        "IconPath": "icons/item_recipe/accelerator-1",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 12,
@@ -4019,6 +4107,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           29,
           41,
@@ -4049,7 +4138,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/accelerator-2",
+        "IconPath": "icons/item_recipe/accelerator-2",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 24,
@@ -4076,6 +4165,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           29,
           41,
@@ -4106,7 +4196,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/accelerator-3",
+        "IconPath": "icons/item_recipe/accelerator-3",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 60,
@@ -4133,6 +4223,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           29,
           41,
@@ -4163,10 +4254,10 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/bullet",
+        "IconPath": "icons/item_recipe/bullet",
         "ModelIndex": 0,
         "ModelCount": 0,
-        "HpMax": 20,
+        "HpMax": 30,
         "Ability": 700,
         "HeatValue": 0,
         "Potential": 0,
@@ -4190,6 +4281,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4217,11 +4309,11 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/bullet-titanium",
+        "IconPath": "icons/item_recipe/bullet-titanium",
         "ModelIndex": 0,
         "ModelCount": 0,
-        "HpMax": 20,
-        "Ability": 1300,
+        "HpMax": 30,
+        "Ability": 1600,
         "HeatValue": 0,
         "Potential": 0,
         "ReactorInc": 0,
@@ -4244,6 +4336,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4271,11 +4364,11 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/bullet-alloy",
+        "IconPath": "icons/item_recipe/bullet-alloy",
         "ModelIndex": 0,
         "ModelCount": 0,
-        "HpMax": 20,
-        "Ability": 3200,
+        "HpMax": 30,
+        "Ability": 3600,
         "HeatValue": 0,
         "Potential": 0,
         "ReactorInc": 0,
@@ -4298,6 +4391,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4325,8 +4419,8 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/cannonball",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/cannonball",
+        "ModelIndex": 486,
         "ModelCount": 0,
         "HpMax": 12,
         "Ability": 4500,
@@ -4339,7 +4433,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1613,
+        "GridIndex": 1513,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4352,6 +4446,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4380,8 +4475,8 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/cannonball-cluster",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/cannonball-cluster",
+        "ModelIndex": 487,
         "ModelCount": 0,
         "HpMax": 12,
         "Ability": 10000,
@@ -4394,7 +4489,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1713,
+        "GridIndex": 1613,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4407,6 +4502,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4435,8 +4531,8 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/cannonball-alloy",
-        "ModelIndex": 0,
+        "IconPath": "icons/item_recipe/cannonball-alloy",
+        "ModelIndex": 488,
         "ModelCount": 0,
         "HpMax": 12,
         "Ability": 22000,
@@ -4449,7 +4545,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1813,
+        "GridIndex": 1713,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4462,6 +4558,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4490,7 +4587,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/capsule-energy",
+        "IconPath": "icons/item_recipe/capsule-energy",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 10,
@@ -4517,6 +4614,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4545,7 +4643,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/capsule-antimatter",
+        "IconPath": "icons/item_recipe/capsule-antimatter",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 10,
@@ -4572,6 +4670,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4600,7 +4699,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/missile",
+        "IconPath": "icons/item_recipe/missile",
         "ModelIndex": 432,
         "ModelCount": 0,
         "HpMax": 24,
@@ -4614,7 +4713,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1313,
+        "GridIndex": 1213,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4627,6 +4726,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4655,7 +4755,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/missile-supersonic",
+        "IconPath": "icons/item_recipe/missile-supersonic",
         "ModelIndex": 433,
         "ModelCount": 0,
         "HpMax": 24,
@@ -4669,7 +4769,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1413,
+        "GridIndex": 1313,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4682,6 +4782,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4710,7 +4811,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/missile-graviton",
+        "IconPath": "icons/item_recipe/missile-graviton",
         "ModelIndex": 434,
         "ModelCount": 0,
         "HpMax": 24,
@@ -4724,7 +4825,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1513,
+        "GridIndex": 1413,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": true,
@@ -4737,6 +4838,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           48,
           55,
@@ -4747,6 +4849,118 @@
           40
         ],
         "Description": "I引力导弹组"
+      }
+    },
+    {
+      "Name": "电磁干扰胶囊",
+      "ID": 1612,
+      "SID": "",
+      "Proto": {
+        "Type": 4,
+        "SubID": 0,
+        "MiningFrom": "",
+        "ProduceFrom": "",
+        "StackSize": 100,
+        "Grade": 0,
+        "Upgrades": [],
+        "IsFluid": false,
+        "IsEntity": false,
+        "CanBuild": false,
+        "BuildInGas": false,
+        "IconPath": "icons/item_recipe/em-disturb",
+        "ModelIndex": 492,
+        "ModelCount": 0,
+        "HpMax": 60,
+        "Ability": 50,
+        "HeatValue": 0,
+        "Potential": 0,
+        "ReactorInc": 0,
+        "FuelType": 0,
+        "AmmoType": 6,
+        "BombType": 3,
+        "CraftType": 0,
+        "BuildIndex": 0,
+        "BuildMode": 0,
+        "GridIndex": 1812,
+        "UnlockKey": 0,
+        "PreTechOverride": 0,
+        "Productive": true,
+        "MechaMaterialID": 0,
+        "DropRate": 0,
+        "EnemyDropLevel": 0,
+        "EnemyDropRange": {
+          "X": 0,
+          "Y": 0
+        },
+        "EnemyDropCount": 0,
+        "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
+        "DescFields": [
+          68,
+          69,
+          70,
+          52,
+          1,
+          40,
+          71
+        ],
+        "Description": "I电磁干扰胶囊"
+      }
+    },
+    {
+      "Name": "电磁压制胶囊",
+      "ID": 1613,
+      "SID": "",
+      "Proto": {
+        "Type": 4,
+        "SubID": 0,
+        "MiningFrom": "",
+        "ProduceFrom": "",
+        "StackSize": 100,
+        "Grade": 0,
+        "Upgrades": [],
+        "IsFluid": false,
+        "IsEntity": false,
+        "CanBuild": false,
+        "BuildInGas": false,
+        "IconPath": "icons/item_recipe/em-suppress",
+        "ModelIndex": 493,
+        "ModelCount": 0,
+        "HpMax": 60,
+        "Ability": 80,
+        "HeatValue": 0,
+        "Potential": 0,
+        "ReactorInc": 0,
+        "FuelType": 0,
+        "AmmoType": 6,
+        "BombType": 3,
+        "CraftType": 0,
+        "BuildIndex": 0,
+        "BuildMode": 0,
+        "GridIndex": 1813,
+        "UnlockKey": 0,
+        "PreTechOverride": 0,
+        "Productive": true,
+        "MechaMaterialID": 0,
+        "DropRate": 0,
+        "EnemyDropLevel": 0,
+        "EnemyDropRange": {
+          "X": 0,
+          "Y": 0
+        },
+        "EnemyDropCount": 0,
+        "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
+        "DescFields": [
+          68,
+          69,
+          70,
+          52,
+          1,
+          40,
+          71
+        ],
+        "Description": "I电磁压制胶囊"
       }
     },
     {
@@ -4765,7 +4979,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fighter-shield",
+        "IconPath": "icons/item_recipe/fighter-shield",
         "ModelIndex": 448,
         "ModelCount": 1,
         "HpMax": 1500,
@@ -4792,6 +5006,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           48,
@@ -4821,7 +5036,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fighter-plasma",
+        "IconPath": "icons/item_recipe/fighter-plasma",
         "ModelIndex": 449,
         "ModelCount": 1,
         "HpMax": 1500,
@@ -4848,6 +5063,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           48,
@@ -4877,7 +5093,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fighter-laser",
+        "IconPath": "icons/item_recipe/fighter-laser",
         "ModelIndex": 450,
         "ModelCount": 1,
         "HpMax": 1500,
@@ -4904,6 +5120,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           48,
@@ -4933,7 +5150,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/warship-plasma",
+        "IconPath": "icons/item_recipe/warship-plasma",
         "ModelIndex": 451,
         "ModelCount": 1,
         "HpMax": 8000,
@@ -4960,6 +5177,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           48,
@@ -4989,7 +5207,7 @@
         "IsEntity": true,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/warship-laser",
+        "IconPath": "icons/item_recipe/warship-laser",
         "ModelIndex": 452,
         "ModelCount": 1,
         "HpMax": 8000,
@@ -5016,6 +5234,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           55,
@@ -5048,7 +5267,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/memory",
+        "IconPath": "icons/item_recipe/memory",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5070,11 +5289,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 4,
         "EnemyDropRange": {
-          "X": 1051528770,
-          "Y": 1010592400
+          "X": 1048475300,
+          "Y": 1008981760
         },
-        "EnemyDropCount": 1077936100,
+        "EnemyDropCount": 1075839000,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -5098,7 +5318,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/silicon-neuron",
+        "IconPath": "icons/item_recipe/silicon-neuron",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5112,7 +5332,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1709,
+        "GridIndex": 1809,
         "UnlockKey": -2,
         "PreTechOverride": 0,
         "Productive": true,
@@ -5120,11 +5340,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 6,
         "EnemyDropRange": {
-          "X": 1051914700,
-          "Y": 1007371140
+          "X": 1048861200,
+          "Y": 1007908030
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1069547500,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -5148,7 +5369,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/reassembler",
+        "IconPath": "icons/item_recipe/reassembler",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5162,7 +5383,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1711,
+        "GridIndex": 1811,
         "UnlockKey": -2,
         "PreTechOverride": 0,
         "Productive": true,
@@ -5170,11 +5391,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 5,
         "EnemyDropRange": {
-          "X": 1052199900,
+          "X": 1049163200,
           "Y": 1006834300
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1069547500,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -5198,7 +5420,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/negentropy",
+        "IconPath": "icons/item_recipe/negentropy",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5212,7 +5434,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1710,
+        "GridIndex": 1810,
         "UnlockKey": -2,
         "PreTechOverride": 0,
         "Productive": true,
@@ -5220,11 +5442,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 7,
         "EnemyDropRange": {
-          "X": 1052468300,
+          "X": 1049431600,
           "Y": 1002740700
         },
-        "EnemyDropCount": 1073741800,
+        "EnemyDropCount": 1068708700,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -5248,7 +5471,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/virtual-particle",
+        "IconPath": "icons/item_recipe/virtual-particle",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5270,11 +5493,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 8,
         "EnemyDropRange": {
-          "X": 1052669630,
-          "Y": 1008981760
+          "X": 1049632960,
+          "Y": 1003814400
         },
-        "EnemyDropCount": 1082130400,
+        "EnemyDropCount": 1069547500,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0,
           40
@@ -5298,7 +5522,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/energy-fragment",
+        "IconPath": "icons/item_recipe/energy-fragment",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -5312,7 +5536,7 @@
         "CraftType": 0,
         "BuildIndex": 0,
         "BuildMode": 0,
-        "GridIndex": 1708,
+        "GridIndex": 1808,
         "UnlockKey": -2,
         "PreTechOverride": 0,
         "Productive": true,
@@ -5320,11 +5544,12 @@
         "DropRate": 0,
         "EnemyDropLevel": 1,
         "EnemyDropRange": {
-          "X": 1053005200,
-          "Y": 1013706240
+          "X": 1049851100,
+          "Y": 1011129300
         },
-        "EnemyDropCount": 1086324700,
+        "EnemyDropCount": 1075839000,
         "EnemyDropMask": 2147483647,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           2,
           3,
@@ -5356,7 +5581,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/belt-1",
+        "IconPath": "icons/item_recipe/belt-1",
         "ModelIndex": 35,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5383,6 +5608,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           15,
@@ -5412,7 +5638,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/belt-2",
+        "IconPath": "icons/item_recipe/belt-2",
         "ModelIndex": 36,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5439,6 +5665,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           15,
@@ -5468,7 +5695,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/belt-3",
+        "IconPath": "icons/item_recipe/belt-3",
         "ModelIndex": 37,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5495,6 +5722,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           15,
@@ -5518,13 +5746,14 @@
         "Upgrades": [
           2011,
           2012,
-          2013
+          2013,
+          2014
         ],
         "IsFluid": false,
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/inserter-1",
+        "IconPath": "icons/item_recipe/inserter-1",
         "ModelIndex": 41,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5551,6 +5780,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           20,
@@ -5577,13 +5807,14 @@
         "Upgrades": [
           2011,
           2012,
-          2013
+          2013,
+          2014
         ],
         "IsFluid": false,
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/inserter-2",
+        "IconPath": "icons/item_recipe/inserter-2",
         "ModelIndex": 42,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5610,6 +5841,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           20,
@@ -5636,13 +5868,14 @@
         "Upgrades": [
           2011,
           2012,
-          2013
+          2013,
+          2014
         ],
         "IsFluid": false,
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/inserter-3",
+        "IconPath": "icons/item_recipe/inserter-3",
         "ModelIndex": 43,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5669,6 +5902,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           20,
@@ -5679,6 +5913,68 @@
           40
         ],
         "Description": "I极速分拣器"
+      }
+    },
+    {
+      "Name": "集装分拣器",
+      "ID": 2014,
+      "SID": "",
+      "Proto": {
+        "Type": 5,
+        "SubID": 4,
+        "MiningFrom": "",
+        "ProduceFrom": "",
+        "StackSize": 200,
+        "Grade": 4,
+        "Upgrades": [
+          2011,
+          2012,
+          2013,
+          2014
+        ],
+        "IsFluid": false,
+        "IsEntity": true,
+        "CanBuild": true,
+        "BuildInGas": false,
+        "IconPath": "icons/item_recipe/inserter-4",
+        "ModelIndex": 483,
+        "ModelCount": 1,
+        "HpMax": 300,
+        "Ability": 0,
+        "HeatValue": 0,
+        "Potential": 0,
+        "ReactorInc": 0,
+        "FuelType": 0,
+        "AmmoType": 0,
+        "BombType": 0,
+        "CraftType": 0,
+        "BuildIndex": 307,
+        "BuildMode": 3,
+        "GridIndex": 2304,
+        "UnlockKey": 0,
+        "PreTechOverride": 0,
+        "Productive": false,
+        "MechaMaterialID": 0,
+        "DropRate": 0,
+        "EnemyDropLevel": 0,
+        "EnemyDropRange": {
+          "X": 0,
+          "Y": 0
+        },
+        "EnemyDropCount": 0,
+        "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
+        "DescFields": [
+          53,
+          20,
+          72,
+          73,
+          11,
+          12,
+          1,
+          40
+        ],
+        "Description": "I集装分拣器"
       }
     },
     {
@@ -5697,7 +5993,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/splitter-4dir",
+        "IconPath": "icons/item_recipe/splitter-4dir",
         "ModelIndex": 38,
         "ModelCount": 3,
         "HpMax": 500,
@@ -5709,7 +6005,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 307,
+        "BuildIndex": 308,
         "BuildMode": 1,
         "GridIndex": 2204,
         "UnlockKey": 0,
@@ -5724,6 +6020,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           16,
@@ -5749,7 +6046,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/piler",
+        "IconPath": "icons/item_recipe/piler",
         "ModelIndex": 257,
         "ModelCount": 1,
         "HpMax": 500,
@@ -5761,7 +6058,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 308,
+        "BuildIndex": 602,
         "BuildMode": 1,
         "GridIndex": 2205,
         "UnlockKey": 0,
@@ -5776,6 +6073,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -5802,7 +6100,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/monitor",
+        "IconPath": "icons/item_recipe/monitor",
         "ModelIndex": 208,
         "ModelCount": 1,
         "HpMax": 300,
@@ -5829,6 +6127,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -5855,7 +6154,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/spray-coater",
+        "IconPath": "icons/item_recipe/spray-coater",
         "ModelIndex": 120,
         "ModelCount": 1,
         "HpMax": 800,
@@ -5882,6 +6181,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -5908,7 +6208,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/delivery-machine",
+        "IconPath": "icons/item_recipe/delivery-machine",
         "ModelIndex": 371,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -5935,6 +6235,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           38,
@@ -5963,7 +6264,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/storage-1",
+        "IconPath": "icons/item_recipe/storage-1",
         "ModelIndex": 51,
         "ModelCount": 1,
         "HpMax": 800,
@@ -5990,6 +6291,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           17,
@@ -6015,7 +6317,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/storage-2",
+        "IconPath": "icons/item_recipe/storage-2",
         "ModelIndex": 52,
         "ModelCount": 1,
         "HpMax": 1600,
@@ -6042,6 +6344,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           17,
@@ -6067,7 +6370,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/storage-tank",
+        "IconPath": "icons/item_recipe/storage-tank",
         "ModelIndex": 121,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -6094,6 +6397,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           30,
@@ -6124,7 +6428,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/assembler-1",
+        "IconPath": "icons/item_recipe/assembler-1",
         "ModelIndex": 65,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -6151,6 +6455,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -6183,7 +6488,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/assembler-2",
+        "IconPath": "icons/item_recipe/assembler-2",
         "ModelIndex": 66,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -6210,6 +6515,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -6242,7 +6548,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/assembler-3",
+        "IconPath": "icons/item_recipe/assembler-3",
         "ModelIndex": 67,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -6269,6 +6575,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -6301,7 +6608,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/assembler-4",
+        "IconPath": "icons/item_recipe/assembler-4",
         "ModelIndex": 456,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -6328,6 +6635,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -6355,7 +6663,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/tesla-coil",
+        "IconPath": "icons/item_recipe/tesla-coil",
         "ModelIndex": 44,
         "ModelCount": 1,
         "HpMax": 500,
@@ -6382,6 +6690,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           13,
@@ -6408,7 +6717,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/charging-pole",
+        "IconPath": "icons/item_recipe/charging-pole",
         "ModelIndex": 71,
         "ModelCount": 1,
         "HpMax": 600,
@@ -6435,6 +6744,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           13,
@@ -6463,7 +6773,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/orbital-substation",
+        "IconPath": "icons/item_recipe/orbital-substation",
         "ModelIndex": 68,
         "ModelCount": 1,
         "HpMax": 800,
@@ -6490,6 +6800,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           13,
@@ -6517,7 +6828,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/wind-turbine",
+        "IconPath": "icons/item_recipe/wind-turbine",
         "ModelIndex": 53,
         "ModelCount": 1,
         "HpMax": 800,
@@ -6544,6 +6855,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -6572,7 +6884,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fuel-plant",
+        "IconPath": "icons/item_recipe/fuel-plant",
         "ModelIndex": 54,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -6599,6 +6911,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -6626,7 +6939,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fusion-power-station",
+        "IconPath": "icons/item_recipe/fusion-power-station",
         "ModelIndex": 118,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -6653,6 +6966,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -6679,7 +6993,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/geothermal-power-station",
+        "IconPath": "icons/item_recipe/geothermal-power-station",
         "ModelIndex": 255,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -6706,6 +7020,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -6732,7 +7047,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/mining-drill",
+        "IconPath": "icons/item_recipe/mining-drill",
         "ModelIndex": 57,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -6746,7 +7061,7 @@
         "CraftType": 0,
         "BuildIndex": 201,
         "BuildMode": 1,
-        "GridIndex": 2304,
+        "GridIndex": 2305,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -6759,6 +7074,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           18,
@@ -6787,7 +7103,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/mining-drill-mk2",
+        "IconPath": "icons/item_recipe/mining-drill-mk2",
         "ModelIndex": 256,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -6801,7 +7117,7 @@
         "CraftType": 0,
         "BuildIndex": 202,
         "BuildMode": 1,
-        "GridIndex": 2305,
+        "GridIndex": 2306,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -6814,6 +7130,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           18,
@@ -6842,7 +7159,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/water-pump",
+        "IconPath": "icons/item_recipe/water-pump",
         "ModelIndex": 60,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -6856,7 +7173,7 @@
         "CraftType": 0,
         "BuildIndex": 203,
         "BuildMode": 1,
-        "GridIndex": 2306,
+        "GridIndex": 2307,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -6869,6 +7186,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           18,
@@ -6901,7 +7219,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/smelter",
+        "IconPath": "icons/item_recipe/smelter",
         "ModelIndex": 62,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -6928,6 +7246,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -6959,7 +7278,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/smelter-2",
+        "IconPath": "icons/item_recipe/smelter-2",
         "ModelIndex": 194,
         "ModelCount": 1,
         "HpMax": 1500,
@@ -6986,6 +7305,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7017,7 +7337,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/smelter-3",
+        "IconPath": "icons/item_recipe/smelter-3",
         "ModelIndex": 457,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -7044,6 +7364,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7071,7 +7392,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/oil-extractor",
+        "IconPath": "icons/item_recipe/oil-extractor",
         "ModelIndex": 61,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -7085,7 +7406,7 @@
         "CraftType": 0,
         "BuildIndex": 204,
         "BuildMode": 1,
-        "GridIndex": 2307,
+        "GridIndex": 2308,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7098,6 +7419,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           18,
@@ -7126,7 +7448,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/oil-refinery",
+        "IconPath": "icons/item_recipe/oil-refinery",
         "ModelIndex": 63,
         "ModelCount": 1,
         "HpMax": 1800,
@@ -7140,7 +7462,7 @@
         "CraftType": 0,
         "BuildIndex": 506,
         "BuildMode": 1,
-        "GridIndex": 2308,
+        "GridIndex": 2309,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7153,6 +7475,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7183,7 +7506,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/chemical-plant",
+        "IconPath": "icons/item_recipe/chemical-plant",
         "ModelIndex": 64,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -7197,7 +7520,7 @@
         "CraftType": 0,
         "BuildIndex": 508,
         "BuildMode": 1,
-        "GridIndex": 2310,
+        "GridIndex": 2311,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7210,6 +7533,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7240,7 +7564,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/chemical-plant-2",
+        "IconPath": "icons/item_recipe/chemical-plant-2",
         "ModelIndex": 376,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -7254,7 +7578,7 @@
         "CraftType": 0,
         "BuildIndex": 509,
         "BuildMode": 1,
-        "GridIndex": 2311,
+        "GridIndex": 2312,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7267,6 +7591,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7294,7 +7619,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fractionator",
+        "IconPath": "icons/item_recipe/fractionator",
         "ModelIndex": 119,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -7308,7 +7633,7 @@
         "CraftType": 0,
         "BuildIndex": 507,
         "BuildMode": 1,
-        "GridIndex": 2309,
+        "GridIndex": 2310,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7321,6 +7646,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -7347,7 +7673,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/solar-panel",
+        "IconPath": "icons/item_recipe/solar-panel",
         "ModelIndex": 55,
         "ModelCount": 1,
         "HpMax": 1000,
@@ -7374,6 +7700,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -7400,7 +7727,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/accumulator",
+        "IconPath": "icons/item_recipe/accumulator",
         "ModelIndex": 46,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -7427,6 +7754,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           8,
@@ -7454,7 +7782,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/accumulator-full",
+        "IconPath": "icons/item_recipe/accumulator-full",
         "ModelIndex": 46,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -7481,6 +7809,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           2,
@@ -7511,7 +7840,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/em-rail-ejector",
+        "IconPath": "icons/item_recipe/em-rail-ejector",
         "ModelIndex": 72,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -7538,6 +7867,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           34,
@@ -7565,7 +7895,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/ray-receiver",
+        "IconPath": "icons/item_recipe/ray-receiver",
         "ModelIndex": 73,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -7592,6 +7922,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -7618,7 +7949,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/vertical-launching-silo",
+        "IconPath": "icons/item_recipe/vertical-launching-silo",
         "ModelIndex": 74,
         "ModelCount": 1,
         "HpMax": 8000,
@@ -7645,6 +7976,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           35,
@@ -7672,7 +8004,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/energy-exchanger",
+        "IconPath": "icons/item_recipe/energy-exchanger",
         "ModelIndex": 45,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -7684,7 +8016,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 605,
+        "BuildIndex": 606,
         "BuildMode": 1,
         "GridIndex": 2109,
         "UnlockKey": 0,
@@ -7699,6 +8031,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           8,
@@ -7726,7 +8059,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/hadron-collider",
+        "IconPath": "icons/item_recipe/hadron-collider",
         "ModelIndex": 69,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -7740,7 +8073,7 @@
         "CraftType": 0,
         "BuildIndex": 510,
         "BuildMode": 1,
-        "GridIndex": 2312,
+        "GridIndex": 2313,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -7753,6 +8086,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -7780,7 +8114,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/fusion-reactor",
+        "IconPath": "icons/item_recipe/fusion-reactor",
         "ModelIndex": 56,
         "ModelCount": 1,
         "HpMax": 2000,
@@ -7807,6 +8141,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           4,
@@ -7834,7 +8169,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/logistic-station",
+        "IconPath": "icons/item_recipe/logistic-station",
         "ModelIndex": 49,
         "ModelCount": 1,
         "HpMax": 5000,
@@ -7846,7 +8181,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 602,
+        "BuildIndex": 603,
         "BuildMode": 1,
         "GridIndex": 2212,
         "UnlockKey": 0,
@@ -7861,6 +8196,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           24,
@@ -7889,7 +8225,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/interstellar-logistic-station",
+        "IconPath": "icons/item_recipe/interstellar-logistic-station",
         "ModelIndex": 50,
         "ModelCount": 1,
         "HpMax": 8000,
@@ -7901,7 +8237,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 603,
+        "BuildIndex": 604,
         "BuildMode": 1,
         "GridIndex": 2213,
         "UnlockKey": 0,
@@ -7916,6 +8252,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           24,
@@ -7944,7 +8281,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": true,
-        "IconPath": "Icons/ItemRecipe/orbital-collector",
+        "IconPath": "icons/item_recipe/orbital-collector",
         "ModelIndex": 117,
         "ModelCount": 1,
         "HpMax": 8000,
@@ -7956,7 +8293,7 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 604,
+        "BuildIndex": 605,
         "BuildMode": 1,
         "GridIndex": 2214,
         "UnlockKey": 0,
@@ -7971,6 +8308,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           18,
@@ -8001,7 +8339,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/lab",
+        "IconPath": "icons/item_recipe/lab",
         "ModelIndex": 70,
         "ModelCount": 1,
         "HpMax": 1200,
@@ -8028,6 +8366,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -8059,7 +8398,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/lab-2",
+        "IconPath": "icons/item_recipe/lab-2",
         "ModelIndex": 455,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8086,6 +8425,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           22,
@@ -8114,7 +8454,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-gauss",
+        "IconPath": "icons/item_recipe/turret-gauss",
         "ModelIndex": 374,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8141,6 +8481,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           51,
@@ -8172,7 +8513,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-laser",
+        "IconPath": "icons/item_recipe/turret-laser",
         "ModelIndex": 373,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8199,6 +8540,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           51,
@@ -8229,7 +8571,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-cannon",
+        "IconPath": "icons/item_recipe/turret-cannon",
         "ModelIndex": 375,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8256,6 +8598,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           51,
@@ -8287,7 +8630,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-plasma",
+        "IconPath": "icons/item_recipe/turret-plasma",
         "ModelIndex": 408,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8314,6 +8657,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           51,
@@ -8345,7 +8689,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-missile",
+        "IconPath": "icons/item_recipe/turret-missile",
         "ModelIndex": 407,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8372,6 +8716,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           51,
@@ -8404,7 +8749,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-jammer",
+        "IconPath": "icons/item_recipe/turret-disturb",
         "ModelIndex": 422,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8416,9 +8761,9 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 0,
-        "BuildMode": 1,
-        "GridIndex": 0,
+        "BuildIndex": 708,
+        "BuildMode": 5,
+        "GridIndex": 2508,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -8431,8 +8776,14 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
+          51,
+          56,
+          57,
+          52,
+          49,
           11,
           12,
           1,
@@ -8457,7 +8808,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-signal",
+        "IconPath": "icons/item_recipe/turret-signal",
         "ModelIndex": 403,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8469,9 +8820,9 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 707,
+        "BuildIndex": 709,
         "BuildMode": 1,
-        "GridIndex": 2507,
+        "GridIndex": 2509,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -8484,6 +8835,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           13,
@@ -8512,7 +8864,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/turret-shield",
+        "IconPath": "icons/item_recipe/turret-shield",
         "ModelIndex": 402,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8524,9 +8876,9 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 708,
+        "BuildIndex": 710,
         "BuildMode": 1,
-        "GridIndex": 2508,
+        "GridIndex": 2510,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -8539,6 +8891,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -8565,7 +8918,7 @@
         "IsEntity": true,
         "CanBuild": true,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/battle-base",
+        "IconPath": "icons/item_recipe/battle-base",
         "ModelIndex": 453,
         "ModelCount": 1,
         "HpMax": 3000,
@@ -8577,9 +8930,9 @@
         "AmmoType": 0,
         "BombType": 0,
         "CraftType": 0,
-        "BuildIndex": 706,
+        "BuildIndex": 707,
         "BuildMode": 1,
-        "GridIndex": 2506,
+        "GridIndex": 2507,
         "UnlockKey": 0,
         "PreTechOverride": 0,
         "Productive": false,
@@ -8592,6 +8945,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           53,
           11,
@@ -8601,6 +8955,65 @@
           40
         ],
         "Description": "I战场分析基站"
+      }
+    },
+    {
+      "Name": "地面电浆炮",
+      "ID": 3010,
+      "SID": "",
+      "Proto": {
+        "Type": 8,
+        "SubID": 0,
+        "MiningFrom": "",
+        "ProduceFrom": "",
+        "StackSize": 20,
+        "Grade": 0,
+        "Upgrades": [],
+        "IsFluid": false,
+        "IsEntity": true,
+        "CanBuild": true,
+        "BuildInGas": false,
+        "IconPath": "icons/item_recipe/turret-plasma-ground",
+        "ModelIndex": 482,
+        "ModelCount": 1,
+        "HpMax": 3000,
+        "Ability": 0,
+        "HeatValue": 0,
+        "Potential": 0,
+        "ReactorInc": 0,
+        "FuelType": 0,
+        "AmmoType": 0,
+        "BombType": 0,
+        "CraftType": 0,
+        "BuildIndex": 706,
+        "BuildMode": 5,
+        "GridIndex": 2506,
+        "UnlockKey": 0,
+        "PreTechOverride": 0,
+        "Productive": false,
+        "MechaMaterialID": 0,
+        "DropRate": 0,
+        "EnemyDropLevel": 0,
+        "EnemyDropRange": {
+          "X": 0,
+          "Y": 0
+        },
+        "EnemyDropCount": 0,
+        "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
+        "DescFields": [
+          53,
+          51,
+          56,
+          57,
+          52,
+          49,
+          11,
+          12,
+          1,
+          40
+        ],
+        "Description": "I地面电浆炮"
       }
     },
     {
@@ -8619,7 +9032,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/t-matrix",
+        "IconPath": "icons/item_recipe/t-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8646,6 +9059,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8669,7 +9083,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/e-matrix",
+        "IconPath": "icons/item_recipe/e-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8696,6 +9110,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8719,7 +9134,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/c-matrix",
+        "IconPath": "icons/item_recipe/c-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8746,6 +9161,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8769,7 +9185,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/i-matrix",
+        "IconPath": "icons/item_recipe/i-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8796,6 +9212,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8819,7 +9236,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/g-matrix",
+        "IconPath": "icons/item_recipe/g-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8846,6 +9263,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8869,7 +9287,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/u-matrix",
+        "IconPath": "icons/item_recipe/u-matrix",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8896,6 +9314,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           1,
           40
@@ -8919,7 +9338,7 @@
         "IsEntity": false,
         "CanBuild": false,
         "BuildInGas": false,
-        "IconPath": "Icons/ItemRecipe/soil-pile",
+        "IconPath": "icons/item_recipe/soil-pile",
         "ModelIndex": 0,
         "ModelCount": 0,
         "HpMax": 1,
@@ -8946,6 +9365,7 @@
         },
         "EnemyDropCount": 0,
         "EnemyDropMask": 0,
+        "EnemyDropMaskRatio": 0,
         "DescFields": [
           0
         ],

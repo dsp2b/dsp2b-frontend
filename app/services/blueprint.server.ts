@@ -1,7 +1,10 @@
 import { errBadRequest } from "~/utils/errcode";
 import { APIDataResponse } from "./api";
 import { authenticator } from "./auth.server";
-import itemProtoSet from "./ItemProtoSet.json";
+import itemProtoSet from "./itemProtoSet.json";
+import techProtoSet from "./techProtoSet.json";
+import signalProtoSet from "./signalProtoSet.json";
+import recipeProtoSet from "./recipeProtoSet.json";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
 import { blueprint } from "@prisma/client";
@@ -86,14 +89,54 @@ export async function parseBlueprint(blueprint: string) {
   });
 }
 
-export const itemProtoSetMap = new Map<number, IconInfo>();
+export const iconMap = new Map<number, IconInfo>();
+
 itemProtoSet.DataArray.forEach((val) => {
-  let iconPath = val.Proto.IconPath.split("/");
-  let iconPath2 = iconPath[iconPath.length - 1];
-  itemProtoSetMap.set(val.ID, {
+  if (val.Proto.IconPath == "") {
+    return;
+  }
+  iconMap.set(val.ID, {
     ItemID: val.ID,
     Name: val.Name,
-    IconPath: iconPath2,
+    IconPath: val.Proto.IconPath,
+  });
+});
+
+signalProtoSet.DataArray.forEach((val) => {
+  if (val.Proto.IconPath == "") {
+    return;
+  }
+  iconMap.set(val.ID, {
+    ItemID: val.ID,
+    Name: val.Name,
+    IconPath: val.Proto.IconPath,
+  });
+});
+
+techProtoSet.DataArray.forEach((val) => {
+  if (val.Proto.IconPath == "") {
+    return;
+  }
+  iconMap.set(val.ID + 40000, {
+    ItemID: val.ID,
+    Name: val.Name,
+    IconPath: val.Proto.IconPath,
+  });
+});
+
+recipeProtoSet.DataArray.forEach((val) => {
+  if (val.Proto.IconPath == "") {
+    return;
+  }
+  iconMap.set(val.ID + 20000, {
+    ItemID: val.ID,
+    Name: val.Name,
+    IconPath: val.Proto.IconPath,
+  });
+  iconMap.set(val.ID, {
+    ItemID: val.ID,
+    Name: val.Name,
+    IconPath: val.Proto.IconPath,
   });
 });
 
@@ -131,8 +174,8 @@ export function blueprintTags(tag: number[]): tag[] {
   tag.forEach((val) => {
     tags.push({
       item_id: val,
-      name: itemProtoSetMap.get(val)!.Name,
-      icon_path: itemProtoSetMap.get(val)!.IconPath,
+      name: iconMap.get(val)!.Name,
+      icon_path: iconMap.get(val)!.IconPath,
     });
   });
   return tags;
@@ -158,8 +201,8 @@ export async function blueprintProducts(
   list.forEach((val) => {
     productsList.push({
       item_id: val.item_id,
-      name: itemProtoSetMap.get(val.item_id)!.Name,
-      icon_path: itemProtoSetMap.get(val.item_id)!.IconPath,
+      name: iconMap.get(val.item_id)!.Name,
+      icon_path: iconMap.get(val.item_id)!.IconPath,
       count: val.count,
     });
   });
@@ -322,8 +365,8 @@ export async function blueprintList(
       val.tags_id?.map((val: number) => {
         return {
           id: val,
-          name: itemProtoSetMap.get(val)?.Name,
-          icon_path: itemProtoSetMap.get(val)?.IconPath,
+          name: iconMap.get(val)?.Name,
+          icon_path: iconMap.get(val)?.IconPath,
         };
       }) || [];
     if (val.pic_list && val.pic_list.length > 0) {
