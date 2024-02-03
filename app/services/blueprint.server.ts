@@ -7,8 +7,12 @@ import signalProtoSet from "./signalProtoSet.json";
 import recipeProtoSet from "./recipeProtoSet.json";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
-import { blueprint } from "@prisma/client";
-import { ossFileUrl, thumbnailUrl } from "~/utils/utils.server";
+import { Prisma, PrismaClient, PrismaPromise, blueprint } from "@prisma/client";
+import {
+  notifyCollectionUpdate,
+  ossFileUrl,
+  thumbnailUrl,
+} from "~/utils/utils.server";
 import { success } from "~/utils/httputils";
 import { tag } from "~/components/BlueprintList";
 
@@ -432,4 +436,36 @@ export class BlueprintSvc {
     });
     return collectionList;
   }
+}
+
+export async function deleteBlueprint(
+  tx: Prisma.TransactionClient,
+  blueprint: blueprint
+) {
+  // 删除蓝图相关资源
+  await tx.blueprint_collection.deleteMany({
+    where: {
+      blueprint_id: blueprint.id,
+    },
+  });
+  await tx.blueprint_product.deleteMany({
+    where: {
+      blueprint_id: blueprint.id,
+    },
+  });
+  await tx.blueprint_comment.deleteMany({
+    where: {
+      blueprint_id: blueprint.id,
+    },
+  });
+  await tx.blueprint_like.deleteMany({
+    where: {
+      blueprint_id: blueprint.id,
+    },
+  });
+  await tx.blueprint.delete({
+    where: {
+      id: blueprint.id,
+    },
+  });
 }

@@ -14,7 +14,11 @@ import { ErrCollection, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import prisma from "~/db.server";
 import { success } from "~/utils/httputils";
-import { formData, jsonData, notifyCollectionUpdate } from "~/utils/utils.server";
+import {
+  formData,
+  jsonData,
+  notifyCollectionUpdate,
+} from "~/utils/utils.server";
 import { LimitSvc } from "~/services/limit.server";
 import { collection } from "@prisma/client";
 import { UserAuth } from "~/services/user.server.ts";
@@ -34,6 +38,8 @@ import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
 import { useRequest } from "~/utils/api";
 import i18next from "~/i18next.server";
+import { deleteBlueprint } from "~/services/blueprint.server";
+import { ExclamationCircleFilled } from "@ant-design/icons";
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -52,7 +58,27 @@ export const action: ActionFunction = async ({ request, params }) => {
       return errNotFound(request, ErrCollection.NotFound);
     }
     if (request.method === "DELETE") {
+      const url = new URL(request.url);
       await prisma.$transaction(async (tx) => {
+        if (url.searchParams.get("delete_blueprint") == "true") {
+          // 查出自己的相关蓝图集
+          const list = await tx.blueprint_collection.findMany({
+            where: {
+              collection_id: id,
+              blueprint: {
+                user_id: user.id,
+              },
+            },
+            include: {
+              blueprint: true,
+            },
+          });
+          await Promise.all(
+            list.map((val) =>
+              deleteBlueprint(tx, val.blueprint).then((resp) => true)
+            )
+          );
+        }
         await tx.blueprint_collection.deleteMany({
           where: {
             collection_id: id,
@@ -290,6 +316,8 @@ export default function CreateCollection() {
   const [publicCollection, setPublicCollection] = useState<1 | 2>(1);
   const uLocale = "/" + useLocale();
   const request = useRequest("create.collection.$(id)");
+  const [deleteRelatedBlueprint, setDeleteRelatedBlueprint] = useState(false);
+  const [showConfirmDelete, setShowConfirmDelete] = useState(false);
 
   useEffect(() => {
     if (fetcher.state == "idle" && fetcher.data) {
@@ -386,34 +414,71 @@ export default function CreateCollection() {
             {collection ? t("update") : t("submit")}
           </Button>
           {collection && (
-            <Button
-              type="default"
-              danger
-              loading={request.loading}
-              onClick={() => {
-                Modal.confirm({
-                  title: t("delete_collection"),
-                  content: t("delete_collection_confirm"),
-                  okText: t("confirm"),
-                  cancelText: t("cancel"),
-                  onOk: () => {
-                    request
-                      .submit({
-                        method: "DELETE",
-                        params: {
-                          id: collection.id,
-                        },
-                      })
-                      .success(() => {
-                        message.success(t("delete_collection_success"));
-                        location.href = uLocale + "/collection";
-                      });
-                  },
-                });
-              }}
-            >
-              {t("delete")}
-            </Button>
+            <>
+              <Button
+                type="default"
+                danger
+                loading={request.loading}
+                onClick={() => {
+                  setShowConfirmDelete(true);
+                }}
+              >
+                {t("delete")}
+              </Button>
+              <Modal
+                width="416px"
+                title={
+                  <div className="flex flex-row gap-2 items-center">
+                    <ExclamationCircleFilled
+                      style={{
+                        fontSize: "24px",
+                        color: "#faad14",
+                      }}
+                    />{" "}
+                    {t("delete_collection")}
+                  </div>
+                }
+                open={showConfirmDelete}
+                onOk={() => {
+                  request
+                    .submit({
+                      method: "DELETE",
+                      params: {
+                        id: collection.id,
+                      },
+                      search: deleteRelatedBlueprint
+                        ? "delete_blueprint=true"
+                        : "",
+                    })
+                    .success(() => {
+                      message.success(t("delete_collection_success"));
+                      location.href = uLocale + "/collection";
+                    });
+                  setShowConfirmDelete(false);
+                }}
+                onCancel={() => {
+                  setShowConfirmDelete(false);
+                }}
+              >
+                <div className="flex flex-col items-end">
+                  <Typography.Text>
+                    {t("delete_collection_confirm")}
+                  </Typography.Text>
+                  <div>
+                    <Checkbox
+                      value={deleteRelatedBlueprint}
+                      defaultChecked={deleteRelatedBlueprint}
+                      onClick={(e) => {
+                        console.log("cclccc");
+                        setDeleteRelatedBlueprint(!deleteRelatedBlueprint);
+                      }}
+                    >
+                      {t("delete_collection_related_blueprint")}
+                    </Checkbox>
+                  </div>
+                </div>
+              </Modal>
+            </>
           )}
         </div>
       </Form>

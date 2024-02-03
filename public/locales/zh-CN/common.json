@@ -120,5 +120,6 @@
   "cancel": "取消",
   "all": "全部",
   "only_root": "只看根集",
-  "download_file_generate": "下载文件生成中..."
+  "download_file_generate": "下载文件生成中...",
+  "delete_collection_related_blueprint": "删除蓝图集相关蓝图"
 }

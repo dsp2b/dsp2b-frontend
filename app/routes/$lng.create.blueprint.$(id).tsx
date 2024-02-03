@@ -21,6 +21,7 @@ import {
   parseBlueprint,
   Icons,
   iconMap,
+  deleteBlueprint,
 } from "~/services/blueprint.server";
 import { post, useRequest } from "~/utils/api";
 import {
@@ -356,31 +357,7 @@ export const action: ActionFunction = async ({ request, params }) => {
             notifyCollectionUpdate(val.collection_id);
           });
           // 删除蓝图相关资源
-          await tx.blueprint_collection.deleteMany({
-            where: {
-              blueprint_id: blueprint.id,
-            },
-          });
-          await tx.blueprint_product.deleteMany({
-            where: {
-              blueprint_id: blueprint.id,
-            },
-          });
-          await tx.blueprint_comment.deleteMany({
-            where: {
-              blueprint_id: blueprint.id,
-            },
-          });
-          await tx.blueprint_like.deleteMany({
-            where: {
-              blueprint_id: blueprint.id,
-            },
-          });
-          await tx.blueprint.delete({
-            where: {
-              id: blueprint.id,
-            },
-          });
+          await deleteBlueprint(tx, blueprint);
         });
         return success();
       }
