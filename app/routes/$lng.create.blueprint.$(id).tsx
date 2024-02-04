@@ -131,8 +131,8 @@ export const action: ActionFunction = async ({ request, params }) => {
       const url = new URL(request.url);
       const action = url.searchParams.get("action");
       if (action) {
-        const formData = await request.formData();
         if (action == "parse") {
+          const formData = await request.formData();
           return await parseBlueprint(formData.get("blueprint") as string);
         } else if (action == "recipe_panel") {
           const resp = await fetch(
@@ -698,10 +698,9 @@ export default function CreateBlueprint() {
                           <DeleteOutlined
                             color="red"
                             onClick={() => {
-                              setProducts((p) => {
-                                p.splice(index, 1);
-                                return [...p];
-                              });
+                              setProducts((produces) =>
+                                produces.filter((_, i) => i != index)
+                              );
                             }}
                             className="cursor-pointer"
                           />

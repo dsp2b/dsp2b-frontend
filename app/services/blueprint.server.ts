@@ -70,15 +70,18 @@ export interface Product {
   count: number;
 }
 
-export type GetRecipePanelResponse = APIDataResponse<{
+export type GetRecipePanel = {
   thing_panel: RecipePanelItem[][];
   building_panel: RecipePanelItem[][];
-}>;
+};
+
+export type GetRecipePanelResponse = APIDataResponse<GetRecipePanel>;
 
 export interface RecipePanelItem {
   item_id: number;
   name: string;
   icon_path: string;
+  upgrades?: number[];
 }
 
 export async function parseBlueprint(blueprint: string) {

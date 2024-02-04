@@ -121,5 +121,13 @@
   "all": "全部",
   "only_root": "只看根集",
   "download_file_generate": "下载文件生成中...",
-  "delete_collection_related_blueprint": "删除蓝图集相关蓝图"
+  "delete_collection_related_blueprint": "删除蓝图集相关蓝图",
+  "building_not_allow_upgrade": "该建筑不允许升级",
+  "building_not_in_upgrade": "该建筑不在升级选项中",
+  "building_can_only_be_upgraded": "建筑(只能升/降级)",
+  "building_repice_replace": "建筑和配方替换",
+  "repice": "配方",
+  "replace_copy": "替换复制",
+  "close": "关闭",
+  "copy_replace_blueprint_success": "复制替换蓝图成功"
 }

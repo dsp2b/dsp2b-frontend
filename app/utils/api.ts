@@ -1,19 +1,7 @@
-import { FileUploadHandlerOptions } from "@remix-run/node/dist/upload/fileUploadHandler";
-import type {
-  RcFile as OriRcFile,
-  UploadRequestOption,
-} from "rc-upload/lib/interface";
-import {
-  useFetcher,
-  useLocation,
-  useNavigation,
-  useResolvedPath,
-} from "@remix-run/react";
 import { message } from "antd";
 import { useState } from "react";
 import { APIDataResponse } from "~/services/api";
-import { RcFile } from "antd/es/upload";
-import { getLocale, getLocaleByURL } from "./i18n";
+import { getLocaleByURL } from "./i18n";
 
 export type RequestOptions = {
   params?: { [key: string]: string };
@@ -30,8 +18,12 @@ export function routeToUrl(route: string, options: RequestOptions) {
   url = url.replaceAll(".", "/");
   if (options.params) {
     Object.keys(options.params).forEach((key) => {
-      url = url.replace("$" + key, options.params![key]);
-      url = url.replace("$(" + key + ")", options.params![key]);
+      if (options.params![key]) {
+        url = url.replace("$" + key, options.params![key]);
+        url = url.replace("$(" + key + ")", options.params![key]);
+      } else {
+        url = url.replace("/$(" + key + ")", "");
+      }
     });
   }
   return (

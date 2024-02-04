@@ -4,9 +4,11 @@ import { ReactNode, useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
 import { useLocale } from "remix-i18next";
 import {
+  GetRecipePanel,
   GetRecipePanelResponse,
   RecipePanelItem,
 } from "~/services/blueprint.server";
+import { useRequest } from "~/utils/api";
 
 const Panel: React.FC<{
   panel: RecipePanelItem[][];
@@ -62,40 +64,41 @@ export default function RecipePanel({
   onClickOutSide,
   onSelect,
   visible,
+  defaultPanel,
 }: {
   children?: ReactNode;
   onClickOutSide: () => void;
   onSelect: (item: RecipePanelItem) => void;
   visible: boolean;
+  defaultPanel?: "thing" | "building";
 }) {
-  const fetcher = useFetcher<GetRecipePanelResponse>({ key: "panel" });
-  const [thingPanel, setThingPanel] = useState<RecipePanelItem[][]>([]);
+  const request = useRequest<GetRecipePanel>("create.blueprint.$(id)");
   const [firstVisible, setFirstVisible] = useState(false);
-  const [showThingPanel, setShowThingPanel] = useState(true);
-  const [buildingPanel, setBuildingPanel] = useState<RecipePanelItem[][]>([]);
+  const [showThingPanel, setShowThingPanel] = useState(
+    defaultPanel != "building"
+  );
   const { t } = useTranslation();
-  const uLocale = "/" + useLocale();
   useEffect(() => {
-    if (fetcher.state == "idle" && firstVisible && !fetcher.data) {
-      fetcher.submit(
-        {
-          blueprint: "",
-        },
-        {
-          action:
-            uLocale +
-            "/create/blueprint?route=routes/$lng.create.blueprint.$(id)&action=recipe_panel",
+    if (visible) {
+      setFirstVisible(true);
+    }
+  }, [visible]);
+  useEffect(() => {
+    if (firstVisible && !request.data && !request.loading) {
+      request
+        .submit({
+          params: {
+            id: "",
+          },
+          search: "action=recipe_panel",
           method: "POST",
-        }
-      );
+        })
+        .success((data) => {
+          request.setData(data);
+        });
     }
   }, [firstVisible]);
-  useEffect(() => {
-    if (fetcher.data) {
-      setThingPanel(fetcher.data.data.thing_panel);
-      setBuildingPanel(fetcher.data.data.building_panel);
-    }
-  }, [fetcher]);
+
   return (
     <Popover
       open={visible}
@@ -127,7 +130,7 @@ export default function RecipePanel({
             style={{
               display: showThingPanel ? "flex" : "none",
             }}
-            panel={thingPanel}
+            panel={request.data?.thing_panel || []}
             onClick={(val) => {
               onSelect(val);
             }}
@@ -136,7 +139,7 @@ export default function RecipePanel({
             style={{
               display: showThingPanel ? "none" : "flex",
             }}
-            panel={buildingPanel}
+            panel={request.data?.building_panel || []}
             onClick={(val) => {
               onSelect(val);
             }}
@@ -144,7 +147,6 @@ export default function RecipePanel({
         </div>
       }
       onOpenChange={(open) => {
-        setFirstVisible(open);
         if (!open) {
           onClickOutSide();
         }

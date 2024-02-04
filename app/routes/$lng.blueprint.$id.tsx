@@ -63,6 +63,7 @@ import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
 import { formatDate } from "~/utils/utils";
 import MarkdownView, { markdownViewLinks } from "~/components/MarkdownView";
+import BuildingReplace from "~/components/BuildingReplace";
 
 export const links: LinksFunction = () => {
   return markdownViewLinks();
@@ -85,6 +86,29 @@ export const action: ActionFunction = async ({ request, params }) => {
     return errNotFound(request, ErrBuleprint.NotFound);
   }
   switch (data.action) {
+    case "replace":
+      const resp = await fetch(
+        process.env.RPC_URL + "/blueprint/" + id + "/replace",
+        {
+          method: "POST",
+          body: JSON.stringify(data),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
+      );
+      // 复制次数+1
+      await prisma.blueprint.update({
+        where: {
+          id: blueprint.id,
+        },
+        data: {
+          copy_count: {
+            increment: 1,
+          },
+        },
+      });
+      return resp;
     case "like":
       return postLike(request, blueprint, data.like);
     case "collect":
@@ -322,6 +346,7 @@ export default function Blueprint() {
   const buildings = JSON.parse(loader.blueprint.buildings) as Building[];
   const reqSelfCollection = useRequest<collectItem[]>("blueprint.$id");
   const uLocale = "/" + useLocale();
+  const [openReplacePanel, setOpenReplacePanel] = useState(false);
 
   const debounceTimeout = 800;
   const debounceFetcher = useMemo(() => {
@@ -407,8 +432,31 @@ export default function Blueprint() {
                 });
               }}
             >
-              <Button type="primary">{t("copy_blueprint_code")}</Button>
+              <Dropdown.Button
+                className="!w-auto"
+                type="primary"
+                menu={{
+                  items: [
+                    {
+                      key: "replace",
+                      label: "建筑和配方替换复制",
+                    },
+                  ],
+                  onClick: (item) => {
+                    if (item.key == "replace") {
+                      setOpenReplacePanel(true);
+                    }
+                  },
+                }}
+              >
+                {t("copy_blueprint_code")}
+              </Dropdown.Button>
             </CopyToClipboard>
+            <BuildingReplace
+              open={openReplacePanel}
+              blueprintId={loader.blueprint.id}
+              onClose={() => setOpenReplacePanel(false)}
+            />
           </div>
           <Divider />
           <div>
