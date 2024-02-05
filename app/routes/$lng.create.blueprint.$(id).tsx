@@ -36,6 +36,7 @@ import {
   CollectionTree,
   buildSelectTree,
   collectionTree,
+  expandedTreeKey,
 } from "./$lng.create.collection.$(id)";
 import { ErrBuleprint, ErrUser } from "~/code/user";
 import prisma from "~/db.server";
@@ -523,7 +524,14 @@ export default function CreateBlueprint() {
           <TreeSelect
             className="w-full"
             treeData={buildSelectTree(tree as unknown as CollectionTree[])}
-            treeDefaultExpandAll
+            treeDefaultExpandedKeys={expandedTreeKey(
+              tree as unknown as CollectionTree[],
+              1
+            )}
+            onTreeExpand={(keys) => {
+              console.log(keys);
+              localStorage.setItem("expandedTreeKey", JSON.stringify(keys));
+            }}
             multiple
           />
         </Form.Item>

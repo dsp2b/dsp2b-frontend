@@ -279,6 +279,28 @@ export const buildCollectionTree = (all: collection[]) => {
   return tree;
 };
 
+export function expandedTreeKey(
+  tree: CollectionTree[],
+  layer: number
+): string[] {
+  if (global && global.localStorage) {
+    const key = localStorage.getItem("expandedTreeKey");
+    if (key) {
+      return JSON.parse(key);
+    }
+  }
+  const keys: string[] = [];
+  tree.forEach((val) => {
+    if (val.children) {
+      keys.push(val.id);
+      if (layer > 1) {
+        keys.push(...expandedTreeKey(val.children, layer - 1));
+      }
+    }
+  });
+  return keys;
+}
+
 export function buildSelectTree(tree: CollectionTree[]) {
   const treeData: DefaultOptionType[] = [];
   const dfs = (node: CollectionTree, parent?: DefaultOptionType) => {
@@ -371,7 +393,13 @@ export default function CreateCollection() {
           <TreeSelect
             allowClear
             treeData={buildSelectTree(tree as unknown as CollectionTree[])}
-            treeDefaultExpandAll
+            treeDefaultExpandedKeys={expandedTreeKey(
+              tree as unknown as CollectionTree[],
+              1
+            )}
+            onTreeExpand={(keys) => {
+              localStorage.setItem("expandedTreeKey", JSON.stringify(keys));
+            }}
           />
         </Form.Item>
         <Form.Item

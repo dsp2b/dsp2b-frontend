@@ -6,7 +6,10 @@ export default function Tools() {
   return (
     <Card title={t("tools")}>
       <List>
-        <List.Item>
+        <List.Item className="!flex !flex-row gap-3 !justify-start">
+          <Button type="link" href="https://dsp-calc.pro/" target="_blank">
+            戴森球计划量化计算器
+          </Button>
           <Button
             type="link"
             href="https://www.svlik.com/t/dsq/"

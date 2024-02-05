@@ -129,5 +129,6 @@
   "repice": "配方",
   "replace_copy": "替换复制",
   "close": "关闭",
-  "copy_replace_blueprint_success": "复制替换蓝图成功"
+  "copy_replace_blueprint_success": "复制替换蓝图成功",
+  "login_first": "请先登录"
 }

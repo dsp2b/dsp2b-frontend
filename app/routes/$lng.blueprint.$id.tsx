@@ -351,9 +351,13 @@ export default function Blueprint() {
   const uLocale = "/" + useLocale();
   const [openReplacePanel, setOpenReplacePanel] = useState(false);
 
-  const debounceTimeout = 800;
+  const debounceTimeout = 300;
   const debounceFetcher = useMemo(() => {
     const loadOptions = (value: string) => {
+      if (!loader.user) {
+        message.warning(t("login_first"));
+        return;
+      }
       reqSelfCollection
         .submit({
           params: {
@@ -702,107 +706,108 @@ export default function Blueprint() {
                       >
                         {likeCount.toString()}
                       </Button>
-                      {loader.user && (
-                        <Dropdown
-                          onOpenChange={(open) => {
-                            if (!reqSelfCollection.data) {
-                              debounceFetcher("");
-                            }
-                          }}
-                          menu={{
-                            items: [
-                              {
+                      <Dropdown
+                        onOpenChange={(open) => {
+                          if (!reqSelfCollection.data) {
+                            debounceFetcher("");
+                          }
+                        }}
+                        placement="bottom"
+                        autoAdjustOverflow={false}
+                        menu={{
+                          items: [
+                            {
+                              type: "group",
+                              label: (
+                                <Input
+                                  onChange={(val) =>
+                                    debounceFetcher(val.target.value)
+                                  }
+                                />
+                              ),
+                            },
+                            ...((reqSelfCollection.loading
+                              ? [
+                                  {
+                                    type: "group",
+                                    label: (
+                                      <div className="w-full text-center">
+                                        <LoadingOutlined />
+                                      </div>
+                                    ),
+                                  },
+                                ]
+                              : []) as ItemType[]),
+                            ...((reqSelfCollection.data || []).map((item) => {
+                              return {
                                 type: "group",
                                 label: (
-                                  <Input
-                                    onChange={(val) =>
-                                      debounceFetcher(val.target.value)
+                                  <Checkbox
+                                    checked={
+                                      item.blueprint_collection &&
+                                      item.blueprint_collection.length > 0
                                     }
-                                  />
-                                ),
-                              },
-                              ...((reqSelfCollection.loading
-                                ? [
-                                    {
-                                      type: "group",
-                                      label: (
-                                        <div className="w-full text-center">
-                                          <LoadingOutlined />
-                                        </div>
-                                      ),
-                                    },
-                                  ]
-                                : []) as ItemType[]),
-                              ...((reqSelfCollection.data || []).map((item) => {
-                                return {
-                                  type: "group",
-                                  label: (
-                                    <Checkbox
-                                      checked={
-                                        item.blueprint_collection &&
-                                        item.blueprint_collection.length > 0
-                                      }
-                                      onChange={(val) => {
-                                        reqSelfCollection
-                                          .submit({
-                                            params: {
-                                              id: loader.blueprint.id,
-                                            },
-                                            search: "action=collect",
-                                            method: "POST",
-                                            body: {
-                                              collection_id: item.id,
-                                              blueprint_id: loader.blueprint.id,
-                                              action: "collect",
-                                              checked: val.target.checked
-                                                ? "add"
-                                                : "remove",
-                                            },
-                                          })
-                                          .then((resp) => {
-                                            if (resp.status == 200) {
-                                              message.success(t("success"));
-                                              reqSelfCollection.setData(
-                                                (val) => {
-                                                  if (!val) {
-                                                    return null;
-                                                  }
-                                                  return val.map((val) => {
-                                                    if (val.id == item.id) {
-                                                      val.blueprint_collection =
-                                                        [{} as any];
-                                                    }
-                                                    return val;
-                                                  });
+                                    onChange={(val) => {
+                                      reqSelfCollection
+                                        .submit({
+                                          params: {
+                                            id: loader.blueprint.id,
+                                          },
+                                          search: "action=collect",
+                                          method: "POST",
+                                          body: {
+                                            collection_id: item.id,
+                                            blueprint_id: loader.blueprint.id,
+                                            action: "collect",
+                                            checked: val.target.checked
+                                              ? "add"
+                                              : "remove",
+                                          },
+                                        })
+                                        .then((resp) => {
+                                          if (resp.status == 200) {
+                                            message.success(t("success"));
+                                            reqSelfCollection.setData((val) => {
+                                              if (!val) {
+                                                return null;
+                                              }
+                                              return val.map((val) => {
+                                                if (val.id == item.id) {
+                                                  val.blueprint_collection = [
+                                                    {} as any,
+                                                  ];
                                                 }
-                                              );
-                                            } else {
-                                              message.error(t("failed"));
-                                            }
-                                          });
-                                      }}
-                                    >
-                                      {item.title}
-                                    </Checkbox>
-                                  ),
-                                };
-                              }) as ItemType[]),
-                            ],
-                          }}
+                                                return val;
+                                              });
+                                            });
+                                          } else {
+                                            message.error(t("failed"));
+                                          }
+                                        });
+                                    }}
+                                  >
+                                    {item.title}
+                                  </Checkbox>
+                                ),
+                              };
+                            }) as ItemType[]),
+                          ],
+                        }}
+                      >
+                        <Button
+                          size="small"
+                          type="text"
+                          icon={
+                            loader.is_collect ? (
+                              <StarFilled className="!text-yellow-500" />
+                            ) : (
+                              <StarOutlined />
+                            )
+                          }
                         >
-                          <Button
-                            size="small"
-                            type="text"
-                            icon={
-                              loader.is_collect ? (
-                                <StarFilled className="!text-yellow-500" />
-                              ) : (
-                                <StarOutlined />
-                              )
-                            }
-                          ></Button>
-                        </Dropdown>
-                      )}
+                          {t("collect")}
+                        </Button>
+                      </Dropdown>
                       {loader.self && (
                         <Link
                           to={
