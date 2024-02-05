@@ -54,7 +54,7 @@ const BlueprintList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
-    view?: "cover" | "product_view" | "game_view";
+    view?: "cover" | "tag_view" | "game_view";
   };
   sortButton?: React.ReactElement[];
 }> = ({ loader, sortButton }) => {
@@ -107,7 +107,7 @@ const BlueprintList: React.FC<{
                 name="keyword"
                 defaultValue={loader.keyword}
                 placeholder={t("search_by_keyword")}
-                className="!w-1/3"
+                className="!w-1/4"
               />
               <RecipePanel
                 visible={visibleTagPanel}
@@ -150,11 +150,68 @@ const BlueprintList: React.FC<{
                             <Avatar
                               shape="square"
                               size="small"
-                              src={
-                                "/images/" +
-                                item!.icon_path +
-                                ".png"
-                              }
+                              src={"/images/" + item!.icon_path + ".png"}
+                            />
+                          }
+                          className="mr-2"
+                          closable
+                          onClose={(v) => {
+                            setTags((prevTags) => {
+                              return prevTags.filter(
+                                (tag) => tag.name != props.value
+                              );
+                            });
+                          }}
+                        >
+                          {props.value}
+                        </Tag>
+                      );
+                    }}
+                  />
+                </div>
+              </RecipePanel>
+              <RecipePanel
+                visible={visibleTagPanel}
+                onClickOutSide={() => {
+                  setVisibleTagPanel(false);
+                }}
+                onSelect={(val) => {
+                  setTags((prevTags) => {
+                    for (const tag of prevTags) {
+                      if (tag.item_id == val.item_id) {
+                        message.warning(t("tag_exist"));
+                        return prevTags;
+                      }
+                    }
+                    return [...prevTags, val];
+                  });
+                  setVisibleTagPanel(false);
+                }}
+              >
+                <div
+                  className="w-1/4"
+                  onClick={() => {
+                    setVisibleTagPanel(true);
+                  }}
+                >
+                  <Select
+                    className="w-full py-1"
+                    mode="multiple"
+                    placeholder={t("search_by_tags")}
+                    value={selectTags.map((tag) => tag.name)}
+                    dropdownStyle={{ display: "none" }}
+                    dropdownRender={() => <></>}
+                    tagRender={(props) => {
+                      const item = selectTags.find(
+                        (tag) => tag.name == props.value
+                      );
+                      return (
+                        <Tag
+                          icon={
+                            <Avatar
+                              shape="square"
+                              size="small"
+                              src={"/images/" + item!.icon_path + ".png"}
                             />
                           }
                           className="mr-2"
@@ -202,9 +259,7 @@ const BlueprintList: React.FC<{
               }}
             >
               <Radio.Button value="cover">{t("cover")}</Radio.Button>
-              <Radio.Button value="product_view">
-                {t("product_view")}
-              </Radio.Button>
+              <Radio.Button value="tag_view">{t("tag_view")}</Radio.Button>
               <Radio.Button value="game_view">{t("game_view")}</Radio.Button>
             </Radio.Group>
           </Form.Item>
@@ -245,7 +300,7 @@ const BlueprintList: React.FC<{
             }}
             renderItem={(item) => {
               let view: any;
-              if (loader.view === "product_view") {
+              if (loader.view === "tag_view") {
                 view = (
                   <DSPCover
                     tags={item.tags}
