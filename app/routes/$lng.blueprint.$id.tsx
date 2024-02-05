@@ -236,6 +236,9 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     where: {
       blueprint_id: blueprint.id,
     },
+    orderBy: {
+      count: "desc",
+    },
   });
 
   products.forEach((val: any) => {
