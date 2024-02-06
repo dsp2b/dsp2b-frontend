@@ -21,7 +21,7 @@ import { useTranslation } from "react-i18next";
 import { blueprint, user } from "@prisma/client";
 import { Link, useNavigate } from "@remix-run/react";
 import DSPCover from "../DSPCover";
-import { CopyOutlined, LikeOutlined } from "@ant-design/icons";
+import { CopyOutlined, DownOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
 import { ResponsePrimse, replaceSearchParam, request } from "~/utils/api";
 import { useLocale } from "remix-i18next";
@@ -64,6 +64,7 @@ const BlueprintList: React.FC<{
   const navigate = useNavigate();
   const [form] = Form.useForm();
   const locale = useLocale();
+  const [expand, setExpand] = useState(false);
   const uLocale = "/" + locale;
 
   return (
@@ -94,6 +95,9 @@ const BlueprintList: React.FC<{
             >
               {sortButton && sortButton}
               <Radio.Button value="latest">{t("latest")}</Radio.Button>
+              <Radio.Button value="latest_update">
+                {t("latest_update")}
+              </Radio.Button>
               <Radio.Button value="copy">{t("most_copy")}</Radio.Button>
               <Radio.Button value="like">{t("most_like")}</Radio.Button>
               <Radio.Button value="collection">
@@ -108,6 +112,16 @@ const BlueprintList: React.FC<{
                 defaultValue={loader.keyword}
                 placeholder={t("search_by_keyword")}
                 className="!w-1/3"
+                onKeyUp={(e) => {
+                  if (e.key === "Enter") {
+                    navigate({
+                      search: replaceSearchParam(location.search, {
+                        keyword: form.getFieldValue("keyword") || "",
+                        tags: selectTags.map((v) => v.item_id),
+                      }),
+                    });
+                  }
+                }}
               />
               <RecipePanel
                 visible={visibleTagPanel}
@@ -150,11 +164,7 @@ const BlueprintList: React.FC<{
                             <Avatar
                               shape="square"
                               size="small"
-                              src={
-                                "/images/" +
-                                item!.icon_path +
-                                ".png"
-                              }
+                              src={"/images/" + item!.icon_path + ".png"}
                             />
                           }
                           className="mr-2"
@@ -186,6 +196,16 @@ const BlueprintList: React.FC<{
                 }}
               >
                 {t("search")}
+              </Button>
+              <Button
+                style={{ display: "none" }}
+                type="link"
+                onClick={() => {
+                  setExpand(!expand);
+                }}
+                icon={<DownOutlined rotate={expand ? 180 : 0} />}
+              >
+                {t("expand")}
               </Button>
             </div>
           </Form.Item>

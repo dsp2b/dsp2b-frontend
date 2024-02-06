@@ -262,12 +262,7 @@ export default function Collection() {
       </Card>
       <BlueprintList
         loader={loader as any}
-        sortButton={[
-          <Radio.Button value="title">{t("title")}</Radio.Button>,
-          <Radio.Button value="latest_update">
-            {t("latest_update")}
-          </Radio.Button>,
-        ]}
+        sortButton={[<Radio.Button value="title">{t("title")}</Radio.Button>]}
       />
     </div>
   );

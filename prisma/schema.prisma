@@ -63,6 +63,7 @@ model collection {
   collection_like      collection_like[]
 
   @@unique([user_id, title])
+  @@index([user_id])
   @@index([parent_id])
 }
 
@@ -94,6 +95,13 @@ model blueprint {
   blueprint_collection blueprint_collection[]
   blueprint_comment    blueprint_comment[]
   blueprint_like       blueprint_like[]
+
+  @@index([user_id])
+  @@index([title])
+  @@index([createtime])
+  @@index([updatetime])
+  @@index([copy_count])
+  @@index([tags_id])
 }
 
 model blueprint_product {
