@@ -7,7 +7,13 @@ import signalProtoSet from "./signalProtoSet.json";
 import recipeProtoSet from "./recipeProtoSet.json";
 import { ErrUser } from "~/code/user";
 import prisma from "~/db.server";
-import { Prisma, PrismaClient, PrismaPromise, blueprint } from "@prisma/client";
+import {
+  Prisma,
+  PrismaClient,
+  PrismaPromise,
+  blueprint,
+  blueprint_product,
+} from "@prisma/client";
 import {
   notifyCollectionUpdate,
   ossFileUrl,
@@ -265,13 +271,8 @@ export async function blueprintList(
       contains: keyword,
     };
   }
-  if (tags.length) {
-    where.tags_id = {
-      hasSome: tags,
-    };
-  }
   let list: blueprint[];
-  const select = {
+  const select: any = {
     id: true,
     title: true,
     description: true,
@@ -286,9 +287,48 @@ export async function blueprintList(
       },
     },
   };
+  if (tags.length) {
+    where.tags_id = {
+      hasSome: tags,
+    };
+    select.blueprint_product = {
+      where: {
+        item_id: {
+          in: tags,
+        },
+      },
+      take: 4,
+      orderBy: {
+        count: "desc",
+      },
+    };
+  }
   const take = 40;
   const skip = (page - 1) * take;
   switch (sort) {
+    case "product_sort":
+      const productList = await prisma.blueprint_product.findMany({
+        where: {
+          item_id: tags[0],
+          blueprint: where,
+        },
+        include: {
+          blueprint: {
+            select,
+          },
+        },
+        skip,
+        take,
+        orderBy: {
+          count: "desc",
+        },
+      });
+      // 转换格式
+      // @ts-ignore
+      list = productList.map((item) => {
+        return item.blueprint;
+      });
+      break;
     case "like":
       //@ts-ignore
       list = await prisma.blueprint.findMany({
@@ -383,6 +423,11 @@ export async function blueprintList(
     if (val.description) {
       val.description = val.description.substr(0, 100);
     }
+    // 产物信息
+    val.products = val.blueprint_product?.map((val: any) => {
+      val.icon_path = iconMap.get(val.item_id)?.IconPath;
+      return val;
+    });
   });
 
   await Promise.all(

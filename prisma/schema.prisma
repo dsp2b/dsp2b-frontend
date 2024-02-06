@@ -95,6 +95,7 @@ model blueprint {
   blueprint_collection blueprint_collection[]
   blueprint_comment    blueprint_comment[]
   blueprint_like       blueprint_like[]
+  blueprint_product    blueprint_product[]
 
   @@index([user_id])
   @@index([title])
@@ -105,11 +106,12 @@ model blueprint {
 }
 
 model blueprint_product {
-  id           String   @id @default(auto()) @map("_id") @db.ObjectId
-  blueprint_id String   @db.ObjectId
+  id           String    @id @default(auto()) @map("_id") @db.ObjectId
+  blueprint_id String    @db.ObjectId
+  blueprint    blueprint @relation(fields: [blueprint_id], references: [id])
   item_id      Int
   count        Int
-  createtime   DateTime @default(now()) @db.Timestamp
+  createtime   DateTime  @default(now()) @db.Timestamp
 
   @@index([item_id])
 }

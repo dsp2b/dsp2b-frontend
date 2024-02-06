@@ -206,14 +206,6 @@ export const action: ActionFunction = async ({ request, params }) => {
         }
         let icons: Icons | null;
         if (respData.data.blueprint.Layout) {
-          console.log(
-            respData.data.blueprint.Icon0,
-            iconMap.get(respData.data.blueprint.Icon0),
-            respData.data.blueprint.Icon1,
-            iconMap.get(respData.data.blueprint.Icon1),
-            respData.data.blueprint.Icon2,
-            iconMap.get(respData.data.blueprint.Icon2)
-          );
           icons = {
             Layout: respData.data.blueprint.Layout,
             Icon0: iconMap.get(respData.data.blueprint.Icon0),
@@ -529,7 +521,6 @@ export default function CreateBlueprint() {
               1
             )}
             onTreeExpand={(keys) => {
-              console.log(keys);
               localStorage.setItem("expandedTreeKey", JSON.stringify(keys));
             }}
             multiple
@@ -698,6 +689,7 @@ export default function CreateBlueprint() {
               .map((val, index) => {
                 return (
                   <Popover
+                    key={val.item_id}
                     placement="rightTop"
                     content={
                       <Button

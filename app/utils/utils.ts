@@ -8,3 +8,11 @@ export function formatDate(date: Date) {
   }
   return dayjs(date).fromNow();
 }
+
+// 1000=>1k 10000=>10k
+export function formatNumber(num: number) {
+  if (num < 1000) {
+    return num;
+  }
+  return `${(num / 1000).toFixed(1)}k`;
+}

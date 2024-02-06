@@ -20,7 +20,7 @@ import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { blueprint, user } from "@prisma/client";
 import { Link, useNavigate } from "@remix-run/react";
-import DSPCover from "../DSPCover";
+import DSPCover, { DSPProduct } from "../DSPCover";
 import { CopyOutlined, DownOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
 import { ResponsePrimse, replaceSearchParam, request } from "~/utils/api";
@@ -54,7 +54,7 @@ const BlueprintList: React.FC<{
     keyword?: string;
     currentPage?: number;
     tags?: tag[];
-    view?: "cover" | "product_view" | "game_view";
+    view?: "cover" | "tag_view" | "product_view" | "game_view";
   };
   sortButton?: React.ReactElement[];
 }> = ({ loader, sortButton }) => {
@@ -95,6 +95,11 @@ const BlueprintList: React.FC<{
             >
               {sortButton && sortButton}
               <Radio.Button value="latest">{t("latest")}</Radio.Button>
+              {loader.tags && loader.tags.length && (
+                <Radio.Button value="product_sort">
+                  {t("product_sort")}
+                </Radio.Button>
+              )}
               <Radio.Button value="latest_update">
                 {t("latest_update")}
               </Radio.Button>
@@ -222,9 +227,12 @@ const BlueprintList: React.FC<{
               }}
             >
               <Radio.Button value="cover">{t("cover")}</Radio.Button>
-              <Radio.Button value="product_view">
-                {t("product_view")}
-              </Radio.Button>
+              <Radio.Button value="tag_view">{t("tag_view")}</Radio.Button>
+              {loader.tags && loader.tags.length && (
+                <Radio.Button value="product_view">
+                  {t("product_view")}
+                </Radio.Button>
+              )}
               <Radio.Button value="game_view">{t("game_view")}</Radio.Button>
             </Radio.Group>
           </Form.Item>
@@ -265,7 +273,7 @@ const BlueprintList: React.FC<{
             }}
             renderItem={(item) => {
               let view: any;
-              if (loader.view === "product_view") {
+              if (loader.view === "tag_view") {
                 view = (
                   <DSPCover
                     tags={item.tags}
@@ -279,6 +287,16 @@ const BlueprintList: React.FC<{
                 view = (
                   <DSPCover
                     icons={item.icons}
+                    style={{
+                      width: "270px",
+                      height: 200,
+                    }}
+                  />
+                );
+              } else if (loader.view === "product_view") {
+                view = (
+                  <DSPProduct
+                    item={item.products}
                     style={{
                       width: "270px",
                       height: 200,
