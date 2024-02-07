@@ -22,6 +22,7 @@ import {
   Icons,
   iconMap,
   deleteBlueprint,
+  ParseBlueprint,
 } from "~/services/blueprint.server";
 import { post, useRequest } from "~/utils/api";
 import {
@@ -79,7 +80,7 @@ import i18next from "~/i18next.server";
 import { useLocale } from "remix-i18next";
 import { getLocale } from "~/utils/i18n";
 import { success } from "~/utils/httputils";
-import { notifyCollectionUpdate } from "~/utils/utils.server";
+import { jsonData, notifyCollectionUpdate } from "~/utils/utils.server";
 
 export const loader: LoaderFunction = async ({ request, params }) => {
   const uLocale = "/" + getLocale(request);
@@ -133,8 +134,8 @@ export const action: ActionFunction = async ({ request, params }) => {
       const action = url.searchParams.get("action");
       if (action) {
         if (action == "parse") {
-          const formData = await request.formData();
-          return await parseBlueprint(formData.get("blueprint") as string);
+          const data = await jsonData<{ blueprint: string }>(request);
+          return await parseBlueprint(data.blueprint);
         } else if (action == "recipe_panel") {
           const resp = await fetch(
             process.env.RPC_URL! + "/blueprint/recipe_panel",
@@ -368,7 +369,7 @@ export default function CreateBlueprint() {
     blueprint?: BlueprintItem;
   }>();
   const fetcher = useFetcher<CodeError>({ key: "create" });
-  const parse = useFetcher<ParseBlueprintResponse>({ key: "parse" });
+  const parse = useRequest<ParseBlueprint>("create.blueprint.$(id)");
   const [formRef] = Form.useForm();
   const { t } = useTranslation();
   const [buildings, setBuildings] = useState<Building[]>(
@@ -399,40 +400,6 @@ export default function CreateBlueprint() {
       }
     }
   }, [fetcher]);
-
-  useEffect(() => {
-    if (parse.state == "idle" && parse.data) {
-      if (parse.data.code) {
-        message.warning(parse.data.msg);
-      } else {
-        const title = formRef.getFieldValue("title");
-        if (!title) {
-          formRef.setFieldValue("title", parse.data.data.blueprint.ShortDesc);
-        }
-        const description = formRef.getFieldValue("description");
-        if (!description) {
-          formRef.setFieldValue("description", parse.data.data.blueprint.Desc);
-        }
-        setBuildings(parse.data.data.buildings);
-        if (!products.length) {
-          setProducts(parse.data.data.products);
-        }
-        if (!tags.length) {
-          const tags: RecipePanelItem[] = [];
-          parse.data.data.products.forEach((val) => {
-            if (val.count > 0) {
-              tags.push({
-                item_id: val.item_id,
-                name: val.name,
-                icon_path: val.icon_path,
-              });
-            }
-          });
-          setTags(tags);
-        }
-      }
-    }
-  }, [parse]);
 
   const [picList, setPicList] = useState<UploadFile[]>(
     blueprint
@@ -489,6 +456,7 @@ export default function CreateBlueprint() {
                   formRef.setFieldValue("title", "");
                   setProducts([]);
                   setBuildings([]);
+                  parse.setData(null);
                 }}
               >
                 {t("reset")}
@@ -502,12 +470,42 @@ export default function CreateBlueprint() {
               // 解析蓝图数据
               const blueprint = formRef.getFieldValue("blueprint");
               if (blueprint) {
-                parse.submit(
-                  {
-                    blueprint: blueprint,
-                  },
-                  { action: "?action=parse", method: "POST" }
-                );
+                parse
+                  .submit({
+                    method: "POST",
+                    search: "action=parse",
+                    body: {
+                      blueprint: blueprint,
+                    },
+                  })
+                  .success((data) => {
+                    parse.setData(data);
+                    const title = formRef.getFieldValue("title");
+                    if (!title) {
+                      formRef.setFieldValue("title", data.blueprint.ShortDesc);
+                    }
+                    const description = formRef.getFieldValue("description");
+                    if (!description) {
+                      formRef.setFieldValue("description", data.blueprint.Desc);
+                    }
+                    setBuildings(data.buildings);
+                    if (!products.length) {
+                      setProducts(data.products);
+                    }
+                    if (!tags.length) {
+                      const tags: RecipePanelItem[] = [];
+                      data.products.forEach((val) => {
+                        if (val.count > 0) {
+                          tags.push({
+                            item_id: val.item_id,
+                            name: val.name,
+                            icon_path: val.icon_path,
+                          });
+                        }
+                      });
+                      setTags(tags);
+                    }
+                  });
               }
             }}
           />
@@ -526,7 +524,72 @@ export default function CreateBlueprint() {
             multiple
           />
         </Form.Item>
-        <Form.Item label={t("blueprint_tags")}>
+        <Form.Item
+          label={t("blueprint_tags")}
+          extra={
+            parse.data &&
+            parse.data.products && (
+              <div className="flex flex-row justify-end py-2">
+                <Button
+                  type="primary"
+                  size="small"
+                  onClick={() => {
+                    // 判断产物中是否有建筑,有建筑只保留建筑
+                    // 否则判断产量第一与第二之间的差值,差值大于50%剔除
+                    console.log(
+                      parse.data!.products.find((val) => val.can_build)
+                    );
+                    if (parse.data!.products.find((val) => val.can_build)) {
+                      setTags(
+                        parse
+                          .data!.products.filter((val) => val.can_build)
+                          .map((val) => {
+                            return {
+                              item_id: val.item_id,
+                              name: val.name,
+                              icon_path: val.icon_path,
+                            };
+                          })
+                      );
+                    } else {
+                      parse.data!.products.sort((a, b) => b.count - a.count);
+                      // 如果后一个产量大于前一个产量的50%则保留
+                      const tags: RecipePanelItem[] = [];
+                      for (
+                        let index = 0;
+                        index < parse.data!.products.length;
+                        index++
+                      ) {
+                        let val = parse.data!.products[index];
+                        if (index == 0) {
+                          tags.push({
+                            item_id: val.item_id,
+                            name: val.name,
+                            icon_path: val.icon_path,
+                          });
+                        } else if (
+                          val.count >
+                          parse.data!.products[index - 1].count * 0.5
+                        ) {
+                          tags.push({
+                            item_id: val.item_id,
+                            name: val.name,
+                            icon_path: val.icon_path,
+                          });
+                        } else {
+                          break;
+                        }
+                      }
+                      setTags(tags);
+                    }
+                  }}
+                >
+                  {t("generation_tag")}
+                </Button>
+              </div>
+            )
+          }
+        >
           <RecipePanel
             visible={visibleTagPanel}
             onClickOutSide={() => {

@@ -51,11 +51,13 @@ export type BlueprintHeader = {
   GameVersion: string;
 };
 
-export type ParseBlueprintResponse = APIDataResponse<{
+export type ParseBlueprint = {
   blueprint: BlueprintHeader;
   buildings: Building[];
   products: Product[];
-}>;
+};
+
+export type ParseBlueprintResponse = APIDataResponse<ParseBlueprint>;
 
 export interface Building {
   item_id: number;
@@ -74,6 +76,7 @@ export interface Product {
   name: string;
   icon_path: string;
   count: number;
+  can_build?: boolean;
 }
 
 export type GetRecipePanel = {
