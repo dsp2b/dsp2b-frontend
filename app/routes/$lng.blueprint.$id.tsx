@@ -201,7 +201,6 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     const collection = await prisma.collection.findMany({
       where: {
         user_id: blueprint.user_id,
-        public: 1,
         title: {
           contains: keyword,
         },
@@ -260,11 +259,24 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 
   const collections = await prisma.collection.findMany({
     where: {
-      blueprint_collection: {
-        some: {
-          blueprint_id: blueprint.id,
+      OR: [
+        {
+          user_id: user?.id,
+          blueprint_collection: {
+            some: {
+              blueprint_id: blueprint.id,
+            },
+          },
         },
-      },
+        {
+          public: 1,
+          blueprint_collection: {
+            some: {
+              blueprint_id: blueprint.id,
+            },
+          },
+        },
+      ],
     },
     orderBy: {
       collection_like: {

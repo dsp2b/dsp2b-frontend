@@ -536,9 +536,6 @@ export default function CreateBlueprint() {
                   onClick={() => {
                     // 判断产物中是否有建筑,有建筑只保留建筑
                     // 否则判断产量第一与第二之间的差值,差值大于50%剔除
-                    console.log(
-                      parse.data!.products.find((val) => val.can_build)
-                    );
                     if (parse.data!.products.find((val) => val.can_build)) {
                       setTags(
                         parse
