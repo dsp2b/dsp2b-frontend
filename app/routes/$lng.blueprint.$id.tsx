@@ -200,7 +200,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
     const keyword = url.searchParams.get("keyword") || "";
     const collection = await prisma.collection.findMany({
       where: {
-        user_id: blueprint.user_id,
+        user_id: user.id,
         title: {
           contains: keyword,
         },
