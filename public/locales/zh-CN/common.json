@@ -134,5 +134,12 @@
   "copy_replace_blueprint_success": "复制替换蓝图成功",
   "login_first": "请先登录",
   "expand": "展开",
-  "generation_tag": "智能生成"
+  "generation_tag": "智能生成",
+  "new_feature": "产量排序等新功能上线，使用方法可参考",
+  "new_feature_end": "",
+  "demo_video": "演示视频",
+  "notice_2": "如果觉得小站不错，",
+  "click_share": "点击分享",
+  "notice_3": "给大家吧～",
+  "copy_share_url_success": "已复制分享链接到剪贴板"
 }

@@ -24,7 +24,7 @@ import { UserContext } from "./context-manager";
 import { useState } from "react";
 import { parseCookie } from "./utils/cookie";
 import { authenticator } from "./services/auth.server";
-import { ConfigProvider, theme } from "antd";
+import { Alert, Button, ConfigProvider, message, theme } from "antd";
 import NavigationProcess from "./components/NavigationProcess/NavigationProcess";
 import prisma from "./db.server";
 import { UserAuth } from "./services/user.server.ts";
@@ -32,6 +32,8 @@ import { ossFileUrl } from "./utils/utils.server";
 import { getLocale } from "./utils/i18n";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import { ShareAltOutlined } from "@ant-design/icons";
+import copy from "copy-to-clipboard";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: appCss },
@@ -47,10 +49,12 @@ export const loader: LoaderFunction = async ({ request }) => {
   const cookieHeader = request.headers.get("Cookie");
   let darkMode = "";
   let styleMode = "";
+  let closeNotice = false;
   if (cookieHeader) {
     const cookie = parseCookie(cookieHeader);
     darkMode = cookie.darkMode ? cookie.darkMode : "";
     styleMode = cookie.styleMode ? cookie.styleMode : "";
+    closeNotice = cookie.closeNotice ? true : false;
   }
   let user: UserAuth | null = await authenticator.isAuthenticated(request);
   const t = await i18next.getFixedT(locale || "en");
@@ -82,6 +86,7 @@ export const loader: LoaderFunction = async ({ request }) => {
       home_page_description: t("home_page_description"),
       home_page_keyword: t("home_page_keyword"),
     },
+    closeNotice,
   });
 };
 
@@ -102,6 +107,7 @@ export default function App() {
   const { locale, darkMode, styleMode, user } = loaderData;
   const location = useLocation();
   const { i18n, t } = useTranslation();
+  const [closeNotice, setCloseNotice] = useState(loaderData.closeNotice);
   const [userContext, setUserContext] = useState({
     locale,
     darkMode,
@@ -166,6 +172,45 @@ export default function App() {
                 user: userContext.user,
               }}
             >
+              {!closeNotice && (
+                <Alert
+                  message={
+                    <>
+                      {t("new_feature")}
+                      <Button
+                        href="https://www.bilibili.com/video/BV1Ku4m1A7ef/"
+                        type="link"
+                        target="_blank"
+                        size="small"
+                      >
+                        {t("demo_video")}
+                      </Button>
+                      {t("new_feature_end") + t("notice_2")}
+                      <Button
+                        type="link"
+                        icon={<ShareAltOutlined />}
+                        size="small"
+                        onClick={() => {
+                          copy(
+                            t("home_subtitle") + "\n" + window.location.href
+                          );
+                          message.success(t("copy_share_url_success"));
+                        }}
+                      >
+                        {t("click_share")}
+                      </Button>
+                      {t("notice_3")}
+                    </>
+                  }
+                  type="info"
+                  banner
+                  closable
+                  onClose={() => {
+                    setCloseNotice(true);
+                    document.cookie = "closeNotice=true;path=/";
+                  }}
+                />
+              )}
               <NavigationProcess />
               <MainLayout
                 locale={userContext.locale}

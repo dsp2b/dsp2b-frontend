@@ -133,5 +133,13 @@
   "close": "crwdns6866:0crwdne6866:0",
   "copy_replace_blueprint_success": "crwdns6868:0crwdne6868:0",
   "login_first": "crwdns6870:0crwdne6870:0",
-  "expand": "crwdns6872:0crwdne6872:0"
+  "expand": "crwdns6872:0crwdne6872:0",
+  "generation_tag": "crwdns6874:0crwdne6874:0",
+  "new_feature": "crwdns6876:0crwdne6876:0",
+  "new_feature_end": "crwdns6888:0crwdne6888:0",
+  "demo_video": "crwdns6878:0crwdne6878:0",
+  "notice_2": "crwdns6880:0crwdne6880:0",
+  "click_share": "crwdns6882:0crwdne6882:0",
+  "notice_3": "crwdns6884:0crwdne6884:0",
+  "copy_share_url_success": "crwdns6886:0crwdne6886:0"
 }
