@@ -1,7 +1,12 @@
 import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
-import { RiDiscordLine, RiQqLine } from "@remixicon/react";
+import {
+  RiDiscordFill,
+  RiDiscordLine,
+  RiQqFill,
+  RiQqLine,
+} from "@remixicon/react";
 import {
   Avatar,
   Button,
@@ -236,7 +241,7 @@ export default function Edit() {
               disabled={loader.oauth.qq && loader.oauth.qq.bind}
             >
               <Space>
-                <RiQqLine />
+                <RiQqFill />
                 <Typography.Text>
                   {loader.oauth.qq && loader.oauth.qq.bind
                     ? t("binded")
@@ -249,7 +254,7 @@ export default function Edit() {
               disabled={loader.oauth.discord && loader.oauth.discord.bind}
             >
               <Space>
-                <RiDiscordLine
+                <RiDiscordFill
                   style={{
                     color: "#5a64ea",
                   }}

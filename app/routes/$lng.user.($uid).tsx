@@ -50,7 +50,7 @@ export const loader: LoaderFunction = async ({ request, params }) => {
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data, location }) => {
-  let title = data.user.username;
+  let title = data.pageUser.username;
   if (location.pathname.endsWith("collection")) {
     title += " - " + data.i18n.collection;
   }
