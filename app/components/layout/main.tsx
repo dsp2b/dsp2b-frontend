@@ -153,7 +153,7 @@ const MainLayout: React.FC<{
           />
         </div>
         <Space>
-          <Link to={uLocale + "/create/blueprint"}>
+          <Link to={uLocale + (user.user ? "/create/blueprint" : "/login")}>
             <Button type="primary">{t("publish")}</Button>
           </Link>
           <Dropdown

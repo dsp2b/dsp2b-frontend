@@ -85,7 +85,7 @@ import { jsonData, notifyCollectionUpdate } from "~/utils/utils.server";
 export const loader: LoaderFunction = async ({ request, params }) => {
   const uLocale = "/" + getLocale(request);
   const user = await authenticator.isAuthenticated(request, {
-    failureRedirect: uLocale + "/login",
+    failureRedirect: uLocale + "/",
   });
   const id = params["id"];
   let blueprint: BlueprintItem | null = null;
