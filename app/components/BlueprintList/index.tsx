@@ -19,7 +19,7 @@ import RecipePanel from "../RecipePanel";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { blueprint, user } from "@prisma/client";
-import { Link, useNavigate } from "@remix-run/react";
+import { Link, useLocation, useNavigate } from "@remix-run/react";
 import DSPCover, { DSPProduct } from "../DSPCover";
 import { CopyOutlined, DownOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
@@ -65,6 +65,7 @@ const BlueprintList: React.FC<{
   const [form] = Form.useForm();
   const locale = useLocale();
   const [expand, setExpand] = useState(false);
+  const location = useLocation();
   const uLocale = "/" + locale;
 
   return (
@@ -263,12 +264,19 @@ const BlueprintList: React.FC<{
               total: loader.total,
               pageSize: 40,
               current: loader.currentPage,
-              onChange(page, pageSize) {
-                navigate({
-                  search: replaceSearchParam(location.search, {
-                    page,
-                  }),
-                });
+              itemRender(page, type, element) {
+                if (type === "page") {
+                  return (
+                    <Link
+                      to={{
+                        search: replaceSearchParam(location.search, { page }),
+                      }}
+                    >
+                      {page}
+                    </Link>
+                  );
+                }
+                return element;
               },
             }}
             renderItem={(item) => {

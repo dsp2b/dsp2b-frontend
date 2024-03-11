@@ -91,7 +91,7 @@ export const loader: LoaderFunction = async ({ request }) => {
 };
 
 export const meta: MetaFunction<typeof loader> = ({ data }) => {
-  return [{ title: "DSP2B - " + data.i18n.home_subtitle }];
+  return [{ title: data.i18n.home_subtitle + " - DSP2B" }];
 };
 
 export let handle = {

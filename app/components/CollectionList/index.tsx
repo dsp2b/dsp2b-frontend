@@ -11,7 +11,7 @@ import {
   Typography,
 } from "antd";
 import { LikeOutlined } from "@ant-design/icons";
-import { Link, useNavigate } from "@remix-run/react";
+import { Link, useLocation, useNavigate } from "@remix-run/react";
 import form from "antd/es/form";
 import dayjs from "dayjs";
 import { t } from "i18next";
@@ -47,6 +47,7 @@ const CollectionList: React.FC<{
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [form] = Form.useForm();
+  const location = useLocation();
   const uLocale = "/" + useLocale();
   return (
     <div className="flex flex-col gap-3 flex-auto">
@@ -129,12 +130,19 @@ const CollectionList: React.FC<{
             total: loader.total,
             pageSize: 20,
             current: loader.currentPage,
-            onChange(page, pageSize) {
-              navigate({
-                search: replaceSearchParam(location.search, {
-                  page,
-                }),
-              });
+            itemRender(page, type, element) {
+              if (type === "page") {
+                return (
+                  <Link
+                    to={{
+                      search: replaceSearchParam(location.search, { page }),
+                    }}
+                  >
+                    {page}
+                  </Link>
+                );
+              }
+              return element;
             },
           }}
           renderItem={(item) => (
