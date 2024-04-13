@@ -35,7 +35,7 @@ export function routeToUrl(route: string, options: RequestOptions) {
   );
 }
 
-export class ResponsePrimse<T = any> {
+export class ResponsePromise<T = any> {
   private promise: Promise<Response>;
 
   private thenCallback?: (value: Response) => any;
@@ -132,7 +132,7 @@ export function useRequest<T>(route: string) {
       options.method = options.method ?? "POST";
       options.params = options.params || {};
       options.params.lng = getLocaleByURL(location.href);
-      return new ResponsePrimse<T>(
+      return new ResponsePromise<T>(
         request("$lng." + route, options).then((resp) => {
           setLoading(false);
           return resp;
