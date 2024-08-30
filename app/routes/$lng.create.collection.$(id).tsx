@@ -59,50 +59,56 @@ export const action: ActionFunction = async ({ request, params }) => {
     }
     if (request.method === "DELETE") {
       const url = new URL(request.url);
-      await prisma.$transaction(async (tx) => {
-        if (url.searchParams.get("delete_blueprint") == "true") {
-          // 查出自己的相关蓝图集
-          const list = await tx.blueprint_collection.findMany({
+      await prisma.$transaction(
+        async (tx) => {
+          if (url.searchParams.get("delete_blueprint") == "true") {
+            // 查出自己的相关蓝图集
+            const list = await tx.blueprint_collection.findMany({
+              where: {
+                collection_id: id,
+                blueprint: {
+                  user_id: user.id,
+                },
+              },
+              include: {
+                blueprint: true,
+              },
+            });
+            await Promise.all(
+              list.map((val) =>
+                deleteBlueprint(tx, val.blueprint).then((resp) => true)
+              )
+            );
+          }
+          await tx.blueprint_collection.deleteMany({
             where: {
               collection_id: id,
-              blueprint: {
-                user_id: user.id,
-              },
-            },
-            include: {
-              blueprint: true,
             },
           });
-          await Promise.all(
-            list.map((val) =>
-              deleteBlueprint(tx, val.blueprint).then((resp) => true)
-            )
-          );
+          await tx.collection_like.deleteMany({
+            where: {
+              collection_id: id,
+            },
+          });
+          await tx.collection.updateMany({
+            where: {
+              parent_id: id,
+            },
+            data: {
+              parent_id: null,
+            },
+          });
+          await tx.collection.delete({
+            where: {
+              id: id,
+            },
+          });
+        },
+        {
+          timeout: 10000,
+          maxWait: 10000,
         }
-        await tx.blueprint_collection.deleteMany({
-          where: {
-            collection_id: id,
-          },
-        });
-        await tx.collection_like.deleteMany({
-          where: {
-            collection_id: id,
-          },
-        });
-        await tx.collection.updateMany({
-          where: {
-            parent_id: id,
-          },
-          data: {
-            parent_id: null,
-          },
-        });
-        await tx.collection.delete({
-          where: {
-            id: id,
-          },
-        });
-      });
+      );
       return success();
     }
   }
