@@ -23,7 +23,7 @@ import { Link, useLocation, useNavigate } from "@remix-run/react";
 import DSPCover, { DSPProduct } from "../DSPCover";
 import { CopyOutlined, DownOutlined, LikeOutlined } from "@ant-design/icons";
 import { Building, Collection, Product } from "~/services/blueprint.server";
-import { ResponsePrimse, replaceSearchParam, request } from "~/utils/api";
+import { ResponsePromise, replaceSearchParam, request } from "~/utils/api";
 import { useLocale } from "remix-i18next";
 import copy from "copy-to-clipboard";
 import { icons } from "antd/es/image/PreviewGroup";
