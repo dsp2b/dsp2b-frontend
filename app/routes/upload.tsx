@@ -1,42 +1,39 @@
 import { ActionFunction, json } from "@remix-run/node";
-import { Client } from "minio";
 import { v4 as uuidv4 } from "uuid";
 import { ErrBuleprint, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import { LimitSvc } from "~/services/limit.server";
 import { errBadRequest } from "~/utils/errcode";
-import { jsonData } from "~/utils/utils.server";
+import { putObject } from "~/utils/storage.server";
+
+// 上传大小上限 4MB，与原 post policy 的 content-length-range 保持一致
+const MAX_UPLOAD_SIZE = 1024 * 1024 * 4;
+const ALLOWED_EXT = ["jpg", "jpeg", "png", "gif"];
 
 export const action: ActionFunction = async ({ request }) => {
   const user = await authenticator.isAuthenticated(request);
   if (!user) {
     return json({});
   }
-  const minioClient = new Client({
-    endPoint: process.env.MINIO_ENDPOINT!,
-    port: parseInt(process.env.MINIO_PORT!),
-    useSSL: process.env.MINIO_USE_SSL === "true",
-    accessKey: process.env.MINIO_ACCESS_KEY!,
-    secretKey: process.env.MINIO_SECRET_KEY!,
-  });
-  const bucket = process.env.MINIO_BUCKET!;
-
-  const { filename, type = "blueprint" } = await jsonData<{
-    filename: string;
-    type: "blueprint" | "avatar";
-  }>(request);
+  const form = await request.formData();
+  const file = form.get("file");
+  const type = (form.get("type") as string) || "blueprint";
   if (["blueprint", "avatar"].indexOf(type) === -1) {
     return errBadRequest(request, ErrBuleprint.FilenameInvalid);
   }
-  // 取出后缀
-  const ext = filename.split(".").pop();
-  if (!ext) {
+  if (!file || typeof file === "string") {
     return errBadRequest(request, ErrBuleprint.FilenameInvalid);
   }
-  // 如果不是图片文件
-  if (["jpg", "jpeg", "png", "gif"].indexOf(ext) === -1) {
+  const upload = file as File;
+  const filename = upload.name || "";
+  const ext = filename.split(".").pop()?.toLowerCase();
+  if (!ext || ALLOWED_EXT.indexOf(ext) === -1) {
     return errBadRequest(request, ErrBuleprint.FilenameInvalid);
   }
+  if (upload.size > MAX_UPLOAD_SIZE) {
+    return errBadRequest(request, ErrBuleprint.FilenameInvalid);
+  }
+
   const [result, err] = await LimitSvc.limit(
     request,
     user.id,
@@ -45,20 +42,10 @@ export const action: ActionFunction = async ({ request }) => {
     new Date(Date.now() + 1000 * 60 * 5),
     20,
     async () => {
-      const policy = minioClient.newPostPolicy();
-      policy.setContentType("image/*");
-      policy.setKey("images/" + type + "/" + uuidv4() + "." + ext);
-      policy.setBucket(bucket);
-      policy.setExpires(new Date(Date.now() + 60 * 100 * 1000));
-      policy.setContentLengthRange(0, 1024 * 1024 * 4);
-      policy.setUserMetaData({
-        uid: user.id,
-        filename: filename,
-      });
-      const url = await minioClient.presignedPostPolicy(policy);
-      const parse = new URL(url.postURL);
-      url.postURL = process.env.MINIO_URL + parse.pathname;
-      return json({ code: 0, data: url });
+      const key = "images/" + type + "/" + uuidv4() + "." + ext;
+      const buf = Buffer.from(await upload.arrayBuffer());
+      await putObject(key, buf);
+      return json({ code: 0, data: { key } });
     }
   );
   if (err) {

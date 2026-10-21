@@ -1,4 +1,4 @@
-import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
+import { PlusOutlined } from "@ant-design/icons";
 import { ActionFunction, LoaderFunction, json } from "@remix-run/node";
 import { useFetcher, useLoaderData } from "@remix-run/react";
 import {
@@ -19,7 +19,6 @@ import {
   Upload,
   message,
 } from "antd";
-import { RcFile } from "antd/es/upload";
 import { useState } from "react";
 import { useTranslation } from "react-i18next";
 import { ErrUser } from "~/code/user";
@@ -30,7 +29,7 @@ import { useRequest } from "~/utils/api";
 import { errBadRequest } from "~/utils/errcode";
 import { success } from "~/utils/httputils";
 import { getLocale } from "~/utils/i18n";
-import { UploadResponse, upload } from "~/utils/utils.client";
+import { upload } from "~/utils/utils.client";
 import { jsonData, ossFileUrl } from "~/utils/utils.server";
 
 type LoaderData = {
@@ -146,7 +145,6 @@ export default function Edit() {
   const { t } = useTranslation();
   const [form] = Form.useForm();
   const fetcher = useRequest<any>("user.edit");
-  const avatarFetcher = useRequest<UploadResponse>("upload");
   return (
     <Card>
       <Form
@@ -189,17 +187,8 @@ export default function Edit() {
               }
             }}
             customRequest={(req) => {
-              avatarFetcher
-                .submit({
-                  method: "POST",
-                  body: {
-                    filename: (req.file as RcFile).name,
-                    type: "avatar",
-                  },
-                })
-                .success((data) => {
-                  upload(data, req.file, t, req);
-                });
+              // 直接上传文件，由服务端写入本地存储
+              upload("avatar", req.file, t, req);
             }}
           >
             {avatar ? (
@@ -213,7 +202,7 @@ export default function Edit() {
               />
             ) : (
               <button style={{ border: 0, background: "none" }} type="button">
-                {avatarFetcher.loading ? <LoadingOutlined /> : <PlusOutlined />}
+                <PlusOutlined />
                 <div style={{ marginTop: 8 }}>Upload</div>
               </button>
             )}

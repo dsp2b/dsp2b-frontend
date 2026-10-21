@@ -12,6 +12,12 @@ image:
 
 env:
 
+# 本地文件存储（替代原 MinIO 对象存储）
+# 需要提前创建同名 PVC，目录布局为 <root>/<bucket>/<key>
+persistence:
+  enabled: true
+  existingClaim: oss-data
+  mountPath: /data
 
 envFrom:
   - configMapRef:
@@ -61,10 +67,16 @@ ingress:
       paths:
         - path: /
           pathType: ImplementationSpecific
+    # 原 MinIO 文件访问域名，现指向本服务，URL 形状保持 /<bucket>/<key> 不变
+    - host: oss.dsp2b.com
+      paths:
+        - path: /
+          pathType: ImplementationSpecific
   tls:
     - secretName: dsp2b-com-tls
       hosts:
         - www.dsp2b.com
+        - oss.dsp2b.com
 
 resources:
   # We usually recommend not to specify default resources and to leave this as a conscious

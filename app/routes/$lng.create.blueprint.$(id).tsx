@@ -24,14 +24,13 @@ import {
   deleteBlueprint,
   ParseBlueprint,
 } from "~/services/blueprint.server";
-import { post, useRequest } from "~/utils/api";
+import { useRequest } from "~/utils/api";
 import {
   CodeError,
   errBadRequest,
   errInternalServer,
   errNotFound,
 } from "~/utils/errcode";
-import { APIDataResponse } from "~/services/api";
 import { authenticator } from "~/services/auth.server";
 import {
   CollectionTree,
@@ -67,7 +66,6 @@ import {
   PointerSensor,
   useSensor,
 } from "@dnd-kit/core";
-import { RcFile } from "antd/es/upload";
 import {
   SortableContext,
   arrayMove,
@@ -679,38 +677,8 @@ export default function CreateBlueprint() {
                   if (!req) {
                     return;
                   }
-                  // pre sign
-                  post("upload", {
-                    filename: (req.file as RcFile).name,
-                  }).then(async (resp) => {
-                    if (resp.status !== 200) {
-                      message.error(t("system_error"));
-                      req.onError &&
-                        req.onError({
-                          status: 500,
-                          name: "错误",
-                          message: t("system_error"),
-                        });
-                      return;
-                    }
-                    const data = (await resp.json()) as APIDataResponse<{
-                      postURL: string;
-                      formData: { [key: string]: string };
-                    }>;
-                    if (data.code) {
-                      message.error(data.msg);
-                      req.onError &&
-                        req.onError({
-                          status: 500,
-                          name: "错误",
-                          message: data.msg,
-                        });
-                      return;
-                    } else {
-                      // 上传文件
-                      upload(data.data, req.file, t, req);
-                    }
-                  });
+                  // 直接上传文件，由服务端写入本地存储
+                  upload("blueprint", req.file, t, req);
                 }}
                 itemRender={(originNode, file) => {
                   return <PicCard originNode={originNode} file={file} />;

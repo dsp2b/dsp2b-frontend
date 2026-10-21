@@ -31,6 +31,11 @@ spec:
       - name: npm-logs
         hostPath:
           path: /root/.npm
+      {{- if .Values.persistence.enabled }}
+      - name: oss-data
+        persistentVolumeClaim:
+          claimName: {{ .Values.persistence.existingClaim }}
+      {{- end }}
       containers:
         - name: {{ .Chart.Name }}
           securityContext:
@@ -44,6 +49,10 @@ spec:
           volumeMounts:
           - mountPath: /root/.npm
             name: npm-logs
+          {{- if .Values.persistence.enabled }}
+          - mountPath: {{ .Values.persistence.mountPath }}
+            name: oss-data
+          {{- end }}
           livenessProbe:
             httpGet:
               path: /health

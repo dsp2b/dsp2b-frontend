@@ -14,7 +14,9 @@ export function ossFileUrl(path?: string | null) {
   if (!path) {
     return "";
   }
-  return process.env.MINIO_URL + "/" + process.env.MINIO_BUCKET + "/" + path;
+  const url = process.env.OSS_URL || process.env.MINIO_URL;
+  const bucket = process.env.OSS_BUCKET || process.env.MINIO_BUCKET;
+  return url + "/" + bucket + "/" + path;
 }
 
 export function thumbnailUrl(
