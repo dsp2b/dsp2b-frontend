@@ -2,10 +2,11 @@ import fs from "node:fs";
 import fsp from "node:fs/promises";
 import path from "node:path";
 
-// 本地文件存储（替代原 MinIO 对象存储）
-// 目录布局保持与对象存储 key 一致：<root>/<bucket>/<key>
-export const BUCKET = process.env.OSS_BUCKET || process.env.MINIO_BUCKET || "dsp2b";
-export const ROOT = process.env.OSS_ROOT || "/data";
+// 本地文件存储
+// 目录布局为 <ROOT>/<BUCKET>/<key>，与对外 URL /<BUCKET>/<key> 一一对应
+// 存储只有本地磁盘一种实现，路径与桶名固定，不再需要运行时配置
+const BUCKET = "dsp2b";
+const ROOT = "/data";
 
 export function bucketDir(): string {
   return path.join(ROOT, BUCKET);

@@ -10,13 +10,13 @@ export async function jsonData<T>(request: Request): Promise<T> {
   return (await request.json()) as T;
 }
 
+// 文件对外访问路径：/<bucket>/<key>，由 routes/dsp2b.$.tsx 从本地卷直接读取
+// 使用根相对路径，无需配置域名，www 与 oss 两个入口都可用
 export function ossFileUrl(path?: string | null) {
   if (!path) {
     return "";
   }
-  const url = process.env.OSS_URL || process.env.MINIO_URL;
-  const bucket = process.env.OSS_BUCKET || process.env.MINIO_BUCKET;
-  return url + "/" + bucket + "/" + path;
+  return "/dsp2b/" + path;
 }
 
 export function thumbnailUrl(
