@@ -21,7 +21,7 @@ export default function Tools() {
         <List.Item className="!flex !flex-row gap-3 !justify-start">
           <Button
             type="link"
-            href="https://huww98.github.io/dsp_blueprint_editor/"
+            href="https://dsp2b.github.io/dsp_blueprint_editor/"
             target="_blank"
           >
             戴森球计划蓝图预览
