@@ -1,7 +1,7 @@
 {
   "Type": "TechProtoSet",
   "TableName": "Tech",
-  "Signature": "10B18508D912E9134EFEAB087C907CB6",
+  "Signature": "3E7C16C1487B832DA0FFD7019745611A",
   "DataArray": [
     {
       "Name": "T戴森球计划",
@@ -19,6 +19,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1",
+        "IconTag": "dsqjh",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [],
@@ -34,9 +35,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1084227600,
-          "Y": 1065353200
-        }
+          "x": 5.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -55,6 +58,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1001",
+        "IconTag": "dcx",
         "IsLabTech": false,
         "PreTechs": [
           1
@@ -92,9 +96,11 @@
           1
         ],
         "Position": {
-          "X": 1091567600,
-          "Y": 1065353200
-        }
+          "x": 9.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -113,6 +119,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1002",
+        "IconTag": "tlant",
         "IsLabTech": false,
         "PreTechs": [
           1001
@@ -147,9 +154,11 @@
           1
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": 1065353200
-        }
+          "x": 13.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -168,6 +177,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1101",
+        "IconTag": "gxdjkz",
         "IsLabTech": true,
         "PreTechs": [
           1001
@@ -197,9 +207,11 @@
           10
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": -1042808800
-        }
+          "x": 13.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -218,6 +230,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1102",
+        "IconTag": "cqjl",
         "IsLabTech": true,
         "PreTechs": [
           1120,
@@ -244,9 +257,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1042808800
-        }
+          "x": 17.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -265,6 +280,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1103",
+        "IconTag": "txsxlj",
         "IsLabTech": true,
         "PreTechs": [
           1121,
@@ -291,9 +307,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1042808800
-        }
+          "x": 25.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -312,6 +330,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1104",
+        "IconTag": "tczjl",
         "IsLabTech": true,
         "PreTechs": [
           1103
@@ -337,9 +356,62 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1042808800
-        }
+          "x": 29.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T电弧激光",
+      "ID": 1105,
+      "SID": "",
+      "Proto": {
+        "Desc": "电弧激光描述",
+        "Conclusion": "电弧激光结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 0,
+        "MaxLevel": 0,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/1105",
+        "IconTag": "tqxxb",
+        "IsLabTech": true,
+        "PreTechs": [
+          1101
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001
+        ],
+        "ItemPoints": [
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 18000,
+        "UnlockRecipes": [
+          161
+        ],
+        "UnlockFunctions": [],
+        "UnlockValues": [],
+        "AddItems": [
+          2401
+        ],
+        "AddItemCounts": [
+          1
+        ],
+        "Position": {
+          "x": 17.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -358,6 +430,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1111",
+        "IconTag": "thongt",
         "IsLabTech": true,
         "PreTechs": [
           1102
@@ -381,9 +454,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1040711700
-        }
+          "x": 21.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -402,6 +477,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1112",
+        "IconTag": "tqrlb",
         "IsLabTech": true,
         "PreTechs": [
           1111
@@ -425,9 +501,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1040711700
-        }
+          "x": 25.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -446,6 +524,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1113",
+        "IconTag": "ttjq",
         "IsLabTech": true,
         "PreTechs": [
           1112
@@ -469,9 +548,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1040711700
-        }
+          "x": 29.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -490,6 +571,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1114",
+        "IconTag": "tjltjq",
         "IsLabTech": true,
         "PreTechs": [
           1113
@@ -513,9 +595,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1040711700
-        }
+          "x": 33.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -534,6 +618,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1120",
+        "IconTag": "ltccfz",
         "IsLabTech": true,
         "PreTechs": [
           1001
@@ -562,9 +647,11 @@
           1
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": -1044906000
-        }
+          "x": 13.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -583,6 +670,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1121",
+        "IconTag": "jchg",
         "IsLabTech": true,
         "PreTechs": [
           1120,
@@ -609,9 +697,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1044906000
-        }
+          "x": 21.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -630,6 +720,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1122",
+        "IconTag": "gfzhg",
         "IsLabTech": true,
         "PreTechs": [
           1121
@@ -656,9 +747,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1044906000
-        }
+          "x": 25.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -677,6 +770,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1123",
+        "IconTag": "gqdjt",
         "IsLabTech": true,
         "PreTechs": [
           1122
@@ -702,9 +796,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1044906000
-        }
+          "x": 29.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -723,6 +819,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1124",
+        "IconTag": "thuant",
         "IsLabTech": true,
         "PreTechs": [
           1123
@@ -748,9 +845,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1044906000
-        }
+          "x": 33.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -769,6 +868,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1125",
+        "IconTag": "tkxme",
         "IsLabTech": true,
         "PreTechs": [
           1124
@@ -797,9 +897,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1044906000
-        }
+          "x": 37.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -818,6 +920,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1126",
+        "IconTag": "gqdbl",
         "IsLabTech": true,
         "PreTechs": [
           1132
@@ -843,9 +946,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1047003140
-        }
+          "x": 37.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -864,6 +969,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1131",
+        "IconTag": "yyxcdt",
         "IsLabTech": true,
         "PreTechs": [
           1121
@@ -888,9 +994,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1047003140
-        }
+          "x": 25.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -909,6 +1017,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1132",
+        "IconTag": "gqdcl",
         "IsLabTech": true,
         "PreTechs": [
           1131
@@ -935,9 +1044,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1047003140
-        }
+          "x": 33.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -956,6 +1067,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1133",
+        "IconTag": "lzkk",
         "IsLabTech": true,
         "PreTechs": [
           1132
@@ -984,9 +1096,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1049624600
-        }
+          "x": 37.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1005,6 +1119,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1134",
+        "IconTag": "tzqfl",
         "IsLabTech": true,
         "PreTechs": [
           1412,
@@ -1032,9 +1147,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1049624600
-        }
+          "x": 21.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1053,6 +1170,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1141",
+        "IconTag": "bhsgr",
         "IsLabTech": true,
         "PreTechs": [
           1126,
@@ -1081,9 +1199,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1044906000
-        }
+          "x": 41.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1102,6 +1222,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1142",
+        "IconTag": "tlzdzj",
         "IsLabTech": true,
         "PreTechs": [
           1124
@@ -1130,9 +1251,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1040711700
-        }
+          "x": 37.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1151,6 +1274,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1143",
+        "IconTag": "tqywz",
         "IsLabTech": true,
         "PreTechs": [
           1142
@@ -1178,9 +1302,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1040711700
-        }
+          "x": 41.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1199,6 +1325,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1144",
+        "IconTag": "txty",
         "IsLabTech": true,
         "PreTechs": [
           1145
@@ -1230,9 +1357,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1114898400,
-          "Y": -1069547500
-        }
+          "x": 61.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1251,6 +1380,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1145",
+        "IconTag": "kkym",
         "IsLabTech": true,
         "PreTechs": [
           1506
@@ -1277,9 +1407,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1113849900,
-          "Y": -1069547500
-        }
+          "x": 57.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1298,6 +1430,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1151",
+        "IconTag": "tzcj1",
         "IsLabTech": true,
         "PreTechs": [
           1311,
@@ -1323,9 +1456,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1053818900
-        }
+          "x": 21.0,
+          "y": -11.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1344,6 +1479,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1152",
+        "IconTag": "tzcj2",
         "IsLabTech": true,
         "PreTechs": [
           1302,
@@ -1370,9 +1506,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1053818900
-        }
+          "x": 29.0,
+          "y": -11.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1391,6 +1529,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1153",
+        "IconTag": "tzcj3",
         "IsLabTech": true,
         "PreTechs": [
           1152,
@@ -1419,9 +1558,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1053818900
-        }
+          "x": 37.0,
+          "y": -11.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1440,6 +1581,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1201",
+        "IconTag": "jczz",
         "IsLabTech": false,
         "PreTechs": [
           1001
@@ -1473,9 +1615,11 @@
           1
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": -1069547500
-        }
+          "x": 13.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1494,6 +1638,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1202",
+        "IconTag": "gszz",
         "IsLabTech": true,
         "PreTechs": [
           1201,
@@ -1524,9 +1669,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1069547500
-        }
+          "x": 29.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1545,6 +1692,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1203",
+        "IconTag": "lzdy",
         "IsLabTech": true,
         "PreTechs": [
           1202,
@@ -1579,9 +1727,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1069547500
-        }
+          "x": 49.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1600,6 +1750,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1302",
+        "IconTag": "tclq",
         "IsLabTech": true,
         "PreTechs": [
           1311
@@ -1623,9 +1774,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1059061760
-        }
+          "x": 25.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1644,6 +1797,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1303",
+        "IconTag": "tlzxp",
         "IsLabTech": true,
         "PreTechs": [
           1312,
@@ -1672,9 +1826,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1047003140
-        }
+          "x": 45.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1693,6 +1849,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1304",
+        "IconTag": "gzjsck",
         "IsLabTech": true,
         "PreTechs": [
           1303
@@ -1724,9 +1881,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1047003140
-        }
+          "x": 49.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1745,6 +1904,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1305",
+        "IconTag": "lzjc",
         "IsLabTech": true,
         "PreTechs": [
           1303,
@@ -1775,9 +1935,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1040711700
-        }
+          "x": 49.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1796,6 +1958,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1311",
+        "IconTag": "bdtcl",
         "IsLabTech": true,
         "PreTechs": [
           1201
@@ -1819,9 +1982,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1059061760
-        }
+          "x": 17.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1840,6 +2005,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1312",
+        "IconTag": "tzit",
         "IsLabTech": true,
         "PreTechs": [
           1302,
@@ -1866,9 +2032,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1059061760
-        }
+          "x": 41.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1887,6 +2055,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1401",
+        "IconTag": "zdhyj",
         "IsLabTech": false,
         "PreTechs": [
           1001
@@ -1921,9 +2090,11 @@
           3
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": 1084227600
-        }
+          "x": 13.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1942,6 +2113,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1402",
+        "IconTag": "yltc",
         "IsLabTech": true,
         "PreTechs": [
           1401
@@ -1967,9 +2139,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1084227600
-        }
+          "x": 17.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -1988,6 +2162,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1403",
+        "IconTag": "jtyl",
         "IsLabTech": true,
         "PreTechs": [
           1402
@@ -2015,9 +2190,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1084227600
-        }
+          "x": 21.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2036,6 +2213,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1411",
+        "IconTag": "gcyl",
         "IsLabTech": true,
         "PreTechs": [
           1401
@@ -2055,17 +2233,21 @@
           63
         ],
         "UnlockFunctions": [
+          37,
           37
         ],
         "UnlockValues": [
-          2203
+          2203.0,
+          2401.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1095761900
-        }
+          "x": 17.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2084,6 +2266,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1412",
+        "IconTag": "hlfd",
         "IsLabTech": true,
         "PreTechs": [
           1201
@@ -2111,9 +2294,11 @@
           1
         ],
         "Position": {
-          "X": 1099432000,
-          "Y": -1049624600
-        }
+          "x": 17.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2132,6 +2317,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1413",
+        "IconTag": "tkyl",
         "IsLabTech": true,
         "PreTechs": [
           1411
@@ -2157,9 +2343,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1095761900
-        }
+          "x": 25.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2178,6 +2366,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1414",
+        "IconTag": "gqdthj",
         "IsLabTech": true,
         "PreTechs": [
           1413
@@ -2205,9 +2394,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1095761900
-        }
+          "x": 33.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2226,6 +2417,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1415",
+        "IconTag": "ysthgc",
         "IsLabTech": true,
         "PreTechs": [
           1411
@@ -2244,14 +2436,20 @@
         "UnlockRecipes": [
           112
         ],
-        "UnlockFunctions": [],
-        "UnlockValues": [],
+        "UnlockFunctions": [
+          45
+        ],
+        "UnlockValues": [
+          1.0
+        ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1091567600
-        }
+          "x": 21.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2270,6 +2468,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1416",
+        "IconTag": "hjbfd",
         "IsLabTech": true,
         "PreTechs": [
           1134
@@ -2300,9 +2499,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1049624600
-        }
+          "x": 33.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2321,6 +2522,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1417",
+        "IconTag": "wmyj",
         "IsLabTech": true,
         "PreTechs": [
           1141
@@ -2352,9 +2554,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1044906000
-        }
+          "x": 45.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2373,6 +2577,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1501",
+        "IconTag": "tynsj",
         "IsLabTech": true,
         "PreTechs": [
           1402,
@@ -2402,9 +2607,11 @@
           1
         ],
         "Position": {
-          "X": 1101529100,
-          "Y": 1065353200
-        }
+          "x": 21.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2423,6 +2630,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1502",
+        "IconTag": "gzbp",
         "IsLabTech": true,
         "PreTechs": [
           1501
@@ -2449,9 +2657,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1065353200
-        }
+          "x": 25.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2470,6 +2680,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1503",
+        "IconTag": "tyfgd",
         "IsLabTech": true,
         "PreTechs": [
           1502
@@ -2498,9 +2709,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1065353200
-        }
+          "x": 29.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2519,6 +2732,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1504",
+        "IconTag": "tsxjsz",
         "IsLabTech": true,
         "PreTechs": [
           1503
@@ -2544,9 +2758,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1065353200
-        }
+          "x": 33.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2565,6 +2781,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1505",
+        "IconTag": "dlcly",
         "IsLabTech": true,
         "PreTechs": [
           1504
@@ -2593,14 +2810,16 @@
           8
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": 1065353200
-        }
+          "x": 49.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2619,6 +2838,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1506",
+        "IconTag": "dlknb",
         "IsLabTech": true,
         "PreTechs": [
           1505
@@ -2650,9 +2870,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1112801300,
-          "Y": 1065353200
-        }
+          "x": 53.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2671,6 +2893,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1507",
+        "IconTag": "tbait",
         "IsLabTech": true,
         "PreTechs": [
           1506
@@ -2702,9 +2925,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1115816000,
-          "Y": 1065353200
-        }
+          "x": 65.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2723,6 +2948,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1508",
+        "IconTag": "rwwc",
         "IsLabTech": true,
         "PreTechs": [
           1507
@@ -2743,14 +2969,65 @@
           99
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1116340200,
-          "Y": 1065353200
-        }
+          "x": 69.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T黑雾引力透镜",
+      "ID": 1509,
+      "SID": "",
+      "Proto": {
+        "Desc": "黑雾引力透镜描述",
+        "Conclusion": "黑雾引力透镜结果",
+        "Published": true,
+        "IsHiddenTech": true,
+        "IsObsolete": false,
+        "PreItem": [
+          5201
+        ],
+        "Level": 0,
+        "MaxLevel": 0,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/1509",
+        "IconTag": "thyltj",
+        "IsLabTech": false,
+        "PreTechs": [
+          1505
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          5201
+        ],
+        "ItemPoints": [
+          120
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 30000,
+        "UnlockRecipes": [
+          162
+        ],
+        "UnlockFunctions": [],
+        "UnlockValues": [],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 53.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2769,6 +3046,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1511",
+        "IconTag": "nlcc",
         "IsLabTech": true,
         "PreTechs": [
           1403,
@@ -2797,9 +3075,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1091567600
-        }
+          "x": 25.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2818,6 +3098,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1512",
+        "IconTag": "xjdlys",
         "IsLabTech": true,
         "PreTechs": [
           1414,
@@ -2846,9 +3127,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": 1091567600
-        }
+          "x": 37.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2867,6 +3150,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1513",
+        "IconTag": "drkc",
         "IsLabTech": true,
         "PreTechs": [
           1502
@@ -2894,9 +3178,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1084227600
-        }
+          "x": 29.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2915,6 +3201,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1521",
+        "IconTag": "qzjg",
         "IsLabTech": true,
         "PreTechs": [
           1503
@@ -2943,9 +3230,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1084227600
-        }
+          "x": 33.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -2964,6 +3253,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1522",
+        "IconTag": "tczfsj",
         "IsLabTech": true,
         "PreTechs": [
           1521
@@ -2996,9 +3286,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": 1084227600
-        }
+          "x": 45.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3017,6 +3309,7 @@
         "LevelCoef1": 180000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1523",
+        "IconTag": "dsqyl",
         "IsLabTech": true,
         "PreTechs": [
           1522
@@ -3045,14 +3338,16 @@
           26
         ],
         "UnlockValues": [
-          15
+          15.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": 1084227600
-        }
+          "x": 49.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3071,6 +3366,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1601",
+        "IconTag": "jcwl",
         "IsLabTech": false,
         "PreTechs": [
           1001
@@ -3108,9 +3404,11 @@
           5
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": 1101529100
-        }
+          "x": 13.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3129,6 +3427,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1602",
+        "IconTag": "glwl",
         "IsLabTech": true,
         "PreTechs": [
           1601
@@ -3162,9 +3461,11 @@
           5
         ],
         "Position": {
-          "X": 1101529100,
-          "Y": 1101529100
-        }
+          "x": 21.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3183,6 +3484,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1603",
+        "IconTag": "gxwl",
         "IsLabTech": true,
         "PreTechs": [
           1602
@@ -3212,9 +3514,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1101529100
-        }
+          "x": 25.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3233,6 +3537,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1604",
+        "IconTag": "xxwl",
         "IsLabTech": true,
         "PreTechs": [
           1603
@@ -3263,9 +3568,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1101529100
-        }
+          "x": 29.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3284,6 +3591,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1605",
+        "IconTag": "xjwl",
         "IsLabTech": true,
         "PreTechs": [
           1604,
@@ -3315,9 +3623,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": 1101529100
-        }
+          "x": 37.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3336,6 +3646,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1606",
+        "IconTag": "qtxxkc",
         "IsLabTech": true,
         "PreTechs": [
           1605,
@@ -3364,9 +3675,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": 1095761900
-        }
+          "x": 41.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3385,6 +3698,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1607",
+        "IconTag": "jzwl",
         "IsLabTech": true,
         "PreTechs": [
           1603
@@ -3415,9 +3729,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1099432000
-        }
+          "x": 33.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3436,6 +3752,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1608",
+        "IconTag": "pswl",
         "IsLabTech": true,
         "PreTechs": [
           1602
@@ -3463,14 +3780,16 @@
           32
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1099432000
-        }
+          "x": 25.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3489,6 +3808,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1701",
+        "IconTag": "thmd",
         "IsLabTech": true,
         "PreTechs": [
           1001
@@ -3512,9 +3832,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1039400960
-        }
+          "x": 13.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3533,6 +3855,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1702",
+        "IconTag": "tlvmd",
         "IsLabTech": true,
         "PreTechs": [
           1701
@@ -3558,9 +3881,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1039400960
-        }
+          "x": 21.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3579,6 +3904,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1703",
+        "IconTag": "lzclj",
         "IsLabTech": true,
         "PreTechs": [
           1702
@@ -3605,9 +3931,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1039400960
-        }
+          "x": 29.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3626,6 +3954,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1704",
+        "IconTag": "ylbzs",
         "IsLabTech": true,
         "PreTechs": [
           1143,
@@ -3655,9 +3984,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1039400960
-        }
+          "x": 45.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3676,6 +4007,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1705",
+        "IconTag": "tlvt",
         "IsLabTech": true,
         "PreTechs": [
           1303,
@@ -3705,9 +4037,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1039400960
-        }
+          "x": 49.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3726,6 +4060,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1711",
+        "IconTag": "tlanmd",
         "IsLabTech": true,
         "PreTechs": [
           1702
@@ -3746,14 +4081,20 @@
         "UnlockRecipes": [
           103
         ],
-        "UnlockFunctions": [],
-        "UnlockValues": [],
+        "UnlockFunctions": [
+          42
+        ],
+        "UnlockValues": [
+          1.0
+        ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1038352400
-        }
+          "x": 25.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3772,6 +4113,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1712",
+        "IconTag": "wxpd",
         "IsLabTech": true,
         "PreTechs": [
           1711
@@ -3801,9 +4143,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1038352400
-        }
+          "x": 37.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3822,6 +4166,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1801",
+        "IconTag": "wqxt",
         "IsLabTech": true,
         "PreTechs": [
           1001
@@ -3852,9 +4197,11 @@
           10
         ],
         "Position": {
-          "X": 1095761900,
-          "Y": -1036255200
-        }
+          "x": 13.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3873,6 +4220,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1802",
+        "IconTag": "trsdy",
         "IsLabTech": true,
         "PreTechs": [
           1401
@@ -3896,9 +4244,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1091567600
-        }
+          "x": 17.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3917,6 +4267,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1803",
+        "IconTag": "tbpdy",
         "IsLabTech": true,
         "PreTechs": [
           1123
@@ -3942,9 +4293,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1042808800
-        }
+          "x": 33.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -3963,6 +4316,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1804",
+        "IconTag": "tjsbp",
         "IsLabTech": true,
         "PreTechs": [
           1125
@@ -3992,9 +4346,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1042808800
-        }
+          "x": 41.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4013,6 +4369,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1805",
+        "IconTag": "tdlyq",
         "IsLabTech": true,
         "PreTechs": [
           1001
@@ -4036,9 +4393,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1037303800
-        }
+          "x": 13.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4057,6 +4416,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1806",
+        "IconTag": "tdd",
         "IsLabTech": true,
         "PreTechs": [
           1805,
@@ -4084,9 +4444,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1036255200
-        }
+          "x": 21.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4105,6 +4467,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1807",
+        "IconTag": "tjnp",
         "IsLabTech": true,
         "PreTechs": [
           1806
@@ -4133,9 +4496,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1036255200
-        }
+          "x": 25.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4154,6 +4519,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1808",
+        "IconTag": "txht",
         "IsLabTech": true,
         "PreTechs": [
           1806
@@ -4181,9 +4547,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1037303800
-        }
+          "x": 25.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4202,6 +4570,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1809",
+        "IconTag": "xxfy",
         "IsLabTech": true,
         "PreTechs": [
           1807
@@ -4230,9 +4599,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1036255200
-        }
+          "x": 33.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4251,6 +4622,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1810",
+        "IconTag": "tgrt",
         "IsLabTech": true,
         "PreTechs": [
           1806
@@ -4279,9 +4651,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1035206660
-        }
+          "x": 25.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4300,6 +4674,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1811",
+        "IconTag": "tdjp",
         "IsLabTech": true,
         "PreTechs": [
           1809
@@ -4333,9 +4708,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1036255200
-        }
+          "x": 41.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4354,6 +4731,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1812",
+        "IconTag": "tzd2",
         "IsLabTech": true,
         "PreTechs": [
           1801
@@ -4381,9 +4759,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1034158100
-        }
+          "x": 29.0,
+          "y": -55.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4402,6 +4782,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1813",
+        "IconTag": "tzd3",
         "IsLabTech": true,
         "PreTechs": [
           1812
@@ -4431,9 +4812,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1034158100
-        }
+          "x": 33.0,
+          "y": -55.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4452,6 +4835,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1814",
+        "IconTag": "tpd2",
         "IsLabTech": true,
         "PreTechs": [
           1807
@@ -4479,9 +4863,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1037303800
-        }
+          "x": 33.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4500,6 +4886,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1815",
+        "IconTag": "tdd2",
         "IsLabTech": true,
         "PreTechs": [
           1814
@@ -4529,9 +4916,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1037303800
-        }
+          "x": 37.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4550,6 +4939,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1816",
+        "IconTag": "tpd3",
         "IsLabTech": true,
         "PreTechs": [
           1815
@@ -4581,9 +4971,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1037303800
-        }
+          "x": 41.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4602,6 +4994,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1817",
+        "IconTag": "tdd3",
         "IsLabTech": true,
         "PreTechs": [
           1816
@@ -4635,9 +5028,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1037303800
-        }
+          "x": 49.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4656,6 +5051,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1818",
+        "IconTag": "tfwzjn",
         "IsLabTech": true,
         "PreTechs": [
           1145,
@@ -4688,9 +5084,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1114898400,
-          "Y": -1036255200
-        }
+          "x": 61.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4709,6 +5107,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1819",
+        "IconTag": "tzdje",
         "IsLabTech": true,
         "PreTechs": [
           1826
@@ -4734,15 +5133,17 @@
           78
         ],
         "UnlockValues": [
-          1,
-          4
+          1.0,
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1033109500
-        }
+          "x": 21.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4761,6 +5162,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1820",
+        "IconTag": "tzdja",
         "IsLabTech": true,
         "PreTechs": [
           1819
@@ -4788,9 +5190,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1033109500
-        }
+          "x": 25.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4809,6 +5213,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1821",
+        "IconTag": "tzdjf",
         "IsLabTech": true,
         "PreTechs": [
           1819
@@ -4838,9 +5243,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1032060900
-        }
+          "x": 33.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4859,6 +5266,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1822",
+        "IconTag": "thwj",
         "IsLabTech": true,
         "PreTechs": [
           1809,
@@ -4889,15 +5297,17 @@
           80
         ],
         "UnlockValues": [
-          1,
-          4
+          1.0,
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1033109500
-        }
+          "x": 41.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4916,6 +5326,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1823",
+        "IconTag": "tqzj",
         "IsLabTech": true,
         "PreTechs": [
           1822,
@@ -4948,9 +5359,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1032060900
-        }
+          "x": 49.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -4969,6 +5382,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1824",
+        "IconTag": "tgrjn2",
         "IsLabTech": true,
         "PreTechs": [
           1810
@@ -4996,9 +5410,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1035206660
-        }
+          "x": 41.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5017,6 +5433,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1826",
+        "IconTag": "tzcfx",
         "IsLabTech": true,
         "PreTechs": [
           1801,
@@ -5041,9 +5458,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1033109500
-        }
+          "x": 17.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5064,6 +5483,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1901",
+        "IconTag": "szmnjs",
         "IsLabTech": false,
         "PreTechs": [
           1312
@@ -5087,9 +5507,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1059061760
-        }
+          "x": 45.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5110,6 +5532,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1902",
+        "IconTag": "wzcz",
         "IsLabTech": false,
         "PreTechs": [
           1203
@@ -5133,9 +5556,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1112801300,
-          "Y": -1069547500
-        }
+          "x": 53.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5156,6 +5581,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1903",
+        "IconTag": "fsdg",
         "IsLabTech": false,
         "PreTechs": [
           1417
@@ -5179,9 +5605,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1111752700,
-          "Y": -1044906000
-        }
+          "x": 49.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5202,6 +5630,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/1904",
+        "IconTag": "thuanb",
         "IsLabTech": false,
         "PreTechs": [
           1145
@@ -5225,9 +5654,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1114898400,
-          "Y": -1059061760
-        }
+          "x": 61.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5246,6 +5677,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2101",
+        "IconTag": "jjhx1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [],
@@ -5272,16 +5704,18 @@
           82
         ],
         "UnlockValues": [
-          80000000,
-          30000,
-          1
+          80000000.0,
+          30000.0,
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1105723400
-        }
+          "x": 9.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5300,6 +5734,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2102",
+        "IconTag": "jjhx2",
         "IsLabTech": true,
         "PreTechs": [
           2101
@@ -5325,17 +5760,19 @@
           83
         ],
         "UnlockValues": [
-          200000000,
-          30000,
-          1,
-          200
+          200000000.0,
+          30000.0,
+          1.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1105723400
-        }
+          "x": 13.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5354,6 +5791,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2103",
+        "IconTag": "jjhx3",
         "IsLabTech": true,
         "PreTechs": [
           2102
@@ -5381,17 +5819,19 @@
           83
         ],
         "UnlockValues": [
-          400000000,
-          30000,
-          2,
-          200
+          400000000.0,
+          30000.0,
+          2.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1105723400
-        }
+          "x": 17.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5410,6 +5850,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2104",
+        "IconTag": "jjhx4",
         "IsLabTech": true,
         "PreTechs": [
           2103
@@ -5439,17 +5880,19 @@
           83
         ],
         "UnlockValues": [
-          800000000,
-          30000,
-          2,
-          200
+          800000000.0,
+          30000.0,
+          2.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1105723400
-        }
+          "x": 21.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5468,6 +5911,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2105",
+        "IconTag": "jjhx5",
         "IsLabTech": true,
         "PreTechs": [
           2104
@@ -5499,17 +5943,19 @@
           83
         ],
         "UnlockValues": [
-          1600000000,
-          30000,
-          2,
-          200
+          1600000000.0,
+          30000.0,
+          2.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1105723400
-        }
+          "x": 25.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5528,6 +5974,7 @@
         "LevelCoef1": -8100000,
         "LevelCoef2": 900000,
         "IconPath": "icons/tech/2106",
+        "IconTag": "jjhx6",
         "IsLabTech": true,
         "PreTechs": [
           2105
@@ -5550,16 +5997,18 @@
           83
         ],
         "UnlockValues": [
-          2400000000,
-          20000,
-          200
+          2400000000.0,
+          20000.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1105723400
-        }
+          "x": 29.0,
+          "y": 29.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5578,6 +6027,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2201",
+        "IconTag": "jxgg1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -5602,14 +6052,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1103626200
-        }
+          "x": 9.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5628,6 +6080,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2202",
+        "IconTag": "jxgg2",
         "IsLabTech": true,
         "PreTechs": [
           2201
@@ -5652,14 +6105,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1103626200
-        }
+          "x": 13.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5678,6 +6133,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2203",
+        "IconTag": "jxgg3",
         "IsLabTech": true,
         "PreTechs": [
           2202
@@ -5702,14 +6158,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1103626200
-        }
+          "x": 17.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5728,6 +6186,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2204",
+        "IconTag": "jxgg4",
         "IsLabTech": true,
         "PreTechs": [
           2203
@@ -5754,14 +6213,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1103626200
-        }
+          "x": 21.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5780,6 +6241,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2205",
+        "IconTag": "jxgg5",
         "IsLabTech": true,
         "PreTechs": [
           2204
@@ -5806,14 +6268,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1103626200
-        }
+          "x": 25.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5832,6 +6296,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2206",
+        "IconTag": "jxgg6",
         "IsLabTech": true,
         "PreTechs": [
           2205
@@ -5860,14 +6325,16 @@
           3
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1103626200
-        }
+          "x": 29.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5886,6 +6353,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2207",
+        "IconTag": "jxgg7",
         "IsLabTech": true,
         "PreTechs": [
           2206
@@ -5914,14 +6382,16 @@
           3
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1103626200
-        }
+          "x": 33.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5940,6 +6410,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2208",
+        "IconTag": "jxgg8",
         "IsLabTech": true,
         "PreTechs": [
           2207
@@ -5970,14 +6441,16 @@
           3
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": 1103626200
-        }
+          "x": 37.0,
+          "y": 25.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -5996,6 +6469,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2301",
+        "IconTag": "jcrl1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -6022,14 +6496,16 @@
           5
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1101529100
-        }
+          "x": 9.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6048,6 +6524,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2302",
+        "IconTag": "jcrl2",
         "IsLabTech": true,
         "PreTechs": [
           2301
@@ -6072,14 +6549,16 @@
           5
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1101529100
-        }
+          "x": 13.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6098,6 +6577,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2303",
+        "IconTag": "jcrl3",
         "IsLabTech": true,
         "PreTechs": [
           2302
@@ -6125,15 +6605,17 @@
           33
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1101529100
-        }
+          "x": 17.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6152,6 +6634,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2304",
+        "IconTag": "jcrl4",
         "IsLabTech": true,
         "PreTechs": [
           2303
@@ -6180,16 +6663,18 @@
           33
         ],
         "UnlockValues": [
-          1,
-          1,
-          2
+          1.0,
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1101529100
-        }
+          "x": 21.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6208,6 +6693,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2305",
+        "IconTag": "jcrl5",
         "IsLabTech": true,
         "PreTechs": [
           2304
@@ -6235,15 +6721,17 @@
           33
         ],
         "UnlockValues": [
-          2,
-          2
+          2.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1101529100
-        }
+          "x": 25.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6262,6 +6750,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2306",
+        "IconTag": "jcrl6",
         "IsLabTech": true,
         "PreTechs": [
           2305
@@ -6293,15 +6782,17 @@
           33
         ],
         "UnlockValues": [
-          2,
-          2
+          2.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1101529100
-        }
+          "x": 29.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6320,6 +6811,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2307",
+        "IconTag": "jcrl7",
         "IsLabTech": true,
         "PreTechs": [
           2306
@@ -6341,15 +6833,17 @@
           32
         ],
         "UnlockValues": [
-          2,
-          1
+          2.0,
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1101529100
-        }
+          "x": 33.0,
+          "y": 21.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6368,6 +6862,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2401",
+        "IconTag": "txkz1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -6388,14 +6883,16 @@
           1
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1099432000
-        }
+          "x": 9.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6414,6 +6911,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2402",
+        "IconTag": "txkz2",
         "IsLabTech": true,
         "PreTechs": [
           2401
@@ -6438,14 +6936,16 @@
           1
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1099432000
-        }
+          "x": 13.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6464,6 +6964,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2403",
+        "IconTag": "txkz3",
         "IsLabTech": true,
         "PreTechs": [
           2402
@@ -6488,14 +6989,16 @@
           9
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1099432000
-        }
+          "x": 17.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6514,6 +7017,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2404",
+        "IconTag": "txkz4",
         "IsLabTech": true,
         "PreTechs": [
           2403
@@ -6540,14 +7044,16 @@
           1
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1099432000
-        }
+          "x": 21.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6566,6 +7072,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2405",
+        "IconTag": "txkz5",
         "IsLabTech": true,
         "PreTechs": [
           2404
@@ -6594,14 +7101,16 @@
           1
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1099432000
-        }
+          "x": 25.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6620,6 +7129,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2406",
+        "IconTag": "txkz6",
         "IsLabTech": true,
         "PreTechs": [
           2405
@@ -6650,14 +7160,16 @@
           9
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1099432000
-        }
+          "x": 29.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6672,10 +7184,11 @@
         "IsObsolete": false,
         "PreItem": [],
         "Level": 7,
-        "MaxLevel": 10000,
+        "MaxLevel": 88,
         "LevelCoef1": -21600000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/2407",
+        "IconTag": "txkz7",
         "IsLabTech": true,
         "PreTechs": [
           2406
@@ -6698,14 +7211,16 @@
           1
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": 1099432000
-        }
+          "x": 33.0,
+          "y": 17.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6724,6 +7239,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2501",
+        "IconTag": "nlhl1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -6752,14 +7268,16 @@
           2
         ],
         "UnlockValues": [
-          200000
+          200000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1084227600
-        }
+          "x": 9.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6778,6 +7296,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2502",
+        "IconTag": "nlhl2",
         "IsLabTech": true,
         "PreTechs": [
           2501
@@ -6802,14 +7321,16 @@
           2
         ],
         "UnlockValues": [
-          200000
+          200000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1084227600
-        }
+          "x": 13.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6828,6 +7349,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2503",
+        "IconTag": "nlhl3",
         "IsLabTech": true,
         "PreTechs": [
           2502
@@ -6854,14 +7376,16 @@
           2
         ],
         "UnlockValues": [
-          200000
+          200000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1084227600
-        }
+          "x": 17.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6880,6 +7404,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2504",
+        "IconTag": "nlhl4",
         "IsLabTech": true,
         "PreTechs": [
           2503
@@ -6906,14 +7431,16 @@
           2
         ],
         "UnlockValues": [
-          200000
+          200000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1084227600
-        }
+          "x": 21.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6932,6 +7459,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2505",
+        "IconTag": "nlhl5",
         "IsLabTech": true,
         "PreTechs": [
           2504
@@ -6962,14 +7490,16 @@
           2
         ],
         "UnlockValues": [
-          800000
+          800000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1084227600
-        }
+          "x": 25.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -6988,6 +7518,7 @@
         "LevelCoef1": -16200000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/2506",
+        "IconTag": "nlhl6",
         "IsLabTech": true,
         "PreTechs": [
           2505
@@ -7010,14 +7541,16 @@
           2
         ],
         "UnlockValues": [
-          1000000
+          1000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1084227600
-        }
+          "x": 29.0,
+          "y": 5.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7036,6 +7569,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2601",
+        "IconTag": "wrjyq1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -7056,14 +7590,16 @@
           10
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1065353200
-        }
+          "x": 9.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7082,6 +7618,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2602",
+        "IconTag": "wrjyq2",
         "IsLabTech": true,
         "PreTechs": [
           2601
@@ -7106,14 +7643,16 @@
           10
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1065353200
-        }
+          "x": 13.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7132,6 +7671,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2603",
+        "IconTag": "wrjyq3",
         "IsLabTech": true,
         "PreTechs": [
           2602
@@ -7158,14 +7698,16 @@
           10
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1065353200
-        }
+          "x": 17.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7184,6 +7726,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2604",
+        "IconTag": "wrjyq4",
         "IsLabTech": true,
         "PreTechs": [
           2603
@@ -7212,14 +7755,16 @@
           10
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1065353200
-        }
+          "x": 21.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7238,6 +7783,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2605",
+        "IconTag": "wrjyq5",
         "IsLabTech": true,
         "PreTechs": [
           2604
@@ -7268,14 +7814,16 @@
           10
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1065353200
-        }
+          "x": 25.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7294,6 +7842,7 @@
         "LevelCoef1": -18000000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/2606",
+        "IconTag": "wrjyq6",
         "IsLabTech": true,
         "PreTechs": [
           2605
@@ -7316,14 +7865,16 @@
           10
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1065353200
-        }
+          "x": 29.0,
+          "y": 1.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7342,6 +7893,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2701",
+        "IconTag": "pljz1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -7363,17 +7915,21 @@
         "HashNeeded": 12000,
         "UnlockRecipes": [],
         "UnlockFunctions": [
-          28
+          28,
+          44
         ],
         "UnlockValues": [
-          150
+          150.0,
+          1200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1091567600
-        }
+          "x": 9.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7392,6 +7948,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2702",
+        "IconTag": "pljz2",
         "IsLabTech": true,
         "PreTechs": [
           2701
@@ -7411,17 +7968,21 @@
         "HashNeeded": 36000,
         "UnlockRecipes": [],
         "UnlockFunctions": [
-          28
+          28,
+          44
         ],
         "UnlockValues": [
-          300
+          300.0,
+          2400.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1091567600
-        }
+          "x": 13.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7440,6 +8001,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2703",
+        "IconTag": "pljz3",
         "IsLabTech": true,
         "PreTechs": [
           2702
@@ -7461,17 +8023,21 @@
         "HashNeeded": 60000,
         "UnlockRecipes": [],
         "UnlockFunctions": [
-          28
+          28,
+          44
         ],
         "UnlockValues": [
-          900
+          900.0,
+          7200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1091567600
-        }
+          "x": 17.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7490,6 +8056,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2704",
+        "IconTag": "pljz4",
         "IsLabTech": true,
         "PreTechs": [
           2703
@@ -7513,17 +8080,21 @@
         "HashNeeded": 192000,
         "UnlockRecipes": [],
         "UnlockFunctions": [
-          28
+          28,
+          44
         ],
         "UnlockValues": [
-          3600
+          3600.0,
+          28800.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1091567600
-        }
+          "x": 21.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7542,6 +8113,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2705",
+        "IconTag": "pljz5",
         "IsLabTech": true,
         "PreTechs": [
           2704
@@ -7567,17 +8139,80 @@
         "HashNeeded": 240000,
         "UnlockRecipes": [],
         "UnlockFunctions": [
-          28
+          28,
+          44
         ],
         "UnlockValues": [
-          1048576
+          1048576.0,
+          45000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1091567600
-        }
+          "x": 25.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T批量建造",
+      "ID": 2706,
+      "SID": "",
+      "Proto": {
+        "Desc": "批量建造描述6",
+        "Conclusion": "批量建造结果6",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 6,
+        "MaxLevel": 6,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/2706",
+        "IconTag": "pljz6",
+        "IsLabTech": true,
+        "PreTechs": [
+          2705
+        ],
+        "PreTechsImplicit": [
+          2105
+        ],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          15,
+          15,
+          15,
+          15,
+          15
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 480000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          44
+        ],
+        "UnlockValues": [
+          1048576.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 29.0,
+          "y": 9.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7596,6 +8231,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2801",
+        "IconTag": "nlhd1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -7618,16 +8254,18 @@
           66
         ],
         "UnlockValues": [
-          1,
-          2,
-          100000000
+          1.0,
+          2.0,
+          100000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1059061760
-        }
+          "x": 9.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7646,6 +8284,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2802",
+        "IconTag": "nlhd2",
         "IsLabTech": true,
         "PreTechs": [
           2801
@@ -7672,14 +8311,16 @@
         ],
         "UnlockValues": [
           0.5,
-          200000000
+          200000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1059061760
-        }
+          "x": 13.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7698,6 +8339,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2803",
+        "IconTag": "nlhd3",
         "IsLabTech": true,
         "PreTechs": [
           2802
@@ -7727,15 +8369,17 @@
         ],
         "UnlockValues": [
           0.5,
-          200000000,
-          1
+          200000000.0,
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1059061760
-        }
+          "x": 17.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7754,6 +8398,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2804",
+        "IconTag": "nlhd4",
         "IsLabTech": true,
         "PreTechs": [
           2803
@@ -7781,15 +8426,17 @@
           66
         ],
         "UnlockValues": [
-          1,
-          200000000
+          1.0,
+          200000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1059061760
-        }
+          "x": 21.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7808,6 +8455,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2805",
+        "IconTag": "nlhd5",
         "IsLabTech": true,
         "PreTechs": [
           2804
@@ -7839,15 +8487,17 @@
           66
         ],
         "UnlockValues": [
-          1,
-          300000000
+          1.0,
+          300000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1059061760
-        }
+          "x": 25.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7866,6 +8516,7 @@
         "LevelCoef1": -8100000,
         "LevelCoef2": 900000,
         "IconPath": "icons/tech/2806",
+        "IconTag": "nlhd6",
         "IsLabTech": true,
         "PreTechs": [
           2805
@@ -7889,15 +8540,17 @@
           66
         ],
         "UnlockValues": [
-          1,
-          500000000
+          1.0,
+          500000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1059061760
-        }
+          "x": 29.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7916,12 +8569,13 @@
         "LevelCoef1": -8100000,
         "LevelCoef2": 900000,
         "IconPath": "icons/tech/2807",
+        "IconTag": "nlhd7",
         "IsLabTech": true,
         "PreTechs": [
           2806
         ],
         "PreTechsImplicit": [],
-        "PreTechsMax": false,
+        "PreTechsMax": true,
         "Items": [
           6006
         ],
@@ -7936,14 +8590,16 @@
           66
         ],
         "UnlockValues": [
-          500000000
+          500000000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1059061760
-        }
+          "x": 33.0,
+          "y": -7.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -7962,6 +8618,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2901",
+        "IconTag": "qdyq1",
         "IsLabTech": false,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -7988,14 +8645,16 @@
           4
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1069547500
-        }
+          "x": 9.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8014,6 +8673,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2902",
+        "IconTag": "qdyq2",
         "IsLabTech": true,
         "PreTechs": [
           2901
@@ -8038,14 +8698,16 @@
           4
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1069547500
-        }
+          "x": 13.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8064,6 +8726,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2903",
+        "IconTag": "qdyq3",
         "IsLabTech": true,
         "PreTechs": [
           2902
@@ -8090,14 +8753,16 @@
           11
         ],
         "UnlockValues": [
-          1000
+          1000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1069547500
-        }
+          "x": 17.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8116,6 +8781,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2904",
+        "IconTag": "qdyq4",
         "IsLabTech": true,
         "PreTechs": [
           2903
@@ -8143,14 +8809,16 @@
           4
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1069547500
-        }
+          "x": 21.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8169,6 +8837,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2904",
+        "IconTag": "qdyq5",
         "IsLabTech": true,
         "PreTechs": [
           2904
@@ -8195,14 +8864,16 @@
           27
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1069547500
-        }
+          "x": 25.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8220,7 +8891,8 @@
         "MaxLevel": 100,
         "LevelCoef1": -1800000,
         "LevelCoef2": 360000,
-        "IconPath": "icons/tech/2904",
+        "IconPath": "icons/tech/2906",
+        "IconTag": "qdyq6",
         "IsLabTech": true,
         "PreTechs": [
           2905
@@ -8241,14 +8913,16 @@
           27
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1069547500
-        }
+          "x": 29.0,
+          "y": -3.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8267,6 +8941,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2951",
+        "IconTag": "zdcj1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -8287,14 +8962,16 @@
           76
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1095761900
-        }
+          "x": 9.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8313,6 +8990,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2952",
+        "IconTag": "zdcj2",
         "IsLabTech": true,
         "PreTechs": [
           2951
@@ -8335,14 +9013,16 @@
           76
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1095761900
-        }
+          "x": 13.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8361,6 +9041,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2953",
+        "IconTag": "zdcj3",
         "IsLabTech": true,
         "PreTechs": [
           2952
@@ -8385,14 +9066,16 @@
           76
         ],
         "UnlockValues": [
-          6
+          6.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1095761900
-        }
+          "x": 17.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8411,6 +9094,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2954",
+        "IconTag": "zdcj4",
         "IsLabTech": true,
         "PreTechs": [
           2953
@@ -8437,14 +9121,16 @@
           76
         ],
         "UnlockValues": [
-          15
+          15.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1095761900
-        }
+          "x": 21.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8463,6 +9149,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2955",
+        "IconTag": "zdcj5",
         "IsLabTech": true,
         "PreTechs": [
           2954
@@ -8491,14 +9178,16 @@
           76
         ],
         "UnlockValues": [
-          30
+          30.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": 1095761900
-        }
+          "x": 25.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8517,6 +9206,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/2956",
+        "IconTag": "zdcj6",
         "IsLabTech": true,
         "PreTechs": [
           2955
@@ -8537,14 +9227,16 @@
           76
         ],
         "UnlockValues": [
-          9999
+          9999.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": 1095761900
-        }
+          "x": 29.0,
+          "y": 13.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8563,6 +9255,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3101",
+        "IconTag": "tyfsm1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -8587,14 +9280,16 @@
           12
         ],
         "UnlockValues": [
-          300
+          300.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1049624600
-        }
+          "x": 9.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8613,6 +9308,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3102",
+        "IconTag": "tyfsm2",
         "IsLabTech": true,
         "PreTechs": [
           3101
@@ -8637,14 +9333,16 @@
           12
         ],
         "UnlockValues": [
-          300
+          300.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1049624600
-        }
+          "x": 13.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8663,6 +9361,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3103",
+        "IconTag": "tyfsm3",
         "IsLabTech": true,
         "PreTechs": [
           3102
@@ -8687,14 +9386,16 @@
           12
         ],
         "UnlockValues": [
-          600
+          600.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1049624600
-        }
+          "x": 17.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8713,6 +9414,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3104",
+        "IconTag": "tyfsm4",
         "IsLabTech": true,
         "PreTechs": [
           3103
@@ -8739,14 +9441,16 @@
           12
         ],
         "UnlockValues": [
-          600
+          600.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1049624600
-        }
+          "x": 21.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8765,6 +9469,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3105",
+        "IconTag": "tyfsm5",
         "IsLabTech": true,
         "PreTechs": [
           3104
@@ -8791,14 +9496,16 @@
           12
         ],
         "UnlockValues": [
-          900
+          900.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1049624600
-        }
+          "x": 25.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8817,6 +9524,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3106",
+        "IconTag": "tyfsm6",
         "IsLabTech": true,
         "PreTechs": [
           3105
@@ -8843,14 +9551,358 @@
           12
         ],
         "UnlockValues": [
-          900
+          900.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1049624600
-        }
+          "x": 29.0,
+          "y": -15.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4201,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 1,
+        "MaxLevel": 1,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4201",
+        "IconTag": "xfsd1",
+        "IsLabTech": true,
+        "PreTechs": [],
+        "PreTechsImplicit": [
+          1522
+        ],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 108000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          240.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 9.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4202,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 2,
+        "MaxLevel": 2,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4202",
+        "IconTag": "xfsd2",
+        "IsLabTech": true,
+        "PreTechs": [
+          4201
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 180000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          120.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 13.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4203,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 3,
+        "MaxLevel": 3,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4203",
+        "IconTag": "xfsd3",
+        "IsLabTech": true,
+        "PreTechs": [
+          4202
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          30,
+          30,
+          30,
+          30,
+          30
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 300000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          60.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 17.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4204,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 4,
+        "MaxLevel": 4,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4204",
+        "IconTag": "xfsd4",
+        "IsLabTech": true,
+        "PreTechs": [
+          4203
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 720000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          30.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 21.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4205,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 5,
+        "MaxLevel": 5,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4205",
+        "IconTag": "xfsd5",
+        "IsLabTech": true,
+        "PreTechs": [
+          4204
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 1440000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          15.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 25.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "T戴森球吸附速度",
+      "ID": 4206,
+      "SID": "",
+      "Proto": {
+        "Desc": "戴森球吸附速度描述",
+        "Conclusion": "戴森球吸附速度结果",
+        "Published": true,
+        "IsHiddenTech": false,
+        "IsObsolete": false,
+        "PreItem": [],
+        "Level": 6,
+        "MaxLevel": 6,
+        "LevelCoef1": 0,
+        "LevelCoef2": 0,
+        "IconPath": "icons/tech/4206",
+        "IconTag": "xfsd6",
+        "IsLabTech": true,
+        "PreTechs": [
+          4205
+        ],
+        "PreTechsImplicit": [],
+        "PreTechsMax": false,
+        "Items": [
+          6001,
+          6002,
+          6003,
+          6004,
+          6005
+        ],
+        "ItemPoints": [
+          20,
+          20,
+          20,
+          20,
+          20
+        ],
+        "PropertyOverrideItems": [],
+        "PropertyItemCounts": [],
+        "HashNeeded": 2160000,
+        "UnlockRecipes": [],
+        "UnlockFunctions": [
+          43
+        ],
+        "UnlockValues": [
+          10.0
+        ],
+        "AddItems": [],
+        "AddItemCounts": [],
+        "Position": {
+          "x": 29.0,
+          "y": -19.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8869,6 +9921,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3201",
+        "IconTag": "sxcs1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -8898,9 +9951,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1047003140
-        }
+          "x": 9.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8919,6 +9974,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3202",
+        "IconTag": "sxcs2",
         "IsLabTech": true,
         "PreTechs": [
           3201
@@ -8948,9 +10004,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1047003140
-        }
+          "x": 13.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -8969,6 +10027,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3203",
+        "IconTag": "sxcs3",
         "IsLabTech": true,
         "PreTechs": [
           3202
@@ -8998,9 +10057,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1047003140
-        }
+          "x": 17.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9019,6 +10080,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3204",
+        "IconTag": "sxcs4",
         "IsLabTech": true,
         "PreTechs": [
           3203
@@ -9050,9 +10112,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1047003140
-        }
+          "x": 21.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9071,6 +10135,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3205",
+        "IconTag": "sxcs5",
         "IsLabTech": true,
         "PreTechs": [
           3204
@@ -9102,9 +10167,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1047003140
-        }
+          "x": 25.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9123,6 +10190,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3206",
+        "IconTag": "sxcs6",
         "IsLabTech": true,
         "PreTechs": [
           3205
@@ -9156,9 +10224,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1047003140
-        }
+          "x": 29.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9177,6 +10247,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3207",
+        "IconTag": "sxcs7",
         "IsLabTech": true,
         "PreTechs": [
           3206
@@ -9210,9 +10281,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1047003140
-        }
+          "x": 33.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9231,6 +10304,7 @@
         "LevelCoef1": 1800000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3208",
+        "IconTag": "sxcs8",
         "IsLabTech": true,
         "PreTechs": [
           3207
@@ -9256,9 +10330,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1047003140
-        }
+          "x": 37.0,
+          "y": -23.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9277,6 +10353,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3301",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -9301,14 +10378,16 @@
           14
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9327,6 +10406,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3302",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [
           3301
@@ -9351,14 +10431,16 @@
           14
         ],
         "UnlockValues": [
-          5
+          5.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9377,6 +10459,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3303",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [
           3302
@@ -9401,14 +10484,16 @@
           14
         ],
         "UnlockValues": [
-          6
+          6.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9427,6 +10512,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3304",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [
           3303
@@ -9451,14 +10537,16 @@
           14
         ],
         "UnlockValues": [
-          7
+          7.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9477,6 +10565,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3305",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [
           3304
@@ -9501,14 +10590,16 @@
           14
         ],
         "UnlockValues": [
-          8
+          8.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9527,6 +10618,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3306",
+        "IconTag": "",
         "IsLabTech": true,
         "PreTechs": [
           3305
@@ -9554,15 +10646,17 @@
           40
         ],
         "UnlockValues": [
-          1,
-          1
+          1.0,
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1042808800
-        }
+          "x": 0.0,
+          "y": 0.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9581,6 +10675,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3311",
+        "IconTag": "fjqdj1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -9605,14 +10700,16 @@
           39
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1042808800
-        }
+          "x": 9.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9631,6 +10728,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3312",
+        "IconTag": "fjqdj2",
         "IsLabTech": true,
         "PreTechs": [
           3311
@@ -9655,14 +10753,16 @@
           41
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1042808800
-        }
+          "x": 13.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9681,6 +10781,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3313",
+        "IconTag": "fjqdj3",
         "IsLabTech": true,
         "PreTechs": [
           3312
@@ -9705,14 +10806,16 @@
           39
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1042808800
-        }
+          "x": 17.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9731,6 +10834,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3314",
+        "IconTag": "fjqdj4",
         "IsLabTech": true,
         "PreTechs": [
           3313
@@ -9755,14 +10859,16 @@
           41
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1042808800
-        }
+          "x": 21.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9781,6 +10887,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3315",
+        "IconTag": "fjqdj5",
         "IsLabTech": true,
         "PreTechs": [
           3314
@@ -9805,14 +10912,16 @@
           39
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1042808800
-        }
+          "x": 25.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9831,6 +10940,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3316",
+        "IconTag": "fjqdj6",
         "IsLabTech": true,
         "PreTechs": [
           3315
@@ -9859,14 +10969,16 @@
           40
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1042808800
-        }
+          "x": 29.0,
+          "y": -31.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9885,6 +10997,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4001",
+        "IconTag": "psfw1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -9907,14 +11020,16 @@
           36
         ],
         "UnlockValues": [
-          20
+          20.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1040711700
-        }
+          "x": 9.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9933,6 +11048,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4002",
+        "IconTag": "psfw2",
         "IsLabTech": true,
         "PreTechs": [
           4001
@@ -9957,14 +11073,16 @@
           36
         ],
         "UnlockValues": [
-          20
+          20.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1040711700
-        }
+          "x": 13.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -9983,6 +11101,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4003",
+        "IconTag": "psfw3",
         "IsLabTech": true,
         "PreTechs": [
           4002
@@ -10007,14 +11126,16 @@
           36
         ],
         "UnlockValues": [
-          30
+          30.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1040711700
-        }
+          "x": 17.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10033,6 +11154,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4004",
+        "IconTag": "psfw4",
         "IsLabTech": true,
         "PreTechs": [
           4003
@@ -10059,14 +11181,16 @@
           36
         ],
         "UnlockValues": [
-          30
+          30.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1040711700
-        }
+          "x": 21.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10085,6 +11209,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4005",
+        "IconTag": "psfw5",
         "IsLabTech": true,
         "PreTechs": [
           4004
@@ -10113,14 +11238,16 @@
           36
         ],
         "UnlockValues": [
-          40
+          40.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1040711700
-        }
+          "x": 25.0,
+          "y": -35.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10139,6 +11266,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3401",
+        "IconTag": "yscyq1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -10170,9 +11298,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1039400960
-        }
+          "x": 9.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10191,6 +11321,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3402",
+        "IconTag": "yscyq2",
         "IsLabTech": true,
         "PreTechs": [
           3401
@@ -10222,9 +11353,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1039400960
-        }
+          "x": 13.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10243,6 +11376,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3403",
+        "IconTag": "yscyq3",
         "IsLabTech": true,
         "PreTechs": [
           3402
@@ -10278,9 +11412,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1039400960
-        }
+          "x": 17.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10299,6 +11435,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3404",
+        "IconTag": "yscyq4",
         "IsLabTech": true,
         "PreTechs": [
           3403
@@ -10333,14 +11470,16 @@
           0.3,
           0.15,
           0.5,
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1039400960
-        }
+          "x": 21.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10359,6 +11498,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3405",
+        "IconTag": "yscyq5",
         "IsLabTech": true,
         "PreTechs": [
           3404
@@ -10396,9 +11536,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1039400960
-        }
+          "x": 25.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10417,6 +11559,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3406",
+        "IconTag": "yscyq6",
         "IsLabTech": true,
         "PreTechs": [
           3405
@@ -10454,9 +11597,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1039400960
-        }
+          "x": 29.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10475,6 +11620,7 @@
         "LevelCoef1": -21600000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/3407",
+        "IconTag": "yscyq7",
         "IsLabTech": true,
         "PreTechs": [
           3406
@@ -10504,9 +11650,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1039400960
-        }
+          "x": 33.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10525,6 +11673,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3501",
+        "IconTag": "ysjc1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -10550,15 +11699,17 @@
           18
         ],
         "UnlockValues": [
-          1,
-          5
+          1.0,
+          5.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1038352400
-        }
+          "x": 9.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10577,6 +11728,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3502",
+        "IconTag": "ysjc2",
         "IsLabTech": true,
         "PreTechs": [
           3501
@@ -10602,15 +11754,17 @@
           18
         ],
         "UnlockValues": [
-          1,
-          5
+          1.0,
+          5.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1038352400
-        }
+          "x": 13.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10629,6 +11783,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3503",
+        "IconTag": "ysjc3",
         "IsLabTech": true,
         "PreTechs": [
           3502
@@ -10657,16 +11812,18 @@
           19
         ],
         "UnlockValues": [
-          2,
-          5,
-          100
+          2.0,
+          5.0,
+          100.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1038352400
-        }
+          "x": 17.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10685,6 +11842,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3504",
+        "IconTag": "ysjc4",
         "IsLabTech": true,
         "PreTechs": [
           3503
@@ -10711,16 +11869,18 @@
           19
         ],
         "UnlockValues": [
-          2,
-          10,
-          100
+          2.0,
+          10.0,
+          100.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1038352400
-        }
+          "x": 21.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10739,6 +11899,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3505",
+        "IconTag": "ysjc5",
         "IsLabTech": true,
         "PreTechs": [
           3504
@@ -10767,16 +11928,18 @@
           19
         ],
         "UnlockValues": [
-          2,
-          10,
-          100
+          2.0,
+          10.0,
+          100.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1038352400
-        }
+          "x": 25.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10795,6 +11958,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3506",
+        "IconTag": "ysjc6",
         "IsLabTech": true,
         "PreTechs": [
           3505
@@ -10823,16 +11987,18 @@
           19
         ],
         "UnlockValues": [
-          2,
-          10,
-          100
+          2.0,
+          10.0,
+          100.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1038352400
-        }
+          "x": 29.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10851,6 +12017,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3507",
+        "IconTag": "ysjc7",
         "IsLabTech": true,
         "PreTechs": [
           3506
@@ -10881,16 +12048,18 @@
           19
         ],
         "UnlockValues": [
-          2,
-          10,
-          200
+          2.0,
+          10.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1038352400
-        }
+          "x": 33.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10909,6 +12078,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3508",
+        "IconTag": "ysjc8",
         "IsLabTech": true,
         "PreTechs": [
           3507
@@ -10938,15 +12108,17 @@
           19
         ],
         "UnlockValues": [
-          20,
-          200
+          20.0,
+          200.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1038352400
-        }
+          "x": 37.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -10965,6 +12137,7 @@
         "LevelCoef1": 2400000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3509",
+        "IconTag": "ysjc9",
         "IsLabTech": true,
         "PreTechs": [
           3508
@@ -10988,17 +12161,19 @@
           31
         ],
         "UnlockValues": [
-          20,
-          200,
-          1000,
-          2000
+          20.0,
+          200.0,
+          1000.0,
+          2000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1038352400
-        }
+          "x": 41.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11017,12 +12192,13 @@
         "LevelCoef1": 4800000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3510",
+        "IconTag": "ysjc10",
         "IsLabTech": true,
         "PreTechs": [
           3509
         ],
         "PreTechsImplicit": [],
-        "PreTechsMax": false,
+        "PreTechsMax": true,
         "Items": [
           6006
         ],
@@ -11040,17 +12216,19 @@
           31
         ],
         "UnlockValues": [
-          20,
-          200,
-          1000,
-          2000
+          20.0,
+          200.0,
+          1000.0,
+          2000.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1038352400
-        }
+          "x": 45.0,
+          "y": -43.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11069,6 +12247,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3801",
+        "IconTag": "yszjz1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -11089,14 +12268,16 @@
           29
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1108607000,
-          "Y": -1039400960
-        }
+          "x": 37.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11115,6 +12296,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3802",
+        "IconTag": "yszjz2",
         "IsLabTech": true,
         "PreTechs": [
           3801
@@ -11137,14 +12319,16 @@
           29
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1109655600,
-          "Y": -1039400960
-        }
+          "x": 41.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11163,6 +12347,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3803",
+        "IconTag": "yszjz3",
         "IsLabTech": true,
         "PreTechs": [
           3802
@@ -11185,14 +12370,16 @@
           29
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1110704100,
-          "Y": -1039400960
-        }
+          "x": 45.0,
+          "y": -39.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11211,6 +12398,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3601",
+        "IconTag": "kwly1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -11242,9 +12430,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1037303800
-        }
+          "x": 9.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11263,6 +12453,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3602",
+        "IconTag": "kwly2",
         "IsLabTech": true,
         "PreTechs": [
           3601
@@ -11296,9 +12487,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1037303800
-        }
+          "x": 13.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11317,6 +12510,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3603",
+        "IconTag": "kwly3",
         "IsLabTech": true,
         "PreTechs": [
           3602
@@ -11352,9 +12546,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1037303800
-        }
+          "x": 17.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11373,6 +12569,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3604",
+        "IconTag": "kwly4",
         "IsLabTech": true,
         "PreTechs": [
           3603
@@ -11408,9 +12605,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1037303800
-        }
+          "x": 21.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11429,6 +12628,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3605",
+        "IconTag": "kwly5",
         "IsLabTech": true,
         "PreTechs": [
           3604
@@ -11466,9 +12666,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1037303800
-        }
+          "x": 25.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11487,6 +12689,7 @@
         "LevelCoef1": 3600000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3606",
+        "IconTag": "kwly6",
         "IsLabTech": true,
         "PreTechs": [
           3605
@@ -11516,9 +12719,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1037303800
-        }
+          "x": 29.0,
+          "y": -47.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11537,6 +12742,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3701",
+        "IconTag": "czjz1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -11558,15 +12764,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1044906000
-        }
+          "x": 9.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11585,6 +12793,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3702",
+        "IconTag": "czjz2",
         "IsLabTech": true,
         "PreTechs": [
           3701
@@ -11606,15 +12815,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1044906000
-        }
+          "x": 13.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11633,6 +12844,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3703",
+        "IconTag": "czjz3",
         "IsLabTech": true,
         "PreTechs": [
           3702
@@ -11656,15 +12868,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1044906000
-        }
+          "x": 17.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11683,6 +12897,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3704",
+        "IconTag": "czjz4",
         "IsLabTech": true,
         "PreTechs": [
           3703
@@ -11708,15 +12923,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1044906000
-        }
+          "x": 21.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11735,6 +12952,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3705",
+        "IconTag": "czjz5",
         "IsLabTech": true,
         "PreTechs": [
           3704
@@ -11760,15 +12978,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1044906000
-        }
+          "x": 25.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11787,6 +13007,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3706",
+        "IconTag": "czjz6",
         "IsLabTech": true,
         "PreTechs": [
           3705
@@ -11814,15 +13035,17 @@
           25
         ],
         "UnlockValues": [
-          1,
-          2
+          1.0,
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1044906000
-        }
+          "x": 29.0,
+          "y": -27.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11841,6 +13064,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3901",
+        "IconTag": "yjsd1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -11861,14 +13085,16 @@
           22
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1036255200
-        }
+          "x": 9.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11887,6 +13113,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3902",
+        "IconTag": "yjsd2",
         "IsLabTech": true,
         "PreTechs": [
           3901
@@ -11907,14 +13134,16 @@
           22
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1036255200
-        }
+          "x": 13.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11933,6 +13162,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3903",
+        "IconTag": "yjsd3",
         "IsLabTech": true,
         "PreTechs": [
           3902
@@ -11953,14 +13183,16 @@
           22
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1036255200
-        }
+          "x": 17.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -11979,6 +13211,7 @@
         "LevelCoef1": 14400000,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/3904",
+        "IconTag": "yjsd4",
         "IsLabTech": true,
         "PreTechs": [
           3903
@@ -11999,14 +13232,16 @@
           22
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1036255200
-        }
+          "x": 21.0,
+          "y": -51.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12025,6 +13260,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4101",
+        "IconTag": "yzts1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [],
@@ -12043,14 +13279,16 @@
           23
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": 1108607000
-        }
+          "x": 9.0,
+          "y": 37.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12069,6 +13307,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4102",
+        "IconTag": "yzts2",
         "IsLabTech": true,
         "PreTechs": [
           4101
@@ -12089,14 +13328,16 @@
           23
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": 1108607000
-        }
+          "x": 13.0,
+          "y": 37.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12115,6 +13356,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4103",
+        "IconTag": "yzts3",
         "IsLabTech": true,
         "PreTechs": [
           4102
@@ -12141,14 +13383,16 @@
           23
         ],
         "UnlockValues": [
-          3
+          3.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": 1108607000
-        }
+          "x": 17.0,
+          "y": 37.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12167,6 +13411,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/4104",
+        "IconTag": "yzts4",
         "IsLabTech": true,
         "PreTechs": [
           4103
@@ -12193,14 +13438,16 @@
           23
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": 1108607000
-        }
+          "x": 21.0,
+          "y": 37.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12219,6 +13466,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5001",
+        "IconTag": "dnwq1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -12244,9 +13492,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1034158100
-        }
+          "x": 9.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12265,6 +13515,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5002",
+        "IconTag": "dnwq2",
         "IsLabTech": true,
         "PreTechs": [
           5001
@@ -12292,9 +13543,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1034158100
-        }
+          "x": 13.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12313,6 +13566,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5003",
+        "IconTag": "dnwq3",
         "IsLabTech": true,
         "PreTechs": [
           5002
@@ -12342,9 +13596,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1034158100
-        }
+          "x": 17.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12363,6 +13619,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5004",
+        "IconTag": "dnwq4",
         "IsLabTech": true,
         "PreTechs": [
           5003
@@ -12394,9 +13651,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1034158100
-        }
+          "x": 21.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12415,6 +13674,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5005",
+        "IconTag": "dnwq5",
         "IsLabTech": true,
         "PreTechs": [
           5004
@@ -12448,9 +13708,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1034158100
-        }
+          "x": 25.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12469,6 +13731,7 @@
         "LevelCoef1": -16200000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/5006",
+        "IconTag": "dnwq6",
         "IsLabTech": true,
         "PreTechs": [
           5005
@@ -12494,9 +13757,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1034158100
-        }
+          "x": 29.0,
+          "y": -59.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12515,6 +13780,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5101",
+        "IconTag": "nlwq1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -12540,9 +13806,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1033109500
-        }
+          "x": 9.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12561,6 +13829,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5102",
+        "IconTag": "nlwq2",
         "IsLabTech": true,
         "PreTechs": [
           5101
@@ -12588,9 +13857,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1033109500
-        }
+          "x": 13.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12609,6 +13880,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5103",
+        "IconTag": "nlwq3",
         "IsLabTech": true,
         "PreTechs": [
           5102
@@ -12638,9 +13910,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1033109500
-        }
+          "x": 17.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12659,6 +13933,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5104",
+        "IconTag": "nlwq4",
         "IsLabTech": true,
         "PreTechs": [
           5103
@@ -12690,9 +13965,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1033109500
-        }
+          "x": 21.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12711,6 +13988,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5105",
+        "IconTag": "nlwq5",
         "IsLabTech": true,
         "PreTechs": [
           5104
@@ -12744,9 +14022,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1033109500
-        }
+          "x": 25.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12765,6 +14045,7 @@
         "LevelCoef1": -54000000,
         "LevelCoef2": 5400000,
         "IconPath": "icons/tech/5106",
+        "IconTag": "nlwq6",
         "IsLabTech": true,
         "PreTechs": [
           5105
@@ -12790,9 +14071,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1033109500
-        }
+          "x": 29.0,
+          "y": -63.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12811,6 +14094,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5201",
+        "IconTag": "bpwq1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -12836,9 +14120,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1032060900
-        }
+          "x": 9.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12857,6 +14143,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5202",
+        "IconTag": "bpwq2",
         "IsLabTech": true,
         "PreTechs": [
           5201
@@ -12884,9 +14171,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1032060900
-        }
+          "x": 13.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12905,6 +14194,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5203",
+        "IconTag": "bpwq3",
         "IsLabTech": true,
         "PreTechs": [
           5202
@@ -12934,9 +14224,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1032060900
-        }
+          "x": 17.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -12955,6 +14247,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5204",
+        "IconTag": "bpwq4",
         "IsLabTech": true,
         "PreTechs": [
           5203
@@ -12986,9 +14279,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1032060900
-        }
+          "x": 21.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13007,6 +14302,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5205",
+        "IconTag": "bpwq5",
         "IsLabTech": true,
         "PreTechs": [
           5204
@@ -13040,9 +14336,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1032060900
-        }
+          "x": 25.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13061,6 +14359,7 @@
         "LevelCoef1": -16200000,
         "LevelCoef2": 1800000,
         "IconPath": "icons/tech/5206",
+        "IconTag": "bpwq6",
         "IsLabTech": true,
         "PreTechs": [
           5205
@@ -13086,9 +14385,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1032060900
-        }
+          "x": 29.0,
+          "y": -67.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13107,6 +14408,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5301",
+        "IconTag": "wrjsh1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -13134,9 +14436,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1030881300
-        }
+          "x": 9.0,
+          "y": -75.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13155,6 +14459,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5302",
+        "IconTag": "wrjsh2",
         "IsLabTech": true,
         "PreTechs": [
           5301
@@ -13184,9 +14489,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1030881300
-        }
+          "x": 13.0,
+          "y": -75.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13205,6 +14512,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5303",
+        "IconTag": "wrjsh3",
         "IsLabTech": true,
         "PreTechs": [
           5302
@@ -13238,9 +14546,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1030881300
-        }
+          "x": 17.0,
+          "y": -75.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13259,6 +14569,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5304",
+        "IconTag": "wrjsh4",
         "IsLabTech": true,
         "PreTechs": [
           5303
@@ -13294,9 +14605,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1030881300
-        }
+          "x": 21.0,
+          "y": -75.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13315,6 +14628,7 @@
         "LevelCoef1": -43200000,
         "LevelCoef2": 5400000,
         "IconPath": "icons/tech/5305",
+        "IconTag": "wrjsh5",
         "IsLabTech": true,
         "PreTechs": [
           5304
@@ -13342,9 +14656,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1030881300
-        }
+          "x": 25.0,
+          "y": -75.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13363,6 +14679,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5401",
+        "IconTag": "wrjss1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -13390,9 +14707,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1030357000
-        }
+          "x": 9.0,
+          "y": -79.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13411,6 +14730,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5402",
+        "IconTag": "wrjss2",
         "IsLabTech": true,
         "PreTechs": [
           5401
@@ -13440,9 +14760,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1030357000
-        }
+          "x": 13.0,
+          "y": -79.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13461,6 +14783,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5403",
+        "IconTag": "wrjss3",
         "IsLabTech": true,
         "PreTechs": [
           5402
@@ -13494,9 +14817,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1030357000
-        }
+          "x": 17.0,
+          "y": -79.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13515,6 +14840,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5404",
+        "IconTag": "wrjss4",
         "IsLabTech": true,
         "PreTechs": [
           5403
@@ -13550,9 +14876,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1030357000
-        }
+          "x": 21.0,
+          "y": -79.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13571,6 +14899,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5405",
+        "IconTag": "wrjss5",
         "IsLabTech": true,
         "PreTechs": [
           5404
@@ -13598,9 +14927,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1030357000
-        }
+          "x": 25.0,
+          "y": -79.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13619,6 +14950,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5601",
+        "IconTag": "wrjnj1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -13646,9 +14978,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1029832700
-        }
+          "x": 9.0,
+          "y": -83.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13667,6 +15001,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5602",
+        "IconTag": "wrjnj2",
         "IsLabTech": true,
         "PreTechs": [
           5601
@@ -13696,9 +15031,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1029832700
-        }
+          "x": 13.0,
+          "y": -83.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13717,6 +15054,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5603",
+        "IconTag": "wrjnj3",
         "IsLabTech": true,
         "PreTechs": [
           5602
@@ -13750,9 +15088,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1029832700
-        }
+          "x": 17.0,
+          "y": -83.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13771,6 +15111,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5604",
+        "IconTag": "wrjnj4",
         "IsLabTech": true,
         "PreTechs": [
           5603
@@ -13806,9 +15147,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1029832700
-        }
+          "x": 21.0,
+          "y": -83.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13827,6 +15170,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5605",
+        "IconTag": "wrjnj5",
         "IsLabTech": true,
         "PreTechs": [
           5604
@@ -13854,9 +15198,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1029832700
-        }
+          "x": 25.0,
+          "y": -83.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13875,6 +15221,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5701",
+        "IconTag": "xxhd1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -13904,9 +15251,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1027735550
-        }
+          "x": 9.0,
+          "y": -99.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13925,6 +15274,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5702",
+        "IconTag": "xxhd2",
         "IsLabTech": true,
         "PreTechs": [
           5701
@@ -13954,9 +15304,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1027735550
-        }
+          "x": 13.0,
+          "y": -99.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -13975,6 +15327,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5703",
+        "IconTag": "xxhd3",
         "IsLabTech": true,
         "PreTechs": [
           5702
@@ -14006,9 +15359,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1027735550
-        }
+          "x": 17.0,
+          "y": -99.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14027,6 +15382,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5704",
+        "IconTag": "xxhd4",
         "IsLabTech": true,
         "PreTechs": [
           5703
@@ -14060,9 +15416,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1027735550
-        }
+          "x": 21.0,
+          "y": -99.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14081,6 +15439,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5705",
+        "IconTag": "xxhd5",
         "IsLabTech": true,
         "PreTechs": [
           5704
@@ -14106,9 +15465,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1027735550
-        }
+          "x": 25.0,
+          "y": -99.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14127,6 +15488,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5801",
+        "IconTag": "dmbd1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -14149,14 +15511,16 @@
           78
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1029308400
-        }
+          "x": 9.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14175,6 +15539,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5802",
+        "IconTag": "dmbd2",
         "IsLabTech": true,
         "PreTechs": [
           5801
@@ -14199,14 +15564,16 @@
           78
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1029308400
-        }
+          "x": 13.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14225,6 +15592,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5803",
+        "IconTag": "dmbd3",
         "IsLabTech": true,
         "PreTechs": [
           5802
@@ -14251,14 +15619,16 @@
           77
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1029308400
-        }
+          "x": 17.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14277,6 +15647,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5804",
+        "IconTag": "dmbd4",
         "IsLabTech": true,
         "PreTechs": [
           5803
@@ -14303,14 +15674,16 @@
           78
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1029308400
-        }
+          "x": 21.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14329,6 +15702,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5805",
+        "IconTag": "dmbd5",
         "IsLabTech": true,
         "PreTechs": [
           5804
@@ -14357,14 +15731,16 @@
           77
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1029308400
-        }
+          "x": 25.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14383,6 +15759,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5806",
+        "IconTag": "dmbd6",
         "IsLabTech": true,
         "PreTechs": [
           5805
@@ -14403,14 +15780,16 @@
           77
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1029308400
-        }
+          "x": 29.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14429,6 +15808,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5807",
+        "IconTag": "dmbd7",
         "IsLabTech": true,
         "PreTechs": [
           5806
@@ -14449,14 +15829,16 @@
           77
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1029308400
-        }
+          "x": 33.0,
+          "y": -87.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14475,6 +15857,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5901",
+        "IconTag": "tkbd1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -14501,14 +15884,16 @@
           80
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1028784100
-        }
+          "x": 9.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14527,6 +15912,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5902",
+        "IconTag": "tkbd2",
         "IsLabTech": true,
         "PreTechs": [
           5901
@@ -14553,14 +15939,16 @@
           80
         ],
         "UnlockValues": [
-          4
+          4.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1028784100
-        }
+          "x": 13.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14579,6 +15967,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5903",
+        "IconTag": "tkbd3",
         "IsLabTech": true,
         "PreTechs": [
           5902
@@ -14605,14 +15994,16 @@
           79
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1028784100
-        }
+          "x": 17.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14631,6 +16022,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5904",
+        "IconTag": "tkbd4",
         "IsLabTech": true,
         "PreTechs": [
           5903
@@ -14659,14 +16051,16 @@
           79
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1028784100
-        }
+          "x": 21.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14685,6 +16079,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5905",
+        "IconTag": "tkbd5",
         "IsLabTech": true,
         "PreTechs": [
           5904
@@ -14713,14 +16108,16 @@
           79
         ],
         "UnlockValues": [
-          1
+          1.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1028784100
-        }
+          "x": 25.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14739,6 +16136,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5906",
+        "IconTag": "tkbd6",
         "IsLabTech": true,
         "PreTechs": [
           5905
@@ -14759,14 +16157,16 @@
           79
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1028784100
-        }
+          "x": 29.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14785,6 +16185,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/5907",
+        "IconTag": "tkbd7",
         "IsLabTech": true,
         "PreTechs": [
           5906
@@ -14805,14 +16206,16 @@
           79
         ],
         "UnlockValues": [
-          2
+          2.0
         ],
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1107558400,
-          "Y": -1028784100
-        }
+          "x": 33.0,
+          "y": -91.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14831,6 +16234,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6001",
+        "IconTag": "qjnj1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -14856,9 +16260,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1028259840
-        }
+          "x": 9.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14877,6 +16283,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6002",
+        "IconTag": "qjnj2",
         "IsLabTech": true,
         "PreTechs": [
           6001
@@ -14904,9 +16311,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1028259840
-        }
+          "x": 13.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14925,6 +16334,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6003",
+        "IconTag": "qjnj3",
         "IsLabTech": true,
         "PreTechs": [
           6002
@@ -14954,9 +16364,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1028259840
-        }
+          "x": 17.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -14975,6 +16387,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6004",
+        "IconTag": "qjnj4",
         "IsLabTech": true,
         "PreTechs": [
           6003
@@ -15006,9 +16419,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1028259840
-        }
+          "x": 21.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15027,6 +16442,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6005",
+        "IconTag": "qjnj5",
         "IsLabTech": true,
         "PreTechs": [
           6004
@@ -15060,9 +16476,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1028259840
-        }
+          "x": 25.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15081,6 +16499,7 @@
         "LevelCoef1": -3150000,
         "LevelCoef2": 450000,
         "IconPath": "icons/tech/6006",
+        "IconTag": "qjnj6",
         "IsLabTech": true,
         "PreTechs": [
           6005
@@ -15106,9 +16525,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1028259840
-        }
+          "x": 29.0,
+          "y": -95.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15127,6 +16548,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6101",
+        "IconTag": "grtxg1",
         "IsLabTech": true,
         "PreTechs": [],
         "PreTechsImplicit": [
@@ -15154,9 +16576,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1091567600,
-          "Y": -1031405600
-        }
+          "x": 9.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15175,6 +16599,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6102",
+        "IconTag": "grtxg2",
         "IsLabTech": true,
         "PreTechs": [
           6101
@@ -15202,9 +16627,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1095761900,
-          "Y": -1031405600
-        }
+          "x": 13.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15223,6 +16650,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6103",
+        "IconTag": "grtxg3",
         "IsLabTech": true,
         "PreTechs": [
           6102
@@ -15252,9 +16680,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1099432000,
-          "Y": -1031405600
-        }
+          "x": 17.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15273,6 +16703,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6104",
+        "IconTag": "grtxg4",
         "IsLabTech": true,
         "PreTechs": [
           6103
@@ -15304,9 +16735,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1101529100,
-          "Y": -1031405600
-        }
+          "x": 21.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15325,6 +16758,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6105",
+        "IconTag": "grtxg5",
         "IsLabTech": true,
         "PreTechs": [
           6104
@@ -15358,9 +16792,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1103626200,
-          "Y": -1031405600
-        }
+          "x": 25.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -15379,6 +16815,7 @@
         "LevelCoef1": 0,
         "LevelCoef2": 0,
         "IconPath": "icons/tech/6106",
+        "IconTag": "grtxg6",
         "IsLabTech": true,
         "PreTechs": [
           6105
@@ -15404,9 +16841,11 @@
         "AddItems": [],
         "AddItemCounts": [],
         "Position": {
-          "X": 1105723400,
-          "Y": -1031405600
-        }
+          "x": 29.0,
+          "y": -71.0
+        },
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     }
   ]

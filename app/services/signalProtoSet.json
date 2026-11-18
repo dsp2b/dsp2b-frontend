@@ -9,7 +9,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3201,
-        "IconPath": "icons/signal/signal-501"
+        "IconPath": "icons/signal/signal-501",
+        "IconTag": "s501",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -18,7 +21,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3202,
-        "IconPath": "icons/signal/signal-502"
+        "IconPath": "icons/signal/signal-502",
+        "IconTag": "s502",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -27,7 +33,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3203,
-        "IconPath": "icons/signal/signal-503"
+        "IconPath": "icons/signal/signal-503",
+        "IconTag": "s503",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -36,7 +45,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3204,
-        "IconPath": "icons/signal/signal-504"
+        "IconPath": "icons/signal/signal-504",
+        "IconTag": "s504",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -45,7 +57,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3205,
-        "IconPath": "icons/signal/signal-506"
+        "IconPath": "icons/signal/signal-506",
+        "IconTag": "s506",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -54,7 +69,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3206,
-        "IconPath": "icons/signal/signal-507"
+        "IconPath": "icons/signal/signal-507",
+        "IconTag": "s507",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -63,7 +81,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3207,
-        "IconPath": "icons/signal/signal-508"
+        "IconPath": "icons/signal/signal-508",
+        "IconTag": "s508",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -72,7 +93,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3208,
-        "IconPath": "icons/signal/signal-509"
+        "IconPath": "icons/signal/signal-509",
+        "IconTag": "s509",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -81,7 +105,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3209,
-        "IconPath": "icons/signal/signal-510"
+        "IconPath": "icons/signal/signal-510",
+        "IconTag": "s510",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -90,7 +117,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3210,
-        "IconPath": "icons/signal/signal-511"
+        "IconPath": "icons/signal/signal-511",
+        "IconTag": "s511",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -99,7 +129,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3211,
-        "IconPath": "icons/signal/signal-512"
+        "IconPath": "icons/signal/signal-512",
+        "IconTag": "s512",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -108,7 +141,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3212,
-        "IconPath": "icons/signal/signal-513"
+        "IconPath": "icons/signal/signal-513",
+        "IconTag": "s513",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -117,7 +153,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3213,
-        "IconPath": "icons/signal/signal-514"
+        "IconPath": "icons/signal/signal-514",
+        "IconTag": "s514",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -126,7 +165,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3214,
-        "IconPath": "icons/signal/signal-515"
+        "IconPath": "icons/signal/signal-515",
+        "IconTag": "s515",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -135,7 +177,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3301,
-        "IconPath": "icons/signal/signal-516"
+        "IconPath": "icons/signal/signal-516",
+        "IconTag": "s516",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -144,7 +189,34 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3302,
-        "IconPath": "icons/signal/signal-517"
+        "IconPath": "icons/signal/signal-517",
+        "IconTag": "s517",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-518",
+      "ID": 518,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3303,
+        "IconPath": "icons/signal/signal-518",
+        "IconTag": "s518",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-519",
+      "ID": 519,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3304,
+        "IconPath": "icons/signal/signal-519",
+        "IconTag": "s519",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -153,7 +225,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3101,
-        "IconPath": "icons/signal/signal-401"
+        "IconPath": "icons/signal/signal-401",
+        "IconTag": "s401",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -162,7 +237,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3102,
-        "IconPath": "icons/signal/signal-402"
+        "IconPath": "icons/signal/signal-402",
+        "IconTag": "s402",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -171,7 +249,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3103,
-        "IconPath": "icons/signal/signal-403"
+        "IconPath": "icons/signal/signal-403",
+        "IconTag": "s403",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -180,7 +261,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3104,
-        "IconPath": "icons/signal/signal-404"
+        "IconPath": "icons/signal/signal-404",
+        "IconTag": "s404",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -189,7 +273,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3105,
-        "IconPath": "icons/signal/signal-405"
+        "IconPath": "icons/signal/signal-405",
+        "IconTag": "s405",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -198,7 +285,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3106,
-        "IconPath": "icons/signal/signal-406"
+        "IconPath": "icons/signal/signal-406",
+        "IconTag": "s406",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -207,7 +297,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3401,
-        "IconPath": "icons/signal/signal-600"
+        "IconPath": "icons/signal/signal-600",
+        "IconTag": "s600",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -216,7 +309,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3402,
-        "IconPath": "icons/signal/signal-601"
+        "IconPath": "icons/signal/signal-601",
+        "IconTag": "s601",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -225,7 +321,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3403,
-        "IconPath": "icons/signal/signal-602"
+        "IconPath": "icons/signal/signal-602",
+        "IconTag": "s602",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -234,7 +333,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3404,
-        "IconPath": "icons/signal/signal-603"
+        "IconPath": "icons/signal/signal-603",
+        "IconTag": "s603",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -243,7 +345,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3405,
-        "IconPath": "icons/signal/signal-604"
+        "IconPath": "icons/signal/signal-604",
+        "IconTag": "s604",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -252,7 +357,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3406,
-        "IconPath": "icons/signal/signal-605"
+        "IconPath": "icons/signal/signal-605",
+        "IconTag": "s605",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -261,7 +369,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3407,
-        "IconPath": "icons/signal/signal-606"
+        "IconPath": "icons/signal/signal-606",
+        "IconTag": "s606",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -270,7 +381,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3408,
-        "IconPath": "icons/signal/signal-607"
+        "IconPath": "icons/signal/signal-607",
+        "IconTag": "s607",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -279,7 +393,10 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3409,
-        "IconPath": "icons/signal/signal-608"
+        "IconPath": "icons/signal/signal-608",
+        "IconTag": "s608",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     },
     {
@@ -288,7 +405,82 @@
       "SID": "",
       "Proto": {
         "GridIndex": 3410,
-        "IconPath": "icons/signal/signal-609"
+        "IconPath": "icons/signal/signal-609",
+        "IconTag": "s609",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-701",
+      "ID": 701,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3501,
+        "IconPath": "icons/signal/signal-701",
+        "IconTag": "s701",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-702",
+      "ID": 702,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3502,
+        "IconPath": "icons/signal/signal-702",
+        "IconTag": "s702",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-703",
+      "ID": 703,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3503,
+        "IconPath": "icons/signal/signal-703",
+        "IconTag": "s703",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-704",
+      "ID": 704,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3504,
+        "IconPath": "icons/signal/signal-704",
+        "IconTag": "s704",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-801",
+      "ID": 801,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3601,
+        "IconPath": "icons/signal/signal-801",
+        "IconTag": "s801",
+        "iconTagString": "",
+        "iconNameTagString": ""
+      }
+    },
+    {
+      "Name": "SIGNAL-802",
+      "ID": 802,
+      "SID": "",
+      "Proto": {
+        "GridIndex": 3602,
+        "IconPath": "icons/signal/signal-802",
+        "IconTag": "s802",
+        "iconTagString": "",
+        "iconNameTagString": ""
       }
     }
   ]
