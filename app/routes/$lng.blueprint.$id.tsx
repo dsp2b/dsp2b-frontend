@@ -64,6 +64,7 @@ import { getLocale } from "~/utils/i18n";
 import { formatDate } from "~/utils/utils";
 import MarkdownView, { markdownViewLinks } from "~/components/MarkdownView";
 import BuildingReplace from "~/components/BuildingReplace";
+import { buildEditorUrl } from "~/utils/editor";
 
 export const links: LinksFunction = () => {
   return markdownViewLinks();
@@ -449,6 +450,7 @@ export default function Blueprint() {
             <Typography.Title level={4}>
               {loader.blueprint.title}
             </Typography.Title>
+            <div className="flex flex-row gap-2">
             <CopyToClipboard
               text={loader.blueprint.blueprint}
               onCopy={() => {
@@ -479,6 +481,14 @@ export default function Blueprint() {
                 {t("copy_blueprint_code")}
               </Dropdown.Button>
             </CopyToClipboard>
+            <Button
+              href={buildEditorUrl(loader.blueprint.id)}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {t("preview_3d")}
+            </Button>
+            </div>
             <BuildingReplace
               open={openReplacePanel}
               blueprintId={loader.blueprint.id}

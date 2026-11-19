@@ -27,6 +27,7 @@ import { ResponsePromise, replaceSearchParam, request } from "~/utils/api";
 import { useLocale } from "remix-i18next";
 import copy from "copy-to-clipboard";
 import { icons } from "antd/es/image/PreviewGroup";
+import { buildEditorUrl } from "~/utils/editor";
 
 export type tag = {
   item_id: number;
@@ -343,7 +344,21 @@ const BlueprintList: React.FC<{
                   <Card
                     style={{ width: "270px", overflow: "hidden" }}
                     cover={
-                      <Link to={uLocale + "/blueprint/" + item.id}>{view}</Link>
+                      <div className="relative">
+                        <Link to={uLocale + "/blueprint/" + item.id}>
+                          {view}
+                        </Link>
+                        <Button
+                          size="small"
+                          className="!absolute right-2 top-2"
+                          href={buildEditorUrl(item.id)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          {t("preview")}
+                        </Button>
+                      </div>
                     }
                     bodyStyle={{
                       padding: "12px",
