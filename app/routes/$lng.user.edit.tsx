@@ -257,16 +257,18 @@ export default function Edit() {
             </Button>
           </div>
         </Form.Item>
-        <Form.Item
-          label=""
-          labelCol={{ span: 0 }}
-          wrapperCol={{ span: 4 }}
-          style={{ float: "right" }}
-        >
-          <Button type="primary" htmlType="submit" loading={fetcher.loading}>
-            {t("update")}
-          </Button>
-        </Form.Item>
+        {/* 不用 float：antd 5.29 的 Card 不再清除浮动，按钮会溢出卡片 */}
+        <div className="flex justify-end">
+          <Form.Item
+            label=""
+            labelCol={{ span: 0 }}
+            wrapperCol={{ span: 4 }}
+          >
+            <Button type="primary" htmlType="submit" loading={fetcher.loading}>
+              {t("update")}
+            </Button>
+          </Form.Item>
+        </div>
       </Form>
     </Card>
   );

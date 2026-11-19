@@ -40,7 +40,7 @@ import {
   message,
   Image,
 } from "antd";
-import { ItemType } from "antd/es/menu/hooks/useItems";
+import type { MenuProps } from "antd";
 import dayjs from "dayjs";
 import { useMemo, useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
@@ -65,6 +65,8 @@ import { formatDate } from "~/utils/utils";
 import MarkdownView, { markdownViewLinks } from "~/components/MarkdownView";
 import BuildingReplace from "~/components/BuildingReplace";
 import { buildEditorUrl } from "~/utils/editor";
+
+type ItemType = NonNullable<MenuProps["items"]>[number];
 
 export const links: LinksFunction = () => {
   return markdownViewLinks();

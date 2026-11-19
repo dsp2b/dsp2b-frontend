@@ -26,7 +26,8 @@ const jsonResponse = (
     },
   });
 
-// GET /api/blueprint/:id  只读返回蓝图代码，供蓝图预览编辑器使用
+// GET /open-api/blueprint/:id  只读返回蓝图代码，供蓝图预览编辑器使用
+// 注意不能放在 /api 下：生产 ingress 把 www.dsp2b.com/api 整个前缀转给了 dsp2b-go
 // OPTIONS 预检在此 loader 中处理（resource route 无 action 时 OPTIONS 走 loader）
 export const loader = async ({ request, params }: LoaderFunctionArgs) => {
   if (request.method === "OPTIONS") {
@@ -62,7 +63,7 @@ export const loader = async ({ request, params }: LoaderFunctionArgs) => {
       { "Cache-Control": "public, max-age=300" }
     );
   } catch (e) {
-    console.error("api.blueprint.$id", e);
+    console.error("open-api.blueprint.$id", e);
     return jsonResponse(request, { error: "server_error" }, 500);
   }
 };

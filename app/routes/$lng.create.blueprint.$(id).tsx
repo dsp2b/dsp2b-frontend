@@ -617,13 +617,17 @@ export default function CreateBlueprint() {
                 dropdownRender={() => <></>}
                 tagRender={(props) => {
                   const item = tags.find((tag) => tag.name == props.value);
+                  // rc-select 也会为折叠的「+N」占位调用 tagRender（value 为空）
+                  if (props.isMaxTag || !item) {
+                    return <Tag className="mr-2">{props.label}</Tag>;
+                  }
                   return (
                     <Tag
                       icon={
                         <Avatar
                           shape="square"
                           size="small"
-                          src={"/images/" + item!.icon_path + ".png"}
+                          src={"/images/" + item.icon_path + ".png"}
                         />
                       }
                       className="mr-2"

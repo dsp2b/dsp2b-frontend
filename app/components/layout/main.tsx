@@ -17,12 +17,14 @@ import {
   message,
   theme,
 } from "antd";
-import { ItemType } from "antd/es/menu/hooks/useItems";
+import type { MenuProps } from "antd";
 import React, { ReactNode, useContext, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 import { UserContext } from "~/context-manager";
 import { lngMap } from "~/utils/i18n";
 import { MoonLineIcon, SunLineIcon } from "~/utils/icon";
+
+type ItemType = NonNullable<MenuProps["items"]>[number];
 
 const MainLayout: React.FC<{
   onChange: ({
