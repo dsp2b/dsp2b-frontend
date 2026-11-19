@@ -141,5 +141,7 @@
   "notice_2": "If you think the site is good, ",
   "click_share": "click to share",
   "notice_3": "it with everyone~",
-  "copy_share_url_success": "Share link to clipboard"
+  "copy_share_url_success": "Share link to clipboard",
+  "preview": "Preview",
+  "preview_3d": "3D preview"
 }
