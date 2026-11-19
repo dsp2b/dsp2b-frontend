@@ -22,7 +22,7 @@ import {
 import { LimitSvc } from "~/services/limit.server";
 import { collection } from "@prisma/client";
 import { UserAuth } from "~/services/user.server.ts";
-import { DefaultOptionType } from "antd/es/select";
+import type { TreeSelectProps } from "antd";
 import {
   Button,
   Card,
@@ -40,6 +40,8 @@ import { useRequest } from "~/utils/api";
 import i18next from "~/i18next.server";
 import { deleteBlueprint } from "~/services/blueprint.server";
 import { ExclamationCircleFilled } from "@ant-design/icons";
+
+type TreeNode = NonNullable<TreeSelectProps["treeData"]>[number];
 
 export const action: ActionFunction = async ({ request, params }) => {
   const user = await authenticator.isAuthenticated(request);
@@ -308,9 +310,9 @@ export function expandedTreeKey(
 }
 
 export function buildSelectTree(tree: CollectionTree[]) {
-  const treeData: DefaultOptionType[] = [];
-  const dfs = (node: CollectionTree, parent?: DefaultOptionType) => {
-    const data: DefaultOptionType = {
+  const treeData: TreeNode[] = [];
+  const dfs = (node: CollectionTree, parent?: TreeNode) => {
+    const data: TreeNode = {
       key: node.id,
       label: node.title,
       value: node.id,

@@ -1,5 +1,5 @@
 import { ActionFunction, json } from "@remix-run/node";
-import { v4 as uuidv4 } from "uuid";
+import { randomUUID } from "node:crypto";
 import { ErrBuleprint, ErrUser } from "~/code/user";
 import { authenticator } from "~/services/auth.server";
 import { LimitSvc } from "~/services/limit.server";
@@ -42,7 +42,7 @@ export const action: ActionFunction = async ({ request }) => {
     new Date(Date.now() + 1000 * 60 * 5),
     20,
     async () => {
-      const key = "images/" + type + "/" + uuidv4() + "." + ext;
+      const key = "images/" + type + "/" + randomUUID() + "." + ext;
       const buf = Buffer.from(await upload.arrayBuffer());
       await putObject(key, buf);
       return json({ code: 0, data: { key } });
